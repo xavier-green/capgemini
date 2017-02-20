@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E09616E1E5B4EF400487D61 /* ReadyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E09616D1E5B4EF400487D61 /* ReadyViewController.swift */; };
+		0E0961721E5B4F1800487D61 /* SetDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E09616F1E5B4F1800487D61 /* SetDateViewController.swift */; };
+		0E0961731E5B4F1800487D61 /* SetNickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0961701E5B4F1800487D61 /* SetNickViewController.swift */; };
+		0E0961741E5B4F1800487D61 /* VoiceRecViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0961711E5B4F1800487D61 /* VoiceRecViewController.swift */; };
 		0E7E23E21E5B010300E0F4D9 /* Enrolment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E7E23E11E5B010300E0F4D9 /* Enrolment.storyboard */; };
-		0E7E23E81E5B042E00E0F4D9 /* ReadyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7E23E71E5B042E00E0F4D9 /* ReadyViewController.swift */; };
-		0E7E23EE1E5B301B00E0F4D9 /* VoiceRecViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7E23ED1E5B301B00E0F4D9 /* VoiceRecViewController.swift */; };
-		0E7E23F01E5B361C00E0F4D9 /* SetDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7E23EF1E5B361C00E0F4D9 /* SetDateViewController.swift */; };
-		0E7E23F31E5B46AD00E0F4D9 /* SetNickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7E23F21E5B46AD00E0F4D9 /* SetNickViewController.swift */; };
 		433100A81E57344500269EEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433100A71E57344500269EEB /* AppDelegate.swift */; };
 		433100AA1E57344500269EEB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433100A91E57344500269EEB /* ViewController.swift */; };
 		433100AD1E57344500269EEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 433100AB1E57344500269EEB /* Main.storyboard */; };
@@ -44,11 +44,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E09616D1E5B4EF400487D61 /* ReadyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadyViewController.swift; sourceTree = "<group>"; };
+		0E09616F1E5B4F1800487D61 /* SetDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetDateViewController.swift; sourceTree = "<group>"; };
+		0E0961701E5B4F1800487D61 /* SetNickViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetNickViewController.swift; sourceTree = "<group>"; };
+		0E0961711E5B4F1800487D61 /* VoiceRecViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceRecViewController.swift; sourceTree = "<group>"; };
 		0E7E23E11E5B010300E0F4D9 /* Enrolment.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Enrolment.storyboard; sourceTree = "<group>"; };
-		0E7E23E71E5B042E00E0F4D9 /* ReadyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadyViewController.swift; sourceTree = "<group>"; };
-		0E7E23ED1E5B301B00E0F4D9 /* VoiceRecViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceRecViewController.swift; sourceTree = "<group>"; };
-		0E7E23EF1E5B361C00E0F4D9 /* SetDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetDateViewController.swift; sourceTree = "<group>"; };
-		0E7E23F21E5B46AD00E0F4D9 /* SetNickViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetNickViewController.swift; sourceTree = "<group>"; };
 		433100A41E57344500269EEB /* Capgemini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capgemini.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		433100A71E57344500269EEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		433100A91E57344500269EEB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +94,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E0961751E5B4F1E00487D61 /* Enrolment */ = {
+			isa = PBXGroup;
+			children = (
+				0E09616F1E5B4F1800487D61 /* SetDateViewController.swift */,
+				0E0961701E5B4F1800487D61 /* SetNickViewController.swift */,
+				0E0961711E5B4F1800487D61 /* VoiceRecViewController.swift */,
+				0E09616D1E5B4EF400487D61 /* ReadyViewController.swift */,
+			);
+			name = Enrolment;
+			sourceTree = "<group>";
+		};
 		0E7E23DE1E5B00D100E0F4D9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,9 +115,8 @@
 		0E7E23DF1E5B00DD00E0F4D9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				0E7E23F11E5B40E300E0F4D9 /* Enrolment */,
+				0E0961751E5B4F1E00487D61 /* Enrolment */,
 				435AA8F41E5B2F3C00BBB567 /* Login */,
-				433100A91E57344500269EEB /* ViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -118,17 +128,6 @@
 				435AA8EA1E5B05CC00BBB567 /* Login.storyboard */,
 			);
 			name = Storyboards;
-			sourceTree = "<group>";
-		};
-		0E7E23F11E5B40E300E0F4D9 /* Enrolment */ = {
-			isa = PBXGroup;
-			children = (
-				0E7E23F21E5B46AD00E0F4D9 /* SetNickViewController.swift */,
-				0E7E23EF1E5B361C00E0F4D9 /* SetDateViewController.swift */,
-				0E7E23ED1E5B301B00E0F4D9 /* VoiceRecViewController.swift */,
-				0E7E23E71E5B042E00E0F4D9 /* ReadyViewController.swift */,
-			);
-			name = Enrolment;
 			sourceTree = "<group>";
 		};
 		4331009B1E57344400269EEB = {
@@ -159,6 +158,7 @@
 				0E7E23DF1E5B00DD00E0F4D9 /* Controllers */,
 				0E7E23DE1E5B00D100E0F4D9 /* Views */,
 				433100A71E57344500269EEB /* AppDelegate.swift */,
+				433100A91E57344500269EEB /* ViewController.swift */,
 				433100AB1E57344500269EEB /* Main.storyboard */,
 				433100AE1E57344500269EEB /* Assets.xcassets */,
 				433100B31E57344500269EEB /* Info.plist */,
@@ -338,23 +338,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E0961741E5B4F1800487D61 /* VoiceRecViewController.swift in Sources */,
 				435AA8F81E5B303700BBB567 /* LoginDateViewController.swift in Sources */,
 				435AA8FC1E5B392900BBB567 /* ReconnaissanceVocaleController.swift in Sources */,
 				435AA8ED1E5B064D00BBB567 /* LoginViewController.swift in Sources */,
-				0E7E23EE1E5B301B00E0F4D9 /* VoiceRecViewController.swift in Sources */,
+				0E0961721E5B4F1800487D61 /* SetDateViewController.swift in Sources */,
 				433100AA1E57344500269EEB /* ViewController.swift in Sources */,
-<<<<<<< HEAD
-				0E7E23E81E5B042E00E0F4D9 /* ReadyViewController.swift in Sources */,
-				433100A81E57344500269EEB /* AppDelegate.swift in Sources */,
-				0E7E23F31E5B46AD00E0F4D9 /* SetNickViewController.swift in Sources */,
-				435AA8EF1E5B07D800BBB567 /* LoginCheckViewController.swift in Sources */,
-				0E7E23F01E5B361C00E0F4D9 /* SetDateViewController.swift in Sources */,
-=======
-				0E7E23E81E5B042E00E0F4D9 /* EnrolmentViewController.swift in Sources */,
+				0E09616E1E5B4EF400487D61 /* ReadyViewController.swift in Sources */,
 				435AA8FE1E5B443100BBB567 /* SpeechToText.swift in Sources */,
 				433100A81E57344500269EEB /* AppDelegate.swift in Sources */,
+				0E0961731E5B4F1800487D61 /* SetNickViewController.swift in Sources */,
 				435AA8F61E5B302200BBB567 /* LoginCheckViewController.swift in Sources */,
->>>>>>> 7b41571580ce417768a90be48e240126bb165a21
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
