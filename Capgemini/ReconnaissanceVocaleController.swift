@@ -92,7 +92,7 @@ class ReconnaissanceVocaleController {
     }
     
     func playRecording() {
-        self.audioPlayer = try! AVAudioPlayer(contentsOf: self.fileUrl)
+        self.audioPlayer = try! AVAudioPlayer(contentsOf: fileUrl)
         self.audioPlayer.prepareToPlay()
         self.audioPlayer.play()
     }

@@ -9,7 +9,7 @@
 import Foundation
 import AVFoundation
 
-class SpeechToText {
+class TextToSpeech {
     
     var synthesizer = AVSpeechSynthesizer()
     var utterance: AVSpeechUtterance!

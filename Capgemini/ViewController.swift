@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     }
     
     var recoVocale: ReconnaissanceVocaleController!
-    var speechToText: SpeechToText!
+    var speechToText: TextToSpeech!
     
     func nexView() {
         print("Moving to next storyboard")
@@ -35,7 +35,7 @@ class ViewController: UIViewController {
         print("started main app")
         super.viewDidLoad()
         recoVocale = ReconnaissanceVocaleController()
-        speechToText = SpeechToText()
+        speechToText = TextToSpeech()
         
         let labelArray: [String] = [self.HelloLabel.text!, self.AccountLabel.text!]
         speechToText.speak(sentences: labelArray)
@@ -55,6 +55,7 @@ class ViewController: UIViewController {
             NSLog("Stopping recording")
             self.recordButton.setTitle("Re-record", for: .normal)
             recoVocale.finishRecording(success: true)
+            recoVocale.playRecording()
         } else {
             NSLog("Starting recording")
             self.recordButton.setTitle("STOP", for: .normal)

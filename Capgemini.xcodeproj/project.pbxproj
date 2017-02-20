@@ -23,7 +23,7 @@
 		435AA8F61E5B302200BBB567 /* LoginCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435AA8F51E5B302200BBB567 /* LoginCheckViewController.swift */; };
 		435AA8F81E5B303700BBB567 /* LoginDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435AA8F71E5B303700BBB567 /* LoginDateViewController.swift */; };
 		435AA8FC1E5B392900BBB567 /* ReconnaissanceVocaleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435AA8FB1E5B392900BBB567 /* ReconnaissanceVocaleController.swift */; };
-		435AA8FE1E5B443100BBB567 /* SpeechToText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435AA8FD1E5B443100BBB567 /* SpeechToText.swift */; };
+		435AA8FE1E5B443100BBB567 /* TextToSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435AA8FD1E5B443100BBB567 /* TextToSpeech.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +66,7 @@
 		435AA8F51E5B302200BBB567 /* LoginCheckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCheckViewController.swift; sourceTree = "<group>"; };
 		435AA8F71E5B303700BBB567 /* LoginDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginDateViewController.swift; sourceTree = "<group>"; };
 		435AA8FB1E5B392900BBB567 /* ReconnaissanceVocaleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReconnaissanceVocaleController.swift; sourceTree = "<group>"; };
-		435AA8FD1E5B443100BBB567 /* SpeechToText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechToText.swift; sourceTree = "<group>"; };
+		435AA8FD1E5B443100BBB567 /* TextToSpeech.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextToSpeech.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,7 +197,7 @@
 		435AA8FF1E5B479800BBB567 /* Speech */ = {
 			isa = PBXGroup;
 			children = (
-				435AA8FD1E5B443100BBB567 /* SpeechToText.swift */,
+				435AA8FD1E5B443100BBB567 /* TextToSpeech.swift */,
 				435AA8FB1E5B392900BBB567 /* ReconnaissanceVocaleController.swift */,
 			);
 			name = Speech;
@@ -345,7 +345,7 @@
 				0E0961721E5B4F1800487D61 /* SetDateViewController.swift in Sources */,
 				433100AA1E57344500269EEB /* ViewController.swift in Sources */,
 				0E09616E1E5B4EF400487D61 /* ReadyViewController.swift in Sources */,
-				435AA8FE1E5B443100BBB567 /* SpeechToText.swift in Sources */,
+				435AA8FE1E5B443100BBB567 /* TextToSpeech.swift in Sources */,
 				433100A81E57344500269EEB /* AppDelegate.swift in Sources */,
 				0E0961731E5B4F1800487D61 /* SetNickViewController.swift in Sources */,
 				435AA8F61E5B302200BBB567 /* LoginCheckViewController.swift in Sources */,
