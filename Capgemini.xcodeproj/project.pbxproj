@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E7E23E21E5B010300E0F4D9 /* Enrolment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E7E23E11E5B010300E0F4D9 /* Enrolment.storyboard */; };
+		0E7E23E81E5B042E00E0F4D9 /* EnrolmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7E23E71E5B042E00E0F4D9 /* EnrolmentViewController.swift */; };
 		433100A81E57344500269EEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433100A71E57344500269EEB /* AppDelegate.swift */; };
 		433100AA1E57344500269EEB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433100A91E57344500269EEB /* ViewController.swift */; };
 		433100AD1E57344500269EEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 433100AB1E57344500269EEB /* Main.storyboard */; };
 		433100AF1E57344500269EEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 433100AE1E57344500269EEB /* Assets.xcassets */; };
-		433100B21E57344500269EEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 433100B01E57344500269EEB /* LaunchScreen.storyboard */; };
 		433100BD1E57344500269EEB /* CapgeminiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433100BC1E57344500269EEB /* CapgeminiTests.swift */; };
 		433100C81E57344500269EEB /* CapgeminiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433100C71E57344500269EEB /* CapgeminiUITests.swift */; };
 /* End PBXBuildFile section */
@@ -34,12 +35,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E7E23E11E5B010300E0F4D9 /* Enrolment.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Enrolment.storyboard; sourceTree = "<group>"; };
+		0E7E23E71E5B042E00E0F4D9 /* EnrolmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnrolmentViewController.swift; sourceTree = "<group>"; };
 		433100A41E57344500269EEB /* Capgemini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capgemini.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		433100A71E57344500269EEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		433100A91E57344500269EEB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		433100AC1E57344500269EEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		433100AE1E57344500269EEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		433100B11E57344500269EEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		433100B31E57344500269EEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		433100B81E57344500269EEB /* CapgeminiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CapgeminiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		433100BC1E57344500269EEB /* CapgeminiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapgeminiTests.swift; sourceTree = "<group>"; };
@@ -74,6 +76,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E7E23DE1E5B00D100E0F4D9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		0E7E23DF1E5B00DD00E0F4D9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				433100A91E57344500269EEB /* ViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		0E7E23E01E5B00E700E0F4D9 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				0E7E23E11E5B010300E0F4D9 /* Enrolment.storyboard */,
+				0E7E23E71E5B042E00E0F4D9 /* EnrolmentViewController.swift */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
 		4331009B1E57344400269EEB = {
 			isa = PBXGroup;
 			children = (
@@ -97,11 +123,12 @@
 		433100A61E57344500269EEB /* Capgemini */ = {
 			isa = PBXGroup;
 			children = (
+				0E7E23E01E5B00E700E0F4D9 /* Storyboards */,
+				0E7E23DF1E5B00DD00E0F4D9 /* Controllers */,
+				0E7E23DE1E5B00D100E0F4D9 /* Views */,
 				433100A71E57344500269EEB /* AppDelegate.swift */,
-				433100A91E57344500269EEB /* ViewController.swift */,
 				433100AB1E57344500269EEB /* Main.storyboard */,
 				433100AE1E57344500269EEB /* Assets.xcassets */,
-				433100B01E57344500269EEB /* LaunchScreen.storyboard */,
 				433100B31E57344500269EEB /* Info.plist */,
 			);
 			path = Capgemini;
@@ -232,9 +259,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				433100B21E57344500269EEB /* LaunchScreen.storyboard in Resources */,
 				433100AF1E57344500269EEB /* Assets.xcassets in Resources */,
 				433100AD1E57344500269EEB /* Main.storyboard in Resources */,
+				0E7E23E21E5B010300E0F4D9 /* Enrolment.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				433100AA1E57344500269EEB /* ViewController.swift in Sources */,
+				0E7E23E81E5B042E00E0F4D9 /* EnrolmentViewController.swift in Sources */,
 				433100A81E57344500269EEB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,14 +330,6 @@
 				433100AC1E57344500269EEB /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		433100B01E57344500269EEB /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				433100B11E57344500269EEB /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -505,6 +525,7 @@
 				433100CE1E57344500269EEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		433100CF1E57344500269EEB /* Build configuration list for PBXNativeTarget "CapgeminiTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +534,7 @@
 				433100D11E57344500269EEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		433100D21E57344500269EEB /* Build configuration list for PBXNativeTarget "CapgeminiUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +543,7 @@
 				433100D41E57344500269EEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
