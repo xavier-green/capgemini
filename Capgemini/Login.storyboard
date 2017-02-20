@@ -222,6 +222,9 @@
                             <constraint firstItem="3Xv-Ye-3PA" firstAttribute="centerY" secondItem="gaf-uo-9jO" secondAttribute="centerY" id="xxF-TE-c4t"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="datePicker" destination="3Xv-Ye-3PA" id="6sb-65-vWI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tso-hd-XqA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
