@@ -11,6 +11,7 @@ import AVFoundation
 
 class ViewController: UIViewController, AVAudioRecorderDelegate, AVSpeechSynthesizerDelegate, AVAudioPlayerDelegate {
 
+    @IBOutlet weak var YesBut: UIButton!
     @IBOutlet weak var HelloLabel: UILabel!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var AccountLabel: UILabel!
@@ -19,6 +20,13 @@ class ViewController: UIViewController, AVAudioRecorderDelegate, AVSpeechSynthes
     var audioRecorder: AVAudioRecorder!
     var audioPlayer : AVAudioPlayer!
     var fileUrl : URL!
+    
+    func nexView() {
+        print("Moving to next storyboard")
+        let storyboard = UIStoryboard(name: "Login", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! UINavigationController
+        self.present(controller, animated: false, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +44,7 @@ class ViewController: UIViewController, AVAudioRecorderDelegate, AVSpeechSynthes
                         self.recordButton.addTarget(self, action: #selector(self.recordTapped), for: .touchUpInside)
                         let labelArray: [UILabel] = [self.HelloLabel, self.AccountLabel]
                         self.speak(labels: labelArray)
+                        self.YesBut.addTarget(self, action: #selector(self.nexView), for: .touchUpInside)
                     } else {
                         NSLog("Recording disallowed")
                         self.recordButton.isHidden = true

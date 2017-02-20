@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bonjour et bienvenue !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYN-m6-hWm">
-                                <rect key="frame" x="0.0" y="120" width="375" height="31.5"/>
+                                <rect key="frame" x="0.0" y="120" width="375" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -69,6 +69,7 @@
                     <connections>
                         <outlet property="AccountLabel" destination="LAc-xB-KA0" id="AXb-S9-AKa"/>
                         <outlet property="HelloLabel" destination="dYN-m6-hWm" id="rja-5q-MQX"/>
+                        <outlet property="YesBut" destination="Sfy-X6-ZBZ" id="t61-an-iQl"/>
                         <outlet property="recordButton" destination="oiz-bF-5dx" id="zeY-1B-7n0"/>
                     </connections>
                 </viewController>

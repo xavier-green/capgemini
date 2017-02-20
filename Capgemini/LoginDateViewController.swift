@@ -1,14 +1,14 @@
 //
-//  EnrolmentViewController.swift
+//  LoginDateViewController.swift
 //  Capgemini
 //
-//  Created by Younes Belkouchi on 20/02/2017.
+//  Created by xavier green on 20/02/2017.
 //  Copyright © 2017 xavier green. All rights reserved.
 //
 
 import UIKit
 
-class EnrolmentViewController: UIViewController {
+class LoginDateViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -1,19 +1,27 @@
 //
-//  EnrolmentViewController.swift
+//  LoginViewController.swift
 //  Capgemini
 //
-//  Created by Younes Belkouchi on 20/02/2017.
+//  Created by xavier green on 20/02/2017.
 //  Copyright © 2017 xavier green. All rights reserved.
 //
 
 import UIKit
 
-class EnrolmentViewController: UIViewController {
+class LoginViewController: UIViewController {
 
+    @IBOutlet weak var NextBut: UIButton!
+    
+    func nexView() {
+        print("Moving to next storyboard")
+        let storyboard = UIStoryboard(name: "Login", bundle: nil)
+        let nextViewController = storyboard.instantiateViewController(withIdentifier: "LoginCheckViewController") as UIViewController!
+        self.present(nextViewController!, animated:true, completion:nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.NextBut.addTarget(self, action: #selector(self.nexView), for: .touchUpInside)
     }
 
     override func didReceiveMemoryWarning() {
