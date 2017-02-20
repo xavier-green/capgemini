@@ -8,7 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0E7E23E21E5B010300E0F4D9 /* Enrolment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E7E23E11E5B010300E0F4D9 /* Enrolment.storyboard */; };
-		0E7E23E81E5B042E00E0F4D9 /* EnrolmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7E23E71E5B042E00E0F4D9 /* EnrolmentViewController.swift */; };
+		0E7E23E81E5B042E00E0F4D9 /* ReadyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7E23E71E5B042E00E0F4D9 /* ReadyViewController.swift */; };
+		0E7E23EE1E5B301B00E0F4D9 /* VoiceRecViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7E23ED1E5B301B00E0F4D9 /* VoiceRecViewController.swift */; };
+		0E7E23F01E5B361C00E0F4D9 /* SetDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7E23EF1E5B361C00E0F4D9 /* SetDateViewController.swift */; };
+		0E7E23F31E5B46AD00E0F4D9 /* SetNickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7E23F21E5B46AD00E0F4D9 /* SetNickViewController.swift */; };
 		433100A81E57344500269EEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433100A71E57344500269EEB /* AppDelegate.swift */; };
 		433100AA1E57344500269EEB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433100A91E57344500269EEB /* ViewController.swift */; };
 		433100AD1E57344500269EEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 433100AB1E57344500269EEB /* Main.storyboard */; };
@@ -40,7 +43,10 @@
 
 /* Begin PBXFileReference section */
 		0E7E23E11E5B010300E0F4D9 /* Enrolment.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Enrolment.storyboard; sourceTree = "<group>"; };
-		0E7E23E71E5B042E00E0F4D9 /* EnrolmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnrolmentViewController.swift; sourceTree = "<group>"; };
+		0E7E23E71E5B042E00E0F4D9 /* ReadyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadyViewController.swift; sourceTree = "<group>"; };
+		0E7E23ED1E5B301B00E0F4D9 /* VoiceRecViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceRecViewController.swift; sourceTree = "<group>"; };
+		0E7E23EF1E5B361C00E0F4D9 /* SetDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetDateViewController.swift; sourceTree = "<group>"; };
+		0E7E23F21E5B46AD00E0F4D9 /* SetNickViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetNickViewController.swift; sourceTree = "<group>"; };
 		433100A41E57344500269EEB /* Capgemini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capgemini.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		433100A71E57344500269EEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		433100A91E57344500269EEB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -94,7 +100,7 @@
 		0E7E23DF1E5B00DD00E0F4D9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				0E7E23E71E5B042E00E0F4D9 /* EnrolmentViewController.swift */,
+				0E7E23F11E5B40E300E0F4D9 /* Enrolment */,
 				433100A91E57344500269EEB /* ViewController.swift */,
 				435AA8EC1E5B064D00BBB567 /* LoginViewController.swift */,
 				435AA8EE1E5B07D800BBB567 /* LoginCheckViewController.swift */,
@@ -110,6 +116,17 @@
 				435AA8EA1E5B05CC00BBB567 /* Login.storyboard */,
 			);
 			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		0E7E23F11E5B40E300E0F4D9 /* Enrolment */ = {
+			isa = PBXGroup;
+			children = (
+				0E7E23F21E5B46AD00E0F4D9 /* SetNickViewController.swift */,
+				0E7E23EF1E5B361C00E0F4D9 /* SetDateViewController.swift */,
+				0E7E23ED1E5B301B00E0F4D9 /* VoiceRecViewController.swift */,
+				0E7E23E71E5B042E00E0F4D9 /* ReadyViewController.swift */,
+			);
+			name = Enrolment;
 			sourceTree = "<group>";
 		};
 		4331009B1E57344400269EEB = {
@@ -301,10 +318,13 @@
 			files = (
 				435AA8F11E5B084900BBB567 /* LoginDateViewController.swift in Sources */,
 				435AA8ED1E5B064D00BBB567 /* LoginViewController.swift in Sources */,
+				0E7E23EE1E5B301B00E0F4D9 /* VoiceRecViewController.swift in Sources */,
 				433100AA1E57344500269EEB /* ViewController.swift in Sources */,
-				0E7E23E81E5B042E00E0F4D9 /* EnrolmentViewController.swift in Sources */,
+				0E7E23E81E5B042E00E0F4D9 /* ReadyViewController.swift in Sources */,
 				433100A81E57344500269EEB /* AppDelegate.swift in Sources */,
+				0E7E23F31E5B46AD00E0F4D9 /* SetNickViewController.swift in Sources */,
 				435AA8EF1E5B07D800BBB567 /* LoginCheckViewController.swift in Sources */,
+				0E7E23F01E5B361C00E0F4D9 /* SetDateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

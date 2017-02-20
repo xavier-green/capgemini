@@ -15,6 +15,11 @@ class ViewController: UIViewController, AVAudioRecorderDelegate, AVSpeechSynthes
     @IBOutlet weak var HelloLabel: UILabel!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var AccountLabel: UILabel!
+    @IBAction func noButton(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Enrolment", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "EnrolmentViewController") as! UINavigationController
+        self.present(controller, animated: true, completion: nil)
+    }
     
     var recordingSession: AVAudioSession!
     var audioRecorder: AVAudioRecorder!

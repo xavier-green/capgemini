@@ -1,5 +1,5 @@
 //
-//  EnrolmentViewController.swift
+//  VoiceRecViewController.swift
 //  Capgemini
 //
 //  Created by Younes Belkouchi on 20/02/2017.
@@ -8,20 +8,28 @@
 
 import UIKit
 
-class EnrolmentViewController: UIViewController {
-
+class VoiceRecViewController: UIViewController {
+    //MARK: Properties
+    let recordSniplets = [Any]()
+    var recAttempts: Int = 3
+    
+    //MARK: Outlets
+    @IBAction func record(_ sender: UIButton) {
+        recAttempts-=1
+        if recAttempts==0{
+            self.performSegue(withIdentifier: "recDone", sender: nil)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
+   
     /*
     // MARK: - Navigation
 

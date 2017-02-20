@@ -23,17 +23,20 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bonjour et bienvenue !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYN-m6-hWm">
                                 <rect key="frame" x="0.0" y="120" width="375" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="3tE-6s-bLh"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Avez vous déjà un compte ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAc-xB-KA0">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Avez vous déjà un compte ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAc-xB-KA0">
                                 <rect key="frame" x="0.0" y="196" width="375" height="63"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="150" translatesAutoresizingMaskIntoConstraints="NO" id="zei-dY-LzK">
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="150" translatesAutoresizingMaskIntoConstraints="NO" id="zei-dY-LzK">
                                 <rect key="frame" x="82" y="318" width="210" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sfy-X6-ZBZ">
@@ -43,13 +46,19 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9KR-Bn-yq0">
                                         <rect key="frame" x="180" y="0.0" width="30" height="30"/>
                                         <state key="normal" title="Non"/>
+                                        <connections>
+                                            <action selector="noButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dgv-4R-8Ev"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oiz-bF-5dx">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oiz-bF-5dx">
                                 <rect key="frame" x="127" y="445" width="120" height="59"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0099468241871534246" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="59" id="UnP-UM-Kfd"/>
+                                    <constraint firstAttribute="width" constant="120" id="WeD-Be-PD3"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="RECORD">
                                     <color key="titleColor" red="0.94559265932838799" green="1" blue="0.97406875381520364" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -58,12 +67,18 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="dYN-m6-hWm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="0Re-Y6-8cN"/>
-                            <constraint firstItem="LAc-xB-KA0" firstAttribute="top" secondItem="dYN-m6-hWm" secondAttribute="bottom" constant="44.5" id="3ov-En-eeH"/>
-                            <constraint firstItem="zei-dY-LzK" firstAttribute="top" secondItem="LAc-xB-KA0" secondAttribute="bottom" constant="59" id="Emx-WG-zKh"/>
-                            <constraint firstAttribute="trailing" secondItem="dYN-m6-hWm" secondAttribute="trailing" id="Uib-hX-dZ6"/>
-                            <constraint firstItem="dYN-m6-hWm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ec4-Vg-bgI"/>
-                            <constraint firstItem="zei-dY-LzK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ry9-hK-sXi"/>
+                            <constraint firstItem="zei-dY-LzK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Nug-AR-prf"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oiz-bF-5dx" secondAttribute="bottom" constant="163" id="SDJ-9F-kF2"/>
+                            <constraint firstItem="dYN-m6-hWm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="STA-4O-SfU"/>
+                            <constraint firstItem="dYN-m6-hWm" firstAttribute="leading" secondItem="LAc-xB-KA0" secondAttribute="leading" id="X7r-B8-cBs"/>
+                            <constraint firstItem="zei-dY-LzK" firstAttribute="top" secondItem="LAc-xB-KA0" secondAttribute="bottom" constant="59" id="XY5-p5-m0m"/>
+                            <constraint firstAttribute="trailing" secondItem="dYN-m6-hWm" secondAttribute="trailing" id="YFk-Qd-0TI"/>
+                            <constraint firstItem="dYN-m6-hWm" firstAttribute="trailing" secondItem="LAc-xB-KA0" secondAttribute="trailing" id="b7u-1u-Ooc"/>
+                            <constraint firstItem="LAc-xB-KA0" firstAttribute="centerX" secondItem="zei-dY-LzK" secondAttribute="centerX" id="qPP-mP-CSa"/>
+                            <constraint firstItem="zei-dY-LzK" firstAttribute="centerX" secondItem="oiz-bF-5dx" secondAttribute="centerX" id="tac-I2-FiR"/>
+                            <constraint firstItem="LAc-xB-KA0" firstAttribute="top" secondItem="dYN-m6-hWm" secondAttribute="bottom" constant="44" id="vWt-do-ghC"/>
+                            <constraint firstItem="oiz-bF-5dx" firstAttribute="top" secondItem="zei-dY-LzK" secondAttribute="bottom" constant="97" id="xM0-Yo-vPP"/>
+                            <constraint firstItem="dYN-m6-hWm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="yv0-f9-rPL"/>
                         </constraints>
                     </view>
                     <connections>
