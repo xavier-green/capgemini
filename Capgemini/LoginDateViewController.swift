@@ -9,11 +9,20 @@
 import UIKit
 
 class LoginDateViewController: UIViewController {
+    
+    @IBOutlet var datePicker: UIDatePicker!
+    private var secretDate: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.datePicker.addTarget(self, action: #selector(self.datePickerChanged), for: UIControlEvents.valueChanged)
+    }
+    
+    func datePickerChanged() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = DateFormatter.Style.short
+        dateFormatter.timeStyle = DateFormatter.Style.none
+        secretDate = dateFormatter.string(from: self.datePicker.date)
     }
 
     override func didReceiveMemoryWarning() {

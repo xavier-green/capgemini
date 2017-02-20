@@ -10,27 +10,20 @@ import UIKit
 
 class LoginCheckViewController: UIViewController {
     
-    @IBOutlet weak var YesButton: UIButton!
-    @IBOutlet weak var NoButton: UIButton!
-    
-    func prevView() {
-        print("Moving to next storyboard")
-        let storyboard = UIStoryboard(name: "Login", bundle: nil)
-        let nextViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as UIViewController!
-        self.present(nextViewController!, animated:true, completion:nil)
+    @IBAction func GotoLogin(_ sender: Any) {
+        performSegue(withIdentifier: "BackToLogin", sender: nil)
+    }
+    @IBAction func GotoDate(_ sender: Any) {
+        performSegue(withIdentifier: "LoginDate", sender: nil)
     }
     
-    func nextView() {
-        print("Moving to next storyboard")
-        let storyboard = UIStoryboard(name: "Login", bundle: nil)
-        let nextViewController = storyboard.instantiateViewController(withIdentifier: "LoginDateViewController") as UIViewController!
-        self.present(nextViewController!, animated:true, completion:nil)
-    }
+    @IBOutlet var YesButton: UIButton!
+    @IBOutlet var NoButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.NoButton.addTarget(self, action: #selector(self.prevView), for: .touchUpInside)
-        self.YesButton.addTarget(self, action: #selector(self.nextView), for: .touchUpInside)
+        YesButton.layer.cornerRadius = 10
+        NoButton.layer.cornerRadius = 10
     }
 
     override func didReceiveMemoryWarning() {
