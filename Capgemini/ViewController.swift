@@ -32,7 +32,7 @@ class ViewController: UIViewController {
         print("Moving to next storyboard")
         let storyboard = UIStoryboard(name: "Login", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "LoginViewController") 
-        self.present(controller, animated: false, completion: nil)
+        self.present(controller, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {

@@ -69,7 +69,7 @@
                                                 </connections>
                                             </button>
                                             <connections>
-                                                <segue destination="8Lr-5h-ajj" kind="modal" identifier="VoiceRec" id="wDG-kU-fg5"/>
+                                                <segue destination="8Lr-5h-ajj" kind="modal" identifier="VoiceRec" modalTransitionStyle="crossDissolve" id="wDG-kU-fg5"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -146,7 +146,7 @@
                                 <rect key="frame" x="16" y="28" width="59" height="30"/>
                                 <state key="normal" title="&lt; Retour"/>
                                 <connections>
-                                    <segue destination="339-BB-O8U" kind="modal" id="VY9-H9-Dvc"/>
+                                    <segue destination="339-BB-O8U" kind="modal" modalTransitionStyle="crossDissolve" id="VY9-H9-Dvc"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Eo-pL-3LQ">
@@ -201,7 +201,7 @@
                         <outlet property="doneButton" destination="7Eo-pL-3LQ" id="zyU-Yk-MMo"/>
                         <outlet property="recordButton" destination="5IY-Fb-CN9" id="BQN-1c-yHQ"/>
                         <outlet property="repeatTimes" destination="dFg-rZ-lPz" id="LfR-5E-psS"/>
-                        <segue destination="7m4-XB-IS2" kind="modal" identifier="recDone" id="nOT-vw-4Fc"/>
+                        <segue destination="7m4-XB-IS2" kind="modal" identifier="recDone" modalTransitionStyle="crossDissolve" id="nOT-vw-4Fc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sE2-ri-YL8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -253,7 +253,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="&lt; Retour"/>
                                                 <connections>
-                                                    <segue destination="8Lr-5h-ajj" kind="modal" id="Raa-dR-M6y"/>
+                                                    <segue destination="8Lr-5h-ajj" kind="modal" modalTransitionStyle="crossDissolve" id="Raa-dR-M6y"/>
                                                 </connections>
                                             </button>
                                             <connections>
@@ -267,7 +267,7 @@
                                                 <state key="normal" title="Done &gt;"/>
                                                 <connections>
                                                     <action selector="setDate:" destination="7m4-XB-IS2" eventType="touchUpInside" id="0uG-ZK-LJ0"/>
-                                                    <segue destination="S7f-yg-kdV" kind="modal" identifier="choseDate" id="XrL-OR-356"/>
+                                                    <segue destination="S7f-yg-kdV" kind="modal" identifier="choseDate" modalTransitionStyle="crossDissolve" id="XrL-OR-356"/>
                                                 </connections>
                                             </button>
                                         </barButtonItem>
@@ -332,7 +332,7 @@
                                                 <state key="normal" title="&lt; Retour"/>
                                                 <connections>
                                                     <action selector="backtoDate:" destination="S7f-yg-kdV" eventType="touchUpInside" id="cC6-qu-FyX"/>
-                                                    <segue destination="7m4-XB-IS2" kind="modal" identifier="backtoDate" id="Jzp-bh-8Yh"/>
+                                                    <segue destination="7m4-XB-IS2" kind="modal" identifier="backtoDate" modalTransitionStyle="crossDissolve" id="Jzp-bh-8Yh"/>
                                                 </connections>
                                             </button>
                                         </barButtonItem>
@@ -444,8 +444,8 @@
         <image name="valid" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wDG-kU-fg5"/>
+        <segue reference="Raa-dR-M6y"/>
+        <segue reference="Jzp-bh-8Yh"/>
         <segue reference="VY9-H9-Dvc"/>
-        <segue reference="nOT-vw-4Fc"/>
     </inferredMetricsTieBreakers>
 </document>

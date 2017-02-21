@@ -271,6 +271,7 @@
 				TargetAttributes = {
 					433100A31E57344400269EEB = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 89UMTC92D7;
 						ProvisioningStyle = Automatic;
 					};
 					433100B71E57344500269EEB = {
@@ -492,7 +493,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 89UMTC92D7;
 				INFOPLIST_FILE = Capgemini/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dty.Capgemini;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -504,7 +508,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 89UMTC92D7;
 				INFOPLIST_FILE = Capgemini/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dty.Capgemini;
 				PRODUCT_NAME = "$(TARGET_NAME)";

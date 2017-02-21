@@ -13,6 +13,7 @@ class SetNickViewController: UIViewController, UITextFieldDelegate {
     //MARK: Outlet
     @IBOutlet weak var nickText: UITextField!
     
+    //MARK: View Funcs
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,15 +27,7 @@ class SetNickViewController: UIViewController, UITextFieldDelegate {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    //MARK: Input Text
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // Hide the keyboard.
@@ -45,9 +38,14 @@ class SetNickViewController: UIViewController, UITextFieldDelegate {
         nickText.text = textField.text
     }
     
+    //MARK: Change View
+    
+    //Return button
     @IBAction func backtoDate(_ sender: UIButton) {
         performSegue(withIdentifier: "backtoDate", sender: nil)
     }
+    
+    //End Button
     @IBAction func done(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "ViewController") as! UINavigationController

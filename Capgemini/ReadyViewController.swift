@@ -14,7 +14,7 @@ class ReadyViewController: UIViewController {
     @IBOutlet weak var ready: UITextView!
     
     
-    
+    //MARK: View Funcs
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,12 +27,16 @@ class ReadyViewController: UIViewController {
     }
     
     //MARK: Actions
+    
+    //Segue
     @IBAction func ready(_ sender: UIButton) {
         performSegue(withIdentifier: "VoiceRec", sender: nil)
     }
+    
+    //Back button
     @IBAction func backHome(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "ViewController") as! UINavigationController
-        self.present(controller, animated: true, completion: nil)
+        self.present(controller, animated: false, completion: nil)
     }
 }
