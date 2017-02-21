@@ -12,10 +12,17 @@ class VoiceRecViewController: UIViewController {
     //MARK: Properties
     let recordSniplets = [Any]()
     var recAttempts: Int = 3
+    let micOffImage = UIImage(named: "micOff")
+    let micOnImage = UIImage(named: "micOn")
+    var recoVocale: ReconnaissanceVocaleController!
+    var speechToText: TextToSpeech!
+
     
     //MARK: Outlets
-    @IBAction func record(_ sender: UIButton) {
-        recAttempts-=1
+    @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var recordButton: UIButton!
+    @IBOutlet weak var repeatTimes: UILabel!
+    @IBAction func doneBut(_ sender: UIButton) {
         if recAttempts==0{
             self.performSegue(withIdentifier: "recDone", sender: nil)
         }
@@ -23,6 +30,36 @@ class VoiceRecViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        recoVocale = ReconnaissanceVocaleController()
+        speechToText = TextToSpeech()
+        
+        let okRecord = recoVocale.initAndCheck()
+        
+        if okRecord {
+            self.recordButton.isHidden = false
+            self.recordButton.addTarget(self, action: #selector(self.recordTapped), for: .touchUpInside)
+        } else {
+            self.recordButton.isHidden = true
+        }
+    }
+    func recordTapped() {
+        if recoVocale.isRecording() {
+            NSLog("Stopping recording")
+            //self.recordButton.setTitle("Re-record", for: .normal)
+            recoVocale.finishRecording(success: true)
+            self.recordButton.setBackgroundImage(micOnImage, for: .normal)
+            recAttempts-=1
+            repeatTimes.text = "Plus que \(String(recAttempts)) fois"
+            if recAttempts==0 {
+                doneButton.isHidden=false
+            }
+            recoVocale.playRecording()
+        } else {
+            NSLog("Starting recording")
+            //self.recordButton.setTitle("STOP", for: .normal)
+            self.recordButton.setBackgroundImage(micOffImage, for: .normal)
+            recoVocale.startRecording()
+        }
     }
 
     override func didReceiveMemoryWarning() {
