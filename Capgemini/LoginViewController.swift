@@ -13,7 +13,7 @@ class LoginViewController: UIViewController {
     @IBAction func GotoLoginCheck(_ sender: Any) {
         performSegue(withIdentifier: "LoginCheckSegue", sender: nil)
     }
-    @IBAction func GotoHome(_ sender: Any) {
+    @IBAction func gotoHome(_ sender: Any) {
         print("Moving to home storyboard")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "ViewController") as! UINavigationController

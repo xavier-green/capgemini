@@ -25,6 +25,9 @@ class LoginCheckViewController: UIViewController {
         YesButton.layer.cornerRadius = 10
         NoButton.layer.cornerRadius = 10
     }
+    @IBAction func goBack(_ sender: Any) {
+        performSegue(withIdentifier: "BackToLogin", sender: nil)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
