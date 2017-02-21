@@ -8,6 +8,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -67,8 +68,7 @@
                                 <color key="backgroundColor" red="0.51472583624926804" green="0.80887710492227982" blue="0.58904150426325075" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="107" id="0f9-LZ-Qrs"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="51" id="TjK-0s-8oh"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="107" id="u72-NJ-l0Q"/>
+                                    <constraint firstAttribute="width" secondItem="HRH-ef-0TF" secondAttribute="height" multiplier="107:51" id="XgD-vO-8rt"/>
                                     <constraint firstAttribute="height" constant="51" id="zlU-GY-OL8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="26"/>
@@ -80,6 +80,7 @@
                                 <rect key="frame" x="219" y="342" width="107" height="51"/>
                                 <color key="backgroundColor" red="0.92116661269430056" green="0.55919313172394269" blue="0.57251143114775671" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" secondItem="gYd-3p-xEh" secondAttribute="height" multiplier="107:51" id="cIA-rd-pWx"/>
                                     <constraint firstAttribute="height" constant="51" id="ibj-Rz-91w"/>
                                     <constraint firstAttribute="width" constant="107" id="o2x-FR-Q93"/>
                                 </constraints>

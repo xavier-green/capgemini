@@ -13,12 +13,6 @@ class LoginViewController: UIViewController {
     @IBAction func GotoLoginCheck(_ sender: Any) {
         performSegue(withIdentifier: "LoginCheckSegue", sender: nil)
     }
-    @IBAction func gotoHome(_ sender: Any) {
-        print("Moving to home storyboard")
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "ViewController") as! UINavigationController
-        self.present(controller, animated: true, completion: nil)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

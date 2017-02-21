@@ -1,24 +1,24 @@
 //
-//  SetNickViewController.swift
+//  NickViewController.swift
 //  Capgemini
 //
-//  Created by Younes Belkouchi on 20/02/2017.
+//  Created by Younes Belkouchi on 21/02/2017.
 //  Copyright © 2017 xavier green. All rights reserved.
 //
 
 import UIKit
 
-class SetNickViewController: UIViewController, UITextFieldDelegate {
+class NickViewController: UIViewController, UITextFieldDelegate {
+
+    @IBOutlet weak var nickName: UITextField!
     
-    //MARK: Outlet
-    @IBOutlet weak var nickText: UITextField!
     
-    //MARK: View Funcs
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        nickText.delegate = self
+        nickName.delegate=self
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,26 +27,27 @@ class SetNickViewController: UIViewController, UITextFieldDelegate {
     }
     
 
-    //MARK: Input Text
-    
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // Hide the keyboard.
         textField.resignFirstResponder()
         return true
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
-        nickText.text = textField.text
+        nickName.text = textField.text
     }
     
-    //MARK: Change View
-    
-    //Return button
-    @IBAction func backtoDate(_ sender: UIButton) {
-        performSegue(withIdentifier: "backtoDate", sender: nil)
-    }
-    
-    //End Button
-    @IBAction func done(_ sender: UIButton) {
+    @IBAction func gotoHome(_ sender: Any) {
+        print("Moving to home storyboard")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "ViewController") as! UINavigationController
         self.present(controller, animated: true, completion: nil)
