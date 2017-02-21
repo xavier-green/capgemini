@@ -15,7 +15,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var HelloLabel: UILabel!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var AccountLabel: UILabel!
-    @IBAction func noButton(_ sender: UIButton) {
+    
+    let micOffImage = UIImage(named: "micOff")
+    let micOnImage = UIImage(named: "micOn")
+    
+    @IBAction func NoButton(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Enrolment", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "EnrolmentViewController") as! UINavigationController
         self.present(controller, animated: true, completion: nil)
@@ -53,12 +57,14 @@ class ViewController: UIViewController {
     func recordTapped() {
         if recoVocale.isRecording() {
             NSLog("Stopping recording")
-            self.recordButton.setTitle("Re-record", for: .normal)
+            //self.recordButton.setTitle("Re-record", for: .normal)
             recoVocale.finishRecording(success: true)
+            self.recordButton.setBackgroundImage(micOnImage, for: .normal)
             recoVocale.playRecording()
         } else {
             NSLog("Starting recording")
-            self.recordButton.setTitle("STOP", for: .normal)
+            //self.recordButton.setTitle("STOP", for: .normal)
+            self.recordButton.setBackgroundImage(micOffImage, for: .normal)
             recoVocale.startRecording()
         }
     }

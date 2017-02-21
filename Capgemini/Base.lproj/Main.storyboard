@@ -6,6 +6,9 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -37,75 +40,89 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="rHk-a4-aXB">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="rHk-a4-aXB">
                                 <rect key="frame" x="-267" y="-543" width="1080" height="1920"/>
-                                <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bonjour et bienvenue !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYN-m6-hWm">
-                                <rect key="frame" x="0.0" y="164" width="375" height="32"/>
+                                <rect key="frame" x="0.0" y="120" width="375" height="32"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="3tE-6s-bLh"/>
+                                    <constraint firstAttribute="height" constant="32" id="EA6-2x-a6B"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Avez vous déjà un compte ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAc-xB-KA0">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Avez vous déjà un compte ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAc-xB-KA0">
                                 <rect key="frame" x="-234" y="217" width="842" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="842" id="iag-rT-N6u"/>
+                                    <constraint firstAttribute="height" constant="42" id="jj3-r9-aBg"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="150" translatesAutoresizingMaskIntoConstraints="NO" id="zei-dY-LzK">
-                                <rect key="frame" x="82.5" y="318" width="210" height="30"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sfy-X6-ZBZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                        <state key="normal" title="Oui"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9KR-Bn-yq0">
-                                        <rect key="frame" x="180" y="0.0" width="30" height="30"/>
-                                        <state key="normal" title="Non"/>
-                                        <connections>
-                                            <action selector="noButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dgv-4R-8Ev"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oiz-bF-5dx">
-                                <rect key="frame" x="127.5" y="445" width="120" height="59"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0099468241871534246" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HRH-ef-0TF">
+                                <rect key="frame" x="48" y="342" width="107" height="51"/>
+                                <color key="backgroundColor" red="0.51472583624926804" green="0.80887710492227982" blue="0.58904150426325075" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="59" id="UnP-UM-Kfd"/>
-                                    <constraint firstAttribute="width" constant="120" id="WeD-Be-PD3"/>
+                                    <constraint firstAttribute="width" constant="107" id="0f9-LZ-Qrs"/>
+                                    <constraint firstAttribute="height" constant="51" id="zlU-GY-OL8"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="RECORD">
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="26"/>
+                                <state key="normal" title="Oui">
+                                    <color key="titleColor" red="0.035884927347514362" green="0.34217130829015541" blue="0.076812572344358968" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gYd-3p-xEh">
+                                <rect key="frame" x="219" y="342" width="107" height="51"/>
+                                <color key="backgroundColor" red="0.92116661269430056" green="0.55919313172394269" blue="0.57251143114775671" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="26"/>
+                                <state key="normal" title="Non">
+                                    <color key="titleColor" red="0.43167098445595853" green="0.13369879212232366" blue="0.15959864397543858" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="NoButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3gE-vt-ZMe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oiz-bF-5dx">
+                                <rect key="frame" x="142" y="496" width="91" height="91"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="91" id="AHf-S4-sJ3"/>
+                                    <constraint firstAttribute="width" constant="91" id="jVy-7e-wA5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <color key="tintColor" red="0.0" green="1" blue="0.066989166497107178" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" backgroundImage="microphone">
                                     <color key="titleColor" red="0.94559265932838799" green="1" blue="0.97406875381520364" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="zei-dY-LzK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Nug-AR-prf"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oiz-bF-5dx" secondAttribute="bottom" constant="163" id="SDJ-9F-kF2"/>
-                            <constraint firstItem="dYN-m6-hWm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="STA-4O-SfU"/>
-                            <constraint firstItem="dYN-m6-hWm" firstAttribute="leading" secondItem="LAc-xB-KA0" secondAttribute="leading" id="X7r-B8-cBs"/>
-                            <constraint firstItem="zei-dY-LzK" firstAttribute="top" secondItem="LAc-xB-KA0" secondAttribute="bottom" constant="59" id="XY5-p5-m0m"/>
-                            <constraint firstAttribute="trailing" secondItem="dYN-m6-hWm" secondAttribute="trailing" id="YFk-Qd-0TI"/>
-                            <constraint firstItem="dYN-m6-hWm" firstAttribute="trailing" secondItem="LAc-xB-KA0" secondAttribute="trailing" id="b7u-1u-Ooc"/>
-                            <constraint firstItem="LAc-xB-KA0" firstAttribute="centerX" secondItem="zei-dY-LzK" secondAttribute="centerX" id="qPP-mP-CSa"/>
-                            <constraint firstItem="zei-dY-LzK" firstAttribute="centerX" secondItem="oiz-bF-5dx" secondAttribute="centerX" id="tac-I2-FiR"/>
-                            <constraint firstItem="LAc-xB-KA0" firstAttribute="top" secondItem="dYN-m6-hWm" secondAttribute="bottom" constant="44" id="vWt-do-ghC"/>
-                            <constraint firstItem="oiz-bF-5dx" firstAttribute="top" secondItem="zei-dY-LzK" secondAttribute="bottom" constant="97" id="xM0-Yo-vPP"/>
-                            <constraint firstItem="dYN-m6-hWm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="yv0-f9-rPL"/>
+                            <constraint firstAttribute="trailing" secondItem="dYN-m6-hWm" secondAttribute="trailing" id="0R9-ut-weP"/>
+                            <constraint firstItem="HRH-ef-0TF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="32" id="9c3-gp-BCI"/>
+                            <constraint firstItem="HRH-ef-0TF" firstAttribute="top" secondItem="LAc-xB-KA0" secondAttribute="bottom" constant="83" id="DCA-YD-Y7r"/>
+                            <constraint firstItem="rHk-a4-aXB" firstAttribute="centerX" secondItem="gYd-3p-xEh" secondAttribute="centerX" id="Ed4-Zg-EeH"/>
+                            <constraint firstItem="gYd-3p-xEh" firstAttribute="leading" secondItem="HRH-ef-0TF" secondAttribute="trailing" constant="64" id="LDf-Yg-0LX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gYd-3p-xEh" secondAttribute="trailing" constant="33" id="O23-9S-JvW"/>
+                            <constraint firstItem="LAc-xB-KA0" firstAttribute="top" secondItem="dYN-m6-hWm" secondAttribute="bottom" constant="65" id="Oyd-p5-Ih9"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oiz-bF-5dx" secondAttribute="bottom" constant="80" id="Q7c-1c-EoF"/>
+                            <constraint firstItem="rHk-a4-aXB" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="-543" id="W4r-xM-5tI"/>
+                            <constraint firstItem="dYN-m6-hWm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="cOt-Ni-HjE"/>
+                            <constraint firstItem="LAc-xB-KA0" firstAttribute="centerX" secondItem="oiz-bF-5dx" secondAttribute="centerX" id="o4k-py-jNk"/>
+                            <constraint firstItem="gYd-3p-xEh" firstAttribute="baseline" secondItem="HRH-ef-0TF" secondAttribute="firstBaseline" id="oyj-se-E4h"/>
+                            <constraint firstItem="dYN-m6-hWm" firstAttribute="centerX" secondItem="LAc-xB-KA0" secondAttribute="centerX" id="pZJ-e8-J3F"/>
+                            <constraint firstItem="dYN-m6-hWm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="q8s-jg-Lp8"/>
+                            <constraint firstItem="HRH-ef-0TF" firstAttribute="top" secondItem="gYd-3p-xEh" secondAttribute="top" id="tuq-4B-63n"/>
+                            <constraint firstItem="HRH-ef-0TF" firstAttribute="baseline" secondItem="gYd-3p-xEh" secondAttribute="firstBaseline" id="vs8-ZC-tAz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ylc-WE-wcd"/>
                     <connections>
                         <outlet property="AccountLabel" destination="LAc-xB-KA0" id="AXb-S9-AKa"/>
                         <outlet property="HelloLabel" destination="dYN-m6-hWm" id="rja-5q-MQX"/>
-                        <outlet property="YesBut" destination="Sfy-X6-ZBZ" id="t61-an-iQl"/>
+                        <outlet property="YesBut" destination="HRH-ef-0TF" id="BKO-qE-U8U"/>
                         <outlet property="recordButton" destination="oiz-bF-5dx" id="zeY-1B-7n0"/>
                     </connections>
                 </viewController>
@@ -116,5 +133,6 @@
     </scenes>
     <resources>
         <image name="background" width="1080" height="1920"/>
+        <image name="microphone" width="512" height="512"/>
     </resources>
 </document>
