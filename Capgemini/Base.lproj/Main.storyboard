@@ -67,6 +67,8 @@
                                 <color key="backgroundColor" red="0.51472583624926804" green="0.80887710492227982" blue="0.58904150426325075" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="107" id="0f9-LZ-Qrs"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="51" id="TjK-0s-8oh"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="107" id="u72-NJ-l0Q"/>
                                     <constraint firstAttribute="height" constant="51" id="zlU-GY-OL8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="26"/>
@@ -77,6 +79,10 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gYd-3p-xEh">
                                 <rect key="frame" x="219" y="342" width="107" height="51"/>
                                 <color key="backgroundColor" red="0.92116661269430056" green="0.55919313172394269" blue="0.57251143114775671" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="ibj-Rz-91w"/>
+                                    <constraint firstAttribute="width" constant="107" id="o2x-FR-Q93"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="26"/>
                                 <state key="normal" title="Non">
                                     <color key="titleColor" red="0.43167098445595853" green="0.13369879212232366" blue="0.15959864397543858" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -93,7 +99,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <color key="tintColor" red="0.0" green="1" blue="0.066989166497107178" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" backgroundImage="microphone">
+                                <state key="normal" backgroundImage="micOn">
                                     <color key="titleColor" red="0.94559265932838799" green="1" blue="0.97406875381520364" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
@@ -133,6 +139,6 @@
     </scenes>
     <resources>
         <image name="background" width="1080" height="1920"/>
-        <image name="microphone" width="512" height="512"/>
+        <image name="micOn" width="1024" height="1024"/>
     </resources>
 </document>
