@@ -8,21 +8,46 @@
 
 import UIKit
 
-class NickViewController: UIViewController, UITextFieldDelegate {
+class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var nickName: UITextField!
     
+    @IBOutlet var usernamePicker: UIPickerView!
+    
+    var usernames: [String] = [String]()
+    private var currentUsername: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        usernames = ["CTLM","VINC68","BNP17","ZORO"]
+        self.usernamePicker.delegate = self
+        self.usernamePicker.dataSource = self
         nickName.delegate=self
+    }
+    
+    // The number of columns of data
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    // The number of rows of data
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return usernames.count
+    }
+    
+    // The data to return for the row and component (column) that's being passed in
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        currentUsername = usernames[row]
+        return usernames[row]
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let viewController=segue.destination as? LoginViewController {
-            viewController.nickName = nickName.text!
+            if (nickName.text == "") {
+                viewController.nickName = currentUsername
+            } else {
+                viewController.nickName = nickName.text!
+            }
         }
     }
 
