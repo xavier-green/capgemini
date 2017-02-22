@@ -53,6 +53,9 @@
                                     <constraint firstAttribute="height" constant="55" id="tpW-Q9-WVV"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="leaderboard"/>
+                                <connections>
+                                    <segue destination="2sj-US-YZy" kind="modal" id="Wkc-dm-orn"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="14f-Pu-7Gs">
                                 <rect key="frame" x="46" y="144" width="55" height="55"/>
@@ -387,5 +390,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="OWt-eH-Dbj"/>
+        <segue reference="IXN-Mw-KAo"/>
+        <segue reference="Wkc-dm-orn"/>
     </inferredMetricsTieBreakers>
 </document>
