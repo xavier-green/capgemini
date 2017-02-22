@@ -13,10 +13,7 @@ class LoginCheckViewController: UIViewController {
     var nickName: String = GlobalVariables.username
     
     @IBOutlet var helloCheckLabel: UILabel!
-    
-    @IBAction func GotoLogin(_ sender: Any) {
-        performSegue(withIdentifier: "BackToLogin", sender: nil)
-    }
+
     @IBAction func GotoDate(_ sender: Any) {
         performSegue(withIdentifier: "LoginDate", sender: nil)
     }
