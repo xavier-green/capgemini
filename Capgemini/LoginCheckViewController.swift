@@ -10,7 +10,7 @@ import UIKit
 
 class LoginCheckViewController: UIViewController {
     
-    var nickName: String = "Non renseigné"
+    var nickName: String = GlobalVariables.username
     
     @IBOutlet var helloCheckLabel: UILabel!
     

@@ -14,12 +14,8 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     
     @IBOutlet var usernamePicker: UIPickerView!
     
-    var usernames: [String] = [String]()
-    private var currentUsername: String = ""
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        usernames = ["CTLM","VINC68","BNP17","ZORO"]
         self.usernamePicker.delegate = self
         self.usernamePicker.dataSource = self
         nickName.delegate=self
@@ -32,23 +28,13 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     
     // The number of rows of data
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return usernames.count
+        return GlobalVariables.usernames.count
     }
     
     // The data to return for the row and component (column) that's being passed in
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        currentUsername = usernames[row]
-        return usernames[row]
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let viewController=segue.destination as? LoginViewController {
-            if (nickName.text == "") {
-                viewController.nickName = currentUsername
-            } else {
-                viewController.nickName = nickName.text!
-            }
-        }
+        GlobalVariables.username = GlobalVariables.usernames[row]
+        return GlobalVariables.usernames[row]
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,7 +59,7 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         return true
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
-        nickName.text = textField.text
+        GlobalVariables.username = textField.text!
     }
     
     @IBAction func gotoHome(_ sender: Any) {

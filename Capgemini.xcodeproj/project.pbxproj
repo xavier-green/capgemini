@@ -25,6 +25,7 @@
 		435AA8F81E5B303700BBB567 /* LoginDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435AA8F71E5B303700BBB567 /* LoginDateViewController.swift */; };
 		435AA8FC1E5B392900BBB567 /* ReconnaissanceVocaleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435AA8FB1E5B392900BBB567 /* ReconnaissanceVocaleController.swift */; };
 		435AA8FE1E5B443100BBB567 /* TextToSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435AA8FD1E5B443100BBB567 /* TextToSpeech.swift */; };
+		43A96CD01E5DA3C90078CEC8 /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A96CCF1E5DA3C90078CEC8 /* GlobalVariables.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		435AA8F71E5B303700BBB567 /* LoginDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginDateViewController.swift; sourceTree = "<group>"; };
 		435AA8FB1E5B392900BBB567 /* ReconnaissanceVocaleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReconnaissanceVocaleController.swift; sourceTree = "<group>"; };
 		435AA8FD1E5B443100BBB567 /* TextToSpeech.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextToSpeech.swift; sourceTree = "<group>"; };
+		43A96CCF1E5DA3C90078CEC8 /* GlobalVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 				433100AB1E57344500269EEB /* Main.storyboard */,
 				433100AE1E57344500269EEB /* Assets.xcassets */,
 				433100B31E57344500269EEB /* Info.plist */,
+				43A96CCF1E5DA3C90078CEC8 /* GlobalVariables.swift */,
 			);
 			path = Capgemini;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				435AA8F81E5B303700BBB567 /* LoginDateViewController.swift in Sources */,
 				435AA8FC1E5B392900BBB567 /* ReconnaissanceVocaleController.swift in Sources */,
 				0E9E39761E5C958E0000BD9E /* NickViewController.swift in Sources */,
+				43A96CD01E5DA3C90078CEC8 /* GlobalVariables.swift in Sources */,
 				435AA8ED1E5B064D00BBB567 /* LoginViewController.swift in Sources */,
 				0E0961721E5B4F1800487D61 /* SetDateViewController.swift in Sources */,
 				433100AA1E57344500269EEB /* ViewController.swift in Sources */,
