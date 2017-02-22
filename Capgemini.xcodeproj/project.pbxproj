@@ -14,6 +14,8 @@
 		0E7E23E21E5B010300E0F4D9 /* Enrolment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E7E23E11E5B010300E0F4D9 /* Enrolment.storyboard */; };
 		0E9E39761E5C958E0000BD9E /* NickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9E39751E5C958E0000BD9E /* NickViewController.swift */; };
 		0EA4B1061E5DDFB40088FF48 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA4B1051E5DDFB40088FF48 /* UsersViewController.swift */; };
+		0EA4B10A1E5DEF640088FF48 /* HideKeyboardMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA4B1091E5DEF640088FF48 /* HideKeyboardMethod.swift */; };
+		0EA4B10C1E5DF1B30088FF48 /* LeaderBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA4B10B1E5DF1B30088FF48 /* LeaderBoardViewController.swift */; };
 		433100A81E57344500269EEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433100A71E57344500269EEB /* AppDelegate.swift */; };
 		433100AA1E57344500269EEB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433100A91E57344500269EEB /* ViewController.swift */; };
 		433100AD1E57344500269EEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 433100AB1E57344500269EEB /* Main.storyboard */; };
@@ -56,6 +58,8 @@
 		0E7E23E11E5B010300E0F4D9 /* Enrolment.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Enrolment.storyboard; sourceTree = "<group>"; };
 		0E9E39751E5C958E0000BD9E /* NickViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NickViewController.swift; sourceTree = "<group>"; };
 		0EA4B1051E5DDFB40088FF48 /* UsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
+		0EA4B1091E5DEF640088FF48 /* HideKeyboardMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideKeyboardMethod.swift; sourceTree = "<group>"; };
+		0EA4B10B1E5DF1B30088FF48 /* LeaderBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderBoardViewController.swift; sourceTree = "<group>"; };
 		433100A41E57344500269EEB /* Capgemini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capgemini.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		433100A71E57344500269EEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		433100A91E57344500269EEB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -170,6 +174,7 @@
 				0E7E23DF1E5B00DD00E0F4D9 /* Controllers */,
 				0E7E23DE1E5B00D100E0F4D9 /* Views */,
 				433100A71E57344500269EEB /* AppDelegate.swift */,
+				0EA4B1091E5DEF640088FF48 /* HideKeyboardMethod.swift */,
 				433100A91E57344500269EEB /* ViewController.swift */,
 				433100AB1E57344500269EEB /* Main.storyboard */,
 				433100AE1E57344500269EEB /* Assets.xcassets */,
@@ -222,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				43A96CD61E5DA7710078CEC8 /* DrawViewController.swift */,
+				0EA4B10B1E5DF1B30088FF48 /* LeaderBoardViewController.swift */,
 			);
 			name = App;
 			sourceTree = "<group>";
@@ -363,6 +369,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EA4B10C1E5DF1B30088FF48 /* LeaderBoardViewController.swift in Sources */,
 				0E0961741E5B4F1800487D61 /* VoiceRecViewController.swift in Sources */,
 				435AA8F81E5B303700BBB567 /* LoginDateViewController.swift in Sources */,
 				435AA8FC1E5B392900BBB567 /* ReconnaissanceVocaleController.swift in Sources */,
@@ -378,6 +385,7 @@
 				433100A81E57344500269EEB /* AppDelegate.swift in Sources */,
 				0E0961731E5B4F1800487D61 /* SetNickViewController.swift in Sources */,
 				435AA8F61E5B302200BBB567 /* LoginCheckViewController.swift in Sources */,
+				0EA4B10A1E5DEF640088FF48 /* HideKeyboardMethod.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

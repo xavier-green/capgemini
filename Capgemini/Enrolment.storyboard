@@ -398,6 +398,13 @@
                                     <constraint firstAttribute="width" secondItem="cBU-2u-Egf" secondAttribute="height" multiplier="1:1" id="y6a-FH-1oV"/>
                                 </constraints>
                             </imageView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose a valid name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WqI-CT-E0A">
+                                <rect key="frame" x="183" y="398" width="159" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0099468241871534246" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -447,7 +454,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Raa-dR-M6y"/>
-        <segue reference="nOT-vw-4Fc"/>
+        <segue reference="Jzp-bh-8Yh"/>
         <segue reference="VY9-H9-Dvc"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -12,6 +12,7 @@ class SetNickViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: Outlet
     @IBOutlet weak var nickText: UITextField!
+    let nameRegEx = "[A-Z][0-9]"
     
     //MARK: View Funcs
     override func viewDidLoad() {
@@ -19,6 +20,8 @@ class SetNickViewController: UIViewController, UITextFieldDelegate {
 
         // Do any additional setup after loading the view.
         nickText.delegate = self
+        
+        self.hideKeyboardWhenTappedAround()
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,6 +50,7 @@ class SetNickViewController: UIViewController, UITextFieldDelegate {
     
     //End Button
     @IBAction func done(_ sender: UIButton) {
+        
         GlobalVariables.usernames.append(nickText.text!)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "ViewController") as! UINavigationController

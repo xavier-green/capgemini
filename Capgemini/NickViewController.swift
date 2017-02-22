@@ -11,7 +11,6 @@ import UIKit
 class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var nickName: UITextField!
-    
     @IBOutlet var usernamePicker: UIPickerView!
     
     override func viewDidLoad() {
@@ -19,6 +18,9 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         self.usernamePicker.delegate = self
         self.usernamePicker.dataSource = self
         nickName.delegate=self
+        
+        //hide keyboard when background is pressed
+        self.hideKeyboardWhenTappedAround()
     }
     
     // The number of columns of data
@@ -52,7 +54,6 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         // Pass the selected object to the new view controller.
     }
     */
-
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // Hide the keyboard.
         textField.resignFirstResponder()
