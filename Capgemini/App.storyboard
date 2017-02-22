@@ -138,27 +138,39 @@
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="micOn" translatesAutoresizingMaskIntoConstraints="NO" id="glu-k1-nmx">
-                                <rect key="frame" x="167" y="619" width="40" height="40"/>
+                                <rect key="frame" x="101" y="619" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="KqP-Af-8wM"/>
-                                    <constraint firstAttribute="height" constant="40" id="dwU-1G-g1W"/>
-                                    <constraint firstAttribute="width" secondItem="glu-k1-nmx" secondAttribute="height" multiplier="1:1" id="mfl-pM-zxl"/>
+                                    <constraint firstAttribute="height" constant="40" id="MlR-UT-DHW"/>
+                                    <constraint firstAttribute="width" constant="40" id="zlI-1j-w7q"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KfD-Ef-DU9">
+                                <rect key="frame" x="234" y="619" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="jcA-cd-5NJ"/>
+                                    <constraint firstAttribute="height" constant="40" id="nZI-23-jbs"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="valid"/>
+                                <connections>
+                                    <segue destination="Tnx-0Z-EW9" kind="presentation" id="lFg-cz-fWH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="lyi-Oz-Rds" secondAttribute="trailing" id="139-ct-39l"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6Po-dl-fed" secondAttribute="trailing" constant="30" id="3vA-Oe-IU6"/>
-                            <constraint firstItem="glu-k1-nmx" firstAttribute="top" secondItem="sUc-Ks-fou" secondAttribute="bottom" constant="8" id="5Ym-YL-FF0"/>
-                            <constraint firstItem="glu-k1-nmx" firstAttribute="leading" secondItem="9rw-eD-rf8" secondAttribute="leadingMargin" constant="151" id="9ij-Mw-1xp"/>
+                            <constraint firstItem="AUV-KC-qok" firstAttribute="top" secondItem="KfD-Ef-DU9" secondAttribute="bottom" constant="8" id="DfD-Mc-4fy"/>
                             <constraint firstItem="sUc-Ks-fou" firstAttribute="width" secondItem="9rw-eD-rf8" secondAttribute="width" id="FYU-0B-Kaz"/>
+                            <constraint firstItem="KfD-Ef-DU9" firstAttribute="top" secondItem="sUc-Ks-fou" secondAttribute="bottom" constant="8" id="RoS-19-cNH"/>
                             <constraint firstItem="lyi-Oz-Rds" firstAttribute="leading" secondItem="9rw-eD-rf8" secondAttribute="leadingMargin" id="SUb-tS-5SX"/>
                             <constraint firstAttribute="trailing" secondItem="sUc-Ks-fou" secondAttribute="trailing" id="TDE-Nn-KcY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KfD-Ef-DU9" secondAttribute="trailing" constant="85" id="ZdH-WA-8jO"/>
+                            <constraint firstItem="glu-k1-nmx" firstAttribute="top" secondItem="sUc-Ks-fou" secondAttribute="bottom" constant="8" id="Zhy-Fb-RMp"/>
+                            <constraint firstItem="glu-k1-nmx" firstAttribute="leading" secondItem="9rw-eD-rf8" secondAttribute="leadingMargin" constant="85" id="avG-nk-nqP"/>
                             <constraint firstItem="AUV-KC-qok" firstAttribute="top" secondItem="glu-k1-nmx" secondAttribute="bottom" constant="8" id="iGz-eR-6e2"/>
                             <constraint firstItem="6Wt-MI-DHe" firstAttribute="top" secondItem="lyi-Oz-Rds" secondAttribute="bottom" constant="15" id="irC-cN-Z5f"/>
                             <constraint firstItem="lyi-Oz-Rds" firstAttribute="top" secondItem="65u-eh-wW2" secondAttribute="bottom" id="j6P-ji-iAd"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="glu-k1-nmx" secondAttribute="trailing" constant="152" id="kzt-gy-USm"/>
                             <constraint firstItem="sUc-Ks-fou" firstAttribute="top" secondItem="6Po-dl-fed" secondAttribute="bottom" constant="30" id="nFK-kJ-6Mf"/>
                             <constraint firstItem="sUc-Ks-fou" firstAttribute="leading" secondItem="9rw-eD-rf8" secondAttribute="leading" id="rKD-xm-dql"/>
                             <constraint firstItem="6Po-dl-fed" firstAttribute="top" secondItem="lyi-Oz-Rds" secondAttribute="bottom" constant="15" id="sBj-jW-Bnr"/>
@@ -171,10 +183,10 @@
             </objects>
             <point key="canvasLocation" x="164" y="35.532233883058474"/>
         </scene>
-        <!--View Controller-->
+        <!--Vote View Controller-->
         <scene sceneID="dv1-8U-t4s">
             <objects>
-                <viewController id="Tnx-0Z-EW9" sceneMemberID="viewController">
+                <viewController id="Tnx-0Z-EW9" customClass="VoteViewController" customModule="Capgemini" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="k2H-AO-tp6"/>
                         <viewControllerLayoutGuide type="bottom" id="52c-YQ-pdj"/>
@@ -184,7 +196,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Pour soumettre votre dessin veuillez d'avord voter pour l'un des dessins ci-dessous" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fMX-50-l2J">
-                                <rect key="frame" x="67" y="30" width="240" height="112"/>
+                                <rect key="frame" x="67" y="70" width="240" height="112"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="112" id="mAT-ax-t8H"/>
@@ -192,12 +204,73 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="VotingImages" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JKR-BN-vOZ">
+                                <rect key="frame" x="26" y="202" width="323" height="465"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="23" minimumInteritemSpacing="10" id="x3o-o1-6p4">
+                                    <size key="itemSize" width="150" height="150"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="m5R-32-3PS" customClass="ImageCollectionViewCell" customModule="Capgemini" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nnp-1d-xkA">
+                                                    <rect key="frame" x="54" y="64.5" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="nnp-1d-xkA" firstAttribute="centerY" secondItem="m5R-32-3PS" secondAttribute="centerY" id="Rvg-zG-fju"/>
+                                            <constraint firstItem="nnp-1d-xkA" firstAttribute="centerX" secondItem="m5R-32-3PS" secondAttribute="centerX" id="xQz-uH-vti"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="myLabel" destination="nnp-1d-xkA" id="OQj-S8-xc9"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Tnx-0Z-EW9" id="HjN-hb-xok"/>
+                                    <outlet property="delegate" destination="Tnx-0Z-EW9" id="sZY-m9-bNG"/>
+                                </connections>
+                            </collectionView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p09-wW-ENI">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="5CM-SR-gqz"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Vote" id="ZLl-TA-Qyk">
+                                        <barButtonItem key="leftBarButtonItem" title="&lt; Retour" id="bvo-qV-2gn">
+                                            <connections>
+                                                <segue destination="OdS-o3-vpd" kind="presentation" id="OWt-eH-Dbj"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="JKR-BN-vOZ" firstAttribute="leading" secondItem="uag-YJ-uXQ" secondAttribute="leadingMargin" constant="10" id="6xE-cm-vRK"/>
+                            <constraint firstItem="p09-wW-ENI" firstAttribute="leading" secondItem="uag-YJ-uXQ" secondAttribute="leading" id="E5i-Y8-Sqz"/>
                             <constraint firstItem="fMX-50-l2J" firstAttribute="leading" secondItem="uag-YJ-uXQ" secondAttribute="leadingMargin" constant="51" id="NrB-QM-pxW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JKR-BN-vOZ" secondAttribute="trailing" constant="10" id="QH9-CM-tEo"/>
+                            <constraint firstItem="p09-wW-ENI" firstAttribute="top" secondItem="uag-YJ-uXQ" secondAttribute="top" id="dsP-bH-QVZ"/>
                             <constraint firstItem="fMX-50-l2J" firstAttribute="centerX" secondItem="uag-YJ-uXQ" secondAttribute="centerX" id="gvy-ST-8zj"/>
-                            <constraint firstItem="fMX-50-l2J" firstAttribute="top" secondItem="k2H-AO-tp6" secondAttribute="bottom" constant="10" id="umm-6U-Gmu"/>
+                            <constraint firstItem="JKR-BN-vOZ" firstAttribute="top" secondItem="fMX-50-l2J" secondAttribute="bottom" constant="20" id="oXJ-af-m1b"/>
+                            <constraint firstItem="fMX-50-l2J" firstAttribute="top" secondItem="k2H-AO-tp6" secondAttribute="bottom" constant="50" id="umm-6U-Gmu"/>
+                            <constraint firstAttribute="trailing" secondItem="p09-wW-ENI" secondAttribute="trailing" id="vAd-j7-gCL"/>
+                            <constraint firstItem="52c-YQ-pdj" firstAttribute="top" secondItem="JKR-BN-vOZ" secondAttribute="bottom" id="wXs-z3-18b"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -212,8 +285,9 @@
         <image name="micOn" width="1024" height="1024"/>
         <image name="pick" width="620" height="621"/>
         <image name="setelem" width="768" height="1024"/>
+        <image name="valid" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="40P-Yo-pbv"/>
+        <segue reference="OWt-eH-Dbj"/>
     </inferredMetricsTieBreakers>
 </document>

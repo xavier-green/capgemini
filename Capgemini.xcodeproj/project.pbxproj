@@ -29,6 +29,8 @@
 		43A96CD01E5DA3C90078CEC8 /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A96CCF1E5DA3C90078CEC8 /* GlobalVariables.swift */; };
 		43A96CD21E5DA6770078CEC8 /* App.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43A96CD11E5DA6770078CEC8 /* App.storyboard */; };
 		43A96CD71E5DA7710078CEC8 /* DrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A96CD61E5DA7710078CEC8 /* DrawViewController.swift */; };
+		43A96CD91E5DE54A0078CEC8 /* VoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A96CD81E5DE54A0078CEC8 /* VoteViewController.swift */; };
+		43A96CDB1E5DEB500078CEC8 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A96CDA1E5DEB500078CEC8 /* ImageCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,8 @@
 		43A96CCF1E5DA3C90078CEC8 /* GlobalVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 		43A96CD11E5DA6770078CEC8 /* App.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = App.storyboard; sourceTree = "<group>"; };
 		43A96CD61E5DA7710078CEC8 /* DrawViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawViewController.swift; sourceTree = "<group>"; };
+		43A96CD81E5DE54A0078CEC8 /* VoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteViewController.swift; sourceTree = "<group>"; };
+		43A96CDA1E5DEB500078CEC8 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +226,8 @@
 			isa = PBXGroup;
 			children = (
 				43A96CD61E5DA7710078CEC8 /* DrawViewController.swift */,
+				43A96CD81E5DE54A0078CEC8 /* VoteViewController.swift */,
+				43A96CDA1E5DEB500078CEC8 /* ImageCollectionViewCell.swift */,
 			);
 			name = App;
 			sourceTree = "<group>";
@@ -363,6 +369,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43A96CDB1E5DEB500078CEC8 /* ImageCollectionViewCell.swift in Sources */,
+				43A96CD91E5DE54A0078CEC8 /* VoteViewController.swift in Sources */,
 				0E0961741E5B4F1800487D61 /* VoiceRecViewController.swift in Sources */,
 				435AA8F81E5B303700BBB567 /* LoginDateViewController.swift in Sources */,
 				435AA8FC1E5B392900BBB567 /* ReconnaissanceVocaleController.swift in Sources */,
