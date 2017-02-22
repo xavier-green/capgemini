@@ -282,7 +282,7 @@
             </objects>
             <point key="canvasLocation" x="164" y="790.25487256371821"/>
         </scene>
-        <!--View Controller-->
+        <!--Vote View Controller-->
         <scene sceneID="dv1-8U-t4s">
             <objects>
                 <viewController id="Tnx-0Z-EW9" customClass="VoteViewController" customModule="Capgemini" customModuleProvider="target" sceneMemberID="viewController">
@@ -320,20 +320,19 @@
                                             <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nnp-1d-xkA">
-                                                    <rect key="frame" x="54" y="64.5" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kYr-UY-KmU">
+                                                    <rect key="frame" x="8" y="8" width="134" height="134"/>
+                                                </imageView>
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="nnp-1d-xkA" firstAttribute="centerY" secondItem="m5R-32-3PS" secondAttribute="centerY" id="Rvg-zG-fju"/>
-                                            <constraint firstItem="nnp-1d-xkA" firstAttribute="centerX" secondItem="m5R-32-3PS" secondAttribute="centerX" id="xQz-uH-vti"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="kYr-UY-KmU" secondAttribute="trailing" id="5fC-ZZ-gcY"/>
+                                            <constraint firstItem="kYr-UY-KmU" firstAttribute="leading" secondItem="m5R-32-3PS" secondAttribute="leadingMargin" id="9Fx-SL-kTG"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="kYr-UY-KmU" secondAttribute="bottom" id="deC-GH-oF0"/>
+                                            <constraint firstItem="kYr-UY-KmU" firstAttribute="top" secondItem="m5R-32-3PS" secondAttribute="topMargin" id="o6Q-fd-rQS"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="myLabel" destination="nnp-1d-xkA" id="OQj-S8-xc9"/>
+                                            <outlet property="image" destination="kYr-UY-KmU" id="0N8-OT-gGe"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -388,6 +387,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="OWt-eH-Dbj"/>
-        <segue reference="IXN-Mw-KAo"/>
     </inferredMetricsTieBreakers>
 </document>

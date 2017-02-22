@@ -10,6 +10,6 @@ import UIKit
 
 class ImageCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet var myLabel: UILabel!
+    @IBOutlet var image: UIImageView!
     
 }
