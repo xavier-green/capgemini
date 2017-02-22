@@ -12,6 +12,13 @@ class LoginDateViewController: UIViewController {
     
     @IBOutlet var datePicker: UIDatePicker!
     private var secretDate: String!
+    
+    @IBAction func gotoGame(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "App", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "DrawNavigationViewController") as! UINavigationController
+        self.present(controller, animated: true, completion: nil)
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

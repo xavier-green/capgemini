@@ -382,6 +382,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="85" id="ZMX-r0-WZq"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="gotoGame:" destination="qFr-bu-2aY" eventType="touchUpInside" id="ayL-JE-mMF"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="valid" translatesAutoresizingMaskIntoConstraints="NO" id="0A4-pq-tlW">
                                 <rect key="frame" x="145" y="505" width="85" height="85"/>
@@ -443,7 +446,7 @@
         <image name="valid" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wIp-lP-eG5"/>
+        <segue reference="xnX-y8-gfZ"/>
         <segue reference="QZM-jm-peZ"/>
     </inferredMetricsTieBreakers>
 </document>
