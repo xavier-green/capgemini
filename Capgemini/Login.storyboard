@@ -383,6 +383,9 @@
                                     <constraint firstAttribute="height" constant="85" id="IL5-tL-HWG"/>
                                     <constraint firstAttribute="width" constant="85" id="ZMX-r0-WZq"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="gotoGame:" destination="qFr-bu-2aY" eventType="touchUpInside" id="ayL-JE-mMF"/>
+                                </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lgr-yz-Yct">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
@@ -507,7 +510,7 @@
         <image name="valid" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wIp-lP-eG5"/>
+        <segue reference="xnX-y8-gfZ"/>
         <segue reference="QZM-jm-peZ"/>
     </inferredMetricsTieBreakers>
 </document>
