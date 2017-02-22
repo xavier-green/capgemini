@@ -184,8 +184,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Pour soumettre votre dessin veuillez d'avord voter pour l'un des dessins ci-dessous" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fMX-50-l2J">
-                                <rect key="frame" x="67" y="30" width="240" height="140"/>
+                                <rect key="frame" x="67" y="30" width="240" height="112"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="112" id="mAT-ax-t8H"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -193,7 +196,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fMX-50-l2J" firstAttribute="leading" secondItem="uag-YJ-uXQ" secondAttribute="leadingMargin" constant="51" id="NrB-QM-pxW"/>
-                            <constraint firstItem="52c-YQ-pdj" firstAttribute="top" secondItem="fMX-50-l2J" secondAttribute="bottom" constant="497" id="XWp-3A-Ims"/>
                             <constraint firstItem="fMX-50-l2J" firstAttribute="centerX" secondItem="uag-YJ-uXQ" secondAttribute="centerX" id="gvy-ST-8zj"/>
                             <constraint firstItem="fMX-50-l2J" firstAttribute="top" secondItem="k2H-AO-tp6" secondAttribute="bottom" constant="10" id="umm-6U-Gmu"/>
                         </constraints>
@@ -201,7 +203,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D23-gk-osJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1038" y="36"/>
+            <point key="canvasLocation" x="1037.5999999999999" y="35.532233883058474"/>
         </scene>
     </scenes>
     <resources>

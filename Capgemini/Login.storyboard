@@ -285,8 +285,7 @@
                                     <color key="titleColor" red="0.94559265930000003" green="1" blue="0.97406875380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="GotoLogin:" destination="eYC-8b-xhJ" eventType="touchUpInside" id="jzh-lP-fmR"/>
-                                    <segue destination="UP9-Wz-Hqu" kind="presentation" identifier="BackToLogin" modalTransitionStyle="crossDissolve" id="Vfh-9H-o1A"/>
+                                    <segue destination="C4T-ua-GSd" kind="modal" id="pB4-fd-kfa"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bvo-q8-gul">
@@ -553,7 +552,6 @@
         <image name="valid" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Vfh-9H-o1A"/>
-        <segue reference="wIp-lP-eG5"/>
+        <segue reference="pB4-fd-kfa"/>
     </inferredMetricsTieBreakers>
 </document>
