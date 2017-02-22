@@ -17,6 +17,7 @@
 		0EA4B10A1E5DEF640088FF48 /* HideKeyboardMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA4B1091E5DEF640088FF48 /* HideKeyboardMethod.swift */; };
 		0EA4B10C1E5DF1B30088FF48 /* LeaderBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA4B10B1E5DF1B30088FF48 /* LeaderBoardViewController.swift */; };
 		4309EAA91E5DF698005026CB /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4309EAA81E5DF698005026CB /* ImageCollectionViewCell.swift */; };
+		4309EAAB1E5DF82F005026CB /* VoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4309EAAA1E5DF82F005026CB /* VoteViewController.swift */; };
 		433100A81E57344500269EEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433100A71E57344500269EEB /* AppDelegate.swift */; };
 		433100AA1E57344500269EEB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433100A91E57344500269EEB /* ViewController.swift */; };
 		433100AD1E57344500269EEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 433100AB1E57344500269EEB /* Main.storyboard */; };
@@ -62,6 +63,7 @@
 		0EA4B1091E5DEF640088FF48 /* HideKeyboardMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideKeyboardMethod.swift; sourceTree = "<group>"; };
 		0EA4B10B1E5DF1B30088FF48 /* LeaderBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderBoardViewController.swift; sourceTree = "<group>"; };
 		4309EAA81E5DF698005026CB /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		4309EAAA1E5DF82F005026CB /* VoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteViewController.swift; sourceTree = "<group>"; };
 		433100A41E57344500269EEB /* Capgemini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capgemini.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		433100A71E57344500269EEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		433100A91E57344500269EEB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 		43A96CD51E5DA7350078CEC8 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				4309EAAA1E5DF82F005026CB /* VoteViewController.swift */,
 				4309EAA81E5DF698005026CB /* ImageCollectionViewCell.swift */,
 				43A96CD61E5DA7710078CEC8 /* DrawViewController.swift */,
 				0EA4B10B1E5DF1B30088FF48 /* LeaderBoardViewController.swift */,
@@ -388,6 +391,7 @@
 				435AA8FE1E5B443100BBB567 /* TextToSpeech.swift in Sources */,
 				433100A81E57344500269EEB /* AppDelegate.swift in Sources */,
 				0E0961731E5B4F1800487D61 /* SetNickViewController.swift in Sources */,
+				4309EAAB1E5DF82F005026CB /* VoteViewController.swift in Sources */,
 				435AA8F61E5B302200BBB567 /* LoginCheckViewController.swift in Sources */,
 				0EA4B10A1E5DEF640088FF48 /* HideKeyboardMethod.swift in Sources */,
 			);
