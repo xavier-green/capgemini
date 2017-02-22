@@ -1,5 +1,5 @@
 //
-//  UsersViewController.swift
+//  LeaderBoardViewController.swift
 //  Capgemini
 //
 //  Created by Younes Belkouchi on 22/02/2017.
@@ -8,16 +8,15 @@
 
 import UIKit
 
-class UsersViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
+class LeaderBoardViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
+
         // Do any additional setup after loading the view.
+        tableView.delegate=self
+        tableView.dataSource=self
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,13 +32,13 @@ class UsersViewController: UIViewController,UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return GlobalVariables.usernames.count
     }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = indexPath.row
         let Name = GlobalVariables.usernames[row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell",
-                                                 for: indexPath) as! UserTableCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell",
+                                                 for: indexPath) as! leaderBoardCell
         cell.userName?.text = Name
-        cell.userDrawings?.text = "5"
+        cell.userRank?.text = String(row+1)
         //cell.userImage.image = UIImage(named: "question")
         return cell
     }
@@ -53,18 +52,10 @@ class UsersViewController: UIViewController,UITableViewDelegate, UITableViewData
         // Pass the selected object to the new view controller.
     }
     */
-    @IBAction func goToGame(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "App", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "DrawNavigationViewController") as! UINavigationController
-        self.present(controller, animated: true, completion: nil)
-    }
+
 }
 
-// Cell Class
-
-class UserTableCell:UITableViewCell {
-    @IBOutlet weak var userImage: UIImageView!
+class leaderBoardCell: UITableViewCell {
+    @IBOutlet weak var userRank: UILabel!
     @IBOutlet weak var userName: UILabel!
-    @IBOutlet weak var userDrawings: UILabel!
-    
 }
