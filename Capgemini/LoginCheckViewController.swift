@@ -10,6 +10,10 @@ import UIKit
 
 class LoginCheckViewController: UIViewController {
     
+    var nickName: String = "Non renseigné"
+    
+    @IBOutlet var helloCheckLabel: UILabel!
+    
     @IBAction func GotoLogin(_ sender: Any) {
         performSegue(withIdentifier: "BackToLogin", sender: nil)
     }
@@ -24,6 +28,7 @@ class LoginCheckViewController: UIViewController {
         super.viewDidLoad()
         YesButton.layer.cornerRadius = 10
         NoButton.layer.cornerRadius = 10
+        helloCheckLabel.text = "Êtes vous bien "+nickName+" ?"
     }
     @IBAction func goBack(_ sender: Any) {
         performSegue(withIdentifier: "BackToLogin", sender: nil)

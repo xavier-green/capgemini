@@ -13,12 +13,17 @@ class NickViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var nickName: UITextField!
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         nickName.delegate=self
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let viewController=segue.destination as? LoginViewController {
+            viewController.nickName = nickName.text!
+        }
     }
 
     override func didReceiveMemoryWarning() {
