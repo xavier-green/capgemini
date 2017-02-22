@@ -53,6 +53,9 @@
                                     <constraint firstAttribute="height" constant="55" id="tpW-Q9-WVV"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="leaderboard"/>
+                                <connections>
+                                    <segue destination="2sj-US-YZy" kind="modal" id="Wkc-dm-orn"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="14f-Pu-7Gs">
                                 <rect key="frame" x="46" y="144" width="55" height="55"/>
@@ -282,7 +285,7 @@
             </objects>
             <point key="canvasLocation" x="164" y="790.25487256371821"/>
         </scene>
-        <!--View Controller-->
+        <!--Vote View Controller-->
         <scene sceneID="dv1-8U-t4s">
             <objects>
                 <viewController id="Tnx-0Z-EW9" customClass="VoteViewController" customModule="Capgemini" customModuleProvider="target" sceneMemberID="viewController">
@@ -387,7 +390,7 @@
         <image name="valid" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="OWt-eH-Dbj"/>
         <segue reference="IXN-Mw-KAo"/>
+        <segue reference="Wkc-dm-orn"/>
     </inferredMetricsTieBreakers>
 </document>
