@@ -13,7 +13,11 @@ class SetNickViewController: UIViewController, UITextFieldDelegate {
     //MARK: Outlet
     @IBOutlet weak var nickText: UITextField!
     @IBOutlet weak var validation: UILabel!
-    let nameRegEx = "[A-Z][0-9]"
+    func isValidName(testStr:String) -> Bool {
+        let nameRegEx = "[A-Za-z0-9]+"
+        let nameTest = NSPredicate(format:"SELF MATCHES %@", nameRegEx)
+        return nameTest.evaluate(with: testStr)
+    }
     
     //MARK: View Funcs
     override func viewDidLoad() {
@@ -53,7 +57,7 @@ class SetNickViewController: UIViewController, UITextFieldDelegate {
     
     //End Button
     @IBAction func done(_ sender: UIButton) {
-        if nickText.text=="" {
+        if !isValidName(testStr: nickText.text!) {
             print("nope")
             validation.isHidden=false
         } else {
