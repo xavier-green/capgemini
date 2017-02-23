@@ -90,14 +90,14 @@
                                     <constraint firstAttribute="height" constant="60" id="Hgs-B4-bRb"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="voice" translatesAutoresizingMaskIntoConstraints="NO" id="Ely-Ax-KCR">
+                            <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="voice" translatesAutoresizingMaskIntoConstraints="NO" id="Ely-Ax-KCR">
                                 <rect key="frame" x="158" y="85" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="cSV-MZ-bys"/>
                                     <constraint firstAttribute="width" constant="60" id="n0A-Ob-JfD"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="date" translatesAutoresizingMaskIntoConstraints="NO" id="lkJ-H2-o7k">
+                            <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="date" translatesAutoresizingMaskIntoConstraints="NO" id="lkJ-H2-o7k">
                                 <rect key="frame" x="268" y="85" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="CiW-7J-e7m"/>
@@ -266,7 +266,7 @@
                                     <segue destination="eYC-8b-xhJ" kind="presentation" modalTransitionStyle="crossDissolve" id="vMO-sh-Voy"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="username" translatesAutoresizingMaskIntoConstraints="NO" id="lBv-u8-YDF">
+                            <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="valid" translatesAutoresizingMaskIntoConstraints="NO" id="lBv-u8-YDF">
                                 <rect key="frame" x="48" y="85" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="8R8-E6-8SR"/>
@@ -487,7 +487,7 @@
                                     <segue destination="qFr-bu-2aY" kind="presentation" modalTransitionStyle="crossDissolve" id="SWX-w6-Z6w"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" alpha="0.20000000298023224" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="username" translatesAutoresizingMaskIntoConstraints="NO" id="xTN-Th-o7Q">
+                            <imageView userInteractionEnabled="NO" alpha="0.20000000298023224" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="valid" translatesAutoresizingMaskIntoConstraints="NO" id="xTN-Th-o7Q">
                                 <rect key="frame" x="47.5" y="85" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Udc-wZ-ZPw"/>
@@ -619,14 +619,14 @@
                                     <segue destination="tW3-5H-dDF" kind="presentation" modalTransitionStyle="crossDissolve" id="a6r-R5-EmO"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" alpha="0.20000000298023224" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="username" translatesAutoresizingMaskIntoConstraints="NO" id="tfc-OR-hTZ">
+                            <imageView userInteractionEnabled="NO" alpha="0.20000000298023224" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="valid" translatesAutoresizingMaskIntoConstraints="NO" id="tfc-OR-hTZ">
                                 <rect key="frame" x="47" y="85" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="HJM-t7-5sl"/>
                                     <constraint firstAttribute="width" constant="60" id="PtW-h9-iOq"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="voice" translatesAutoresizingMaskIntoConstraints="NO" id="ZDG-BH-KRP">
+                            <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="valid" translatesAutoresizingMaskIntoConstraints="NO" id="ZDG-BH-KRP">
                                 <rect key="frame" x="157" y="85" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="GXY-ob-aXJ"/>
@@ -801,8 +801,8 @@
         <image name="voice" width="512" height="508"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="wIp-lP-eG5"/>
         <segue reference="Rp1-0q-eeU"/>
         <segue reference="lN4-AI-sUI"/>
-        <segue reference="wIp-lP-eG5"/>
     </inferredMetricsTieBreakers>
 </document>
