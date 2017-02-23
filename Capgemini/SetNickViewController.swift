@@ -12,6 +12,7 @@ class SetNickViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: Outlet
     @IBOutlet weak var nickText: UITextField!
+    @IBOutlet weak var validation: UILabel!
     let nameRegEx = "[A-Z][0-9]"
     
     //MARK: View Funcs
@@ -52,11 +53,15 @@ class SetNickViewController: UIViewController, UITextFieldDelegate {
     
     //End Button
     @IBAction func done(_ sender: UIButton) {
-        
-        GlobalVariables.usernames.append(nickText.text!)
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "ViewController") as! UINavigationController
-        self.present(controller, animated: true, completion: nil)
+        if nickText.text=="" {
+            print("nope")
+            validation.isHidden=false
+        } else {
+            GlobalVariables.usernames.append(nickText.text!)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "ViewController") as! UINavigationController
+            self.present(controller, animated: true, completion: nil)
+        }
     }
 
 }
