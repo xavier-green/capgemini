@@ -50,7 +50,7 @@
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ecris ton pseudo :" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fi-7m-krj">
-                                <rect key="frame" x="100" y="205" width="175.5" height="26.5"/>
+                                <rect key="frame" x="100" y="205" width="176" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27" id="SQh-1f-8GQ"/>
                                 </constraints>
@@ -59,7 +59,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y0z-R6-tYT">
-                                <rect key="frame" x="37.5" y="239" width="300" height="30"/>
+                                <rect key="frame" x="37.5" y="240" width="300" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="iEs-Vt-zKA"/>
                                     <constraint firstAttribute="width" constant="300" id="r0h-KK-lbf"/>
@@ -69,13 +69,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uZn-ac-Pwh">
-                                <rect key="frame" x="-0.5" y="368" width="375" height="94"/>
+                                <rect key="frame" x="-0.5" y="369" width="375" height="94"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="94" id="dK2-Lu-OXJ"/>
                                 </constraints>
                             </pickerView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not a valid username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v0n-kF-6LS">
-                                <rect key="frame" x="107" y="277" width="161" height="21"/>
+                                <rect key="frame" x="107" y="278" width="161" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="3Ti-MQ-Qfl"/>
                                 </constraints>
@@ -84,28 +84,28 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="username" translatesAutoresizingMaskIntoConstraints="NO" id="z1v-Oy-1px">
-                                <rect key="frame" x="47.5" y="85" width="60" height="60"/>
+                                <rect key="frame" x="48" y="85" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="9M0-Hv-IBf"/>
                                     <constraint firstAttribute="height" constant="60" id="Hgs-B4-bRb"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="voice" translatesAutoresizingMaskIntoConstraints="NO" id="Ely-Ax-KCR">
-                                <rect key="frame" x="157.5" y="85" width="60" height="60"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="voice" translatesAutoresizingMaskIntoConstraints="NO" id="Ely-Ax-KCR">
+                                <rect key="frame" x="158" y="85" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="cSV-MZ-bys"/>
                                     <constraint firstAttribute="width" constant="60" id="n0A-Ob-JfD"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="date" translatesAutoresizingMaskIntoConstraints="NO" id="lkJ-H2-o7k">
-                                <rect key="frame" x="267.5" y="85" width="60" height="60"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="date" translatesAutoresizingMaskIntoConstraints="NO" id="lkJ-H2-o7k">
+                                <rect key="frame" x="268" y="85" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="CiW-7J-e7m"/>
                                     <constraint firstAttribute="height" constant="60" id="LN1-rF-7Zb"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ou bien essaye de hacker un de tes collègues !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="paw-t9-vM6">
-                                <rect key="frame" x="0.0" y="333" width="375" height="27"/>
+                                <rect key="frame" x="0.0" y="334" width="375" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27" id="wvD-gu-GxO"/>
                                 </constraints>
@@ -122,7 +122,7 @@
                                 <state key="normal" backgroundImage="micOn"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t1g-QX-lcc">
-                                <rect key="frame" x="0.0" y="497" width="375" height="90"/>
+                                <rect key="frame" x="0.0" y="498" width="375" height="90"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="dp0-DK-W5f"/>
@@ -719,7 +719,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="94"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N4t-mY-XHO" id="0YL-AN-BoO">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="94"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="93"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Int" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AA7-En-Ogs">

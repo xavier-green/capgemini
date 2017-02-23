@@ -27,6 +27,7 @@ class VoiceRecViewController: UIViewController {
             self.performSegue(withIdentifier: "recDone", sender: nil)
         }
     }
+    @IBOutlet weak var enregistrement: UILabel!
     
     
     //MARK: View funcs
@@ -65,12 +66,14 @@ class VoiceRecViewController: UIViewController {
                 if recAttempts==0 {
                     doneButton.isHidden=false
                 }
+                enregistrement.text="Appuyer pour commencer l'enregistrement"
                 recoVocale.playRecording()
             } else {
                 NSLog("Starting recording")
                 //self.recordButton.setTitle("STOP", for: .normal)
                 self.recordButton.setBackgroundImage(micOffImage, for: .normal)
                 recoVocale.startRecording()
+                enregistrement.text = "Réappuyer pour arrêter l'enregistrement"
             }
         }
     }
