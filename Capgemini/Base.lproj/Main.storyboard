@@ -86,7 +86,7 @@
                                 <state key="normal" backgroundImage="micOn"/>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.98340518023683621" green="0.98340518023683621" blue="0.98340518023683621" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.98431372549019602" green="0.98431372549019602" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="LuS-XG-tDp" firstAttribute="width" secondItem="UQH-4D-5hr" secondAttribute="width" id="D5l-hE-0Ql"/>
                             <constraint firstItem="ONA-5M-0Sg" firstAttribute="top" secondItem="c9w-Cf-dDX" secondAttribute="bottom" constant="83" id="E3k-UN-XxY"/>
