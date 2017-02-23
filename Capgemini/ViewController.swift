@@ -11,10 +11,12 @@ import AVFoundation
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var YesBut: UIButton!
-    @IBOutlet weak var HelloLabel: UILabel!
-    @IBOutlet weak var recordButton: UIButton!
-    @IBOutlet weak var AccountLabel: UILabel!
+    
+    @IBOutlet var YesBut: UIButton!
+    @IBOutlet var HelloLabel: UILabel!
+    @IBOutlet var RecordButton: UIButton!
+    @IBOutlet var AccountLabel: UITextView!
+    
     
     let micOffImage = UIImage(named: "micOff")
     let micOnImage = UIImage(named: "micOn")
@@ -41,16 +43,19 @@ class ViewController: UIViewController {
         recoVocale = ReconnaissanceVocaleController()
         speechToText = TextToSpeech()
         
-        let labelArray: [String] = [self.HelloLabel.text!, self.AccountLabel.text!]
+        YesBut.layer.borderWidth = 2
+        YesBut.layer.borderColor = UIColor.yellow.cgColor
+        
+        let labelArray: [String] = [self.HelloLabel.text!, "Comment allez vous ?"]
         speechToText.speak(sentences: labelArray)
         let okRecord = recoVocale.initAndCheck()
         
         if okRecord {
-            self.recordButton.isHidden = false
-            self.recordButton.addTarget(self, action: #selector(self.recordTapped), for: .touchUpInside)
+            self.RecordButton.isHidden = false
+            self.RecordButton.addTarget(self, action: #selector(self.recordTapped), for: .touchUpInside)
             self.YesBut.addTarget(self, action: #selector(self.nexView), for: .touchUpInside)
         } else {
-            self.recordButton.isHidden = true
+            self.RecordButton.isHidden = true
         }
     }
     
@@ -59,12 +64,12 @@ class ViewController: UIViewController {
             NSLog("Stopping recording")
             //self.recordButton.setTitle("Re-record", for: .normal)
             recoVocale.finishRecording(success: true)
-            self.recordButton.setBackgroundImage(micOnImage, for: .normal)
+            self.RecordButton.setBackgroundImage(micOnImage, for: .normal)
             recoVocale.playRecording()
         } else {
             NSLog("Starting recording")
             //self.recordButton.setTitle("STOP", for: .normal)
-            self.recordButton.setBackgroundImage(micOffImage, for: .normal)
+            self.RecordButton.setBackgroundImage(micOffImage, for: .normal)
             recoVocale.startRecording()
         }
     }
