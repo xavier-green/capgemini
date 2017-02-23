@@ -9,6 +9,7 @@
 import UIKit
 
 class VoteViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    @IBOutlet var continuerButton: UIButton!
     
     let reuseIdentifier = "cell" // also enter this string as the cell identifier in the storyboard
     var items = ["draw1", "draw2", "draw3", "draw4"]
@@ -31,16 +32,22 @@ class VoteViewController: UIViewController, UICollectionViewDataSource, UICollec
         print("selected ",indexPath.item)
     }
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        continuerButton.isHidden = false
+        for i in 0...self.items.count {
+            let index = IndexPath(item: i, section: 0)
+            let cell = collectionView.cellForItem(at: index)
+            cell?.layer.borderColor = UIColor.black.cgColor
+        }
         let cell = collectionView.cellForItem(at: indexPath)
-        cell?.backgroundColor = UIColor.red
+        cell?.layer.borderColor = UIColor.green.cgColor
     }
     func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)
-        cell?.backgroundColor = UIColor.cyan
+        print("unselected")
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        continuerButton.isHidden = true
         // Do any additional setup after loading the view.
     }
 

@@ -30,6 +30,7 @@
 		435AA8F81E5B303700BBB567 /* LoginDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435AA8F71E5B303700BBB567 /* LoginDateViewController.swift */; };
 		435AA8FC1E5B392900BBB567 /* ReconnaissanceVocaleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435AA8FB1E5B392900BBB567 /* ReconnaissanceVocaleController.swift */; };
 		435AA8FE1E5B443100BBB567 /* TextToSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435AA8FD1E5B443100BBB567 /* TextToSpeech.swift */; };
+		43921B971E5EE6F5001A952A /* ReplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43921B961E5EE6F5001A952A /* ReplayViewController.swift */; };
 		43A96CD01E5DA3C90078CEC8 /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A96CCF1E5DA3C90078CEC8 /* GlobalVariables.swift */; };
 		43A96CD21E5DA6770078CEC8 /* App.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43A96CD11E5DA6770078CEC8 /* App.storyboard */; };
 		43A96CD71E5DA7710078CEC8 /* DrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A96CD61E5DA7710078CEC8 /* DrawViewController.swift */; };
@@ -82,6 +83,7 @@
 		435AA8F71E5B303700BBB567 /* LoginDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginDateViewController.swift; sourceTree = "<group>"; };
 		435AA8FB1E5B392900BBB567 /* ReconnaissanceVocaleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReconnaissanceVocaleController.swift; sourceTree = "<group>"; };
 		435AA8FD1E5B443100BBB567 /* TextToSpeech.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextToSpeech.swift; sourceTree = "<group>"; };
+		43921B961E5EE6F5001A952A /* ReplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplayViewController.swift; sourceTree = "<group>"; };
 		43A96CCF1E5DA3C90078CEC8 /* GlobalVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 		43A96CD11E5DA6770078CEC8 /* App.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = App.storyboard; sourceTree = "<group>"; };
 		43A96CD61E5DA7710078CEC8 /* DrawViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawViewController.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				4309EAA81E5DF698005026CB /* ImageCollectionViewCell.swift */,
 				43A96CD61E5DA7710078CEC8 /* DrawViewController.swift */,
 				0EA4B10B1E5DF1B30088FF48 /* LeaderBoardViewController.swift */,
+				43921B961E5EE6F5001A952A /* ReplayViewController.swift */,
 			);
 			name = App;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				0E0961721E5B4F1800487D61 /* SetDateViewController.swift in Sources */,
 				433100AA1E57344500269EEB /* ViewController.swift in Sources */,
 				0E09616E1E5B4EF400487D61 /* ReadyViewController.swift in Sources */,
+				43921B971E5EE6F5001A952A /* ReplayViewController.swift in Sources */,
 				435AA8FE1E5B443100BBB567 /* TextToSpeech.swift in Sources */,
 				433100A81E57344500269EEB /* AppDelegate.swift in Sources */,
 				0E0961731E5B4F1800487D61 /* SetNickViewController.swift in Sources */,
