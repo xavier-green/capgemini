@@ -17,7 +17,7 @@ class ErrorViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         nickText.delegate=self
-        descField.text = "Vous êtes arrivés à hacker "+nickName+". Rentrez votre pseudo :"
+        descField.text = "Vous êtes arrivés à hacker "+nickName+". Rentrez votre vrai pseudo :"
         // Do any additional setup after loading the view.
         self.hideKeyboardWhenTappedAround()
         assignbackground()

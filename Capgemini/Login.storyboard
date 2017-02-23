@@ -701,9 +701,9 @@
                                     <navigationItem id="icy-r1-bFc">
                                         <barButtonItem key="rightBarButtonItem" style="plain" id="86w-Li-Yjw">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eKC-8y-iVg">
-                                                <rect key="frame" x="264" y="28" width="95" height="30"/>
+                                                <rect key="frame" x="306" y="28" width="53" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Go to Game &gt;"/>
+                                                <state key="normal" title="Jouer &gt;"/>
                                                 <connections>
                                                     <action selector="goToGame:" destination="tW3-5H-dDF" eventType="touchUpInside" id="Drl-5D-kaV"/>
                                                 </connections>
