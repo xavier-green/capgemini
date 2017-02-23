@@ -244,7 +244,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="&quot; Chez Cetelem ma voix est mon mot de passe &quot;" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8sl-94-eCt">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="&quot; Chez Cetelem ma voix est mon mot de passe &quot;" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sl-94-eCt">
                                 <rect key="frame" x="0.0" y="382" width="375" height="98"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="98" id="Vh9-mh-iNm"/>
@@ -402,6 +402,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="descField" destination="8Ui-bT-kob" id="yQW-Il-kGU"/>
                         <outlet property="nickText" destination="jZZ-TV-vmN" id="Ueh-gZ-8Zi"/>
                     </connections>
                 </viewController>
@@ -801,8 +802,8 @@
         <image name="voice" width="512" height="508"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wIp-lP-eG5"/>
-        <segue reference="Rp1-0q-eeU"/>
+        <segue reference="hOO-l4-jtD"/>
         <segue reference="lN4-AI-sUI"/>
+        <segue reference="Rp1-0q-eeU"/>
     </inferredMetricsTieBreakers>
 </document>
