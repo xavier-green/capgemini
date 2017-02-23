@@ -19,13 +19,14 @@ extension UIViewController {
         view.endEditing(true)
     }
     func assignbackground(){
-        let background = UIImage(named: "background")
+        let background = UIColor(red: 251, green: 251, blue: 251, alpha: 1)
         
         var imageview : UIImageView!
         imageview = UIImageView(frame: view.bounds)
         imageview.contentMode =  UIViewContentMode.scaleAspectFill
         imageview.clipsToBounds = true
-        imageview.image = background
+        imageview.backgroundColor = background
+        //imageview.image = background
         imageview.center = view.center
         view.addSubview(imageview)
         self.view.sendSubview(toBack: imageview)
