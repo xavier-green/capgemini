@@ -19,7 +19,7 @@ extension UIViewController {
         view.endEditing(true)
     }
     func assignbackground(){
-        let background = UIColor(red: 251, green: 251, blue: 251, alpha: 0)
+        let background = UIColor(red: (251/255.0), green: (251/255.0), blue: (251/255.0), alpha: 1.0)
         
         var imageview : UIImageView!
         imageview = UIImageView(frame: view.bounds)

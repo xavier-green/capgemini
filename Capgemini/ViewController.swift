@@ -48,8 +48,8 @@ class ViewController: UIViewController {
         YesBut.layer.borderWidth = 1
         YesBut.layer.borderColor = UIColor.lightGray.cgColor
         
-        let labelArray: [String] = [self.HelloLabel.text!, "Comment allez vous ?"]
-        speechToText.speak(sentences: labelArray)
+        //let labelArray: [String] = [self.HelloLabel.text!, "Comment allez vous ?"]
+        //speechToText.speak(sentences: labelArray)
         let okRecord = recoVocale.initAndCheck()
         
         if okRecord {

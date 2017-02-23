@@ -22,8 +22,8 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         
         YesBut.layer.borderWidth = 1
         YesBut.layer.borderColor = UIColor.lightGray.cgColor
-        usernamePicker.layer.borderWidth = 1
-        usernamePicker.layer.borderColor = UIColor.lightGray.cgColor
+        nickName.layer.borderWidth = 1
+        nickName.layer.borderColor = UIColor.lightGray.cgColor
         
         //hide keyboard when background is pressed
         self.hideKeyboardWhenTappedAround()
