@@ -40,7 +40,7 @@ class LeaderBoardViewController: UIViewController, UITableViewDelegate,UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell",
                                                  for: indexPath) as! leaderBoardCell
         cell.userName?.text = Name
-        cell.userRank?.text = String(row+1)
+        cell.userRank?.text = String(20-row+1)
         //cell.userImage.image = UIImage(named: "question")
         return cell
     }
