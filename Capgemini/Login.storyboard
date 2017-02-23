@@ -39,7 +39,13 @@
                                                 </connections>
                                             </button>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="i" id="Irt-Ag-Jeh"/>
+                                        <barButtonItem key="rightBarButtonItem" style="plain" id="Edi-1n-RPg">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dqQ-P9-4eG">
+                                                <rect key="frame" x="329" y="28" width="30" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" backgroundImage="information"/>
+                                            </button>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -651,6 +657,7 @@
     <resources>
         <image name="background" width="1080" height="1920"/>
         <image name="date" width="512" height="512"/>
+        <image name="information" width="128" height="128"/>
         <image name="lock" width="256" height="256"/>
         <image name="micOn" width="1024" height="1024"/>
         <image name="question" width="256" height="256"/>
