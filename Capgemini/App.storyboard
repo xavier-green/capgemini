@@ -109,13 +109,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connecté en tant que : ZORO17" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lyi-Oz-Rds">
-                                <rect key="frame" x="16" y="20" width="343" height="16"/>
+                                <rect key="frame" x="16" y="28" width="343" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Wt-MI-DHe">
-                                <rect key="frame" x="46" y="51" width="55" height="55"/>
+                                <rect key="frame" x="46" y="67" width="55" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="55" id="CML-Jx-1kF"/>
                                     <constraint firstAttribute="width" secondItem="6Wt-MI-DHe" secondAttribute="height" multiplier="1:1" id="vWH-hX-rfW"/>
@@ -124,17 +124,6 @@
                                 <state key="normal" backgroundImage="color"/>
                                 <connections>
                                     <segue destination="u9S-eE-re2" kind="modal" id="P1c-Yb-N3e"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Po-dl-fed">
-                                <rect key="frame" x="274" y="51" width="55" height="55"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="55" id="Hdb-6c-2QV"/>
-                                    <constraint firstAttribute="height" constant="55" id="e5M-qM-VwA"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="leaderboard"/>
-                                <connections>
-                                    <segue destination="2sj-US-YZy" kind="modal" id="Pzl-lX-PKu"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="setelem" translatesAutoresizingMaskIntoConstraints="NO" id="sUc-Ks-fou">
@@ -161,6 +150,17 @@
                                     <segue destination="Tnx-0Z-EW9" kind="presentation" id="lFg-cz-fWH"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Po-dl-fed">
+                                <rect key="frame" x="274" y="67" width="55" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="55" id="Hdb-6c-2QV"/>
+                                    <constraint firstAttribute="height" constant="55" id="e5M-qM-VwA"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="leaderboard"/>
+                                <connections>
+                                    <segue destination="2sj-US-YZy" kind="modal" id="Pzl-lX-PKu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -176,11 +176,10 @@
                             <constraint firstItem="glu-k1-nmx" firstAttribute="leading" secondItem="9rw-eD-rf8" secondAttribute="leadingMargin" constant="85" id="avG-nk-nqP"/>
                             <constraint firstItem="AUV-KC-qok" firstAttribute="top" secondItem="glu-k1-nmx" secondAttribute="bottom" constant="8" id="iGz-eR-6e2"/>
                             <constraint firstItem="6Wt-MI-DHe" firstAttribute="top" secondItem="lyi-Oz-Rds" secondAttribute="bottom" constant="15" id="irC-cN-Z5f"/>
-                            <constraint firstItem="lyi-Oz-Rds" firstAttribute="top" secondItem="65u-eh-wW2" secondAttribute="bottom" id="j6P-ji-iAd"/>
-                            <constraint firstItem="sUc-Ks-fou" firstAttribute="top" secondItem="6Po-dl-fed" secondAttribute="bottom" constant="30" id="nFK-kJ-6Mf"/>
+                            <constraint firstItem="lyi-Oz-Rds" firstAttribute="top" secondItem="65u-eh-wW2" secondAttribute="bottom" constant="8" id="j6P-ji-iAd"/>
                             <constraint firstItem="sUc-Ks-fou" firstAttribute="leading" secondItem="9rw-eD-rf8" secondAttribute="leading" id="rKD-xm-dql"/>
-                            <constraint firstItem="6Po-dl-fed" firstAttribute="top" secondItem="lyi-Oz-Rds" secondAttribute="bottom" constant="15" id="sBj-jW-Bnr"/>
                             <constraint firstItem="6Wt-MI-DHe" firstAttribute="leading" secondItem="9rw-eD-rf8" secondAttribute="leadingMargin" constant="30" id="v6J-Nn-ce5"/>
+                            <constraint firstItem="6Po-dl-fed" firstAttribute="top" secondItem="lyi-Oz-Rds" secondAttribute="bottom" constant="15" id="zD2-gG-B3f"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="80E-ga-zFZ"/>
