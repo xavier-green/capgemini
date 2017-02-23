@@ -48,6 +48,8 @@ class VoteViewController: UIViewController, UICollectionViewDataSource, UICollec
     override func viewDidLoad() {
         super.viewDidLoad()
         continuerButton.isHidden = true
+        continuerButton.layer.borderWidth = 1
+        continuerButton.layer.borderColor = UIColor.lightGray.cgColor
         // Do any additional setup after loading the view.
         assignbackground()
     }
