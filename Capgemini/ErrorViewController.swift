@@ -9,12 +9,15 @@
 import UIKit
 
 class ErrorViewController: UIViewController, UITextFieldDelegate {
+    
+    var nickName: String = GlobalVariables.username
 
+    @IBOutlet var descField: UITextView!
     @IBOutlet weak var nickText: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         nickText.delegate=self
-
+        descField.text = "Vous êtes arrivés à hacker "+nickName+". Rentrez votre pseudo :"
         // Do any additional setup after loading the view.
         self.hideKeyboardWhenTappedAround()
         assignbackground()
