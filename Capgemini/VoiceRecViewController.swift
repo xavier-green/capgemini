@@ -28,6 +28,7 @@ class VoiceRecViewController: UIViewController {
         }
     }
     @IBOutlet weak var enregistrement: UILabel!
+    @IBOutlet weak var nextBut: UIButton!
     
     
     //MARK: View funcs
@@ -46,6 +47,8 @@ class VoiceRecViewController: UIViewController {
             self.recordButton.isHidden = true
         }
         assignbackground()
+        nextBut.layer.borderWidth=1
+        nextBut.layer.borderColor=UIColor.lightGray.cgColor
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

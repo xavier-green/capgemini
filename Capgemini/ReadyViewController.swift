@@ -10,14 +10,16 @@ import UIKit
 
 class ReadyViewController: UIViewController {
     
-    //MARK: Outlets    
-    
+    //MARK: Outlets
+    @IBOutlet weak var nextBut: UIButton!
     //MARK: View Funcs
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         assignbackground()
+        nextBut.layer.borderWidth=1
+        nextBut.layer.borderColor=UIColor.lightGray.cgColor
     }
 
     override func didReceiveMemoryWarning() {

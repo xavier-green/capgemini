@@ -82,6 +82,7 @@
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Cp-7Z-XfM">
                                 <rect key="frame" x="0.0" y="472" width="375" height="90"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="5jf-r6-xAj"/>
                                 </constraints>
@@ -161,6 +162,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qTA-3r-D1y"/>
+                    <connections>
+                        <outlet property="nextBut" destination="9Cp-7Z-XfM" id="kBU-B7-ke5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RWJ-An-yvZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -324,6 +328,7 @@
                     <connections>
                         <outlet property="doneButton" destination="cpa-YA-0wK" id="zTV-h0-TET"/>
                         <outlet property="enregistrement" destination="z0S-d5-UVw" id="jU5-eI-du4"/>
+                        <outlet property="nextBut" destination="cpa-YA-0wK" id="pUS-lY-hpt"/>
                         <outlet property="recordButton" destination="5IY-Fb-CN9" id="BQN-1c-yHQ"/>
                         <outlet property="repeatTimes" destination="dFg-rZ-lPz" id="LfR-5E-psS"/>
                         <segue destination="7m4-XB-IS2" kind="modal" identifier="recDone" modalTransitionStyle="crossDissolve" id="nOT-vw-4Fc"/>
@@ -477,6 +482,9 @@
                             <constraint firstItem="WUH-GG-YOy" firstAttribute="top" secondItem="I87-n3-Wbl" secondAttribute="bottom" id="zYC-uf-Tyh"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="nextBut" destination="WUH-GG-YOy" id="Gaq-MU-yhg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fj7-0C-w9Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -660,6 +668,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="nextBut" destination="yeo-vM-28k" id="yHi-Z7-nSG"/>
                         <outlet property="nickText" destination="vef-Pl-Fb6" id="C94-cB-zZ0"/>
                         <outlet property="validation" destination="WqI-CT-E0A" id="XwN-ny-cQW"/>
                     </connections>
@@ -679,8 +688,8 @@
         <image name="voice" width="512" height="508"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Jzp-bh-8Yh"/>
-        <segue reference="Raa-dR-M6y"/>
+        <segue reference="nOT-vw-4Fc"/>
+        <segue reference="A1g-cC-cat"/>
         <segue reference="VY9-H9-Dvc"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -18,6 +18,7 @@ class SetNickViewController: UIViewController, UITextFieldDelegate {
         let nameTest = NSPredicate(format:"SELF MATCHES %@", nameRegEx)
         return nameTest.evaluate(with: testStr)
     }
+    @IBOutlet weak var nextBut: UIButton!
     
     //MARK: View Funcs
     override func viewDidLoad() {
@@ -29,6 +30,8 @@ class SetNickViewController: UIViewController, UITextFieldDelegate {
         self.hideKeyboardWhenTappedAround()
         
         assignbackground()
+        nextBut.layer.borderWidth=1
+        nextBut.layer.borderColor=UIColor.lightGray.cgColor
     }
 
     override func didReceiveMemoryWarning() {

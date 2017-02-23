@@ -10,11 +10,14 @@ import UIKit
 
 class SetDateViewController: UIViewController {
     
+    @IBOutlet weak var nextBut: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         assignbackground()
+        nextBut.layer.borderWidth=1
+        nextBut.layer.borderColor=UIColor.lightGray.cgColor
     }
 
     override func didReceiveMemoryWarning() {
