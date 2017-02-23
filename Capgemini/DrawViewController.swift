@@ -14,6 +14,7 @@ class DrawViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        assignbackground()
     }
 
     override func didReceiveMemoryWarning() {

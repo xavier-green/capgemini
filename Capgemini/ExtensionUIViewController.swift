@@ -18,4 +18,16 @@ extension UIViewController {
     func dismissKeyboard() {
         view.endEditing(true)
     }
+    func assignbackground(){
+        let background = UIImage(named: "background")
+        
+        var imageview : UIImageView!
+        imageview = UIImageView(frame: view.bounds)
+        imageview.contentMode =  UIViewContentMode.scaleAspectFill
+        imageview.clipsToBounds = true
+        imageview.image = background
+        imageview.center = view.center
+        view.addSubview(imageview)
+        self.view.sendSubview(toBack: imageview)
+    }
 }

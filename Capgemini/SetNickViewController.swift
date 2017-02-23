@@ -22,6 +22,8 @@ class SetNickViewController: UIViewController, UITextFieldDelegate {
         nickText.delegate = self
         
         self.hideKeyboardWhenTappedAround()
+        
+        assignbackground()
     }
 
     override func didReceiveMemoryWarning() {

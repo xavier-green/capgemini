@@ -59,6 +59,7 @@ class ViewController: UIViewController {
         } else {
             self.RecordButton.isHidden = true
         }
+        assignbackground()
     }
     
     func recordTapped() {

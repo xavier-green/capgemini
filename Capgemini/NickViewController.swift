@@ -21,6 +21,7 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         
         //hide keyboard when background is pressed
         self.hideKeyboardWhenTappedAround()
+        assignbackground()
     }
     
     // The number of columns of data
