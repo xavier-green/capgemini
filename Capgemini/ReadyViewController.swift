@@ -19,6 +19,7 @@ class ReadyViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        assignbackground()
     }
 
     override func didReceiveMemoryWarning() {

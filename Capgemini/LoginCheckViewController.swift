@@ -26,6 +26,7 @@ class LoginCheckViewController: UIViewController {
         YesButton.layer.cornerRadius = 10
         NoButton.layer.cornerRadius = 10
         helloCheckLabel.text = "Êtes vous bien "+nickName+" ?"
+        assignbackground()
     }
     @IBAction func goBack(_ sender: Any) {
         performSegue(withIdentifier: "BackToLogin", sender: nil)

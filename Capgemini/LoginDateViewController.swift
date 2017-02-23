@@ -23,6 +23,7 @@ class LoginDateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.datePicker.addTarget(self, action: #selector(self.datePickerChanged), for: UIControlEvents.valueChanged)
+        assignbackground()
     }
     
     func datePickerChanged() {

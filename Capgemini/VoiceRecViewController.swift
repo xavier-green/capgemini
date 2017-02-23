@@ -44,6 +44,7 @@ class VoiceRecViewController: UIViewController {
         } else {
             self.recordButton.isHidden = true
         }
+        assignbackground()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

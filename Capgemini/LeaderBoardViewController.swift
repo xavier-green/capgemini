@@ -17,6 +17,8 @@ class LeaderBoardViewController: UIViewController, UITableViewDelegate,UITableVi
         // Do any additional setup after loading the view.
         tableView.delegate=self
         tableView.dataSource=self
+        
+        assignbackground()
     }
 
     override func didReceiveMemoryWarning() {
