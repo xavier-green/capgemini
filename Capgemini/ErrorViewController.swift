@@ -10,10 +10,13 @@ import UIKit
 
 class ErrorViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var nickText: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        nickText.delegate=self
 
         // Do any additional setup after loading the view.
+        self.hideKeyboardWhenTappedAround()
         assignbackground()
     }
 
@@ -22,6 +25,14 @@ class ErrorViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // Hide the keyboard.
+        textField.resignFirstResponder()
+        return true
+    }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        nickText.text = textField.text!
+    }
 
     /*
     // MARK: - Navigation
