@@ -16,6 +16,7 @@
 		0EA4B1061E5DDFB40088FF48 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA4B1051E5DDFB40088FF48 /* UsersViewController.swift */; };
 		0EA4B10A1E5DEF640088FF48 /* ExtensionUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA4B1091E5DEF640088FF48 /* ExtensionUIViewController.swift */; };
 		0EA4B10C1E5DF1B30088FF48 /* LeaderBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA4B10B1E5DF1B30088FF48 /* LeaderBoardViewController.swift */; };
+		0EB29EC21E5EF6A800D1EAAF /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB29EC11E5EF6A800D1EAAF /* ErrorViewController.swift */; };
 		4309EAA91E5DF698005026CB /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4309EAA81E5DF698005026CB /* ImageCollectionViewCell.swift */; };
 		4309EAAB1E5DF82F005026CB /* VoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4309EAAA1E5DF82F005026CB /* VoteViewController.swift */; };
 		433100A81E57344500269EEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433100A71E57344500269EEB /* AppDelegate.swift */; };
@@ -63,6 +64,7 @@
 		0EA4B1051E5DDFB40088FF48 /* UsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		0EA4B1091E5DEF640088FF48 /* ExtensionUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUIViewController.swift; sourceTree = "<group>"; };
 		0EA4B10B1E5DF1B30088FF48 /* LeaderBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderBoardViewController.swift; sourceTree = "<group>"; };
+		0EB29EC11E5EF6A800D1EAAF /* ErrorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
 		4309EAA81E5DF698005026CB /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		4309EAAA1E5DF82F005026CB /* VoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteViewController.swift; sourceTree = "<group>"; };
 		433100A41E57344500269EEB /* Capgemini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capgemini.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				0E9E39751E5C958E0000BD9E /* NickViewController.swift */,
+				0EB29EC11E5EF6A800D1EAAF /* ErrorViewController.swift */,
 				435AA8EC1E5B064D00BBB567 /* LoginViewController.swift */,
 				0EA4B1051E5DDFB40088FF48 /* UsersViewController.swift */,
 				435AA8F51E5B302200BBB567 /* LoginCheckViewController.swift */,
@@ -385,6 +388,7 @@
 				0E9E39761E5C958E0000BD9E /* NickViewController.swift in Sources */,
 				43A96CD71E5DA7710078CEC8 /* DrawViewController.swift in Sources */,
 				4309EAA91E5DF698005026CB /* ImageCollectionViewCell.swift in Sources */,
+				0EB29EC21E5EF6A800D1EAAF /* ErrorViewController.swift in Sources */,
 				0EA4B1061E5DDFB40088FF48 /* UsersViewController.swift in Sources */,
 				43A96CD01E5DA3C90078CEC8 /* GlobalVariables.swift in Sources */,
 				435AA8ED1E5B064D00BBB567 /* LoginViewController.swift in Sources */,
