@@ -11,7 +11,7 @@ import AVFoundation
 
 class ViewController: UIViewController {
 
-    
+    @IBOutlet var NoBut: UIButton!
     @IBOutlet var YesBut: UIButton!
     @IBOutlet var HelloLabel: UILabel!
     @IBOutlet var RecordButton: UIButton!
@@ -43,8 +43,10 @@ class ViewController: UIViewController {
         recoVocale = ReconnaissanceVocaleController()
         speechToText = TextToSpeech()
         
-        YesBut.layer.borderWidth = 2
-        YesBut.layer.borderColor = UIColor.yellow.cgColor
+        NoBut.layer.borderWidth = 1
+        NoBut.layer.borderColor = UIColor.lightGray.cgColor
+        YesBut.layer.borderWidth = 1
+        YesBut.layer.borderColor = UIColor.lightGray.cgColor
         
         let labelArray: [String] = [self.HelloLabel.text!, "Comment allez vous ?"]
         speechToText.speak(sentences: labelArray)

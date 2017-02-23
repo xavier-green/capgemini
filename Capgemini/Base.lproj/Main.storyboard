@@ -108,6 +108,7 @@
                     <connections>
                         <outlet property="AccountLabel" destination="MIs-yJ-jcs" id="rYb-e4-v0H"/>
                         <outlet property="HelloLabel" destination="ONA-5M-0Sg" id="XWU-L0-FCt"/>
+                        <outlet property="NoBut" destination="LuS-XG-tDp" id="VmT-ct-p1p"/>
                         <outlet property="RecordButton" destination="e3l-We-w5j" id="XSY-7k-ol2"/>
                         <outlet property="YesBut" destination="Yqi-xO-bym" id="vIk-Au-3L1"/>
                     </connections>
