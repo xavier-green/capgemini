@@ -65,6 +65,7 @@ class VoiceRecViewController: UIViewController {
                 repeatTimes.text = "Plus que \(String(recAttempts)) fois"
                 if recAttempts==0 {
                     doneButton.isHidden=false
+                    enregistrement.isHidden=true
                 }
                 enregistrement.text="Appuyer pour commencer l'enregistrement"
                 recoVocale.playRecording()
