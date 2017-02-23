@@ -126,7 +126,7 @@
                                     <segue destination="u9S-eE-re2" kind="modal" id="P1c-Yb-N3e"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="setelem" translatesAutoresizingMaskIntoConstraints="NO" id="sUc-Ks-fou">
+                            <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="setelem" translatesAutoresizingMaskIntoConstraints="NO" id="sUc-Ks-fou">
                                 <rect key="frame" x="0.0" y="136" width="375" height="475"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="475" id="K3B-N2-N3E"/>
