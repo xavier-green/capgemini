@@ -10,6 +10,7 @@ import UIKit
 
 class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
+    @IBOutlet var YesBut: UIButton!
     @IBOutlet weak var nickName: UITextField!
     @IBOutlet var usernamePicker: UIPickerView!
     
@@ -18,6 +19,11 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         self.usernamePicker.delegate = self
         self.usernamePicker.dataSource = self
         nickName.delegate=self
+        
+        YesBut.layer.borderWidth = 1
+        YesBut.layer.borderColor = UIColor.lightGray.cgColor
+        usernamePicker.layer.borderWidth = 1
+        usernamePicker.layer.borderColor = UIColor.lightGray.cgColor
         
         //hide keyboard when background is pressed
         self.hideKeyboardWhenTappedAround()

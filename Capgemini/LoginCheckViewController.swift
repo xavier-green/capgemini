@@ -12,18 +12,19 @@ class LoginCheckViewController: UIViewController {
     
     var nickName: String = GlobalVariables.username
     
+    @IBOutlet var YesButton: UIView!
     @IBOutlet var helloCheckLabel: UILabel!
 
     @IBAction func GotoDate(_ sender: Any) {
         performSegue(withIdentifier: "LoginDate", sender: nil)
     }
     
-    @IBOutlet var YesButton: UIButton!
     @IBOutlet var NoButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        YesButton.layer.cornerRadius = 10
+        YesButton.layer.borderWidth = 1
+        YesButton.layer.borderColor = UIColor.lightGray.cgColor
         NoButton.layer.cornerRadius = 10
         helloCheckLabel.text = "Êtes vous bien "+nickName+" ?"
         assignbackground()

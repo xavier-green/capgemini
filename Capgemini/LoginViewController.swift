@@ -10,13 +10,12 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    @IBAction func GotoLoginCheck(_ sender: Any) {
-        performSegue(withIdentifier: "LoginCheckSegue", sender: nil)
-    }
+    @IBOutlet var suivant: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        suivant.layer.borderWidth = 1
+        suivant.layer.borderColor = UIColor.lightGray.cgColor
         assignbackground()
     }
 
