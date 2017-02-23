@@ -44,7 +44,7 @@
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ecris ton pseudo :" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fi-7m-krj">
-                                <rect key="frame" x="100" y="205" width="175.5" height="26.5"/>
+                                <rect key="frame" x="100" y="205" width="176" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27" id="SQh-1f-8GQ"/>
                                 </constraints>
@@ -62,7 +62,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uZn-ac-Pwh">
-                                <rect key="frame" x="-0.5" y="383" width="375" height="94"/>
+                                <rect key="frame" x="-1" y="383" width="376" height="94"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="94" id="dK2-Lu-OXJ"/>
                                 </constraints>
@@ -77,21 +77,21 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="username" translatesAutoresizingMaskIntoConstraints="NO" id="z1v-Oy-1px">
-                                <rect key="frame" x="47.5" y="85" width="60" height="60"/>
+                                <rect key="frame" x="48" y="85" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="9M0-Hv-IBf"/>
                                     <constraint firstAttribute="height" constant="60" id="Hgs-B4-bRb"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="voice" translatesAutoresizingMaskIntoConstraints="NO" id="Ely-Ax-KCR">
-                                <rect key="frame" x="157.5" y="85" width="60" height="60"/>
+                                <rect key="frame" x="158" y="85" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="cSV-MZ-bys"/>
                                     <constraint firstAttribute="width" constant="60" id="n0A-Ob-JfD"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="date" translatesAutoresizingMaskIntoConstraints="NO" id="lkJ-H2-o7k">
-                                <rect key="frame" x="267.5" y="85" width="60" height="60"/>
+                                <rect key="frame" x="268" y="85" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="CiW-7J-e7m"/>
                                     <constraint firstAttribute="height" constant="60" id="LN1-rF-7Zb"/>
@@ -406,7 +406,7 @@
                                 </items>
                             </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="question" translatesAutoresizingMaskIntoConstraints="NO" id="JmR-UT-gex">
-                                <rect key="frame" x="137.5" y="224" width="100" height="100"/>
+                                <rect key="frame" x="138" y="224" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="7KL-3p-mCt"/>
                                     <constraint firstAttribute="width" constant="100" id="p8g-LY-3HR"/>
@@ -589,7 +589,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="94"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N4t-mY-XHO" id="0YL-AN-BoO">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="94"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="93"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drawing :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="goX-GE-HCc">

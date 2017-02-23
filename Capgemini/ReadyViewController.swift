@@ -10,9 +10,7 @@ import UIKit
 
 class ReadyViewController: UIViewController {
     
-    //MARK: Outlets
-    @IBOutlet weak var ready: UITextView!
-    
+    //MARK: Outlets    
     
     //MARK: View Funcs
     override func viewDidLoad() {
@@ -28,11 +26,6 @@ class ReadyViewController: UIViewController {
     }
     
     //MARK: Actions
-    
-    //Segue
-    @IBAction func ready(_ sender: UIButton) {
-        performSegue(withIdentifier: "VoiceRec", sender: nil)
-    }
     
     //Back button
     @IBAction func backHome(_ sender: UIButton) {
