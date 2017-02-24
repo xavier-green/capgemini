@@ -13,6 +13,8 @@ class FireEvents {
     
     @objc func fireDone(resultat: String) {
         
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "FINISHED_RECORDING"), object: self)
+        
         print("resultat du speechtotext: ",resultat)
         
         switch resultat {

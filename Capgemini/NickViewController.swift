@@ -75,11 +75,15 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         GlobalVariables.username = textField.text!
     }
     
-    @IBAction func gotoHome(_ sender: Any) {
+    func gotohome() {
         print("Moving to home storyboard")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "ViewController") as! UINavigationController
         self.present(controller, animated: true, completion: nil)
+    }
+    
+    @IBAction func gotoHome(_ sender: Any) {
+        gotohome()
     }
 
 }

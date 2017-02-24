@@ -470,7 +470,7 @@
                                     <color key="titleColor" red="0.32452234460000001" green="0.32452234460000001" blue="0.32452234460000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="qFr-bu-2aY" kind="presentation" modalTransitionStyle="crossDissolve" id="SWX-w6-Z6w"/>
+                                    <segue destination="qFr-bu-2aY" kind="presentation" identifier="LoginDate" modalTransitionStyle="crossDissolve" id="SWX-w6-Z6w"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" alpha="0.20000000298023224" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="valid" translatesAutoresizingMaskIntoConstraints="NO" id="xTN-Th-o7Q">
@@ -710,7 +710,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="94"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N4t-mY-XHO" id="0YL-AN-BoO">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="93"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="94"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Int" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AA7-En-Ogs">
@@ -799,8 +799,8 @@
         <image name="voice" width="512" height="508"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Rp1-0q-eeU"/>
         <segue reference="lN4-AI-sUI"/>
+        <segue reference="TDu-64-jHA"/>
         <segue reference="wIp-lP-eG5"/>
     </inferredMetricsTieBreakers>
 </document>
