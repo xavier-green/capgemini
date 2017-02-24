@@ -11,21 +11,30 @@ import Speech
 
 class FireEvents {
     
-    init() {
-        print("initialising observervim")
-        NotificationCenter.default.addObserver(self, selector: #selector(self.fireDone), name: NSNotification.Name(rawValue: "DONE_SPEECH_TO_TEXT"), object: nil)
-    }
-    
-    @objc func fireDone(notification: NSNotification) {
-        let resultat = notification.object as? String
-        print("resultat du speechtotext: ",resultat ?? "Aucun resultat parsed")
-        if (resultat == "Authentification") {
+    @objc func fireDone(resultat: String) {
+        
+        print("resultat du speechtotext: ",resultat)
+        
+        switch resultat {
+        case "Authentification":
             print("got voice authentication")
             NotificationCenter.default.post(name: Notification.Name(rawValue: "AUTHENTIFICATION"), object: self)
-        } else if (resultat == "Enrôlements") {
+        case "Enrôlements":
             print("got voice enrollment")
             NotificationCenter.default.post(name: Notification.Name(rawValue: "ENROLLEMENT"), object: self)
+        case "Suivant":
+            print("got voice suivant")
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "SUIVANT"), object: self)
+        case "Retour":
+            print("got voice retour")
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "RETOUR"), object: self)
+        case "Terminer":
+            print("got voice retour")
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "TERMINER"), object: self)
+        default:
+            print("not an identified case")
         }
+        
     }
     
 }

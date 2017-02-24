@@ -23,6 +23,9 @@ class SetNickViewController: UIViewController, UITextFieldDelegate {
     //MARK: View Funcs
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.goBack), name: NSNotification.Name(rawValue: "RETOUR"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.goForw), name: NSNotification.Name(rawValue: "TERMINER"), object: nil)
 
         // Do any additional setup after loading the view.
         nickText.delegate = self
@@ -37,6 +40,21 @@ class SetNickViewController: UIViewController, UITextFieldDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func goForw() {
+        if !isValidName(testStr: nickText.text!) {
+            print("nope")
+            validation.isHidden=false
+        } else {
+            GlobalVariables.usernames.append(nickText.text!)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "ViewController") as! UINavigationController
+            self.present(controller, animated: true, completion: nil)
+        }
+    }
+    func goBack() {
+        performSegue(withIdentifier: "backtoDate", sender: self)
     }
     
 
@@ -60,15 +78,7 @@ class SetNickViewController: UIViewController, UITextFieldDelegate {
     
     //End Button
     @IBAction func done(_ sender: UIButton) {
-        if !isValidName(testStr: nickText.text!) {
-            print("nope")
-            validation.isHidden=false
-        } else {
-            GlobalVariables.usernames.append(nickText.text!)
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: "ViewController") as! UINavigationController
-            self.present(controller, animated: true, completion: nil)
-        }
+        goForw()
     }
 
 }

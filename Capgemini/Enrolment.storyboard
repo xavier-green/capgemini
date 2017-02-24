@@ -88,7 +88,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="8Lr-5h-ajj" kind="presentation" modalTransitionStyle="crossDissolve" id="A1g-cC-cat"/>
+                                    <segue destination="8Lr-5h-ajj" kind="presentation" identifier="recordVoiceSegue" modalTransitionStyle="crossDissolve" id="A1g-cC-cat"/>
                                 </connections>
                             </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.20000000000000001" contentMode="scaleToFill" image="voice" translatesAutoresizingMaskIntoConstraints="NO" id="f6f-8x-WDi">
@@ -186,7 +186,7 @@
                                 <rect key="frame" x="21" y="28" width="59" height="30"/>
                                 <state key="normal" title="&lt; Retour"/>
                                 <connections>
-                                    <segue destination="339-BB-O8U" kind="modal" modalTransitionStyle="crossDissolve" id="VY9-H9-Dvc"/>
+                                    <segue destination="339-BB-O8U" kind="modal" identifier="goBackToStartSegue" modalTransitionStyle="crossDissolve" id="VY9-H9-Dvc"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="&quot;Chez Cetelem ma voix est mon mot de passe&quot;" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JWE-CN-xgk">
@@ -364,7 +364,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="&lt; Retour"/>
                                                 <connections>
-                                                    <segue destination="8Lr-5h-ajj" kind="modal" modalTransitionStyle="crossDissolve" id="Raa-dR-M6y"/>
+                                                    <segue destination="8Lr-5h-ajj" kind="modal" identifier="goBackToVoiceRecordSegue" modalTransitionStyle="crossDissolve" id="Raa-dR-M6y"/>
                                                 </connections>
                                             </button>
                                             <connections>
@@ -428,7 +428,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="S7f-yg-kdV" kind="presentation" modalTransitionStyle="crossDissolve" id="3jP-EQ-SmV"/>
+                                    <segue destination="S7f-yg-kdV" kind="presentation" identifier="gotoFinishSegue" modalTransitionStyle="crossDissolve" id="3jP-EQ-SmV"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" scrollEnabled="NO" editable="NO" text="Choisissez une date dont vous vous souviendrez et qui sera demandée à chaque authentification" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="33I-ws-oPx">
@@ -670,8 +670,8 @@
         <image name="voice" width="512" height="508"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="VY9-H9-Dvc"/>
-        <segue reference="Raa-dR-M6y"/>
         <segue reference="Jzp-bh-8Yh"/>
+        <segue reference="Raa-dR-M6y"/>
+        <segue reference="VY9-H9-Dvc"/>
     </inferredMetricsTieBreakers>
 </document>
