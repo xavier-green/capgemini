@@ -33,6 +33,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         print("started main app")
+        NotificationCenter.default.addObserver(self, selector: #selector(self.nexView), name: NSNotification.Name(rawValue: "DONE_SPEECH_TO_TEXT"), object: nil)
         super.viewDidLoad()
         speechToText = TextToSpeech()
         
