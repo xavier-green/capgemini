@@ -14,7 +14,7 @@ class FireEvents {
     var micToText = SpeechToText()
     
     init() {
-        print("initialising observer")
+        print("initialising observervim")
         NotificationCenter.default.addObserver(self, selector: #selector(self.fireDone), name: NSNotification.Name(rawValue: "DONE_SPEECH_TO_TEXT"), object: nil)
     }
     

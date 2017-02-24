@@ -16,8 +16,6 @@ class SetDateViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         assignbackground()
-        nextBut.layer.borderWidth=1
-        nextBut.layer.borderColor=UIColor.lightGray.cgColor
     }
 
     override func didReceiveMemoryWarning() {

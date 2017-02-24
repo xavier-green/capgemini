@@ -12,15 +12,11 @@ class VoiceRecViewController: UIViewController {
     //MARK: Properties
     let recordSniplets = [Any]() //Array to stor recorded samples
     var recAttempts: Int = 3 //Record Attemts
-    let micOffImage = UIImage(named: "micOff")
-    let micOnImage = UIImage(named: "micOn")
-    var recoVocale: ReconnaissanceVocaleController!
-    var speechToText: TextToSpeech!
+    
 
     
     //MARK: Outlets
     @IBOutlet weak var doneButton: UIButton!
-    @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var repeatTimes: UILabel!
     @IBAction func doneBut(_ sender: UIButton) {
         if recAttempts==0{
@@ -29,23 +25,20 @@ class VoiceRecViewController: UIViewController {
     }
     @IBOutlet weak var enregistrement: UILabel!
     @IBOutlet weak var nextBut: UIButton!
+    @IBAction func recBut(_ sender: RecordButtonClass) {
+        recAttempts-=1
+        repeatTimes.text="Plus que \(String(recAttempts)) fois"
+        if recAttempts==0 {
+            nextBut.isHidden=false
+            repeatTimes.isHidden=true
+            enregistrement.isHidden=true
+        }
+    }
     
     
     //MARK: View funcs
     override func viewDidLoad() {
         super.viewDidLoad()
-        recoVocale = ReconnaissanceVocaleController()
-        speechToText = TextToSpeech()
-        
-        //See if it's ok to record
-        let okRecord = recoVocale.initAndCheck()
-        
-        if okRecord {
-            self.recordButton.isHidden = false
-            self.recordButton.addTarget(self, action: #selector(self.recordTapped), for: .touchUpInside)
-        } else {
-            self.recordButton.isHidden = true
-        }
         assignbackground()
         nextBut.layer.borderWidth=1
         nextBut.layer.borderColor=UIColor.lightGray.cgColor
@@ -56,29 +49,5 @@ class VoiceRecViewController: UIViewController {
     }
     
     
-    //MARK: Record Function
-    func recordTapped() {
-        if recAttempts>0 {
-            if recoVocale.isRecording() {
-                NSLog("Stopping recording")
-                //self.recordButton.setTitle("Re-record", for: .normal)
-                recoVocale.finishRecording(success: true)
-                self.recordButton.setBackgroundImage(micOnImage, for: .normal)
-                recAttempts-=1
-                repeatTimes.text = "Plus que \(String(recAttempts)) fois"
-                if recAttempts==0 {
-                    doneButton.isHidden=false
-                    enregistrement.isHidden=true
-                }
-                enregistrement.text="Appuyer pour commencer l'enregistrement"
-                recoVocale.playRecording()
-            } else {
-                NSLog("Starting recording")
-                //self.recordButton.setTitle("STOP", for: .normal)
-                self.recordButton.setBackgroundImage(micOffImage, for: .normal)
-                recoVocale.startRecording()
-                enregistrement.text = "Réappuyer pour arrêter l'enregistrement"
-            }
-        }
-    }
+
 }

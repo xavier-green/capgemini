@@ -165,8 +165,8 @@
 		43010ADC1E603691009A38A1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				0EA4B1091E5DEF640088FF48 /* ExtensionUIViewController.swift */,
 				43010ADD1E6036B1009A38A1 /* RecordButtonClass.swift */,
+				0E1D3BED1E603A26002CE65D /* CustomButtons.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -201,6 +201,7 @@
 				0E7E23DE1E5B00D100E0F4D9 /* Views */,
 				433100A71E57344500269EEB /* AppDelegate.swift */,
 				0E1D3BED1E603A26002CE65D /* CustomButtons.swift */,
+				0EA4B1091E5DEF640088FF48 /* ExtensionUIViewController.swift */,
 				433100A91E57344500269EEB /* ViewController.swift */,
 				433100AB1E57344500269EEB /* Main.storyboard */,
 				433100AE1E57344500269EEB /* Assets.xcassets */,

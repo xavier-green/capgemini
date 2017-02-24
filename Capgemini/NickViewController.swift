@@ -20,8 +20,6 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         self.usernamePicker.dataSource = self
         nickName.delegate=self
         
-        YesBut.layer.borderWidth = 1
-        YesBut.layer.borderColor = UIColor.lightGray.cgColor
         nickName.layer.borderWidth = 1
         nickName.layer.borderColor = UIColor.lightGray.cgColor
         
