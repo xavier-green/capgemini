@@ -26,7 +26,11 @@ class VoiceRecViewController: UIViewController {
     @IBOutlet weak var nextBut: UIButton!
     @IBAction func recBut(_ sender: RecordButtonClass) {
         isRecording = !isRecording
+        if isRecording {
+            enregistrement.text="Réappuyez pour arrêter l'enregistrement"
+        }
         if !isRecording {
+            enregistrement.text="Appuyez pour commencer l'enregistrement"
             recAttempts-=1
             repeatTimes.text="Plus que \(String(recAttempts)) fois"
             if recAttempts==0 {
@@ -56,6 +60,7 @@ class VoiceRecViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.goBack), name: NSNotification.Name(rawValue: "RETOUR"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.goForw), name: NSNotification.Name(rawValue: "SUIVANT"), object: nil)
+        enregistrement.adjustsFontSizeToFitWidth=true
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

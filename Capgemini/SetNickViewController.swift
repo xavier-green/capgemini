@@ -33,8 +33,6 @@ class SetNickViewController: UIViewController, UITextFieldDelegate {
         self.hideKeyboardWhenTappedAround()
         
         assignbackground()
-        nextBut.layer.borderWidth=1
-        nextBut.layer.borderColor=UIColor.lightGray.cgColor
     }
 
     override func didReceiveMemoryWarning() {
