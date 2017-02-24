@@ -14,6 +14,10 @@ class LoginDateViewController: UIViewController {
     private var secretDate: String!
     
     @IBAction func gotoGame(_ sender: Any) {
+        gotogame()
+    }
+    
+    func gotogame() {
         let storyboard = UIStoryboard(name: "App", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "DrawNavigationViewController") as! UINavigationController
         self.present(controller, animated: true, completion: nil)
@@ -24,6 +28,10 @@ class LoginDateViewController: UIViewController {
         super.viewDidLoad()
         self.datePicker.addTarget(self, action: #selector(self.datePickerChanged), for: UIControlEvents.valueChanged)
         assignbackground()
+    }
+    
+    func goback() {
+        performSegue(withIdentifier: "backToCheckSegue", sender: self)
     }
     
     func datePickerChanged() {

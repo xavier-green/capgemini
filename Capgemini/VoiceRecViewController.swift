@@ -24,20 +24,26 @@ class VoiceRecViewController: UIViewController {
     }
     @IBOutlet weak var enregistrement: UILabel!
     @IBOutlet weak var nextBut: UIButton!
-    @IBAction func recBut(_ sender: RecordButtonClass) {
+    @IBAction func launchRecord(_ sender: Any) {
+        changeText()
+    }
+    
+    func changeText() {
         isRecording = !isRecording
         if isRecording {
             enregistrement.text="Réappuyez pour arrêter l'enregistrement"
-        }
-        if !isRecording {
+        } else {
             enregistrement.text="Appuyez pour commencer l'enregistrement"
-            recAttempts-=1
-            repeatTimes.text="Plus que \(String(recAttempts)) fois"
-            if recAttempts==0 {
-                nextBut.isHidden=false
-                repeatTimes.isHidden=true
-                enregistrement.isHidden=true
-            }
+        }
+    }
+    
+    func checkPassword() {
+        recAttempts-=1
+        repeatTimes.text="Plus que \(String(recAttempts)) fois"
+        if recAttempts==0 {
+            nextBut.isHidden=false
+            repeatTimes.isHidden=true
+            enregistrement.isHidden=true
         }
     }
     
@@ -60,6 +66,7 @@ class VoiceRecViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.goBack), name: NSNotification.Name(rawValue: "RETOUR"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.goForw), name: NSNotification.Name(rawValue: "SUIVANT"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.checkPassword), name: NSNotification.Name(rawValue: "VOICE_AUTH"), object: nil)
         enregistrement.adjustsFontSizeToFitWidth=true
     }
     override func didReceiveMemoryWarning() {

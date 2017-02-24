@@ -16,6 +16,10 @@ class LoginCheckViewController: UIViewController {
     @IBOutlet var YesButton: UIButton!
 
     @IBAction func GotoDate(_ sender: Any) {
+        gotodate()
+    }
+    
+    func gotodate() {
         performSegue(withIdentifier: "LoginDate", sender: nil)
     }
     
@@ -29,9 +33,19 @@ class LoginCheckViewController: UIViewController {
         NoButton.titleLabel?.adjustsFontSizeToFitWidth=true
         helloCheckLabel.text = "Êtes vous bien "+nickName+" ?"
         assignbackground()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.goback), name: NSNotification.Name(rawValue: "RETOUR"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.gotodate), name: NSNotification.Name(rawValue: "OUI"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.goHack), name: NSNotification.Name(rawValue: "NON"), object: nil)
     }
     @IBAction func goBack(_ sender: Any) {
-        performSegue(withIdentifier: "BackToLogin", sender: nil)
+        goback()
+    }
+    func goback() {
+        performSegue(withIdentifier: "BackToLogin", sender: self)
+    }
+    func goHack() {
+        performSegue(withIdentifier: "gotoHackSegue", sender: self)
     }
 
     override func didReceiveMemoryWarning() {

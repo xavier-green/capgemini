@@ -23,9 +23,16 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         nickName.layer.borderWidth = 1
         nickName.layer.borderColor = UIColor.lightGray.cgColor
         
+        NotificationCenter.default.addObserver(self, selector: #selector(self.gotoHome), name: NSNotification.Name(rawValue: "RETOUR"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.goForw), name: NSNotification.Name(rawValue: "SUIVANT"), object: nil)
+        
         //hide keyboard when background is pressed
         self.hideKeyboardWhenTappedAround()
         assignbackground()
+    }
+    
+    func goForw() {
+        performSegue(withIdentifier: "recordVoiceLoginSegue", sender: self)
     }
     
     // The number of columns of data

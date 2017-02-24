@@ -123,12 +123,11 @@
                                     <color key="titleColor" red="0.32452234460000001" green="0.32452234460000001" blue="0.32452234460000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="UP9-Wz-Hqu" kind="presentation" modalTransitionStyle="crossDissolve" id="TDu-64-jHA"/>
+                                    <segue destination="UP9-Wz-Hqu" kind="presentation" identifier="recordVoiceLoginSegue" modalTransitionStyle="crossDissolve" id="TDu-64-jHA"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Si vous voulez essayer de vous faire passer pour un autre, choisissez un pseudo dans la liste suivante" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yma-Xs-OHT">
                                 <rect key="frame" x="16" y="318.5" width="343" height="49.5"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -227,7 +226,7 @@
                                                 </constraints>
                                                 <state key="normal" title="&lt; Retour"/>
                                                 <connections>
-                                                    <segue destination="C4T-ua-GSd" kind="presentation" modalTransitionStyle="crossDissolve" id="wIp-lP-eG5"/>
+                                                    <segue destination="C4T-ua-GSd" kind="presentation" identifier="backToNicknameSegue" modalTransitionStyle="crossDissolve" id="wIp-lP-eG5"/>
                                                 </connections>
                                             </button>
                                         </barButtonItem>
@@ -242,24 +241,10 @@
                                 </items>
                             </navigationBar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="&quot; Chez Cetelem ma voix est mon mot de passe &quot;" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sl-94-eCt">
-                                <rect key="frame" x="0.0" y="382" width="375" height="85"/>
+                                <rect key="frame" x="0.0" y="382" width="375" height="84"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mu2-pT-dEi" customClass="CustomButtons" customModule="Capgemini" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="487" width="375" height="90"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="Op1-sN-CB3"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                <state key="normal" title="Suivant">
-                                    <color key="titleColor" red="0.32452234460000001" green="0.32452234460000001" blue="0.32452234460000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="eYC-8b-xhJ" kind="presentation" modalTransitionStyle="crossDissolve" id="vMO-sh-Voy"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="valid" translatesAutoresizingMaskIntoConstraints="NO" id="lBv-u8-YDF">
                                 <rect key="frame" x="48" y="85" width="60" height="60"/>
                                 <constraints>
@@ -303,6 +288,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZfN-ek-IYs">
+                                <rect key="frame" x="159.5" y="506" width="55" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="55" id="GKe-ai-PsR"/>
+                                    <constraint firstAttribute="height" constant="55" id="oj4-Uf-WyA"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -317,13 +309,9 @@
                             <constraint firstItem="5eS-jr-e93" firstAttribute="width" secondItem="VOa-Zi-thM" secondAttribute="width" id="M6w-eL-Nbl"/>
                             <constraint firstItem="Sxb-47-gk0" firstAttribute="top" secondItem="5eS-jr-e93" secondAttribute="bottom" constant="20" id="PtK-ej-dLe"/>
                             <constraint firstItem="Sxb-47-gk0" firstAttribute="leading" secondItem="WxI-lp-YQE" secondAttribute="trailing" constant="50" id="Rqc-Nj-ApJ"/>
-                            <constraint firstItem="mu2-pT-dEi" firstAttribute="top" secondItem="8sl-94-eCt" secondAttribute="bottom" constant="20" id="SNH-hC-cdB"/>
-                            <constraint firstItem="mu2-pT-dEi" firstAttribute="width" secondItem="VOa-Zi-thM" secondAttribute="width" id="TVL-AL-bXM"/>
                             <constraint firstItem="8sl-94-eCt" firstAttribute="centerX" secondItem="VOa-Zi-thM" secondAttribute="centerX" id="Yvx-9h-Nqn"/>
-                            <constraint firstItem="mu2-pT-dEi" firstAttribute="leading" secondItem="VOa-Zi-thM" secondAttribute="leading" id="YxS-id-N1w"/>
                             <constraint firstItem="8sl-94-eCt" firstAttribute="top" secondItem="Sxm-br-7s6" secondAttribute="bottom" id="ZWX-ix-lwD"/>
                             <constraint firstItem="iEq-PM-7aV" firstAttribute="centerX" secondItem="VOa-Zi-thM" secondAttribute="centerX" id="awF-yQ-aFV"/>
-                            <constraint firstItem="EQd-YM-oC4" firstAttribute="top" secondItem="mu2-pT-dEi" secondAttribute="bottom" constant="30" id="b8G-Il-aHU"/>
                             <constraint firstItem="WxI-lp-YQE" firstAttribute="leading" secondItem="lBv-u8-YDF" secondAttribute="trailing" constant="50" id="b96-FF-VBV"/>
                             <constraint firstItem="EQd-YM-oC4" firstAttribute="centerX" secondItem="VOa-Zi-thM" secondAttribute="centerX" id="fLf-U3-hwk"/>
                             <constraint firstItem="Sxb-47-gk0" firstAttribute="centerY" secondItem="WxI-lp-YQE" secondAttribute="centerY" id="gFS-SH-VJX"/>
@@ -332,13 +320,16 @@
                             <constraint firstItem="LyW-5K-NGH" firstAttribute="centerX" secondItem="VOa-Zi-thM" secondAttribute="centerX" id="nMI-KF-poQ"/>
                             <constraint firstItem="LyW-5K-NGH" firstAttribute="top" secondItem="WxI-lp-YQE" secondAttribute="bottom" constant="50" id="nbo-VY-GHZ"/>
                             <constraint firstItem="WxI-lp-YQE" firstAttribute="top" secondItem="5eS-jr-e93" secondAttribute="bottom" constant="20" id="oPv-Mw-2GT"/>
+                            <constraint firstItem="ZfN-ek-IYs" firstAttribute="top" secondItem="8sl-94-eCt" secondAttribute="bottom" constant="40" id="q7a-O6-lC3"/>
                             <constraint firstItem="8sl-94-eCt" firstAttribute="top" secondItem="iEq-PM-7aV" secondAttribute="bottom" constant="8" id="sqt-kk-Eee"/>
                             <constraint firstItem="WxI-lp-YQE" firstAttribute="centerX" secondItem="VOa-Zi-thM" secondAttribute="centerX" id="x46-zo-Gds"/>
+                            <constraint firstItem="ZfN-ek-IYs" firstAttribute="centerX" secondItem="VOa-Zi-thM" secondAttribute="centerX" id="ybn-Vx-N99"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pA1-xl-Mro"/>
                     <connections>
-                        <outlet property="suivant" destination="mu2-pT-dEi" id="ntd-69-ls5"/>
+                        <outlet property="success" destination="ZfN-ek-IYs" id="paT-NI-fyZ"/>
+                        <segue destination="eYC-8b-xhJ" kind="presentation" identifier="loginCheckSegue" id="Taw-fj-WCH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fqW-yy-RBg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -436,7 +427,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="DI0-p4-knE" kind="popoverPresentation" popoverAnchorView="Cmg-XS-CoU" id="ndO-NK-4vh">
+                                    <segue destination="DI0-p4-knE" kind="popoverPresentation" identifier="gotoHackSegue" popoverAnchorView="Cmg-XS-CoU" id="ndO-NK-4vh">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
                                     </segue>
                                 </connections>
@@ -594,7 +585,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="&lt; Retour"/>
                                                 <connections>
-                                                    <segue destination="eYC-8b-xhJ" kind="presentation" modalTransitionStyle="crossDissolve" id="lN4-AI-sUI"/>
+                                                    <segue destination="eYC-8b-xhJ" kind="presentation" identifier="backToCheckSegue" modalTransitionStyle="crossDissolve" id="lN4-AI-sUI"/>
                                                 </connections>
                                             </button>
                                         </barButtonItem>
@@ -808,8 +799,8 @@
         <image name="voice" width="512" height="508"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lN4-AI-sUI"/>
         <segue reference="Rp1-0q-eeU"/>
+        <segue reference="lN4-AI-sUI"/>
         <segue reference="wIp-lP-eG5"/>
     </inferredMetricsTieBreakers>
 </document>

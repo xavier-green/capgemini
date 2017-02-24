@@ -280,7 +280,7 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="recBut:" destination="8Lr-5h-ajj" eventType="touchUpInside" id="70Q-mR-QLh"/>
+                                    <action selector="launchRecord:" destination="8Lr-5h-ajj" eventType="touchUpInside" id="2cq-DN-5qf"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -674,11 +674,8 @@
         <image name="voice" width="512" height="508"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Jzp-bh-8Yh"/>
-        <segue reference="Raa-dR-M6y"/>
-        <segue reference="VY9-H9-Dvc"/>
-        <segue reference="VY9-H9-Dvc"/>
-        <segue reference="Raa-dR-M6y"/>
         <segue reference="nOT-vw-4Fc"/>
+        <segue reference="Raa-dR-M6y"/>
+        <segue reference="VY9-H9-Dvc"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -31,6 +31,18 @@ class FireEvents {
         case "Terminer":
             print("got voice retour")
             NotificationCenter.default.post(name: Notification.Name(rawValue: "TERMINER"), object: self)
+        case "Chez Cételem ma voix et mon mot de passe":
+            print("got voice retour")
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "VOICE_AUTH"), object: self)
+        case "Chez Cételem ma voix est mon mot de passe":
+            print("got voice retour")
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "VOICE_AUTH"), object: self)
+        case "Oui":
+            print("got voice retour")
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "OUI"), object: self)
+        case "Non":
+            print("got voice retour")
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "NON"), object: self)
         default:
             print("not an identified case")
         }
