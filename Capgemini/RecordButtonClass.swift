@@ -8,10 +8,12 @@
 
 import UIKit
 import AVFoundation
+import Speech
 
 class RecordButtonClass: UIButton {
     
-    var recoVocale: ReconnaissanceVocaleController!
+    //var recoVocale: ReconnaissanceVocaleController!
+    var micToText = SpeechToText()
     let micOffImage = UIImage(named: "micOff")
     let micOnImage = UIImage(named: "micOn")
     
@@ -21,48 +23,57 @@ class RecordButtonClass: UIButton {
         start()
     }
     
-    func getCoordinates() -> [Int] {
-        let buttonFrame: CGRect = self.frame
-        return [Int(buttonFrame.origin.x),Int(buttonFrame.origin.y)]
-    }
-    
     func setStyle() {
-//        let screenWidth = UIScreen.main.fixedCoordinateSpace.bounds.width
-//        let center = Int(screenWidth/2-55/2)
         self.setBackgroundImage(micOnImage, for: .normal)
         self.setTitle("", for: .normal)
-//        let currentPlace = getCoordinates()
-//        let y = currentPlace[1]
-//        self.frame = CGRect(x: center, y: y, width: 55, height: 55)
-//        self.frame.size = CGSize(width: 55, height: 55)
     }
     
     func start() {
-        recoVocale = ReconnaissanceVocaleController()
         
-        let okRecord = recoVocale.initAndCheck()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.fireDone), name: NSNotification.Name(rawValue: "DONE_SPEECH_TO_TEXT"), object: nil)
         
-        if okRecord {
-            self.isHidden = false
-            self.addTarget(self, action: #selector(self.recordTapped), for: .touchUpInside)
-        } else {
-            self.isHidden = true
+        SFSpeechRecognizer.requestAuthorization { (authStatus) in
+            
+            switch authStatus {
+            case .authorized:
+                self.isHidden = false
+                self.addTarget(self, action: #selector(self.recordTapped), for: .touchUpInside)
+                print("all okay")
+                
+            case .denied:
+                self.isHidden = true
+                print("User denied access to speech recognition")
+                
+            case .restricted:
+                self.isHidden = true
+                print("Speech recognition restricted on this device")
+                
+            case .notDetermined:
+                self.isHidden = true
+                print("Speech recognition not yet authorized")
+            }
         }
-
     }
     
+    @objc func fireDone() {
+        let resultat = micToText.getResult()
+        print("resultat du speechtotext: ",resultat)
+        if (resultat == "Authentification") {
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "AUTHENTIFICATION"), object: self)
+        }
+    }
+    
+    
     func recordTapped() {
-        if recoVocale.isRecording() {
+        if micToText.isRecording() {
             NSLog("Stopping recording")
-            //self.recordButton.setTitle("Re-record", for: .normal)
-            recoVocale.finishRecording(success: true)
+            micToText.stop()
+            //recoVocale.finishRecording(success: true)
             self.setBackgroundImage(micOnImage, for: .normal)
-            recoVocale.playRecording()
         } else {
             NSLog("Starting recording")
-            //self.recordButton.setTitle("STOP", for: .normal)
             self.setBackgroundImage(micOffImage, for: .normal)
-            recoVocale.startRecording()
+            micToText.startRecording()
         }
     }
 
