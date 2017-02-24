@@ -14,8 +14,6 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        suivant.layer.borderWidth = 1
-        suivant.layer.borderColor = UIColor.lightGray.cgColor
         assignbackground()
     }
 
