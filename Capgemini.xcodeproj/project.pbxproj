@@ -20,6 +20,7 @@
 		0EB29EC21E5EF6A800D1EAAF /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB29EC11E5EF6A800D1EAAF /* ErrorViewController.swift */; };
 		43010ADE1E6036B1009A38A1 /* RecordButtonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43010ADD1E6036B1009A38A1 /* RecordButtonClass.swift */; };
 		43010AE01E60496A009A38A1 /* SpeechToText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43010ADF1E60496A009A38A1 /* SpeechToText.swift */; };
+		43010AE21E605A24009A38A1 /* FireEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43010AE11E605A24009A38A1 /* FireEvents.swift */; };
 		4309EAA91E5DF698005026CB /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4309EAA81E5DF698005026CB /* ImageCollectionViewCell.swift */; };
 		4309EAAB1E5DF82F005026CB /* VoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4309EAAA1E5DF82F005026CB /* VoteViewController.swift */; };
 		433100A81E57344500269EEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433100A71E57344500269EEB /* AppDelegate.swift */; };
@@ -71,6 +72,7 @@
 		0EB29EC11E5EF6A800D1EAAF /* ErrorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
 		43010ADD1E6036B1009A38A1 /* RecordButtonClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordButtonClass.swift; sourceTree = "<group>"; };
 		43010ADF1E60496A009A38A1 /* SpeechToText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechToText.swift; sourceTree = "<group>"; };
+		43010AE11E605A24009A38A1 /* FireEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireEvents.swift; sourceTree = "<group>"; };
 		4309EAA81E5DF698005026CB /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		4309EAAA1E5DF82F005026CB /* VoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteViewController.swift; sourceTree = "<group>"; };
 		433100A41E57344500269EEB /* Capgemini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capgemini.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -199,7 +201,6 @@
 				0E7E23DE1E5B00D100E0F4D9 /* Views */,
 				433100A71E57344500269EEB /* AppDelegate.swift */,
 				0E1D3BED1E603A26002CE65D /* CustomButtons.swift */,
-				0EA4B1091E5DEF640088FF48 /* ExtensionUIViewController.swift */,
 				433100A91E57344500269EEB /* ViewController.swift */,
 				433100AB1E57344500269EEB /* Main.storyboard */,
 				433100AE1E57344500269EEB /* Assets.xcassets */,
@@ -246,6 +247,7 @@
 				435AA8FD1E5B443100BBB567 /* TextToSpeech.swift */,
 				435AA8FB1E5B392900BBB567 /* ReconnaissanceVocaleController.swift */,
 				43010ADF1E60496A009A38A1 /* SpeechToText.swift */,
+				43010AE11E605A24009A38A1 /* FireEvents.swift */,
 			);
 			name = Speech;
 			sourceTree = "<group>";
@@ -416,6 +418,7 @@
 				433100AA1E57344500269EEB /* ViewController.swift in Sources */,
 				0E09616E1E5B4EF400487D61 /* ReadyViewController.swift in Sources */,
 				43921B971E5EE6F5001A952A /* ReplayViewController.swift in Sources */,
+				43010AE21E605A24009A38A1 /* FireEvents.swift in Sources */,
 				435AA8FE1E5B443100BBB567 /* TextToSpeech.swift in Sources */,
 				433100A81E57344500269EEB /* AppDelegate.swift in Sources */,
 				43010ADE1E6036B1009A38A1 /* RecordButtonClass.swift in Sources */,

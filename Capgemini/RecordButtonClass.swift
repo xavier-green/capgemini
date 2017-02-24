@@ -30,8 +30,6 @@ class RecordButtonClass: UIButton {
     
     func start() {
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.fireDone), name: NSNotification.Name(rawValue: "DONE_SPEECH_TO_TEXT"), object: nil)
-        
         SFSpeechRecognizer.requestAuthorization { (authStatus) in
             
             switch authStatus {
@@ -52,14 +50,6 @@ class RecordButtonClass: UIButton {
                 self.isHidden = true
                 print("Speech recognition not yet authorized")
             }
-        }
-    }
-    
-    @objc func fireDone() {
-        let resultat = micToText.getResult()
-        print("resultat du speechtotext: ",resultat)
-        if (resultat == "Authentification") {
-            NotificationCenter.default.post(name: Notification.Name(rawValue: "AUTHENTIFICATION"), object: self)
         }
     }
     

@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         print("started main app")
-        NotificationCenter.default.addObserver(self, selector: #selector(self.nexView), name: NSNotification.Name(rawValue: "DONE_SPEECH_TO_TEXT"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.nexView), name: NSNotification.Name(rawValue: "AUTHENTIFICATION"), object: nil)
         super.viewDidLoad()
         speechToText = TextToSpeech()
         
@@ -41,6 +41,7 @@ class ViewController: UIViewController {
         NoBut.layer.borderColor = UIColor.lightGray.cgColor
         YesBut.layer.borderWidth = 1
         YesBut.layer.borderColor = UIColor.lightGray.cgColor
+        YesBut.addTarget(self, action: #selector(self.nexView), for: .touchUpInside)
         
         assignbackground()
     }

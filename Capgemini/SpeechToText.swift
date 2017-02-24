@@ -72,7 +72,7 @@ class SpeechToText {
                 self.recognitionRequest = nil
                 self.recognitionTask = nil
                 
-                NotificationCenter.default.post(name: Notification.Name(rawValue: "DONE_SPEECH_TO_TEXT"), object: self)
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "DONE_SPEECH_TO_TEXT"), object: self.textString)
             }
         })
         
