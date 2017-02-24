@@ -431,9 +431,9 @@
                                     <segue destination="S7f-yg-kdV" kind="presentation" modalTransitionStyle="crossDissolve" id="3jP-EQ-SmV"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" scrollEnabled="NO" editable="NO" text="Choisissez une date dont vous vous souviendrez et qui sera demandée à chaque authentification" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="33I-ws-oPx">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" scrollEnabled="NO" editable="NO" text="Choisissez une date dont vous vous souviendrez et qui sera demandée à chaque authentification" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="33I-ws-oPx">
                                 <rect key="frame" x="16" y="145" width="343" height="131"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="28"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="21"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -611,7 +611,6 @@
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Dites « terminé » ou cliquez sur Terminé une fois le pseudo choisie" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hh6-Bx-Slc">
                                 <rect key="frame" x="0.0" y="420" width="375" height="52"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
