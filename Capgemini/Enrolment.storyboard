@@ -73,7 +73,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Dites &quot;prêt&quot; pour commencer" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n7h-92-U6e">
-                                <rect key="frame" x="0.0" y="368" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="385" width="375" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="2zv-bS-Co6"/>
                                 </constraints>
@@ -138,7 +138,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="mtE-QM-IXi" firstAttribute="leading" secondItem="ZvJ-bi-D1z" secondAttribute="leadingMargin" id="0TR-WK-RMQ"/>
-                            <constraint firstItem="n7h-92-U6e" firstAttribute="top" secondItem="xbP-hR-9hi" secondAttribute="bottom" constant="303" id="5ww-FG-pGm"/>
+                            <constraint firstItem="n7h-92-U6e" firstAttribute="top" secondItem="xbP-hR-9hi" secondAttribute="bottom" constant="320" id="5ww-FG-pGm"/>
                             <constraint firstItem="Xc6-Z0-av9" firstAttribute="leading" secondItem="f6f-8x-WDi" secondAttribute="trailing" constant="50" id="8JL-gf-bng"/>
                             <constraint firstItem="Yf3-dA-Yh4" firstAttribute="top" secondItem="xGf-FD-SU2" secondAttribute="bottom" constant="30" id="HIA-47-ccr"/>
                             <constraint firstAttribute="trailing" secondItem="xbP-hR-9hi" secondAttribute="trailing" id="LLT-v8-RCY"/>
