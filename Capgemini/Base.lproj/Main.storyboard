@@ -77,14 +77,6 @@
                                     <color key="titleColor" red="0.32452234460000001" green="0.32452234460000001" blue="0.32452234460000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3l-We-w5j">
-                                <rect key="frame" x="160" y="561" width="55" height="55"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="55" id="UeS-Xp-Huk"/>
-                                    <constraint firstAttribute="height" constant="55" id="vfs-Bm-2CN"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="micOn"/>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qvP-Zg-g2Y">
                                 <rect key="frame" x="0.0" y="637" width="375" height="30"/>
                                 <subviews>
@@ -128,6 +120,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bi8-tD-MVd" customClass="RecordButtonClass" customModule="Capgemini" customModuleProvider="target">
+                                <rect key="frame" x="160" y="562" width="55" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="55" id="NUE-83-A15"/>
+                                    <constraint firstAttribute="height" constant="55" id="xKF-eo-L2g"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.98431372549019602" green="0.98431372549019602" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -139,9 +139,8 @@
                             <constraint firstAttribute="trailing" secondItem="mPf-fQ-0hq" secondAttribute="trailing" constant="10" id="FZL-Ff-kVt"/>
                             <constraint firstItem="LuS-XG-tDp" firstAttribute="leading" secondItem="UQH-4D-5hr" secondAttribute="leading" id="G0k-7g-30T"/>
                             <constraint firstItem="mPf-fQ-0hq" firstAttribute="top" secondItem="c9w-Cf-dDX" secondAttribute="bottom" id="GAm-FW-CEO"/>
-                            <constraint firstItem="e3l-We-w5j" firstAttribute="centerX" secondItem="UQH-4D-5hr" secondAttribute="centerX" id="JeS-bZ-Y1Y"/>
+                            <constraint firstItem="Bi8-tD-MVd" firstAttribute="centerX" secondItem="UQH-4D-5hr" secondAttribute="centerX" id="HqA-ZJ-4rB"/>
                             <constraint firstItem="ONA-5M-0Sg" firstAttribute="leading" secondItem="UQH-4D-5hr" secondAttribute="leadingMargin" constant="40" id="NOR-M2-Cs4"/>
-                            <constraint firstItem="e3l-We-w5j" firstAttribute="top" secondItem="Yqi-xO-bym" secondAttribute="bottom" constant="34" id="TB2-AX-93u"/>
                             <constraint firstItem="Yqi-xO-bym" firstAttribute="top" secondItem="MIs-yJ-jcs" secondAttribute="bottom" constant="238" id="XZ5-HO-Jjw"/>
                             <constraint firstItem="qvP-Zg-g2Y" firstAttribute="width" secondItem="UQH-4D-5hr" secondAttribute="width" id="YGQ-Kr-Ppa"/>
                             <constraint firstItem="LuS-XG-tDp" firstAttribute="top" secondItem="MIs-yJ-jcs" secondAttribute="bottom" constant="80" id="crh-CQ-nCr"/>
@@ -152,6 +151,7 @@
                             <constraint firstItem="MIs-yJ-jcs" firstAttribute="top" secondItem="ONA-5M-0Sg" secondAttribute="bottom" constant="30" id="oRf-o7-eHv"/>
                             <constraint firstItem="MIs-yJ-jcs" firstAttribute="leading" secondItem="UQH-4D-5hr" secondAttribute="leadingMargin" constant="50" id="rCd-vR-Ymj"/>
                             <constraint firstItem="Yqi-xO-bym" firstAttribute="leading" secondItem="UQH-4D-5hr" secondAttribute="leading" id="uQA-R5-EUr"/>
+                            <constraint firstItem="qvP-Zg-g2Y" firstAttribute="top" secondItem="Bi8-tD-MVd" secondAttribute="bottom" constant="20" id="xL6-Cm-oqn"/>
                             <constraint firstItem="LuS-XG-tDp" firstAttribute="top" secondItem="yOb-pn-M1e" secondAttribute="bottom" constant="8" id="zDf-WP-kev"/>
                             <constraint firstItem="yOb-pn-M1e" firstAttribute="leading" secondItem="UQH-4D-5hr" secondAttribute="leadingMargin" constant="36" id="zKp-zq-GRH"/>
                             <constraint firstItem="Yqi-xO-bym" firstAttribute="top" secondItem="sDj-ga-yt9" secondAttribute="bottom" constant="8" id="zqX-yt-rMw"/>
@@ -163,7 +163,6 @@
                         <outlet property="AccountLabel" destination="MIs-yJ-jcs" id="rYb-e4-v0H"/>
                         <outlet property="HelloLabel" destination="ONA-5M-0Sg" id="XWU-L0-FCt"/>
                         <outlet property="NoBut" destination="LuS-XG-tDp" id="VmT-ct-p1p"/>
-                        <outlet property="RecordButton" destination="e3l-We-w5j" id="XSY-7k-ol2"/>
                         <outlet property="YesBut" destination="Yqi-xO-bym" id="vIk-Au-3L1"/>
                     </connections>
                 </viewController>
@@ -174,6 +173,5 @@
     </scenes>
     <resources>
         <image name="information" width="128" height="128"/>
-        <image name="micOn" width="1024" height="1024"/>
     </resources>
 </document>

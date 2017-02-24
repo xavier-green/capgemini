@@ -18,6 +18,7 @@
 		0EA4B10A1E5DEF640088FF48 /* ExtensionUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA4B1091E5DEF640088FF48 /* ExtensionUIViewController.swift */; };
 		0EA4B10C1E5DF1B30088FF48 /* LeaderBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA4B10B1E5DF1B30088FF48 /* LeaderBoardViewController.swift */; };
 		0EB29EC21E5EF6A800D1EAAF /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB29EC11E5EF6A800D1EAAF /* ErrorViewController.swift */; };
+		43010ADE1E6036B1009A38A1 /* RecordButtonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43010ADD1E6036B1009A38A1 /* RecordButtonClass.swift */; };
 		4309EAA91E5DF698005026CB /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4309EAA81E5DF698005026CB /* ImageCollectionViewCell.swift */; };
 		4309EAAB1E5DF82F005026CB /* VoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4309EAAA1E5DF82F005026CB /* VoteViewController.swift */; };
 		433100A81E57344500269EEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433100A71E57344500269EEB /* AppDelegate.swift */; };
@@ -67,6 +68,7 @@
 		0EA4B1091E5DEF640088FF48 /* ExtensionUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUIViewController.swift; sourceTree = "<group>"; };
 		0EA4B10B1E5DF1B30088FF48 /* LeaderBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderBoardViewController.swift; sourceTree = "<group>"; };
 		0EB29EC11E5EF6A800D1EAAF /* ErrorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
+		43010ADD1E6036B1009A38A1 /* RecordButtonClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordButtonClass.swift; sourceTree = "<group>"; };
 		4309EAA81E5DF698005026CB /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		4309EAAA1E5DF82F005026CB /* VoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteViewController.swift; sourceTree = "<group>"; };
 		433100A41E57344500269EEB /* Capgemini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capgemini.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,6 +158,15 @@
 			name = Storyboards;
 			sourceTree = "<group>";
 		};
+		43010ADC1E603691009A38A1 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				0EA4B1091E5DEF640088FF48 /* ExtensionUIViewController.swift */,
+				43010ADD1E6036B1009A38A1 /* RecordButtonClass.swift */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
 		4331009B1E57344400269EEB = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +190,7 @@
 		433100A61E57344500269EEB /* Capgemini */ = {
 			isa = PBXGroup;
 			children = (
+				43010ADC1E603691009A38A1 /* Components */,
 				435AA8FF1E5B479800BBB567 /* Speech */,
 				0E7E23E01E5B00E700E0F4D9 /* Storyboards */,
 				0E7E23DF1E5B00DD00E0F4D9 /* Controllers */,
@@ -402,6 +414,7 @@
 				43921B971E5EE6F5001A952A /* ReplayViewController.swift in Sources */,
 				435AA8FE1E5B443100BBB567 /* TextToSpeech.swift in Sources */,
 				433100A81E57344500269EEB /* AppDelegate.swift in Sources */,
+				43010ADE1E6036B1009A38A1 /* RecordButtonClass.swift in Sources */,
 				0E0961731E5B4F1800487D61 /* SetNickViewController.swift in Sources */,
 				4309EAAB1E5DF82F005026CB /* VoteViewController.swift in Sources */,
 				435AA8F61E5B302200BBB567 /* LoginCheckViewController.swift in Sources */,
