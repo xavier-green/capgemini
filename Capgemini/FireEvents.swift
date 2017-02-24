@@ -11,16 +11,14 @@ import Speech
 
 class FireEvents {
     
-    var micToText = SpeechToText()
-    
     init() {
         print("initialising observervim")
         NotificationCenter.default.addObserver(self, selector: #selector(self.fireDone), name: NSNotification.Name(rawValue: "DONE_SPEECH_TO_TEXT"), object: nil)
     }
     
-    @objc func fireDone() {
-        let resultat = micToText.getResult()
-        print("resultat du speechtotext: ",resultat)
+    @objc func fireDone(notification: NSNotification) {
+        let resultat = notification.object as? String
+        print("resultat du speechtotext: ",resultat ?? "Aucun resultat parsed")
         if (resultat == "Authentification") {
             print("got voice authentication")
             NotificationCenter.default.post(name: Notification.Name(rawValue: "AUTHENTIFICATION"), object: self)

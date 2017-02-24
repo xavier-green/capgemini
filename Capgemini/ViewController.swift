@@ -17,12 +17,16 @@ class ViewController: UIViewController {
     @IBOutlet var AccountLabel: UITextView!
     
     @IBAction func NoButton(_ sender: Any) {
+        gotoRegister()
+    }
+    
+    var speechToText: TextToSpeech!
+    
+    func gotoRegister() {
         let storyboard = UIStoryboard(name: "Enrolment", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "EnrolmentViewController") as! UINavigationController
         self.present(controller, animated: true, completion: nil)
     }
-    
-    var speechToText: TextToSpeech!
     
     func nexView() {
         print("Moving to next storyboard")
@@ -34,6 +38,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         print("started main app")
         NotificationCenter.default.addObserver(self, selector: #selector(self.nexView), name: NSNotification.Name(rawValue: "AUTHENTIFICATION"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.gotoRegister), name: NSNotification.Name(rawValue: "ENROLLEMENT"), object: nil)
         super.viewDidLoad()
         speechToText = TextToSpeech()
         

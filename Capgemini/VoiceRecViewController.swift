@@ -12,6 +12,7 @@ class VoiceRecViewController: UIViewController {
     //MARK: Properties
     let recordSniplets = [Any]() //Array to stor recorded samples
     var recAttempts: Int = 3 //Record Attemts
+    var isRecording: Bool = false
     
 
     
@@ -26,12 +27,15 @@ class VoiceRecViewController: UIViewController {
     @IBOutlet weak var enregistrement: UILabel!
     @IBOutlet weak var nextBut: UIButton!
     @IBAction func recBut(_ sender: RecordButtonClass) {
-        recAttempts-=1
-        repeatTimes.text="Plus que \(String(recAttempts)) fois"
-        if recAttempts==0 {
-            nextBut.isHidden=false
-            repeatTimes.isHidden=true
-            enregistrement.isHidden=true
+        isRecording = !isRecording
+        if !isRecording {
+            recAttempts-=1
+            repeatTimes.text="Plus que \(String(recAttempts)) fois"
+            if recAttempts==0 {
+                nextBut.isHidden=false
+                repeatTimes.isHidden=true
+                enregistrement.isHidden=true
+            }
         }
     }
     
