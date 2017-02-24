@@ -20,9 +20,7 @@ class VoiceRecViewController: UIViewController {
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var repeatTimes: UILabel!
     @IBAction func doneBut(_ sender: UIButton) {
-        if recAttempts==0{
-            self.performSegue(withIdentifier: "recDone", sender: nil)
-        }
+        goForw()
     }
     @IBOutlet weak var enregistrement: UILabel!
     @IBOutlet weak var nextBut: UIButton!
@@ -43,11 +41,25 @@ class VoiceRecViewController: UIViewController {
         }
     }
     
+    func goBack() {
+        performSegue(withIdentifier: "goBackToStartSegue", sender: self)
+    }
+    func goForw() {
+        if recAttempts==0{
+            self.performSegue(withIdentifier: "recDone", sender: nil)
+        }
+    }
+    
     
     //MARK: View funcs
     override func viewDidLoad() {
         super.viewDidLoad()
         assignbackground()
+        nextBut.layer.borderWidth=1
+        nextBut.layer.borderColor=UIColor.lightGray.cgColor
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.goBack), name: NSNotification.Name(rawValue: "RETOUR"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.goForw), name: NSNotification.Name(rawValue: "SUIVANT"), object: nil)
         enregistrement.adjustsFontSizeToFitWidth=true
     }
     override func didReceiveMemoryWarning() {

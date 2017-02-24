@@ -14,6 +14,9 @@ class SetDateViewController: UIViewController {
     @IBOutlet weak var noticeText: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.goBack), name: NSNotification.Name(rawValue: "RETOUR"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.goForw), name: NSNotification.Name(rawValue: "SUIVANT"), object: nil)
 
         // Do any additional setup after loading the view.
         assignbackground()
@@ -23,6 +26,13 @@ class SetDateViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func goForw() {
+        performSegue(withIdentifier: "gotoFinishSegue", sender: self)
+    }
+    func goBack() {
+        performSegue(withIdentifier: "goBackToVoiceRecordSegue", sender: self)
     }
     
 
