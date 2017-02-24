@@ -11,6 +11,7 @@
 		0E0961721E5B4F1800487D61 /* SetDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E09616F1E5B4F1800487D61 /* SetDateViewController.swift */; };
 		0E0961731E5B4F1800487D61 /* SetNickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0961701E5B4F1800487D61 /* SetNickViewController.swift */; };
 		0E0961741E5B4F1800487D61 /* VoiceRecViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0961711E5B4F1800487D61 /* VoiceRecViewController.swift */; };
+		0E1D3BEE1E603A26002CE65D /* CustomButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D3BED1E603A26002CE65D /* CustomButtons.swift */; };
 		0E7E23E21E5B010300E0F4D9 /* Enrolment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E7E23E11E5B010300E0F4D9 /* Enrolment.storyboard */; };
 		0E9E39761E5C958E0000BD9E /* NickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9E39751E5C958E0000BD9E /* NickViewController.swift */; };
 		0EA4B1061E5DDFB40088FF48 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA4B1051E5DDFB40088FF48 /* UsersViewController.swift */; };
@@ -61,6 +62,7 @@
 		0E09616F1E5B4F1800487D61 /* SetDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetDateViewController.swift; sourceTree = "<group>"; };
 		0E0961701E5B4F1800487D61 /* SetNickViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetNickViewController.swift; sourceTree = "<group>"; };
 		0E0961711E5B4F1800487D61 /* VoiceRecViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceRecViewController.swift; sourceTree = "<group>"; };
+		0E1D3BED1E603A26002CE65D /* CustomButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButtons.swift; sourceTree = "<group>"; };
 		0E7E23E11E5B010300E0F4D9 /* Enrolment.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Enrolment.storyboard; sourceTree = "<group>"; };
 		0E9E39751E5C958E0000BD9E /* NickViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NickViewController.swift; sourceTree = "<group>"; };
 		0EA4B1051E5DDFB40088FF48 /* UsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
@@ -196,6 +198,8 @@
 				0E7E23DF1E5B00DD00E0F4D9 /* Controllers */,
 				0E7E23DE1E5B00D100E0F4D9 /* Views */,
 				433100A71E57344500269EEB /* AppDelegate.swift */,
+				0E1D3BED1E603A26002CE65D /* CustomButtons.swift */,
+				0EA4B1091E5DEF640088FF48 /* ExtensionUIViewController.swift */,
 				433100A91E57344500269EEB /* ViewController.swift */,
 				433100AB1E57344500269EEB /* Main.storyboard */,
 				433100AE1E57344500269EEB /* Assets.xcassets */,
@@ -408,6 +412,7 @@
 				43A96CD01E5DA3C90078CEC8 /* GlobalVariables.swift in Sources */,
 				435AA8ED1E5B064D00BBB567 /* LoginViewController.swift in Sources */,
 				0E0961721E5B4F1800487D61 /* SetDateViewController.swift in Sources */,
+				0E1D3BEE1E603A26002CE65D /* CustomButtons.swift in Sources */,
 				433100AA1E57344500269EEB /* ViewController.swift in Sources */,
 				0E09616E1E5B4EF400487D61 /* ReadyViewController.swift in Sources */,
 				43921B971E5EE6F5001A952A /* ReplayViewController.swift in Sources */,
