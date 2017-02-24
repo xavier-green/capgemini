@@ -28,7 +28,11 @@ class VoiceRecViewController: UIViewController {
     @IBOutlet weak var nextBut: UIButton!
     @IBAction func recBut(_ sender: RecordButtonClass) {
         isRecording = !isRecording
+        if isRecording {
+            enregistrement.text="Réappuyez pour arrêter l'enregistrement"
+        }
         if !isRecording {
+            enregistrement.text="Appuyez pour commencer l'enregistrement"
             recAttempts-=1
             repeatTimes.text="Plus que \(String(recAttempts)) fois"
             if recAttempts==0 {
@@ -44,8 +48,7 @@ class VoiceRecViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         assignbackground()
-        nextBut.layer.borderWidth=1
-        nextBut.layer.borderColor=UIColor.lightGray.cgColor
+        enregistrement.adjustsFontSizeToFitWidth=true
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

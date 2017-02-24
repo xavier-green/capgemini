@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -204,7 +205,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" translatesAutoresizingMaskIntoConstraints="NO" id="YJF-rh-9fV">
-                                <rect key="frame" x="107" y="160" width="160" height="160"/>
+                                <rect key="frame" x="107" y="152" width="160" height="160"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="160" id="Kjt-WW-YK6"/>
                                     <constraint firstAttribute="height" constant="160" id="uwZ-L7-gnI"/>
@@ -244,8 +245,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Répétez :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbL-7Y-QKp">
-                                <rect key="frame" x="151" y="348" width="72" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cliquez sur le micro puis dites la phrase suivante" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbL-7Y-QKp">
+                                <rect key="frame" x="2" y="340" width="371" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="dbL-7Y-QKp" secondAttribute="height" multiplier="371:29" id="0Bi-5O-u19"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -672,6 +676,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="VY9-H9-Dvc"/>
         <segue reference="Raa-dR-M6y"/>
-        <segue reference="Jzp-bh-8Yh"/>
+        <segue reference="nOT-vw-4Fc"/>
     </inferredMetricsTieBreakers>
 </document>
