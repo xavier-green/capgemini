@@ -11,11 +11,13 @@ import UIKit
 class SetDateViewController: UIViewController {
     
     @IBOutlet weak var nextBut: UIButton!
+    @IBOutlet weak var noticeText: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         assignbackground()
+        noticeText.adjustsFontForContentSizeCategory=true
     }
 
     override func didReceiveMemoryWarning() {
