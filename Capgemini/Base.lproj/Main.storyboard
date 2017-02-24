@@ -44,7 +44,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Comment allez vous ?" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="MIs-yJ-jcs">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Comment allez vous ?" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MIs-yJ-jcs">
                                 <rect key="frame" x="66" y="167" width="243" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="g8f-Kv-0sa"/>
