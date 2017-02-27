@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Result xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.nuance.com/webservices/">
+    <Decision>Mismatch</Decision>
+    <DecisionReason>PlaybackIndication</DecisionReason>
+    <SpeakerId>Xavier</SpeakerId>
+    <NetAudio>2.12</NetAudio>
+    <SpeakerResults>
+        <SpeakerResult>
+            <SpeakerId>Xavier</SpeakerId>
+            <VoiceprintTag>Mobile</VoiceprintTag>
+            <InWatchList>false</InWatchList>
+            <Decision>Mismatch</Decision>
+            <DecisionReason>PlaybackIndication</DecisionReason>
+            <BiometricFlag>true</BiometricFlag>
+            <BiometricDecision>Match</BiometricDecision>
+            <BiometricScore>23</BiometricScore>
+            <BiometricUpperThreshold>20</BiometricUpperThreshold>
+            <BiometricLowerThreshold>20</BiometricLowerThreshold>
+            <PlaybackFlag>true</PlaybackFlag>
+            <PlaybackDecision>Playback</PlaybackDecision>
+            <PlaybackScore>30</PlaybackScore>
+            <PlaybackThreshold>10</PlaybackThreshold>
+            <TextFlag>false</TextFlag>
+            <TextDecision>NotSet</TextDecision>
+            <TextScore>0</TextScore>
+            <TextUpperThreshold>0</TextUpperThreshold>
+            <TextLowerThreshold>0</TextLowerThreshold>
+            <WatchListFlag>false</WatchListFlag>
+            <WatchListDecision>NotSet</WatchListDecision>
+            <WatchListFDScore>0</WatchListFDScore>
+            <WatchListFDUpperThreshold>0</WatchListFDUpperThreshold>
+            <WatchListFDLowerThreshold>0</WatchListFDLowerThreshold>
+            <BiometricRawFloatScore>-0.6421002</BiometricRawFloatScore>
+        </SpeakerResult>
+    </SpeakerResults>
+</Result>

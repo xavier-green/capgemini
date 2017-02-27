@@ -14,20 +14,22 @@ class ReconnaissanceVocaleController {
     var recordingSession: AVAudioSession!
     var audioRecorder: AVAudioRecorder!
     var audioPlayer : AVAudioPlayer!
+    var Server : ServerFunctions!
     private var fileUrl : URL!
     
     var recordingOkay: Bool = false
     
-    func initAndCheck() -> Bool {
+    init() {
         print("App started")
         recordingSession = AVAudioSession.sharedInstance()
+        Server = ServerFunctions()
         do {
             try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
             try recordingSession.setActive(true)
             recordingOkay = true
-            return true
+            //return true
         } catch {
-            return false
+            //return false
         }
     }
     
@@ -50,8 +52,8 @@ class ReconnaissanceVocaleController {
         fileUrl = self.directoryURL()! as URL
         
         let settings = [
-            AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
-            AVSampleRateKey: 12000,
+            AVFormatIDKey: Int(kAudioFormatLinearPCM),
+            AVSampleRateKey: 8000,
             AVNumberOfChannelsKey: 1,
             AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
         ]
@@ -74,6 +76,8 @@ class ReconnaissanceVocaleController {
         print("finished recording !")
         audioRecorder.stop()
         audioRecorder = nil
+//        let base64data = NSData(contentsOf: fileUrl)?.base64EncodedString()
+//        Server.verify(username: "Xavier", audio: base64data!.RFC3986UnreservedEncoded)
     }
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
@@ -86,7 +90,7 @@ class ReconnaissanceVocaleController {
         let fileManager = FileManager.default
         let urls = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
         let documentDirectory = urls[0] as NSURL
-        let soundURL = documentDirectory.appendingPathComponent("recording.m4a")
+        let soundURL = documentDirectory.appendingPathComponent("recording.wav")
         print(soundURL!)
         return soundURL as NSURL?
     }

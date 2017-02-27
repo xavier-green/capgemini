@@ -32,3 +32,13 @@ extension UIViewController {
         self.view.sendSubview(toBack: imageview)
     }
 }
+
+extension String {
+    
+    var RFC3986UnreservedEncoded:String {
+        let unreservedChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~"
+        let unreservedCharsSet: CharacterSet = CharacterSet(charactersIn: unreservedChars)
+        let encodedString: String = self.addingPercentEncoding(withAllowedCharacters: unreservedCharsSet)!
+        return encodedString
+    }
+}
