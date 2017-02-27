@@ -88,27 +88,12 @@
                   moduleName = "Capgemini"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/youyoun/work/capgemini/Capgemini/SetNickViewController.swift"
-                  timestampString = "509884139.778476"
+                  timestampString = "509885939.904996"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
                   endingLineNumber = "14"
-                  offsetFromSymbolStart = "40">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Capgemini.SetNickViewController.nickText.setter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UITextField&gt;"
-                  moduleName = "Capgemini"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/youyoun/work/capgemini/Capgemini/SetNickViewController.swift"
-                  timestampString = "509884139.781694"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "14"
-                  endingLineNumber = "14"
-                  offsetFromSymbolStart = "52">
+                  offsetFromSymbolStart = "27">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -118,12 +103,12 @@
                   moduleName = "Capgemini"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/youyoun/work/capgemini/Capgemini/SetNickViewController.swift"
-                  timestampString = "509884139.785128"
+                  timestampString = "509885939.909995"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
                   endingLineNumber = "14"
-                  offsetFromSymbolStart = "76">
+                  offsetFromSymbolStart = "70">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -133,12 +118,12 @@
                   moduleName = "Capgemini"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/youyoun/work/capgemini/Capgemini/SetNickViewController.swift"
-                  timestampString = "509884139.788774"
+                  timestampString = "509885939.912484"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
                   endingLineNumber = "14"
-                  offsetFromSymbolStart = "36">
+                  offsetFromSymbolStart = "31">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -272,7 +257,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capgemini/CalibrationViewController.swift"
@@ -377,6 +362,69 @@
             endingLineNumber = "30"
             landmarkName = "init(userID:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Capgemini/CalibrationViewController.swift"
+            timestampString = "509884843.59819"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "CalibrationViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Capgemini.CalibrationViewController.tapLabel.getter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UILabel&gt;"
+                  moduleName = "Capgemini"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/youyoun/work/capgemini/Capgemini/CalibrationViewController.swift"
+                  timestampString = "509885543.435179"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "27">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Capgemini.CalibrationViewController.tapLabel.setter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UILabel&gt;"
+                  moduleName = "Capgemini"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/youyoun/work/capgemini/Capgemini/CalibrationViewController.swift"
+                  timestampString = "509885543.437761"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "42">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Capgemini.CalibrationViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Capgemini.CalibrationViewController&gt;"
+                  moduleName = "Capgemini"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/youyoun/work/capgemini/Capgemini/CalibrationViewController.swift"
+                  timestampString = "509885543.445689"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "166">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
