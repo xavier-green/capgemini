@@ -76,8 +76,8 @@ class ReconnaissanceVocaleController {
         print("finished recording !")
         audioRecorder.stop()
         audioRecorder = nil
-//        let base64data = NSData(contentsOf: fileUrl)?.base64EncodedString()
-//        Server.verify(username: "Xavier", audio: base64data!.RFC3986UnreservedEncoded)
+        let base64data = NSData(contentsOf: fileUrl)?.base64EncodedString()
+        Server.verify(username: "Xavier", audio: base64data!.RFC3986UnreservedEncoded)
     }
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
