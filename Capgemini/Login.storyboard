@@ -291,18 +291,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZfN-ek-IYs">
-                                <rect key="frame" x="159.5" y="506" width="55" height="55"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fka-Ik-Rpm">
+                                <rect key="frame" x="160" y="506" width="55" height="55"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="55" id="GKe-ai-PsR"/>
-                                    <constraint firstAttribute="height" constant="55" id="oj4-Uf-WyA"/>
+                                    <constraint firstAttribute="width" constant="55" id="bhr-Gg-V25"/>
+                                    <constraint firstAttribute="height" constant="55" id="xLv-EM-2dA"/>
                                 </constraints>
-                            </imageView>
+                                <state key="normal" image="valid"/>
+                                <connections>
+                                    <segue destination="eYC-8b-xhJ" kind="presentation" id="f7y-Ly-5p1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="lBv-u8-YDF" firstAttribute="centerY" secondItem="WxI-lp-YQE" secondAttribute="centerY" id="7Iv-YK-BZI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Sxm-br-7s6" secondAttribute="trailing" id="7rs-ow-7Si"/>
+                            <constraint firstItem="fka-Ik-Rpm" firstAttribute="top" secondItem="8sl-94-eCt" secondAttribute="bottom" constant="40" id="A8D-8x-lkv"/>
                             <constraint firstItem="iEq-PM-7aV" firstAttribute="top" secondItem="LyW-5K-NGH" secondAttribute="bottom" constant="8" id="EMG-Vz-Yc7"/>
                             <constraint firstItem="8sl-94-eCt" firstAttribute="width" secondItem="VOa-Zi-thM" secondAttribute="width" id="GSo-SZ-j9B"/>
                             <constraint firstItem="Sxm-br-7s6" firstAttribute="top" secondItem="LyW-5K-NGH" secondAttribute="bottom" id="H0v-lB-8hQ"/>
@@ -323,15 +328,14 @@
                             <constraint firstItem="LyW-5K-NGH" firstAttribute="centerX" secondItem="VOa-Zi-thM" secondAttribute="centerX" id="nMI-KF-poQ"/>
                             <constraint firstItem="LyW-5K-NGH" firstAttribute="top" secondItem="WxI-lp-YQE" secondAttribute="bottom" constant="50" id="nbo-VY-GHZ"/>
                             <constraint firstItem="WxI-lp-YQE" firstAttribute="top" secondItem="5eS-jr-e93" secondAttribute="bottom" constant="20" id="oPv-Mw-2GT"/>
-                            <constraint firstItem="ZfN-ek-IYs" firstAttribute="top" secondItem="8sl-94-eCt" secondAttribute="bottom" constant="40" id="q7a-O6-lC3"/>
+                            <constraint firstItem="fka-Ik-Rpm" firstAttribute="centerX" secondItem="VOa-Zi-thM" secondAttribute="centerX" id="oe7-Pf-kix"/>
                             <constraint firstItem="8sl-94-eCt" firstAttribute="top" secondItem="iEq-PM-7aV" secondAttribute="bottom" constant="8" id="sqt-kk-Eee"/>
                             <constraint firstItem="WxI-lp-YQE" firstAttribute="centerX" secondItem="VOa-Zi-thM" secondAttribute="centerX" id="x46-zo-Gds"/>
-                            <constraint firstItem="ZfN-ek-IYs" firstAttribute="centerX" secondItem="VOa-Zi-thM" secondAttribute="centerX" id="ybn-Vx-N99"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pA1-xl-Mro"/>
                     <connections>
-                        <outlet property="success" destination="ZfN-ek-IYs" id="paT-NI-fyZ"/>
+                        <outlet property="success" destination="fka-Ik-Rpm" id="JMa-AK-6mN"/>
                         <segue destination="eYC-8b-xhJ" kind="presentation" identifier="loginCheckSegue" id="Taw-fj-WCH"/>
                     </connections>
                 </viewController>
