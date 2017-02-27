@@ -9,6 +9,8 @@
 import UIKit
 import AVFoundation
 
+var userInfo: UserInfo?
+
 class ViewController: UIViewController {
 
     @IBOutlet var NoBut: UIButton!
@@ -55,7 +57,6 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 
 }
 
