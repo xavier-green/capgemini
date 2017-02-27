@@ -1,0 +1,39 @@
+version: '2'
+services:
+    web:
+        image: node:6
+        ports:
+            - 3000:3000 #change to match /config/env/env.js
+        volumes_from:
+            - mongo
+        volumes:
+            - ../:/usr/src/app
+        working_dir: /usr/src/app
+        command: /usr/src/app/docker/scripts/start-node.sh
+        depends_on:
+            - mongo
+        networks:
+            - back
+        environment:
+            - NODE_ENV=${YOUR_APP_NODE_ENV}
+            - JWT_SECRET_development=kGKTCJYF7O86485tfjygcjytdxjcuckcjycjstsj
+            - JWT_SECRET_production=${YOUR_APP_JWT_SECRET_production}
+            - REDIS_SECRET_development=hjgfjytcjtj575R65RTFFJjgfjydtrd
+            - REDIS_SECRET_production=${YOUR_APP_REDIS_SECRET_production}
+    mongo:
+        build:
+            context: .
+            dockerfile: ./mongo/Dockerfile
+        environment:
+            - NODE_ENV=${YOUR_APP_NODE_ENV}
+        command: /home/scripts/start.sh
+        networks:
+            - back
+    redis:
+        image: redis
+        ports:
+            - 6379:6379
+        networks:
+            - back
+networks:
+    back:

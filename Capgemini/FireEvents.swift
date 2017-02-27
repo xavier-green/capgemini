@@ -46,6 +46,7 @@ class FireEvents {
             print("got voice retour")
             NotificationCenter.default.post(name: Notification.Name(rawValue: "NON"), object: self)
         default:
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "DEFAULT"), object: self)
             print("not an identified case")
         }
         

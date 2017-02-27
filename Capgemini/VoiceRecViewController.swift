@@ -27,13 +27,27 @@ class VoiceRecViewController: UIViewController {
     @IBAction func launchRecord(_ sender: Any) {
         changeText()
     }
+    @IBAction func releaseRecord(_ sender: RecordButtonClass) {
+        changeText()
+    }
+    func showAlert() {
+        
+        // create the alert
+        let alert = UIAlertController(title: "Erreur d'enregistrement", message: "L'enregistrement n'est pas assez clair. Recommencez s'il-vous plaît.", preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+    }
     
     func changeText() {
         isRecording = !isRecording
         if isRecording {
-            enregistrement.text="Réappuyez pour arrêter l'enregistrement"
+            enregistrement.text="Relachez pour arrêter l'enregistrement"
         } else {
-            enregistrement.text="Appuyez pour commencer l'enregistrement"
+            enregistrement.text="Maintenez pour enregistrer"
         }
     }
     
@@ -67,6 +81,7 @@ class VoiceRecViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.goBack), name: NSNotification.Name(rawValue: "RETOUR"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.goForw), name: NSNotification.Name(rawValue: "SUIVANT"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.checkPassword), name: NSNotification.Name(rawValue: "VOICE_AUTH"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.showAlert), name: NSNotification.Name(rawValue: "DEFAULT"), object: nil)
         enregistrement.adjustsFontSizeToFitWidth=true
     }
     override func didReceiveMemoryWarning() {

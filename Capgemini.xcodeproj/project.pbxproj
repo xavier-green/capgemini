@@ -17,6 +17,18 @@
 		0EA4B1061E5DDFB40088FF48 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA4B1051E5DDFB40088FF48 /* UsersViewController.swift */; };
 		0EA4B10A1E5DEF640088FF48 /* ExtensionUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA4B1091E5DEF640088FF48 /* ExtensionUIViewController.swift */; };
 		0EA4B10C1E5DF1B30088FF48 /* LeaderBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA4B10B1E5DF1B30088FF48 /* LeaderBoardViewController.swift */; };
+		0EA94FEE1E642AAB00D82337 /* DrawTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA94FED1E642AAB00D82337 /* DrawTestViewController.swift */; };
+		0EA94FF01E642AE400D82337 /* CalibrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA94FEF1E642AE400D82337 /* CalibrationViewController.swift */; };
+		0EA950371E642B6A00D82337 /* App.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA950361E642B6A00D82337 /* App.storyboard */; };
+		0EA9503D1E642BFB00D82337 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA950391E642BFB00D82337 /* extensions.swift */; };
+		0EA9503E1E642BFB00D82337 /* FrequencyVoiceParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA9503A1E642BFB00D82337 /* FrequencyVoiceParameters.swift */; };
+		0EA9503F1E642BFB00D82337 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA9503B1E642BFB00D82337 /* Line.swift */; };
+		0EA950401E642BFB00D82337 /* Pointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA9503C1E642BFB00D82337 /* Pointer.swift */; };
+		0EA950421E642C8F00D82337 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA950411E642C8F00D82337 /* AudioKit.framework */; };
+		0EA950431E642C9E00D82337 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA950411E642C8F00D82337 /* AudioKit.framework */; };
+		0EA950441E642C9E00D82337 /* AudioKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA950411E642C8F00D82337 /* AudioKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0EA950471E642CEF00D82337 /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA950461E642CEF00D82337 /* DrawView.swift */; };
+		0EA950491E64314A00D82337 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA950481E64314A00D82337 /* UserInfo.swift */; };
 		0EB29EC21E5EF6A800D1EAAF /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB29EC11E5EF6A800D1EAAF /* ErrorViewController.swift */; };
 		43010ADE1E6036B1009A38A1 /* RecordButtonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43010ADD1E6036B1009A38A1 /* RecordButtonClass.swift */; };
 		43010AE01E60496A009A38A1 /* SpeechToText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43010ADF1E60496A009A38A1 /* SpeechToText.swift */; };
@@ -43,7 +55,6 @@
 		435AA8FE1E5B443100BBB567 /* TextToSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435AA8FD1E5B443100BBB567 /* TextToSpeech.swift */; };
 		43921B971E5EE6F5001A952A /* ReplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43921B961E5EE6F5001A952A /* ReplayViewController.swift */; };
 		43A96CD01E5DA3C90078CEC8 /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A96CCF1E5DA3C90078CEC8 /* GlobalVariables.swift */; };
-		43A96CD21E5DA6770078CEC8 /* App.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43A96CD11E5DA6770078CEC8 /* App.storyboard */; };
 		43A96CD71E5DA7710078CEC8 /* DrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A96CD61E5DA7710078CEC8 /* DrawViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +75,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		0EA950451E642C9E00D82337 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0EA950441E642C9E00D82337 /* AudioKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0E09616D1E5B4EF400487D61 /* ReadyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadyViewController.swift; sourceTree = "<group>"; };
 		0E09616F1E5B4F1800487D61 /* SetDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetDateViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +100,16 @@
 		0EA4B1051E5DDFB40088FF48 /* UsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		0EA4B1091E5DEF640088FF48 /* ExtensionUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUIViewController.swift; sourceTree = "<group>"; };
 		0EA4B10B1E5DF1B30088FF48 /* LeaderBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderBoardViewController.swift; sourceTree = "<group>"; };
+		0EA94FED1E642AAB00D82337 /* DrawTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawTestViewController.swift; sourceTree = "<group>"; };
+		0EA94FEF1E642AE400D82337 /* CalibrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalibrationViewController.swift; sourceTree = "<group>"; };
+		0EA950361E642B6A00D82337 /* App.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = App.storyboard; sourceTree = "<group>"; };
+		0EA950391E642BFB00D82337 /* extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
+		0EA9503A1E642BFB00D82337 /* FrequencyVoiceParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrequencyVoiceParameters.swift; sourceTree = "<group>"; };
+		0EA9503B1E642BFB00D82337 /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
+		0EA9503C1E642BFB00D82337 /* Pointer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pointer.swift; sourceTree = "<group>"; };
+		0EA950411E642C8F00D82337 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKit.framework; sourceTree = "<group>"; };
+		0EA950461E642CEF00D82337 /* DrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
+		0EA950481E64314A00D82337 /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInfo.swift; path = ../UserInfo.swift; sourceTree = "<group>"; };
 		0EB29EC11E5EF6A800D1EAAF /* ErrorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
 		43010ADD1E6036B1009A38A1 /* RecordButtonClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordButtonClass.swift; sourceTree = "<group>"; };
 		43010ADF1E60496A009A38A1 /* SpeechToText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechToText.swift; sourceTree = "<group>"; };
@@ -107,7 +142,6 @@
 		435AA8FD1E5B443100BBB567 /* TextToSpeech.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextToSpeech.swift; sourceTree = "<group>"; };
 		43921B961E5EE6F5001A952A /* ReplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplayViewController.swift; sourceTree = "<group>"; };
 		43A96CCF1E5DA3C90078CEC8 /* GlobalVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
-		43A96CD11E5DA6770078CEC8 /* App.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = App.storyboard; sourceTree = "<group>"; };
 		43A96CD61E5DA7710078CEC8 /* DrawViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +151,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				43266B191E646C1B00A644C1 /* AEXML.framework in Frameworks */,
+				0EA950431E642C9E00D82337 /* AudioKit.framework in Frameworks */,
+				0EA950421E642C8F00D82337 /* AudioKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +187,7 @@
 		0E7E23DE1E5B00D100E0F4D9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0EA950461E642CEF00D82337 /* DrawView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -170,9 +207,20 @@
 			children = (
 				0E7E23E11E5B010300E0F4D9 /* Enrolment.storyboard */,
 				435AA8EA1E5B05CC00BBB567 /* Login.storyboard */,
-				43A96CD11E5DA6770078CEC8 /* App.storyboard */,
+				0EA950361E642B6A00D82337 /* App.storyboard */,
 			);
 			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		0EA950381E642B8100D82337 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0EA950391E642BFB00D82337 /* extensions.swift */,
+				0EA9503A1E642BFB00D82337 /* FrequencyVoiceParameters.swift */,
+				0EA9503B1E642BFB00D82337 /* Line.swift */,
+				0EA9503C1E642BFB00D82337 /* Pointer.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		43010ADC1E603691009A38A1 /* Components */ = {
@@ -180,6 +228,9 @@
 			children = (
 				43010ADD1E6036B1009A38A1 /* RecordButtonClass.swift */,
 				43266B111E64634800A644C1 /* NuanceButtonClass.swift */,
+				0EA950381E642B8100D82337 /* Model */,
+				0E1D3BED1E603A26002CE65D /* CustomButtons.swift */,
+				43010ADD1E6036B1009A38A1 /* RecordButtonClass.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -206,6 +257,7 @@
 		4331009B1E57344400269EEB = {
 			isa = PBXGroup;
 			children = (
+				0EA950411E642C8F00D82337 /* AudioKit.framework */,
 				433100A61E57344500269EEB /* Capgemini */,
 				433100BB1E57344500269EEB /* CapgeminiTests */,
 				433100C61E57344500269EEB /* CapgeminiUITests */,
@@ -234,9 +286,9 @@
 				0E7E23DF1E5B00DD00E0F4D9 /* Controllers */,
 				0E7E23DE1E5B00D100E0F4D9 /* Views */,
 				433100A71E57344500269EEB /* AppDelegate.swift */,
-				0E1D3BED1E603A26002CE65D /* CustomButtons.swift */,
 				0EA4B1091E5DEF640088FF48 /* ExtensionUIViewController.swift */,
 				433100A91E57344500269EEB /* ViewController.swift */,
+				0EA950481E64314A00D82337 /* UserInfo.swift */,
 				433100AB1E57344500269EEB /* Main.storyboard */,
 				433100AE1E57344500269EEB /* Assets.xcassets */,
 				433100B31E57344500269EEB /* Info.plist */,
@@ -293,6 +345,8 @@
 				4309EAAA1E5DF82F005026CB /* VoteViewController.swift */,
 				4309EAA81E5DF698005026CB /* ImageCollectionViewCell.swift */,
 				43A96CD61E5DA7710078CEC8 /* DrawViewController.swift */,
+				0EA94FEF1E642AE400D82337 /* CalibrationViewController.swift */,
+				0EA94FED1E642AAB00D82337 /* DrawTestViewController.swift */,
 				0EA4B10B1E5DF1B30088FF48 /* LeaderBoardViewController.swift */,
 				43921B961E5EE6F5001A952A /* ReplayViewController.swift */,
 			);
@@ -310,6 +364,7 @@
 				433100A11E57344400269EEB /* Frameworks */,
 				433100A21E57344400269EEB /* Resources */,
 				43266B1B1E646E0A00A644C1 /* ShellScript */,
+				0EA950451E642C9E00D82337 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -413,7 +468,7 @@
 				433100AD1E57344500269EEB /* Main.storyboard in Resources */,
 				43266B1D1E646EDA00A644C1 /* test.xml in Resources */,
 				0E7E23E21E5B010300E0F4D9 /* Enrolment.storyboard in Resources */,
-				43A96CD21E5DA6770078CEC8 /* App.storyboard in Resources */,
+				0EA950371E642B6A00D82337 /* App.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,22 +513,29 @@
 				0EA4B10C1E5DF1B30088FF48 /* LeaderBoardViewController.swift in Sources */,
 				0E0961741E5B4F1800487D61 /* VoiceRecViewController.swift in Sources */,
 				435AA8F81E5B303700BBB567 /* LoginDateViewController.swift in Sources */,
+				0EA9503D1E642BFB00D82337 /* extensions.swift in Sources */,
 				43010AE01E60496A009A38A1 /* SpeechToText.swift in Sources */,
+				0EA950401E642BFB00D82337 /* Pointer.swift in Sources */,
 				435AA8FC1E5B392900BBB567 /* ReconnaissanceVocaleController.swift in Sources */,
 				0E9E39761E5C958E0000BD9E /* NickViewController.swift in Sources */,
 				43A96CD71E5DA7710078CEC8 /* DrawViewController.swift in Sources */,
 				43266B121E64634800A644C1 /* NuanceButtonClass.swift in Sources */,
 				4309EAA91E5DF698005026CB /* ImageCollectionViewCell.swift in Sources */,
+				0EA9503F1E642BFB00D82337 /* Line.swift in Sources */,
 				0EB29EC21E5EF6A800D1EAAF /* ErrorViewController.swift in Sources */,
 				0EA4B1061E5DDFB40088FF48 /* UsersViewController.swift in Sources */,
 				43A96CD01E5DA3C90078CEC8 /* GlobalVariables.swift in Sources */,
 				435AA8ED1E5B064D00BBB567 /* LoginViewController.swift in Sources */,
+				0EA94FEE1E642AAB00D82337 /* DrawTestViewController.swift in Sources */,
+				0EA9503E1E642BFB00D82337 /* FrequencyVoiceParameters.swift in Sources */,
 				0E0961721E5B4F1800487D61 /* SetDateViewController.swift in Sources */,
+				0EA950471E642CEF00D82337 /* DrawView.swift in Sources */,
 				0E1D3BEE1E603A26002CE65D /* CustomButtons.swift in Sources */,
 				433100AA1E57344500269EEB /* ViewController.swift in Sources */,
 				0E09616E1E5B4EF400487D61 /* ReadyViewController.swift in Sources */,
 				43921B971E5EE6F5001A952A /* ReplayViewController.swift in Sources */,
 				43010AE21E605A24009A38A1 /* FireEvents.swift in Sources */,
+				0EA94FF01E642AE400D82337 /* CalibrationViewController.swift in Sources */,
 				435AA8FE1E5B443100BBB567 /* TextToSpeech.swift in Sources */,
 				433100A81E57344500269EEB /* AppDelegate.swift in Sources */,
 				43266B101E6429C300A644C1 /* ServerConnection.swift in Sources */,
@@ -483,6 +545,7 @@
 				43266B1F1E64734E00A644C1 /* NuanceXMLParser.swift in Sources */,
 				4309EAAB1E5DF82F005026CB /* VoteViewController.swift in Sources */,
 				435AA8F61E5B302200BBB567 /* LoginCheckViewController.swift in Sources */,
+				0EA950491E64314A00D82337 /* UserInfo.swift in Sources */,
 				0EA4B10A1E5DEF640088FF48 /* ExtensionUIViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -632,6 +695,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Capgemini/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -651,6 +715,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Capgemini/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
