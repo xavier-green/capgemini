@@ -17,8 +17,7 @@ Copy `docker/docker-compose.yml.template` to `docker/docker-compose.yml` and edi
 According to all `YOUR_APP_*` environment variables in `docker/docker-compose.yml` add :
 - NODE_ENV : production || development
 - JWT secret for your environment.
-- Redis client id
-- Redis client secret
+- Redis  secret for your environment
 
 ### Secure
 
