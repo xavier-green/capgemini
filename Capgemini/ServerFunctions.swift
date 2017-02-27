@@ -12,17 +12,9 @@ class ServerFunctions {
     
     private var Server: ServerConnection!
     private var Parser: NuanceXMLParser!
-    
-    init() {
-        
-        Server = ServerConnection()
-        Parser = NuanceXMLParser()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(self.getUserListDone), name: NSNotification.Name(rawValue: "USER_LIST"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.verifyDone), name: NSNotification.Name(rawValue: "VERIFY"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.enrollDone), name: NSNotification.Name(rawValue: "ENROLL"), object: nil)
-        
-    }
+    private var currentUsername: String = ""
+    private var status: String = ""
+    private var lastMissingSegments: Int = 3
     
     func getUserList(username: String, audio: String) {
         Server.getUserList()
@@ -47,13 +39,47 @@ class ServerFunctions {
     }
     
     func enroll(username: String, audio: String) {
-        Server.verify(speakerId: username, audio: audio)
+        self.currentUsername = username
+        Server.enroll(speakerId: username, audio: audio)
     }
     
     @objc func enrollDone(notification: NSNotification) {
+        let user = self.currentUsername
         let xmlString = notification.object as! String
-        print("enroll done ?")
         print(xmlString)
+        status = Parser.extractUserStatus(xmlString: xmlString)
+        print("enroll done : ",status)
+        Server.getEnrollSegmentsStatus(speakerId: user)
+    }
+    
+    @objc func enrollStatus(notification: NSNotification) {
+        let xmlString = notification.object as! String
+//        print("Enrollment status handler")
+//        print(xmlString)
+        let missingSegments = Parser.extractMissingSegments(xmlString: xmlString)
+        print("status:",status," ; missingSegments:",missingSegments)
+        if (self.status == "NotReady") {
+            if (missingSegments == self.lastMissingSegments) {
+                print("Fail during audio recording")
+            } else {
+                self.lastMissingSegments = missingSegments
+                print("Success, please record your voice again")
+            }
+        } else if (self.status == "Trained") {
+            print("Successfully signed up !")
+        }
+    }
+    
+    init() {
+        
+        Server = ServerConnection()
+        Parser = NuanceXMLParser()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.getUserListDone), name: NSNotification.Name(rawValue: "USER_LIST"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.verifyDone), name: NSNotification.Name(rawValue: "VERIFY"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.enrollDone), name: NSNotification.Name(rawValue: "ENROLL"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.enrollStatus), name: NSNotification.Name(rawValue: "ENROLL_SEGMENT_STATUS"), object: nil)
+        
     }
     
 }

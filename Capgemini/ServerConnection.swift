@@ -169,6 +169,9 @@ class ServerConnection {
     
     func enroll(speakerId: String, audio: String) {
         
+        print("Nuance server enrollment")
+        //print(audio)
+        
         let url: String = "/VocalPassword/VocalPasswordServer.asmx/Enroll"
         let params: [[String]] = [["sessionId","0"],["speakerId",speakerId],["configSetName",CONFIG_SET_NAME],["voiceprintTag",VOICE_PRINT_TAG],["text","null"],["audio",audio]]
         
@@ -205,7 +208,7 @@ class ServerConnection {
         
     }
     
-    func getEnrollSegmentsStatus(sessionId: String, speakerId: String) {
+    func getEnrollSegmentsStatus(speakerId: String) {
         
         let url: String = "/vocalpassword/vocalpasswordserver.asmx/GetEnrollSegmentsStatus"
         let params: [[String]] = [["sessionId","0"],["speakerId",speakerId],["configSetName",CONFIG_SET_NAME],["voiceprintTag",VOICE_PRINT_TAG]]

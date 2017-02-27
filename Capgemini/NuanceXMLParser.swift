@@ -33,6 +33,38 @@ class NuanceXMLParser {
         
     }
     
+    func extractUserStatus(xmlString: String) -> String {
+        
+        let xmlData = xmlString.data(using: String.Encoding.utf8)!
+        
+        do {
+            let xmlDoc = try AEXMLDocument(xml: xmlData)
+            let status = xmlDoc.root.value
+            print("status is: ",status ?? "no status")
+            return status!
+        } catch {
+            print("status not found")
+            return ""
+        }
+        
+    }
+    
+    func extractMissingSegments(xmlString: String) -> Int {
+        
+        let xmlData = xmlString.data(using: String.Encoding.utf8)!
+        
+        do {
+            let xmlDoc = try AEXMLDocument(xml: xmlData)
+            let status = xmlDoc.root["MissingSegments"].value
+            print("status is: ",status ?? "no status")
+            return Int(status!)!
+        } catch {
+            print("status not found")
+            return 0
+        }
+        
+    }
+    
     func extractMatch(xmlString: String) -> Bool {
         
         let xmlData = xmlString.data(using: String.Encoding.utf8)!

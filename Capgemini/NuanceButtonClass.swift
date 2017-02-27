@@ -19,6 +19,13 @@ class NuanceButtonClass: UIButton {
         if recoVocale.isRecording() {
             self.setBackgroundImage(micOnImage, for: .normal)
             recoVocale.finishRecording(success: true)
+            if self.restorationIdentifier=="Login" {
+                recoVocale.verify(username: "Xavier")
+            } else if self.restorationIdentifier=="Register"{
+                recoVocale.enroll(username: "Xavier")
+            } else {
+                print("this button has no callback function")
+            }
         } else {
             self.setBackgroundImage(micOffImage, for: .normal)
             recoVocale.startRecording()
