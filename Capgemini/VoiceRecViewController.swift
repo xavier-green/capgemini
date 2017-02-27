@@ -25,15 +25,15 @@ class VoiceRecViewController: UIViewController {
     @IBOutlet weak var enregistrement: UILabel!
     @IBOutlet weak var nextBut: UIButton!
     @IBAction func launchRecord(_ sender: Any) {
+        isRecording = !isRecording
         changeText()
     }
     
     func changeText() {
-        isRecording = !isRecording
         if isRecording {
-            enregistrement.text="Réappuyez pour arrêter l'enregistrement"
+            enregistrement.text="Relachez pour arrêter l'enregistrement"
         } else {
-            enregistrement.text="Appuyez pour commencer l'enregistrement"
+            enregistrement.text="Maintenez pour enregistrer"
         }
     }
     
