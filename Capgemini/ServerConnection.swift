@@ -16,27 +16,27 @@ class ServerConnection {
 
     private var resultData: String = ""
     
-    func connectToServer(BASE_URL: String,url: String, params: [[String]], method: String, notificationString: String) {
+    func connectToServer(BASE_URL: String,url: String, params: [[String]], method: String, notificationString: String,SERVER_USERNAME: String, SERVER_PASSWORD: String) {
         
         if method=="GET" {
             
             let connectionUrl = constructURL(base: BASE_URL, url: url, params: params)
-            getRequest(connectionUrl: connectionUrl, notificationString: notificationString)
+            getRequest(connectionUrl: connectionUrl, notificationString: notificationString,SERVER_USERNAME, SERVER_PASSWORD)
             
         } else if method=="POST" {
             
-            postRequest(connectionUrl: BASE_URL+url, params: params, notificationString: notificationString)
+            postRequest(connectionUrl: BASE_URL+url, params: params, notificationString: notificationString,SERVER_USERNAME,SERVER_PASSWORD)
             
         }
         
     }
     
-    func getRequest(connectionUrl: String, notificationString: String) {
+    func getRequest(connectionUrl: String, notificationString: String,SERVER_USERNAME: String, SERVER_PASSWORD:String) {
         
         print("Connecting to ",connectionUrl)
         
         let config = URLSessionConfiguration.default
-        let authString = constructHeaders()
+        let authString = constructHeaders(SERVER_USERNAME: SERVER_USERNAME, SERVER_PASSWORD: SERVER_PASSWORD)
         config.httpAdditionalHeaders = ["Authorization" : authString]
         let session = URLSession(configuration: config)
         let url = URL(string: connectionUrl)!
@@ -46,7 +46,7 @@ class ServerConnection {
         
     }
     
-    func postRequest(connectionUrl: String, params: [[String]], notificationString: String) {
+    func postRequest(connectionUrl: String, params: [[String]], notificationString: String,SERVER_USERNAME: String, SERVER_PASSWORD:String) {
         
         print("Connecting to ",connectionUrl)
         
@@ -56,7 +56,7 @@ class ServerConnection {
         //print(postParams)
         
         let config = URLSessionConfiguration.default
-        let authString = constructHeaders()
+        let authString = constructHeaders(SERVER_USERNAME: SERVER_USERNAME, SERVER_PASSWORD: SERVER_PASSWORD)
         config.httpAdditionalHeaders = ["Authorization" : authString]
         let session = URLSession(configuration: config)
         let url = URL(string: connectionUrl)!
@@ -103,7 +103,7 @@ class ServerConnection {
         
     }
     
-    func constructHeaders() -> String {
+    func constructHeaders(SERVER_USERNAME: String, SERVER_PASSWORD:String) -> String {
         
         let loginString = String(format: "%@:%@", SERVER_USERNAME, SERVER_PASSWORD)
         let loginData = loginString.data(using: String.Encoding.utf8)!
