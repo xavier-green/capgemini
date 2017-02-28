@@ -30,7 +30,7 @@
 		0EA950471E642CEF00D82337 /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA950461E642CEF00D82337 /* DrawView.swift */; };
 		0EA950491E64314A00D82337 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA950481E64314A00D82337 /* UserInfo.swift */; };
 		0EA9504F1E658E3400D82337 /* ConnectiontoBackServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA9504E1E658E3400D82337 /* ConnectiontoBackServer.swift */; };
-		0EA950511E658E3F00D82337 /* NuanceServerFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA950501E658E3F00D82337 /* NuanceServerFunctions.swift */; };
+		0EA950511E658E3F00D82337 /* ServerFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA950501E658E3F00D82337 /* ServerFunctions.swift */; };
 		0EB29EC21E5EF6A800D1EAAF /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB29EC11E5EF6A800D1EAAF /* ErrorViewController.swift */; };
 		43010ADE1E6036B1009A38A1 /* RecordButtonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43010ADD1E6036B1009A38A1 /* RecordButtonClass.swift */; };
 		43010AE01E60496A009A38A1 /* SpeechToText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43010ADF1E60496A009A38A1 /* SpeechToText.swift */; };
@@ -114,7 +114,7 @@
 		0EA950461E642CEF00D82337 /* DrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 		0EA950481E64314A00D82337 /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInfo.swift; path = ../UserInfo.swift; sourceTree = "<group>"; };
 		0EA9504E1E658E3400D82337 /* ConnectiontoBackServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectiontoBackServer.swift; sourceTree = "<group>"; };
-		0EA950501E658E3F00D82337 /* NuanceServerFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NuanceServerFunctions.swift; sourceTree = "<group>"; };
+		0EA950501E658E3F00D82337 /* ServerFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerFunctions.swift; sourceTree = "<group>"; };
 		0EB29EC11E5EF6A800D1EAAF /* ErrorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
 		43010ADD1E6036B1009A38A1 /* RecordButtonClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordButtonClass.swift; sourceTree = "<group>"; };
 		43010ADF1E60496A009A38A1 /* SpeechToText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechToText.swift; sourceTree = "<group>"; };
@@ -227,6 +227,14 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		0EA950531E65B57100D82337 /* Connection to Back */ = {
+			isa = PBXGroup;
+			children = (
+				0EA9504E1E658E3400D82337 /* ConnectiontoBackServer.swift */,
+			);
+			name = "Connection to Back";
+			sourceTree = "<group>";
+		};
 		43010ADC1E603691009A38A1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,8 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				43266B0F1E6429C300A644C1 /* ServerConnection.swift */,
-				0EA9504E1E658E3400D82337 /* ConnectiontoBackServer.swift */,
-				0EA950501E658E3F00D82337 /* NuanceServerFunctions.swift */,
+				0EA950501E658E3F00D82337 /* ServerFunctions.swift */,
 				43266B1E1E64734E00A644C1 /* NuanceXMLParser.swift */,
 			);
 			name = Nuance;
@@ -290,6 +297,7 @@
 				0E7E23DE1E5B00D100E0F4D9 /* Views */,
 				433100A71E57344500269EEB /* AppDelegate.swift */,
 				0EA4B1091E5DEF640088FF48 /* ExtensionUIViewController.swift */,
+				0EA950531E65B57100D82337 /* Connection to Back */,
 				433100A91E57344500269EEB /* ViewController.swift */,
 				0EA950481E64314A00D82337 /* UserInfo.swift */,
 				433100AB1E57344500269EEB /* Main.storyboard */,
@@ -546,7 +554,7 @@
 				0E0961731E5B4F1800487D61 /* SetNickViewController.swift in Sources */,
 				43266B1F1E64734E00A644C1 /* NuanceXMLParser.swift in Sources */,
 				4309EAAB1E5DF82F005026CB /* VoteViewController.swift in Sources */,
-				0EA950511E658E3F00D82337 /* NuanceServerFunctions.swift in Sources */,
+				0EA950511E658E3F00D82337 /* ServerFunctions.swift in Sources */,
 				435AA8F61E5B302200BBB567 /* LoginCheckViewController.swift in Sources */,
 				0EA950491E64314A00D82337 /* UserInfo.swift in Sources */,
 				0EA4B10A1E5DEF640088FF48 /* ExtensionUIViewController.swift in Sources */,
