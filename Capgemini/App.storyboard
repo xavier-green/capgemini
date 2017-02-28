@@ -111,21 +111,24 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="64k-KF-HVh">
                                 <rect key="frame" x="0.0" y="120" width="375" height="504"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOw-Zv-LWC">
-                                        <rect key="frame" x="159" y="462.5" width="57" height="33.5"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can now draw with your voice..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dpd-AK-oH7">
-                                        <rect key="frame" x="0.0" y="203" width="375" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your current frequency :" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUf-dy-fIl">
-                                        <rect key="frame" x="0.0" y="232" width="375" height="21"/>
+                                        <rect key="frame" x="0.0" y="241.5" width="375" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" editable="NO" text="Vous pouvez maintenant dessiner avec votre voix..." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgy-ls-mLr">
+                                        <rect key="frame" x="67" y="145.5" width="240" height="76"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="76" id="Hpa-Sx-dri"/>
+                                            <constraint firstAttribute="width" constant="240" id="JVl-qy-yEt"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suivant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOw-Zv-LWC">
+                                        <rect key="frame" x="143" y="462.5" width="89.5" height="33.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -133,13 +136,13 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="dpd-AK-oH7" secondAttribute="trailing" id="3Hv-2v-uOr"/>
                                     <constraint firstItem="JOw-Zv-LWC" firstAttribute="centerX" secondItem="64k-KF-HVh" secondAttribute="centerX" id="AMK-Zc-t5t"/>
                                     <constraint firstItem="tUf-dy-fIl" firstAttribute="leading" secondItem="64k-KF-HVh" secondAttribute="leading" id="KfR-MK-zxw"/>
+                                    <constraint firstItem="tUf-dy-fIl" firstAttribute="centerY" secondItem="64k-KF-HVh" secondAttribute="centerY" id="NBk-97-dd0"/>
+                                    <constraint firstItem="tgy-ls-mLr" firstAttribute="centerX" secondItem="64k-KF-HVh" secondAttribute="centerX" id="NFC-2F-pNP"/>
                                     <constraint firstAttribute="trailing" secondItem="tUf-dy-fIl" secondAttribute="trailing" id="O98-f8-u3C"/>
-                                    <constraint firstItem="dpd-AK-oH7" firstAttribute="leading" secondItem="64k-KF-HVh" secondAttribute="leading" id="RrQ-8c-sqG"/>
+                                    <constraint firstItem="tUf-dy-fIl" firstAttribute="top" secondItem="tgy-ls-mLr" secondAttribute="bottom" constant="20" id="T30-Fj-bWU"/>
                                     <constraint firstAttribute="bottom" secondItem="JOw-Zv-LWC" secondAttribute="bottom" constant="8" id="TZV-Pb-CWL"/>
-                                    <constraint firstItem="tUf-dy-fIl" firstAttribute="top" secondItem="dpd-AK-oH7" secondAttribute="bottom" constant="8" id="kQ0-zi-r35"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="cUu-CJ-73V" appends="YES" id="ODI-PH-CjP"/>
@@ -151,7 +154,6 @@
                             <constraint firstAttribute="trailing" secondItem="64k-KF-HVh" secondAttribute="trailing" id="fL2-9w-h9I"/>
                             <constraint firstItem="qhd-XO-G2u" firstAttribute="top" secondItem="64k-KF-HVh" secondAttribute="bottom" constant="43" id="g8Z-n4-8IY"/>
                             <constraint firstItem="64k-KF-HVh" firstAttribute="leading" secondItem="I6V-Dt-Ry5" secondAttribute="leading" id="geD-S4-YhZ"/>
-                            <constraint firstItem="dpd-AK-oH7" firstAttribute="centerY" secondItem="I6V-Dt-Ry5" secondAttribute="centerY" id="i4q-UB-TVh"/>
                             <constraint firstItem="64k-KF-HVh" firstAttribute="top" secondItem="xD6-T5-W9f" secondAttribute="bottom" constant="100" id="uCA-Tm-Zfe"/>
                         </constraints>
                     </view>
@@ -159,7 +161,7 @@
                     <connections>
                         <outlet property="calibrationViewTap" destination="cUu-CJ-73V" id="5y9-EW-HiQ"/>
                         <outlet property="currentFrequencyLabel" destination="tUf-dy-fIl" id="ky3-8t-LUU"/>
-                        <outlet property="instructionLabel" destination="dpd-AK-oH7" id="z4R-2r-zcr"/>
+                        <outlet property="instructionLabel" destination="tgy-ls-mLr" id="E8g-hT-apM"/>
                         <outlet property="mainView" destination="64k-KF-HVh" id="X2r-NZ-UUG"/>
                         <outlet property="tapLabel" destination="JOw-Zv-LWC" id="mAs-2t-t3C"/>
                         <segue destination="OdS-o3-vpd" kind="presentation" identifier="successfulCalibrationSegueToDrawView" id="B5j-Fx-9nR"/>

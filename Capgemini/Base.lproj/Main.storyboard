@@ -119,7 +119,6 @@
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Si c’est votre 1ere connexion, enrôlez-vous afin de pouvoir enregistrer votre empreinte vocale dans l’application" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YA6-ne-CYP">
                                 <rect key="frame" x="0.0" y="212.5" width="375" height="66.5"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
