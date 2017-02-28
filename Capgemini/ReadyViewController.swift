@@ -36,8 +36,6 @@ class ReadyViewController: UIViewController {
     
     //Back button
     @IBAction func backHome(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "ViewController") as! UINavigationController
-        self.present(controller, animated: false, completion: nil)
+        performSegue(withIdentifier: "backToLoginUsername", sender: self)
     }
 }
