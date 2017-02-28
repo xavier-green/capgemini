@@ -10,18 +10,43 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    @IBOutlet var suivant: UIButton!
-    
     @IBOutlet var success: UIButton!
+    
+    func successRecording() {
+        
+        self.success.isHidden = false
+        
+        // create the alert
+        let alert = UIAlertController(title: "Authentification réussie", message: "", preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+    }
+    func failureRecording() {
+        let alert = UIAlertController(title: "Authentification échouée", message: "Recommencez si vous êtes vraiment qui vous prétendez être", preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.success.addTarget(self, action: #selector(self.goForw), for: .touchDown)
+        self.success.isHidden = true
         assignbackground()
         NotificationCenter.default.addObserver(self, selector: #selector(self.goBack), name: NSNotification.Name(rawValue: "RETOUR"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.goForw), name: NSNotification.Name(rawValue: "SUIVANT"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.successFunc), name: NSNotification.Name(rawValue: "VOICE_AUTH"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.failFunc), name: NSNotification.Name(rawValue: "DEFAULT"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.successFunc), name: NSNotification.Name(rawValue: "VOICE_AUTH"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.failFunc), name: NSNotification.Name(rawValue: "DEFAULT"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.successRecording), name: NSNotification.Name(rawValue: "REC_SUCCESS"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.failureRecording), name: NSNotification.Name(rawValue: "REC_FAIL"), object: nil)
     }
     
     func goBack() {
@@ -29,29 +54,6 @@ class LoginViewController: UIViewController {
     }
     func goForw() {
         performSegue(withIdentifier: "loginCheckSegue", sender: self)
-    }
-    func successFunc() {
-        // create the alert
-        let alert = UIAlertController(title: "Authentification Réussie", message: "", preferredStyle: UIAlertControllerStyle.alert)
-        
-        // add an action (button)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-        
-        // show the alert
-        self.present(alert, animated: true, completion: nil)
-        success.isHidden=false
-        
-    }
-    func failFunc() {
-        // create the alert
-        let alert = UIAlertController(title: "Authentification Echouée", message: "Recommencez si vous êtes vraiment qui vous prétendez être", preferredStyle: UIAlertControllerStyle.alert)
-        
-        // add an action (button)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-        
-        // show the alert
-        self.present(alert, animated: true, completion: nil)
-        
     }
 
 

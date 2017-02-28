@@ -19,10 +19,11 @@ class NuanceButtonClass: UIButton {
         if recoVocale.isRecording() {
             self.setBackgroundImage(micOnImage, for: .normal)
             recoVocale.finishRecording(success: true)
+            print("username:",GlobalVariables.username)
             if self.restorationIdentifier=="Login" {
-                recoVocale.verify(username: "Xavier")
+                recoVocale.verify(username: GlobalVariables.username)
             } else if self.restorationIdentifier=="Register"{
-                recoVocale.enroll(username: "Xavier")
+                recoVocale.enroll(username: GlobalVariables.username)
             } else {
                 print("this button has no callback function")
             }

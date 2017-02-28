@@ -88,7 +88,10 @@ class ServerConnection {
             }
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
                 print("statusCode should be 200, but is \(httpStatus.statusCode)")
-                print("response = \(response)")
+                //print("response = \(response)")
+                print("******** REQUEST ERROR")
+                let dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as! String
+                print(dataString)
                 return
             }
             let dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as! String

@@ -29,7 +29,9 @@ class SetDateViewController: UIViewController {
     }
     
     func goForw() {
-        performSegue(withIdentifier: "gotoFinishSegue", sender: self)
+        let storyboard = UIStoryboard(name: "App", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "DrawNavigationViewController") as! UINavigationController
+        self.present(controller, animated: false, completion: nil)
     }
     func goBack() {
         performSegue(withIdentifier: "goBackToVoiceRecordSegue", sender: self)

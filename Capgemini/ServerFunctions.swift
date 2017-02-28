@@ -36,6 +36,11 @@ class ServerFunctions {
         //print(xmlString)
         let isMatched = Parser.extractMatch(xmlString: xmlString)
         print("user is logged in :",isMatched)
+        if isMatched {
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "REC_SUCCESS"), object: self)
+        } else {
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "REC_FAIL"), object: self)
+        }
     }
     
     func enroll(username: String, audio: String) {
@@ -59,14 +64,17 @@ class ServerFunctions {
         let missingSegments = Parser.extractMissingSegments(xmlString: xmlString)
         print("status:",status," ; missingSegments:",missingSegments)
         if (self.status == "NotReady") {
-            if (missingSegments == self.lastMissingSegments) {
+            if (missingSegments >= self.lastMissingSegments) {
                 print("Fail during audio recording")
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "REC_FAIL"), object: self)
             } else {
                 self.lastMissingSegments = missingSegments
                 print("Success, please record your voice again")
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "REC_SUCCESS"), object: self)
             }
         } else if (self.status == "Trained") {
             print("Successfully signed up !")
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "SUCCESS"), object: self)
         }
     }
     
