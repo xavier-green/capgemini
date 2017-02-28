@@ -260,7 +260,7 @@
                                     <constraint firstAttribute="height" constant="90" id="TDA-tD-oJD"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                <state key="normal" title="Fait !">
+                                <state key="normal" title="Suivant">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>

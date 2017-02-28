@@ -13,8 +13,6 @@ class FireEvents {
     
     @objc func fireDone(resultat: String) {
         
-        NotificationCenter.default.post(name: Notification.Name(rawValue: "FINISHED_RECORDING"), object: self)
-        
         print("resultat du speechtotext: ",resultat)
         
         switch resultat {
@@ -49,6 +47,8 @@ class FireEvents {
             NotificationCenter.default.post(name: Notification.Name(rawValue: "DEFAULT"), object: self)
             print("not an identified case")
         }
+        
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "FINISHED_RECORDING"), object: self)
         
     }
     

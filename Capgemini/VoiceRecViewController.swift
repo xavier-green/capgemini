@@ -13,6 +13,7 @@ class VoiceRecViewController: UIViewController {
     let recordSniplets = [Any]() //Array to stor recorded samples
     var recAttempts: Int = 3 //Record Attemts
     var isRecording: Bool = false
+    var gotSuccessVoice: Bool = false
     
 
     
@@ -45,19 +46,57 @@ class VoiceRecViewController: UIViewController {
     func changeText() {
         isRecording = !isRecording
         if isRecording {
+            self.gotSuccessVoice = false
             enregistrement.text="Relachez pour arrêter l'enregistrement"
         } else {
             enregistrement.text="Maintenez pour enregistrer"
         }
     }
-    
+    func successEnrolment() {
+        // create the alert
+        let alert = UIAlertController(title: "Enrollement vocal réussi", message: "Passez à l'étape suivante", preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+    }
+    func successRecording() {
+        // create the alert
+        let alert = UIAlertController(title: "Enregistrement vocal réussi", message: "", preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+    }
+    func failureRecording() {
+        // create the alert
+        if !self.gotSuccessVoice {
+            let alert = UIAlertController(title: "Enregistrement échoué", message: "Veuillez recommencer", preferredStyle: UIAlertControllerStyle.alert)
+            
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            
+            // show the alert
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+
     func checkPassword() {
+        self.gotSuccessVoice = true
         recAttempts-=1
         repeatTimes.text="Plus que \(String(recAttempts)) fois"
         if recAttempts==0 {
             nextBut.isHidden=false
             repeatTimes.isHidden=true
             enregistrement.isHidden=true
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "SUCCESS"), object: self)
+        }
+        else {
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "REC_SUCCESS"), object: self)
         }
     }
     
@@ -82,6 +121,10 @@ class VoiceRecViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.goForw), name: NSNotification.Name(rawValue: "SUIVANT"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.checkPassword), name: NSNotification.Name(rawValue: "VOICE_AUTH"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.showAlert), name: NSNotification.Name(rawValue: "DEFAULT"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.successEnrolment), name: NSNotification.Name(rawValue: "SUCCESS"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.successRecording), name: NSNotification.Name(rawValue: "REC_SUCCESS"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.failureRecording), name: NSNotification.Name(rawValue: "FINISHED_RECORDING"), object: nil)
+
         enregistrement.adjustsFontSizeToFitWidth=true
     }
     override func didReceiveMemoryWarning() {
