@@ -14,7 +14,8 @@ class CalibrationViewController: UIViewController {
     var tracker: AKFrequencyTracker!
     var silence: AKBooster!
     
-    @IBOutlet weak var instructionLabel: UILabel!
+    
+    @IBOutlet var instructionLabel: UITextView!
     @IBOutlet weak var tapLabel: UILabel!
     @IBOutlet weak var mainView: UIView!
     @IBOutlet var calibrationViewTap: UITapGestureRecognizer!
@@ -68,6 +69,7 @@ class CalibrationViewController: UIViewController {
     let numberOfSamples: Int = 10
     let toleranceInterval: Double = 5.0
     var indexOfOldestSample: Int = 0
+    var averageFrequency = 160
     
     func performCalibration() {
     }
@@ -86,19 +88,19 @@ class CalibrationViewController: UIViewController {
     func performStep(_ calStep: Int){
         switch calStep{
         case -1:
-            instructionLabel.text = "Your voice parameters have already been recorded"
+            instructionLabel.text = "Vos paramètres de voix ont été enregistrés"
             calibrationStep = 3
             break
         case 0:
-            instructionLabel.text = "We just need to set the parameters according to your voice"
+            instructionLabel.text = "Nous avons juste besoin de paramétrer votre voix"
             break
         case 1:
             tapLabel.isHidden = true
             calibrationViewTap.isEnabled = false
-            currentFrequencyLabel.text = "Please sing louder"
+            currentFrequencyLabel.text = "Veuillez chanter plus fort"
             currentFrequencyLabel.isHidden = false
             startCalibration()
-            instructionLabel.text = "Sing at a single convenient frequency"
+            instructionLabel.text = "Chantez à une fréquence moyenne"
             break
         case 2:
             currentFrequencyLabel.isHidden = true
@@ -106,22 +108,22 @@ class CalibrationViewController: UIViewController {
             calibrationViewTap.isEnabled = true
             AudioKit.stop()
             calibrationTimer.invalidate()
-            instructionLabel.text =  "Successfully calibrated ! Your convenience frequency is " + "160" + " Hz"
+            instructionLabel.text =  "Calibration reussie ! Votre fréquence moyenne est " + String(self.averageFrequency) + " Hz"
             break
         case 3:
-            instructionLabel.text = "Medium frequencies will draw a straight line"
+            instructionLabel.text = "Les fréquences moyennes dessineront un trai droit"
             break
         case 4:
-            instructionLabel.text = "Lower frequencies will rotate the line clockwise"
+            instructionLabel.text = "Les plus basses fréquences feront tourner le pinceau dans le sens des aiguilles d'une montre"
             break
         case 5:
-            instructionLabel.text = "Higher frequencies will rotate the line counterclockwise"
+            instructionLabel.text = "Les plus hautes fréquences feront tourner le sens inverse"
             break
         case 6:
             self.performSegue(withIdentifier: "successfulCalibrationSegueToDrawView", sender: self)//segue to Draw Controller
             
             
-        default: instructionLabel.text = "Error in process"
+        default: instructionLabel.text = "Erreur dans le processus"
             
         }
     }
@@ -143,7 +145,7 @@ class CalibrationViewController: UIViewController {
         
         if tracker.amplitude > 0.1 {
             print("frequencyAnalysis : " + String(tracker.frequency) + " amplitudeAnalysis : " + String(tracker.amplitude))
-            currentFrequencyLabel.text = "Your current frequency : " + String(Int(tracker.frequency)) + " Hz"
+            currentFrequencyLabel.text = "Votre fréquence actuelle est : " + String(Int(tracker.frequency)) + " Hz"
             
             if frequencySamples.count < numberOfSamples { //Is the number of samples collected enough ?
                 frequencySamples.append(tracker.frequency) //Collect new sample
@@ -162,6 +164,7 @@ class CalibrationViewController: UIViewController {
                 print("Are Samples Relevant :" + String(areSamplesRelevant))
                 if areSamplesRelevant {
                     userInfo?.frequencyParameters = FrequencyVoiceParameters(mediumFrequency: avgFreq)
+                    self.averageFrequency = Int(avgFreq)
                     //saveUserInfo()
                     print("Successfully calibrated !!")
                     nextCalibrationStep() // Successfully calibrated
@@ -174,7 +177,7 @@ class CalibrationViewController: UIViewController {
             }
         }
         else {
-            currentFrequencyLabel.text = "Please sing louder"
+            currentFrequencyLabel.text = "Veuillez chanter plus fort"
         }
         
     }
