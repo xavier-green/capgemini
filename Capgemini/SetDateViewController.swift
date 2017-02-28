@@ -10,6 +10,9 @@ import UIKit
 
 class SetDateViewController: UIViewController {
     
+    @IBAction func finishButton(_ sender: CustomButtons) {
+        goForw()
+    }
     @IBOutlet weak var nextBut: UIButton!
     @IBOutlet weak var noticeText: UITextView!
     override func viewDidLoad() {
@@ -29,8 +32,8 @@ class SetDateViewController: UIViewController {
     }
     
     func goForw() {
-        let storyboard = UIStoryboard(name: "App", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "DrawNavigationViewController") as! UINavigationController
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "ViewController") as! UINavigationController
         self.present(controller, animated: false, completion: nil)
     }
     func goBack() {
