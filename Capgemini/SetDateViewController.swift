@@ -15,8 +15,10 @@ class SetDateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.nextBut.addTarget(self, action: #selector(self.goForw), for: .touchUpInside)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(self.goBack), name: NSNotification.Name(rawValue: "RETOUR"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.goForw), name: NSNotification.Name(rawValue: "SUIVANT"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.goForw), name: NSNotification.Name(rawValue: "TERMINER"), object: nil)
 
         // Do any additional setup after loading the view.
         assignbackground()
@@ -35,11 +37,5 @@ class SetDateViewController: UIViewController {
     }
     func goBack() {
         performSegue(withIdentifier: "goBackToVoiceRecordSegue", sender: self)
-    }
-    
-
-    //MARK: Segue
-    @IBAction func setDate(_ sender: UIButton) {
-        performSegue(withIdentifier: "choseDate", sender: nil)
     }
 }

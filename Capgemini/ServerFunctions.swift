@@ -44,6 +44,7 @@ class ServerFunctions {
     }
     
     func enroll(username: String, audio: String) {
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "NUANCE_PROCESSING"), object: self)
         self.currentUsername = username
         Server.enroll(speakerId: username, audio: audio)
     }

@@ -281,6 +281,13 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ITW-nO-489">
+                                <rect key="frame" x="160" y="490" width="55" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="55" id="IW8-jR-MfO"/>
+                                    <constraint firstAttribute="height" constant="55" id="fTi-QF-95d"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -295,7 +302,9 @@
                             <constraint firstItem="JOE-aL-ss8" firstAttribute="centerX" secondItem="JMn-lf-SwO" secondAttribute="centerX" id="7hs-82-qbQ"/>
                             <constraint firstItem="mbJ-cl-dTb" firstAttribute="top" secondItem="MVW-gq-gRI" secondAttribute="bottom" constant="8" symbolic="YES" id="93P-cp-Rah"/>
                             <constraint firstItem="JWE-CN-xgk" firstAttribute="centerX" secondItem="JMn-lf-SwO" secondAttribute="centerX" id="9eQ-YG-nkS"/>
+                            <constraint firstItem="ITW-nO-489" firstAttribute="centerY" secondItem="cpa-YA-0wK" secondAttribute="centerY" id="9sF-YE-9Eh"/>
                             <constraint firstItem="YJF-rh-9fV" firstAttribute="centerX" secondItem="JMn-lf-SwO" secondAttribute="centerX" id="Awp-gz-r3j"/>
+                            <constraint firstItem="ITW-nO-489" firstAttribute="centerX" secondItem="JMn-lf-SwO" secondAttribute="centerX" id="Dbm-Yb-F97"/>
                             <constraint firstItem="dFg-rZ-lPz" firstAttribute="centerX" secondItem="JMn-lf-SwO" secondAttribute="centerX" id="HQT-rq-eFv"/>
                             <constraint firstItem="cXx-at-LFO" firstAttribute="centerY" secondItem="JOE-aL-ss8" secondAttribute="centerY" id="JtA-n4-5D6"/>
                             <constraint firstItem="z0S-d5-UVw" firstAttribute="leading" secondItem="JMn-lf-SwO" secondAttribute="leading" id="Lt8-VX-djW"/>
@@ -329,6 +338,7 @@
                         <outlet property="nextBut" destination="cpa-YA-0wK" id="pUS-lY-hpt"/>
                         <outlet property="recordButton" destination="qt1-fb-fBV" id="KVA-kF-xRq"/>
                         <outlet property="repeatTimes" destination="dFg-rZ-lPz" id="LfR-5E-psS"/>
+                        <outlet property="spinner" destination="ITW-nO-489" id="MTU-A1-9PC"/>
                         <segue destination="7m4-XB-IS2" kind="modal" identifier="recDone" modalTransitionStyle="crossDissolve" id="nOT-vw-4Fc"/>
                     </connections>
                 </viewController>
@@ -349,7 +359,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="I87-n3-Wbl">
-                                <rect key="frame" x="16" y="276" width="343" height="216"/>
+                                <rect key="frame" x="16" y="268" width="343" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="509295945.39876699">
                                     <!--2017-02-20 15:05:45 +0000-->
                                 </date>
@@ -432,7 +442,7 @@
                                 </state>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" scrollEnabled="NO" editable="NO" text="Choisissez une date dont vous vous souviendrez et qui sera demandée à chaque authentification" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="33I-ws-oPx">
-                                <rect key="frame" x="16" y="145" width="343" height="131"/>
+                                <rect key="frame" x="16" y="145" width="343" height="115"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="21"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -446,7 +456,7 @@
                             <constraint firstItem="LF5-fe-1so" firstAttribute="top" secondItem="jgo-YM-Byl" secondAttribute="bottom" constant="30" id="7cH-zT-dIF"/>
                             <constraint firstItem="XI1-JJ-cXj" firstAttribute="centerY" secondItem="1DN-Zk-klO" secondAttribute="centerY" id="DHk-3s-ok4"/>
                             <constraint firstItem="33I-ws-oPx" firstAttribute="trailing" secondItem="I87-n3-Wbl" secondAttribute="trailing" id="GGe-6y-96A"/>
-                            <constraint firstItem="I87-n3-Wbl" firstAttribute="top" secondItem="33I-ws-oPx" secondAttribute="bottom" id="P7K-DL-0av"/>
+                            <constraint firstItem="I87-n3-Wbl" firstAttribute="top" secondItem="33I-ws-oPx" secondAttribute="bottom" constant="8" id="P7K-DL-0av"/>
                             <constraint firstItem="jgo-YM-Byl" firstAttribute="centerX" secondItem="Yk4-kO-wan" secondAttribute="centerX" id="QEB-sv-cLN"/>
                             <constraint firstItem="vvW-ZV-GW8" firstAttribute="leading" secondItem="Yk4-kO-wan" secondAttribute="leading" id="UTW-Ue-Cn1"/>
                             <constraint firstItem="vvW-ZV-GW8" firstAttribute="width" secondItem="Yk4-kO-wan" secondAttribute="width" id="XKk-w5-AET"/>
@@ -461,7 +471,7 @@
                             <constraint firstItem="Oby-AG-kbE" firstAttribute="top" secondItem="vvW-ZV-GW8" secondAttribute="bottom" constant="20" id="x1d-Bv-D5k"/>
                             <constraint firstItem="vvW-ZV-GW8" firstAttribute="top" secondItem="Yk4-kO-wan" secondAttribute="top" id="xwX-aV-IGz"/>
                             <constraint firstItem="XI1-JJ-cXj" firstAttribute="centerX" secondItem="Yk4-kO-wan" secondAttribute="centerX" id="z0w-DF-r2l"/>
-                            <constraint firstItem="WUH-GG-YOy" firstAttribute="top" secondItem="I87-n3-Wbl" secondAttribute="bottom" id="zYC-uf-Tyh"/>
+                            <constraint firstItem="WUH-GG-YOy" firstAttribute="top" secondItem="I87-n3-Wbl" secondAttribute="bottom" constant="8" id="zYC-uf-Tyh"/>
                         </constraints>
                     </view>
                     <connections>
