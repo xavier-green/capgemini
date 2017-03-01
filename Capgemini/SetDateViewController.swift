@@ -10,20 +10,27 @@ import UIKit
 
 class SetDateViewController: UIViewController {
     
+    @IBOutlet weak var datePicker: UIDatePicker!
+    private var secretDate: String!
     @IBAction func finishButton(_ sender: CustomButtons) {
         goForw()
     }
     @IBOutlet weak var nextBut: UIButton!
     @IBOutlet weak var noticeText: UITextView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.goBack), name: NSNotification.Name(rawValue: "RETOUR"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.goForw), name: NSNotification.Name(rawValue: "SUIVANT"), object: nil)
+        
+        self.datePicker.addTarget(self, action: #selector(self.datePickerChanged), for: UIControlEvents.valueChanged)
 
         // Do any additional setup after loading the view.
         assignbackground()
         noticeText.adjustsFontForContentSizeCategory=true
+        secretDate = setDateFormat().string(from: self.datePicker.date)
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,12 +39,24 @@ class SetDateViewController: UIViewController {
     }
     
     func goForw() {
+        CotoBackMethods().addUser(speakerId: GlobalVariables.username, memDate: secretDate)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "ViewController") as! UINavigationController
         self.present(controller, animated: false, completion: nil)
     }
     func goBack() {
         performSegue(withIdentifier: "goBackToVoiceRecordSegue", sender: self)
+    }
+    
+    func datePickerChanged() {
+        secretDate = setDateFormat().string(from: self.datePicker.date)
+    }
+    
+    func setDateFormat() -> DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = DateFormatter.Style.medium
+        dateFormatter.timeStyle = DateFormatter.Style.none
+        return dateFormatter
     }
     
 

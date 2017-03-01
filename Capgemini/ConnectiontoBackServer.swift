@@ -65,7 +65,7 @@ class ConnectiontoBackServer {
         let url = URL(string: connectionUrl)!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.httpBody = sendData
         
         sendRequest(session: session, request: request, notificationString: notificationString)
