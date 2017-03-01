@@ -5,7 +5,6 @@
 //  Created by xavier green on 27/02/2017.
 //  Copyright © 2017 xavier green. All rights reserved.
 //
-
 import Foundation
 
 class ServerConnection {
@@ -257,54 +256,3 @@ class ServerConnection {
     }
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

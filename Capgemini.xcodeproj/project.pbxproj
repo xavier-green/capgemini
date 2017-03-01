@@ -29,6 +29,8 @@
 		0EA950441E642C9E00D82337 /* AudioKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA950411E642C8F00D82337 /* AudioKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0EA950471E642CEF00D82337 /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA950461E642CEF00D82337 /* DrawView.swift */; };
 		0EA950491E64314A00D82337 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA950481E64314A00D82337 /* UserInfo.swift */; };
+		0EA9504F1E658E3400D82337 /* ConnectiontoBackServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA9504E1E658E3400D82337 /* ConnectiontoBackServer.swift */; };
+		0EA950511E658E3F00D82337 /* ServerFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA950501E658E3F00D82337 /* ServerFunctions.swift */; };
 		0EB29EC21E5EF6A800D1EAAF /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB29EC11E5EF6A800D1EAAF /* ErrorViewController.swift */; };
 		43010ADE1E6036B1009A38A1 /* RecordButtonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43010ADD1E6036B1009A38A1 /* RecordButtonClass.swift */; };
 		43010AE01E60496A009A38A1 /* SpeechToText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43010ADF1E60496A009A38A1 /* SpeechToText.swift */; };
@@ -39,7 +41,6 @@
 		43266B121E64634800A644C1 /* NuanceButtonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43266B111E64634800A644C1 /* NuanceButtonClass.swift */; };
 		43266B191E646C1B00A644C1 /* AEXML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43266B181E646C1B00A644C1 /* AEXML.framework */; };
 		43266B1F1E64734E00A644C1 /* NuanceXMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43266B1E1E64734E00A644C1 /* NuanceXMLParser.swift */; };
-		43266B211E6477D900A644C1 /* ServerFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43266B201E6477D900A644C1 /* ServerFunctions.swift */; };
 		433100A81E57344500269EEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433100A71E57344500269EEB /* AppDelegate.swift */; };
 		433100AA1E57344500269EEB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433100A91E57344500269EEB /* ViewController.swift */; };
 		433100AD1E57344500269EEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 433100AB1E57344500269EEB /* Main.storyboard */; };
@@ -112,6 +113,8 @@
 		0EA950411E642C8F00D82337 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKit.framework; sourceTree = "<group>"; };
 		0EA950461E642CEF00D82337 /* DrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 		0EA950481E64314A00D82337 /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInfo.swift; path = ../UserInfo.swift; sourceTree = "<group>"; };
+		0EA9504E1E658E3400D82337 /* ConnectiontoBackServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectiontoBackServer.swift; sourceTree = "<group>"; };
+		0EA950501E658E3F00D82337 /* ServerFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerFunctions.swift; sourceTree = "<group>"; };
 		0EB29EC11E5EF6A800D1EAAF /* ErrorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
 		43010ADD1E6036B1009A38A1 /* RecordButtonClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordButtonClass.swift; sourceTree = "<group>"; };
 		43010ADF1E60496A009A38A1 /* SpeechToText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechToText.swift; sourceTree = "<group>"; };
@@ -122,7 +125,6 @@
 		43266B111E64634800A644C1 /* NuanceButtonClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NuanceButtonClass.swift; sourceTree = "<group>"; };
 		43266B181E646C1B00A644C1 /* AEXML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AEXML.framework; path = Carthage/Build/iOS/AEXML.framework; sourceTree = "<group>"; };
 		43266B1E1E64734E00A644C1 /* NuanceXMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NuanceXMLParser.swift; sourceTree = "<group>"; };
-		43266B201E6477D900A644C1 /* ServerFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerFunctions.swift; sourceTree = "<group>"; };
 		433100A41E57344500269EEB /* Capgemini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capgemini.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		433100A71E57344500269EEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		433100A91E57344500269EEB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -225,6 +227,14 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		0EA950531E65B57100D82337 /* Connection to Back */ = {
+			isa = PBXGroup;
+			children = (
+				0EA9504E1E658E3400D82337 /* ConnectiontoBackServer.swift */,
+			);
+			name = "Connection to Back";
+			sourceTree = "<group>";
+		};
 		43010ADC1E603691009A38A1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,8 +250,8 @@
 			isa = PBXGroup;
 			children = (
 				43266B0F1E6429C300A644C1 /* ServerConnection.swift */,
+				0EA950501E658E3F00D82337 /* ServerFunctions.swift */,
 				43266B1E1E64734E00A644C1 /* NuanceXMLParser.swift */,
-				43266B201E6477D900A644C1 /* ServerFunctions.swift */,
 			);
 			name = Nuance;
 			sourceTree = "<group>";
@@ -287,6 +297,7 @@
 				0E7E23DE1E5B00D100E0F4D9 /* Views */,
 				433100A71E57344500269EEB /* AppDelegate.swift */,
 				0EA4B1091E5DEF640088FF48 /* ExtensionUIViewController.swift */,
+				0EA950531E65B57100D82337 /* Connection to Back */,
 				433100A91E57344500269EEB /* ViewController.swift */,
 				0EA950481E64314A00D82337 /* UserInfo.swift */,
 				433100AB1E57344500269EEB /* Main.storyboard */,
@@ -537,12 +548,13 @@
 				0EA94FF01E642AE400D82337 /* CalibrationViewController.swift in Sources */,
 				435AA8FE1E5B443100BBB567 /* TextToSpeech.swift in Sources */,
 				433100A81E57344500269EEB /* AppDelegate.swift in Sources */,
+				0EA9504F1E658E3400D82337 /* ConnectiontoBackServer.swift in Sources */,
 				43266B101E6429C300A644C1 /* ServerConnection.swift in Sources */,
 				43010ADE1E6036B1009A38A1 /* RecordButtonClass.swift in Sources */,
 				0E0961731E5B4F1800487D61 /* SetNickViewController.swift in Sources */,
-				43266B211E6477D900A644C1 /* ServerFunctions.swift in Sources */,
 				43266B1F1E64734E00A644C1 /* NuanceXMLParser.swift in Sources */,
 				4309EAAB1E5DF82F005026CB /* VoteViewController.swift in Sources */,
+				0EA950511E658E3F00D82337 /* ServerFunctions.swift in Sources */,
 				435AA8F61E5B302200BBB567 /* LoginCheckViewController.swift in Sources */,
 				0EA950491E64314A00D82337 /* UserInfo.swift in Sources */,
 				0EA4B10A1E5DEF640088FF48 /* ExtensionUIViewController.swift in Sources */,

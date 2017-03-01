@@ -5,7 +5,6 @@
 //  Created by xavier green on 27/02/2017.
 //  Copyright © 2017 xavier green. All rights reserved.
 //
-
 import Foundation
 
 class ServerFunctions {
@@ -60,8 +59,8 @@ class ServerFunctions {
     
     @objc func enrollStatus(notification: NSNotification) {
         let xmlString = notification.object as! String
-//        print("Enrollment status handler")
-//        print(xmlString)
+        //        print("Enrollment status handler")
+        //        print(xmlString)
         let missingSegments = Parser.extractMissingSegments(xmlString: xmlString)
         print("status:",status," ; missingSegments:",missingSegments)
         if (self.status == "NotReady") {
@@ -89,6 +88,5 @@ class ServerFunctions {
         NotificationCenter.default.addObserver(self, selector: #selector(self.enrollDone), name: NSNotification.Name(rawValue: "ENROLL"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.enrollStatus), name: NSNotification.Name(rawValue: "ENROLL_SEGMENT_STATUS"), object: nil)
         
-    }
-    
 }
+
