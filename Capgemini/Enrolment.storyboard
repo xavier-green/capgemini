@@ -73,8 +73,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Dites &quot;prêt&quot; pour commencer ou cliquez sur suivant" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n7h-92-U6e">
-                                <rect key="frame" x="0.0" y="369" width="375" height="84"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Dites &quot;suivant&quot; pour commencer ou cliquez ci-dessous" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n7h-92-U6e">
+                                <rect key="frame" x="0.0" y="369" width="375" height="118"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -240,12 +240,6 @@
                                     <constraint firstAttribute="width" constant="60" id="X7q-iZ-fGs"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Maintenez pour enregistrer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z0S-d5-UVw">
-                                <rect key="frame" x="0.0" y="561" width="375" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cliquez sur le micro puis dites la phrase suivante" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbL-7Y-QKp">
                                 <rect key="frame" x="2" y="340" width="371" height="29"/>
                                 <constraints>
@@ -284,12 +278,17 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ITW-nO-489">
+                                <rect key="frame" x="160" y="490" width="55" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="55" id="IW8-jR-MfO"/>
+                                    <constraint firstAttribute="height" constant="55" id="fTi-QF-95d"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="z0S-d5-UVw" secondAttribute="trailing" id="10a-yS-2Xj"/>
                             <constraint firstItem="cXx-at-LFO" firstAttribute="leading" secondItem="JOE-aL-ss8" secondAttribute="trailing" constant="50" id="1aM-Nh-EHX"/>
-                            <constraint firstItem="qt1-fb-fBV" firstAttribute="top" secondItem="z0S-d5-UVw" secondAttribute="bottom" id="2LC-yo-KMR"/>
                             <constraint firstItem="dOm-gm-qYq" firstAttribute="width" secondItem="JMn-lf-SwO" secondAttribute="width" id="32b-nx-mrO"/>
                             <constraint firstItem="qt1-fb-fBV" firstAttribute="top" secondItem="cpa-YA-0wK" secondAttribute="bottom" constant="20" id="3Jc-p2-FL3"/>
                             <constraint firstItem="cXx-at-LFO" firstAttribute="top" secondItem="dOm-gm-qYq" secondAttribute="bottom" constant="20" id="4Rr-gF-t4C"/>
@@ -298,17 +297,16 @@
                             <constraint firstItem="JOE-aL-ss8" firstAttribute="centerX" secondItem="JMn-lf-SwO" secondAttribute="centerX" id="7hs-82-qbQ"/>
                             <constraint firstItem="mbJ-cl-dTb" firstAttribute="top" secondItem="MVW-gq-gRI" secondAttribute="bottom" constant="8" symbolic="YES" id="93P-cp-Rah"/>
                             <constraint firstItem="JWE-CN-xgk" firstAttribute="centerX" secondItem="JMn-lf-SwO" secondAttribute="centerX" id="9eQ-YG-nkS"/>
+                            <constraint firstItem="ITW-nO-489" firstAttribute="centerY" secondItem="cpa-YA-0wK" secondAttribute="centerY" id="9sF-YE-9Eh"/>
                             <constraint firstItem="YJF-rh-9fV" firstAttribute="centerX" secondItem="JMn-lf-SwO" secondAttribute="centerX" id="Awp-gz-r3j"/>
+                            <constraint firstItem="ITW-nO-489" firstAttribute="centerX" secondItem="JMn-lf-SwO" secondAttribute="centerX" id="Dbm-Yb-F97"/>
                             <constraint firstItem="dFg-rZ-lPz" firstAttribute="centerX" secondItem="JMn-lf-SwO" secondAttribute="centerX" id="HQT-rq-eFv"/>
                             <constraint firstItem="cXx-at-LFO" firstAttribute="centerY" secondItem="JOE-aL-ss8" secondAttribute="centerY" id="JtA-n4-5D6"/>
-                            <constraint firstItem="z0S-d5-UVw" firstAttribute="leading" secondItem="JMn-lf-SwO" secondAttribute="leading" id="Lt8-VX-djW"/>
                             <constraint firstItem="JOE-aL-ss8" firstAttribute="leading" secondItem="Dxx-25-fNG" secondAttribute="trailing" constant="50" id="MPN-2D-v95"/>
                             <constraint firstItem="cpa-YA-0wK" firstAttribute="centerX" secondItem="JMn-lf-SwO" secondAttribute="centerX" id="P9h-pM-Rpe"/>
                             <constraint firstItem="dFg-rZ-lPz" firstAttribute="width" secondItem="JMn-lf-SwO" secondAttribute="width" id="R5G-9d-2RU"/>
-                            <constraint firstItem="z0S-d5-UVw" firstAttribute="centerX" secondItem="JMn-lf-SwO" secondAttribute="centerX" id="REI-UE-304"/>
                             <constraint firstItem="dbL-7Y-QKp" firstAttribute="top" secondItem="YJF-rh-9fV" secondAttribute="bottom" constant="28" id="T5l-ys-06D"/>
                             <constraint firstItem="Dxx-25-fNG" firstAttribute="top" secondItem="dOm-gm-qYq" secondAttribute="bottom" constant="20" id="T5x-rB-9WC"/>
-                            <constraint firstItem="z0S-d5-UVw" firstAttribute="width" secondItem="JMn-lf-SwO" secondAttribute="width" id="UWB-TW-6KE"/>
                             <constraint firstItem="mbJ-cl-dTb" firstAttribute="leading" secondItem="JMn-lf-SwO" secondAttribute="leadingMargin" constant="5" id="WeU-0I-CPF"/>
                             <constraint firstItem="JWE-CN-xgk" firstAttribute="top" secondItem="dbL-7Y-QKp" secondAttribute="bottom" constant="8" id="Wh4-C2-Q0Q"/>
                             <constraint firstItem="JWE-CN-xgk" firstAttribute="width" secondItem="JMn-lf-SwO" secondAttribute="width" id="YYi-io-LFd"/>
@@ -328,10 +326,10 @@
                     <navigationItem key="navigationItem" id="JGB-fq-P2b"/>
                     <connections>
                         <outlet property="doneButton" destination="cpa-YA-0wK" id="zTV-h0-TET"/>
-                        <outlet property="enregistrement" destination="z0S-d5-UVw" id="jU5-eI-du4"/>
                         <outlet property="nextBut" destination="cpa-YA-0wK" id="pUS-lY-hpt"/>
                         <outlet property="recordButton" destination="qt1-fb-fBV" id="KVA-kF-xRq"/>
                         <outlet property="repeatTimes" destination="dFg-rZ-lPz" id="LfR-5E-psS"/>
+                        <outlet property="spinner" destination="ITW-nO-489" id="MTU-A1-9PC"/>
                         <segue destination="7m4-XB-IS2" kind="modal" identifier="recDone" modalTransitionStyle="crossDissolve" id="nOT-vw-4Fc"/>
                     </connections>
                 </viewController>
@@ -352,7 +350,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="I87-n3-Wbl">
-                                <rect key="frame" x="16" y="276" width="343" height="216"/>
+                                <rect key="frame" x="16" y="268" width="343" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="509295945.39876699">
                                     <!--2017-02-20 15:05:45 +0000-->
                                 </date>
@@ -437,8 +435,8 @@
                                     <action selector="finishButton:" destination="7m4-XB-IS2" eventType="touchUpInside" id="T0p-sY-mOT"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" scrollEnabled="NO" editable="NO" text="Choisissez une date dont vous vous souviendrez et qui sera demandée à chaque authentification" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="33I-ws-oPx">
-                                <rect key="frame" x="16" y="145" width="343" height="131"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" misplaced="YES" scrollEnabled="NO" editable="NO" text="Choisissez une date dont vous vous souviendrez et qui sera demandée à chaque authentification" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="33I-ws-oPx">
+                                <rect key="frame" x="16" y="145" width="343" height="126"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="21"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -452,7 +450,7 @@
                             <constraint firstItem="LF5-fe-1so" firstAttribute="top" secondItem="jgo-YM-Byl" secondAttribute="bottom" constant="30" id="7cH-zT-dIF"/>
                             <constraint firstItem="XI1-JJ-cXj" firstAttribute="centerY" secondItem="1DN-Zk-klO" secondAttribute="centerY" id="DHk-3s-ok4"/>
                             <constraint firstItem="33I-ws-oPx" firstAttribute="trailing" secondItem="I87-n3-Wbl" secondAttribute="trailing" id="GGe-6y-96A"/>
-                            <constraint firstItem="I87-n3-Wbl" firstAttribute="top" secondItem="33I-ws-oPx" secondAttribute="bottom" id="P7K-DL-0av"/>
+                            <constraint firstItem="I87-n3-Wbl" firstAttribute="top" secondItem="33I-ws-oPx" secondAttribute="bottom" constant="8" id="P7K-DL-0av"/>
                             <constraint firstItem="jgo-YM-Byl" firstAttribute="centerX" secondItem="Yk4-kO-wan" secondAttribute="centerX" id="QEB-sv-cLN"/>
                             <constraint firstItem="vvW-ZV-GW8" firstAttribute="leading" secondItem="Yk4-kO-wan" secondAttribute="leading" id="UTW-Ue-Cn1"/>
                             <constraint firstItem="vvW-ZV-GW8" firstAttribute="width" secondItem="Yk4-kO-wan" secondAttribute="width" id="XKk-w5-AET"/>
@@ -467,7 +465,7 @@
                             <constraint firstItem="Oby-AG-kbE" firstAttribute="top" secondItem="vvW-ZV-GW8" secondAttribute="bottom" constant="20" id="x1d-Bv-D5k"/>
                             <constraint firstItem="vvW-ZV-GW8" firstAttribute="top" secondItem="Yk4-kO-wan" secondAttribute="top" id="xwX-aV-IGz"/>
                             <constraint firstItem="XI1-JJ-cXj" firstAttribute="centerX" secondItem="Yk4-kO-wan" secondAttribute="centerX" id="z0w-DF-r2l"/>
-                            <constraint firstItem="WUH-GG-YOy" firstAttribute="top" secondItem="I87-n3-Wbl" secondAttribute="bottom" id="zYC-uf-Tyh"/>
+                            <constraint firstItem="WUH-GG-YOy" firstAttribute="top" secondItem="I87-n3-Wbl" secondAttribute="bottom" constant="8" id="zYC-uf-Tyh"/>
                         </constraints>
                     </view>
                     <connections>
@@ -529,8 +527,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Première chose, choisis un" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZ4-aF-vBU">
-                                <rect key="frame" x="26" y="220" width="323" height="27"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Premièrement, choisis un" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZ4-aF-vBU">
+                                <rect key="frame" x="35.5" y="220" width="304.5" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27" id="f2M-Wa-kwE"/>
                                 </constraints>
@@ -599,7 +597,7 @@
                                     <action selector="done:" destination="S7f-yg-kdV" eventType="touchUpInside" id="bRf-oq-22h"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Dites « terminé » ou cliquez sur Terminé une fois le pseudo choisie" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hh6-Bx-Slc">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Dites « suivant » ou cliquez ci-dessous une fois le pseudo choisi" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hh6-Bx-Slc">
                                 <rect key="frame" x="0.0" y="420" width="375" height="52"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

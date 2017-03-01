@@ -145,7 +145,7 @@ class ServerConnection {
     func getUserList() {
         
         let url: String = "/vocalpassword/vocalpasswordmanager.asmx/GetSpeakersList"
-        let params: [[String]] = [["configSetName",CONFIG_SET_NAME],["maxSpeakers","100"]]
+        let params: [[String]] = [["configSetName",CONFIG_SET_NAME],["maxSpeakers","500"]]
         
         connectToServer(url: url, params: params, method: "GET", notificationString: "USER_LIST")
         

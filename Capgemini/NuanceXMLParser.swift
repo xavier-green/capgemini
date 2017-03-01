@@ -49,6 +49,28 @@ class NuanceXMLParser {
         
     }
     
+    func extractUsers(xmlString: String) -> [String] {
+        
+        let xmlData = xmlString.data(using: String.Encoding.utf8)!
+        var allUsers: [String] = []
+        
+        do {
+            let xmlDoc = try AEXMLDocument(xml: xmlData)
+            if let users = xmlDoc.root["string"].all {
+                for user in users {
+                    if let username = user.value {
+                        allUsers.append(username)
+                    }
+                }
+            }
+            return allUsers
+        } catch {
+            print("status not found")
+            return [""]
+        }
+        
+    }
+    
     func extractMissingSegments(xmlString: String) -> Int {
         
         let xmlData = xmlString.data(using: String.Encoding.utf8)!

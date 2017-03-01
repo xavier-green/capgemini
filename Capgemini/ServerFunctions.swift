@@ -15,14 +15,16 @@ class ServerFunctions {
     private var status: String = ""
     private var lastMissingSegments: Int = 3
     
-    func getUserList(username: String, audio: String) {
+    func getUserList() {
         Server.getUserList()
     }
     
     @objc func getUserListDone(notification: NSNotification) {
         let xmlString = notification.object as! String
-        print("got users:")
-        print(xmlString)
+        print("got all users")
+        //print(xmlString)
+        GlobalVariables.usernames = Parser.extractUsers(xmlString: xmlString)
+        //print(allUsers)
     }
     
     func verify(username: String, audio: String) {
@@ -43,6 +45,7 @@ class ServerFunctions {
     }
     
     func enroll(username: String, audio: String) {
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "NUANCE_PROCESSING"), object: self)
         self.currentUsername = username
         Server.enroll(speakerId: username, audio: audio)
     }
@@ -88,4 +91,6 @@ class ServerFunctions {
         NotificationCenter.default.addObserver(self, selector: #selector(self.enrollStatus), name: NSNotification.Name(rawValue: "ENROLL_SEGMENT_STATUS"), object: nil)
     }
         
+    }
+
 }
