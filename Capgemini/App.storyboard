@@ -111,7 +111,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="64k-KF-HVh">
                                 <rect key="frame" x="0.0" y="120" width="375" height="504"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your current frequency :" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUf-dy-fIl">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Votre fréquence actuelle :" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUf-dy-fIl">
                                         <rect key="frame" x="0.0" y="241.5" width="375" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -238,15 +238,15 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kIe-s4-hBl" customClass="DrawView" customModule="Capgemini" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="122" width="375" height="497"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Frequency :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRe-y0-yqX">
-                                        <rect key="frame" x="8" y="8" width="90" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fréquence :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRe-y0-yqX">
+                                        <rect key="frame" x="8" y="8" width="91" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EsY-qe-HaJ">
-                                        <rect key="frame" x="169" y="0.0" width="36" height="30"/>
-                                        <state key="normal" title="Clear"/>
+                                        <rect key="frame" x="163" y="0.0" width="49" height="30"/>
+                                        <state key="normal" title="Effacer"/>
                                         <connections>
                                             <action selector="clearButtonTapped:" destination="OdS-o3-vpd" eventType="touchUpInside" id="qH6-LQ-9ng"/>
                                         </connections>
