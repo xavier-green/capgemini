@@ -280,14 +280,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fka-Ik-Rpm">
-                                <rect key="frame" x="160" y="506" width="55" height="55"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="55" id="bhr-Gg-V25"/>
-                                    <constraint firstAttribute="height" constant="55" id="xLv-EM-2dA"/>
-                                </constraints>
-                                <state key="normal" image="valid"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="Login" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IAa-ym-WDg" customClass="NuanceButtonClass" customModule="Capgemini" customModuleProvider="target">
                                 <rect key="frame" x="160.5" y="592" width="55" height="55"/>
                                 <constraints>
@@ -296,17 +288,25 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oie-Xi-CfT" customClass="CustomButtons" customModule="Capgemini" customModuleProvider="target">
+                                <rect key="frame" x="0.5" y="482" width="375" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="2ze-cX-28E"/>
+                                </constraints>
+                                <state key="normal" title="Suivant"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="lBv-u8-YDF" firstAttribute="centerY" secondItem="WxI-lp-YQE" secondAttribute="centerY" id="7Iv-YK-BZI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Sxm-br-7s6" secondAttribute="trailing" id="7rs-ow-7Si"/>
-                            <constraint firstItem="fka-Ik-Rpm" firstAttribute="top" secondItem="8sl-94-eCt" secondAttribute="bottom" constant="40" id="A8D-8x-lkv"/>
+                            <constraint firstItem="Oie-Xi-CfT" firstAttribute="centerX" secondItem="VOa-Zi-thM" secondAttribute="centerX" id="DzI-vH-hUC"/>
                             <constraint firstItem="iEq-PM-7aV" firstAttribute="top" secondItem="LyW-5K-NGH" secondAttribute="bottom" constant="8" id="EMG-Vz-Yc7"/>
                             <constraint firstItem="8sl-94-eCt" firstAttribute="width" secondItem="VOa-Zi-thM" secondAttribute="width" id="GSo-SZ-j9B"/>
                             <constraint firstItem="Sxm-br-7s6" firstAttribute="top" secondItem="LyW-5K-NGH" secondAttribute="bottom" id="H0v-lB-8hQ"/>
                             <constraint firstItem="5eS-jr-e93" firstAttribute="top" secondItem="VOa-Zi-thM" secondAttribute="top" id="J1s-1P-iBi"/>
                             <constraint firstItem="5eS-jr-e93" firstAttribute="leading" secondItem="VOa-Zi-thM" secondAttribute="leading" id="JOV-J5-lum"/>
+                            <constraint firstItem="Oie-Xi-CfT" firstAttribute="width" secondItem="VOa-Zi-thM" secondAttribute="width" id="Jlm-5d-Lnz"/>
                             <constraint firstItem="Sxm-br-7s6" firstAttribute="leading" secondItem="VOa-Zi-thM" secondAttribute="leadingMargin" id="Kjd-mM-4Hg"/>
                             <constraint firstItem="5eS-jr-e93" firstAttribute="width" secondItem="VOa-Zi-thM" secondAttribute="width" id="M6w-eL-Nbl"/>
                             <constraint firstItem="Sxb-47-gk0" firstAttribute="top" secondItem="5eS-jr-e93" secondAttribute="bottom" constant="20" id="PtK-ej-dLe"/>
@@ -315,6 +315,7 @@
                             <constraint firstItem="8sl-94-eCt" firstAttribute="top" secondItem="Sxm-br-7s6" secondAttribute="bottom" id="ZWX-ix-lwD"/>
                             <constraint firstItem="iEq-PM-7aV" firstAttribute="centerX" secondItem="VOa-Zi-thM" secondAttribute="centerX" id="awF-yQ-aFV"/>
                             <constraint firstItem="WxI-lp-YQE" firstAttribute="leading" secondItem="lBv-u8-YDF" secondAttribute="trailing" constant="50" id="b96-FF-VBV"/>
+                            <constraint firstItem="IAa-ym-WDg" firstAttribute="top" secondItem="Oie-Xi-CfT" secondAttribute="bottom" constant="20" id="fba-Yg-OfI"/>
                             <constraint firstItem="Sxb-47-gk0" firstAttribute="centerY" secondItem="WxI-lp-YQE" secondAttribute="centerY" id="gFS-SH-VJX"/>
                             <constraint firstItem="lBv-u8-YDF" firstAttribute="top" secondItem="5eS-jr-e93" secondAttribute="bottom" constant="20" id="hc7-sU-dI5"/>
                             <constraint firstItem="IAa-ym-WDg" firstAttribute="centerX" secondItem="VOa-Zi-thM" secondAttribute="centerX" id="iCE-EZ-whO"/>
@@ -322,14 +323,13 @@
                             <constraint firstItem="LyW-5K-NGH" firstAttribute="centerX" secondItem="VOa-Zi-thM" secondAttribute="centerX" id="nMI-KF-poQ"/>
                             <constraint firstItem="LyW-5K-NGH" firstAttribute="top" secondItem="WxI-lp-YQE" secondAttribute="bottom" constant="50" id="nbo-VY-GHZ"/>
                             <constraint firstItem="WxI-lp-YQE" firstAttribute="top" secondItem="5eS-jr-e93" secondAttribute="bottom" constant="20" id="oPv-Mw-2GT"/>
-                            <constraint firstItem="fka-Ik-Rpm" firstAttribute="centerX" secondItem="VOa-Zi-thM" secondAttribute="centerX" id="oe7-Pf-kix"/>
                             <constraint firstItem="8sl-94-eCt" firstAttribute="top" secondItem="iEq-PM-7aV" secondAttribute="bottom" constant="8" id="sqt-kk-Eee"/>
                             <constraint firstItem="WxI-lp-YQE" firstAttribute="centerX" secondItem="VOa-Zi-thM" secondAttribute="centerX" id="x46-zo-Gds"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pA1-xl-Mro"/>
                     <connections>
-                        <outlet property="success" destination="fka-Ik-Rpm" id="JMa-AK-6mN"/>
+                        <outlet property="success" destination="Oie-Xi-CfT" id="WLg-z5-wox"/>
                         <segue destination="eYC-8b-xhJ" kind="presentation" identifier="loginCheckSegue" id="Taw-fj-WCH"/>
                     </connections>
                 </viewController>
@@ -711,7 +711,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="94"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N4t-mY-XHO" id="0YL-AN-BoO">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="93"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="94"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Int" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AA7-En-Ogs">
