@@ -34,7 +34,7 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         //hide keyboard when background is pressed
         self.hideKeyboardWhenTappedAround()
         assignbackground()
-        
+        nickname = GlobalVariables.usernames[0]
         CotoBackMethods().getUsersNames()
 
     }

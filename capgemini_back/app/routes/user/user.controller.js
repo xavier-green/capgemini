@@ -32,7 +32,7 @@ function create(req, res, next) {
     });
     user.saveAsync()
         .then((savedUser) => res.json(savedUser))
-        .error((e) => next(e));
+        .error((e) => res.json(e));
 }
 /**
  * Update existing user
@@ -70,4 +70,17 @@ function remove(req, res, next) {
         .then((deletedUser) => res.json(deletedUser))
         .error((e) => next(e));
 }
-module.exports = exports = { load, get, create, update, list, remove };
+
+function verifyDate(req,res) {
+  User.findOne({ username:req.body.username })
+      .then((user) => {
+        if (user.memDate==req.body.memDate) {
+          res.json({username:req.body.username,authorized:true})
+          console.log("true")
+        } else {
+          res.json({username:req.body.username,authorized:false})
+          console.log("false")
+        }
+      })
+}
+module.exports = exports = { load, get, create, update, list, remove, verifyDate };

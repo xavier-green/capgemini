@@ -20,6 +20,19 @@ class CotoBackMethods {
         Server.getUsersNames()
     }
     
+    func verifyUser(speakerId: String,memDate: String) {
+        Server.verifyUser(speakerId: speakerId,memDate: memDate)
+    }
+    @objc func verifyUserDone(notification: NSNotification) {
+        var authorized: Any!
+        let dataString = notification.object as! String
+        let data: Data = dataString.data(using: String.Encoding.utf8, allowLossyConversion: false)!
+        let json = try? JSONSerialization.jsonObject(with: data, options: [])
+        let dictionary = json as! [String:Any]
+        authorized = dictionary["authorized"]
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "VERIFIED_USER"), object: authorized)
+    }
+    
     @objc func getUserListDone(notification: NSNotification) {
         let dataString = notification.object as! String
         print("got users:")
@@ -55,5 +68,6 @@ class CotoBackMethods {
         NotificationCenter.default.addObserver(self, selector: #selector(self.getUserListDone), name: NSNotification.Name(rawValue: "GET_USERS"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.addUserDone), name: NSNotification.Name(rawValue: "ADD_USER"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.getUsersNamesDone), name: NSNotification.Name(rawValue: "GET_USERS_NAMES"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.verifyUserDone), name: NSNotification.Name(rawValue: "VERIFY_USER"), object: nil)
     }
 }
