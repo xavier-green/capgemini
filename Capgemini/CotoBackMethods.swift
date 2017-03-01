@@ -29,7 +29,7 @@ class CotoBackMethods {
         let data: Data = dataString.data(using: String.Encoding.utf8, allowLossyConversion: false)!
         let json = try? JSONSerialization.jsonObject(with: data, options: [])
         let dictionary = json as! [String:Any]
-        authorized = dictionary["authorized"]
+        authorized = dictionary["authorized"] as! Bool
         NotificationCenter.default.post(name: Notification.Name(rawValue: "VERIFIED_USER"), object: authorized)
     }
     

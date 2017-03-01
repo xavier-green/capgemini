@@ -12,9 +12,9 @@ class LoginDateViewController: UIViewController {
     
     @IBOutlet var datePicker: UIDatePicker!
     private var secretDate: String!
-    private var authorized: AnyObject!
+    private var authorized: Bool!
 
-    @IBAction func test(_ sender: UIButton) {
+    func verifyUser() {
         CotoBackMethods().verifyUser(speakerId: GlobalVariables.username, memDate: secretDate)
     }
     override func viewDidLoad() {
@@ -22,11 +22,26 @@ class LoginDateViewController: UIViewController {
         self.datePicker.addTarget(self, action: #selector(self.datePickerChanged), for: UIControlEvents.valueChanged)
         assignbackground()
         secretDate = setDateFormat().string(from: self.datePicker.date)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.verifyUser), name: NSNotification.Name(rawValue: "VERIFIED_USER"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.verifyUserDone), name: NSNotification.Name(rawValue: "VERIFIED_USER"), object: nil)
     }
     
-    @objc func verifyUser(notifcation: NSNotification) {
-        self.authorized = notifcation.object as AnyObject
+    @objc func verifyUserDone(notifcation: NSNotification) {
+        self.authorized = notifcation.object as! Bool!
+    }
+    @IBAction func nextButton(_ sender: CustomButtons) {
+        verifyUser()
+        if (self.authorized==true) {
+            performSegue(withIdentifier: "checkDate", sender: self)
+        } else {
+            // create the alert
+            let alert = UIAlertController(title: "Date Erronée", message: "La date que vous avez rentré n'est pas la bonne", preferredStyle: UIAlertControllerStyle.alert)
+            
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            
+            // show the alert
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     func goback() {
