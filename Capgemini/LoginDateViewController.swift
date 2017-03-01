@@ -13,17 +13,12 @@ class LoginDateViewController: UIViewController {
     @IBOutlet var datePicker: UIDatePicker!
     private var secretDate: String!
     
-    func gotogame() {
-        let storyboard = UIStoryboard(name: "App", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "DrawNavigationViewController") as! UINavigationController
-        self.present(controller, animated: true, completion: nil)
-    }
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.datePicker.addTarget(self, action: #selector(self.datePickerChanged), for: UIControlEvents.valueChanged)
         assignbackground()
+        secretDate = setDateFormat().string(from: self.datePicker.date)
     }
     
     func goback() {
@@ -31,17 +26,19 @@ class LoginDateViewController: UIViewController {
     }
     
     func datePickerChanged() {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = DateFormatter.Style.short
-        dateFormatter.timeStyle = DateFormatter.Style.none
-        secretDate = dateFormatter.string(from: self.datePicker.date)
+        secretDate = setDateFormat().string(from: self.datePicker.date)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    func setDateFormat() -> DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = DateFormatter.Style.medium
+        dateFormatter.timeStyle = DateFormatter.Style.none
+        return dateFormatter
+    }
 
     /*
     // MARK: - Navigation
