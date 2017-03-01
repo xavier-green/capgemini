@@ -1,4 +1,7 @@
 const User = require('./user.model');
+const login="youyoun";
+const password="password";
+const auth= Buffer(login+":"+password).toString('base64');
 /**
  * Load user and append to req.
  */
@@ -28,7 +31,7 @@ function get(req, res) {
 function create(req, res, next) {
     const user = new User({
         username: req.body.username,
-        mobileNumber: req.body.mobileNumber,
+        memDate: req.body.memDate,
     });
     user.saveAsync()
         .then((savedUser) => res.json(savedUser))
@@ -43,7 +46,8 @@ function create(req, res, next) {
 function update(req, res, next) {
     const user = req.user;
     user.username = req.body.username;
-    user.mobileNumber = req.body.mobileNumber;
+    user.memDate = req.body.memDate;
+    user.authNumber = req.body.authNumber;
     user.saveAsync()
         .then((savedUser) => res.json(savedUser))
         .error((e) => next(e));
