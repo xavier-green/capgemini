@@ -1,7 +1,4 @@
 const User = require('./user.model');
-const login="youyoun";
-const password="password";
-const auth= Buffer(login+":"+password).toString('base64');
 /**
  * Load user and append to req.
  */

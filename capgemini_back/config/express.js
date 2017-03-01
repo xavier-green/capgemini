@@ -16,6 +16,10 @@ const APIError = require('../app/helpers/APIError');
 const session = require('express-session');
 const RedisStore = require('connect-redis')(session);
 
+const login="youyoun";
+const password="password";
+const auth= "Basic "+Buffer(login+":"+password).toString('base64');
+
 const app = express();
 
 // use morgan logger in development
@@ -54,8 +58,16 @@ app.use(expressWinston.logger({
     colorStatus: true, // Color the status code (default green, 3XX cyan, 4XX yellow, 5XX red).
 }));
 
+function ensureAuthenticated(req, res, next) {
+    if (auth==req.headers.authorization) {
+        next()
+    } else {
+        res.end("Unauthorized");
+    }
+}
+
 // mount all routes on /api path
-app.use('/api', routes);
+app.use('/api', ensureAuthenticated, routes);
 
 // if error is not an instanceOf APIError, convert it.
 app.use((err, req, res, next) => {
