@@ -12,13 +12,21 @@ class LoginDateViewController: UIViewController {
     
     @IBOutlet var datePicker: UIDatePicker!
     private var secretDate: String!
-    
+    private var authorized: AnyObject!
 
+    @IBAction func test(_ sender: UIButton) {
+        CotoBackMethods().verifyUser(speakerId: GlobalVariables.username, memDate: secretDate)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.datePicker.addTarget(self, action: #selector(self.datePickerChanged), for: UIControlEvents.valueChanged)
         assignbackground()
         secretDate = setDateFormat().string(from: self.datePicker.date)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.verifyUser), name: NSNotification.Name(rawValue: "VERIFIED_USER"), object: nil)
+    }
+    
+    @objc func verifyUser(notifcation: NSNotification) {
+        self.authorized = notifcation.object as AnyObject
     }
     
     func goback() {
