@@ -51,7 +51,6 @@ class ViewController: UIViewController {
         YesBut.addTarget(self, action: #selector(self.nexView), for: .touchUpInside)
         
         assignbackground()
-        ServerFunctions().getUserList()
     }
 
     override func didReceiveMemoryWarning() {
