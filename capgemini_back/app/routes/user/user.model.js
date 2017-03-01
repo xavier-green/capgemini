@@ -9,6 +9,7 @@ const UserSchema = new mongoose.Schema({
     username: {
         type: String,
         required: true,
+        unique: true,
     },
     memDate: {
         type:String,
@@ -17,7 +18,7 @@ const UserSchema = new mongoose.Schema({
     authNumber: {
       type:Number,
       default: 0,
-    },  
+    },
 });
 /**
  * Add your
