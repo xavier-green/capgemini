@@ -31,6 +31,23 @@ extension UIViewController {
         view.addSubview(imageview)
         self.view.sendSubview(toBack: imageview)
     }
+    func isValidName(testStr:String) -> Bool {
+        let nameRegEx = "[A-Za-z0-9]+"
+        let nameTest = NSPredicate(format:"SELF MATCHES %@", nameRegEx)
+        return nameTest.evaluate(with: testStr)
+    }
+    func isAvailableUsername(username: String) -> Bool {
+        if (GlobalVariables.nuanceUsernames.contains(username) || (GlobalVariables.usernames.contains(username))) {
+            return false
+        }
+        return true
+    }
+    func isValidUsername(username: String) -> Bool {
+        if GlobalVariables.usernames.contains(username) {
+            return true
+        }
+        return false
+    }
 }
 
 extension String {

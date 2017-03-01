@@ -666,9 +666,9 @@
         <image name="voice" width="512" height="508"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Raa-dR-M6y"/>
         <segue reference="nOT-vw-4Fc"/>
-        <segue reference="VY9-H9-Dvc"/>
+        <segue reference="Raa-dR-M6y"/>
+        <segue reference="HXb-ZY-Fin"/>
         <segue reference="IIF-9z-v6Z"/>
     </inferredMetricsTieBreakers>
 </document>

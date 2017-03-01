@@ -23,7 +23,6 @@ class VoiceRecViewController: UIViewController {
     @IBAction func doneBut(_ sender: UIButton) {
         goForw()
     }
-    @IBOutlet weak var enregistrement: UILabel!
     @IBOutlet weak var nextBut: UIButton!
     @IBOutlet var recordButton: NuanceButtonClass!
     
@@ -58,7 +57,6 @@ class VoiceRecViewController: UIViewController {
         self.nextBut.isHidden=false
         self.recordButton.isHidden=true
         repeatTimes.text=""
-        enregistrement.text=""
         // create the alert
         let alert = UIAlertController(title: "Enrollement vocal réussi", message: "Passez à l'étape suivante", preferredStyle: UIAlertControllerStyle.alert)
         
@@ -145,8 +143,6 @@ class VoiceRecViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.successRecording), name: NSNotification.Name(rawValue: "REC_SUCCESS"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.failureRecording), name: NSNotification.Name(rawValue: "REC_FAIL"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.startRecording), name: NSNotification.Name(rawValue: "NUANCE_PROCESSING"), object: nil)
-
-        enregistrement.adjustsFontSizeToFitWidth=true
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

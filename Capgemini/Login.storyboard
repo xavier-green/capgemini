@@ -122,9 +122,6 @@
                                 <state key="normal" title="Suivant">
                                     <color key="titleColor" red="0.32452234460000001" green="0.32452234460000001" blue="0.32452234460000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <connections>
-                                    <segue destination="UP9-Wz-Hqu" kind="presentation" identifier="recordVoiceLoginSegue" modalTransitionStyle="crossDissolve" id="TDu-64-jHA"/>
-                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Si vous voulez essayer de vous faire passer pour un autre, choisissez un pseudo dans la liste suivante" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yma-Xs-OHT">
                                 <rect key="frame" x="16" y="318.5" width="343" height="49.5"/>
@@ -169,6 +166,8 @@
                         <outlet property="YesBut" destination="t1g-QX-lcc" id="JNJ-Wo-Klc"/>
                         <outlet property="nickName" destination="y0z-R6-tYT" id="6D3-Vl-AsO"/>
                         <outlet property="usernamePicker" destination="uZn-ac-Pwh" id="LCe-oe-6Jz"/>
+                        <outlet property="validation" destination="v0n-kF-6LS" id="nxp-Ou-Yh3"/>
+                        <segue destination="UP9-Wz-Hqu" kind="presentation" identifier="authenticationSegue" modalTransitionStyle="crossDissolve" id="fdd-ug-9tC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9I4-b5-8yg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -801,7 +800,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="lN4-AI-sUI"/>
-        <segue reference="TDu-64-jHA"/>
-        <segue reference="wIp-lP-eG5"/>
+        <segue reference="fdd-ug-9tC"/>
+        <segue reference="xnX-y8-gfZ"/>
     </inferredMetricsTieBreakers>
 </document>

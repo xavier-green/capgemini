@@ -13,12 +13,17 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     @IBOutlet var YesBut: UIButton!
     @IBOutlet weak var nickName: UITextField!
     @IBOutlet var usernamePicker: UIPickerView!
+    @IBOutlet var validation: UILabel!
+    
+    var nickname: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.usernamePicker.delegate = self
         self.usernamePicker.dataSource = self
         nickName.delegate=self
+        
+        YesBut.addTarget(self, action: #selector(self.gotoAuthentication), for: .touchUpInside)
         
         nickName.layer.borderWidth = 1
         nickName.layer.borderColor = UIColor.lightGray.cgColor
@@ -34,8 +39,20 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
 
     }
     
+    func gotoAuthentication() {
+        if isValidUsername(username: nickname!) {
+            performSegue(withIdentifier: "authenticationSegue", sender: self)
+        }
+    }
+    
     func goForw() {
-        performSegue(withIdentifier: "recordVoiceLoginSegue", sender: self)
+        if (!isValidName(testStr: nickname!) || (!isValidUsername(username: nickname!))) {
+            print("nope")
+            validation.isHidden=false
+        } else {
+            GlobalVariables.username = nickname!
+            performSegue(withIdentifier: "recordVoiceLoginSegue", sender: self)
+        }
     }
     
     // The number of columns of data
@@ -75,7 +92,18 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         return true
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
-        GlobalVariables.username = textField.text!
+        nickname = textField.text!
+        if !isValidName(testStr: nickname!) {
+            validation.isHidden=false
+            validation.text = "Lettres et chiffres uniquement"
+        } else {
+            if !isValidUsername(username: nickname!) {
+                validation.isHidden=false
+                validation.text = "Le pseudo n'existe pas"
+            } else {
+                validation.isHidden=true
+            }
+        }
     }
     
     func gotohome() {

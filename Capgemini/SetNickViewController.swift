@@ -13,11 +13,7 @@ class SetNickViewController: UIViewController, UITextFieldDelegate {
     //MARK: Outlet
     @IBOutlet weak var nickText: UITextField!
     @IBOutlet weak var validation: UILabel!
-    func isValidName(testStr:String) -> Bool {
-        let nameRegEx = "[A-Za-z0-9]+"
-        let nameTest = NSPredicate(format:"SELF MATCHES %@", nameRegEx)
-        return nameTest.evaluate(with: testStr)
-    }
+    
     @IBOutlet weak var nextBut: UIButton!
     
     //MARK: View Funcs
@@ -41,7 +37,7 @@ class SetNickViewController: UIViewController, UITextFieldDelegate {
     }
     
     func goForw() {
-        if !isValidName(testStr: nickText.text!) {
+        if (!isValidName(testStr: nickText.text!) || (!isAvailableUsername(username: nickText.text!))) {
             print("nope")
             validation.isHidden=false
         } else {
@@ -65,6 +61,17 @@ class SetNickViewController: UIViewController, UITextFieldDelegate {
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
         nickText.text = textField.text
+        if !isValidName(testStr: nickText.text!) {
+            validation.isHidden=false
+            validation.text = "Lettres et chiffres uniquement"
+        } else {
+            if !isAvailableUsername(username: nickText.text!) {
+                validation.isHidden=false
+                validation.text = "Le pseudo est déjà utilisé"
+            } else {
+                validation.isHidden=true
+            }
+        }
     }
     
     //MARK: Change View

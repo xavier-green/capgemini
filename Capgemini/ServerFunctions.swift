@@ -23,7 +23,7 @@ class ServerFunctions {
         let xmlString = notification.object as! String
         print("got all users")
         //print(xmlString)
-        GlobalVariables.usernames = Parser.extractUsers(xmlString: xmlString)
+        GlobalVariables.nuanceUsernames = Parser.extractUsers(xmlString: xmlString)
         //print(allUsers)
     }
     
