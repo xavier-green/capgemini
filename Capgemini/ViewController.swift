@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import Photos
 
 var userInfo: UserInfo?
 
@@ -38,6 +39,7 @@ class ViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        
         print("started main app")
         NotificationCenter.default.addObserver(self, selector: #selector(self.nexView), name: NSNotification.Name(rawValue: "AUTHENTIFICATION"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.gotoRegister), name: NSNotification.Name(rawValue: "ENROLLEMENT"), object: nil)
