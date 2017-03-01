@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Photos
 
 class DrawView: UIView {
 
@@ -122,7 +123,7 @@ class DrawView: UIView {
         
         // Rotation
         
-        var newDirection = currentDirection.rotate(radAngle: CGFloat(rotationAngle))
+        let newDirection = currentDirection.rotate(radAngle: CGFloat(rotationAngle))
         
         pointer.setDirection(newDirection)
         

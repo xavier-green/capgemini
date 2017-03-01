@@ -8,6 +8,7 @@
 
 import AudioKit
 import UIKit
+import Photos
 
 class DrawTestViewController: UIViewController {
 
@@ -17,6 +18,11 @@ class DrawTestViewController: UIViewController {
     @IBOutlet weak var frequencyLabel: UILabel!
     @IBOutlet weak var amplitudeLabel: UILabel!
     @IBOutlet weak var stackColors: UIStackView!
+    
+    @IBAction func finishDrawing(_ sender: Any) {
+        trySavingImage()
+        performSegue(withIdentifier: "drawingFinished", sender: self)
+    }
     
     
     // MARK: Audio Properties
@@ -32,6 +38,60 @@ class DrawTestViewController: UIViewController {
     let noteNamesWithSharps = ["C", "C♯","D","D♯","E","F","F♯","G","G♯","A","A♯","B"]
     let noteNamesWithFlats = ["C", "D♭","D","E♭","E","F","G♭","G","A♭","A","B♭","B"]
     //MARK: Initialisation
+    
+    func saveImage() {
+        
+        print("saving image")
+        UIGraphicsBeginImageContextWithOptions(drawView.layer.frame.size, false, 0)
+        drawView.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let viewImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        print("here")
+        //let uii = UIImage(named: "micOn")
+        let base64Image = UIImageJPEGRepresentation(viewImage, 0.9)?.base64EncodedString()
+        print(base64Image)
+        
+        PHPhotoLibrary.shared().performChanges({
+            print("making changes")
+            PHAssetChangeRequest.creationRequestForAsset(from: viewImage)
+            print("done with the saving of image")
+        }, completionHandler: {
+            success, error in
+            if success {
+                print("save successfull")
+            } else if let error = error {
+                print(error)
+            } else {
+                print("photo save fail with no error")
+            }
+        })
+    }
+    
+    func trySavingImage() {
+        let status = PHPhotoLibrary.authorizationStatus()
+        switch status {
+        case .authorized:
+            print("authorized")
+            self.saveImage()
+            break
+            
+        case .denied, .restricted : break
+            
+        case .notDetermined:
+            PHPhotoLibrary.requestAuthorization() { (status) -> Void in
+                switch status {
+                case .authorized:
+                    print("authorized")
+                    self.saveImage()
+                    break
+                    
+                case .denied, .restricted: break
+                    
+                case .notDetermined: break
+                }
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

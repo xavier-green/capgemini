@@ -179,7 +179,7 @@
         <!--Draw Test View Controller-->
         <scene sceneID="Fdm-9y-ixU">
             <objects>
-                <viewController id="OdS-o3-vpd" customClass="DrawTestViewController" customModule="Capgemini" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DrawTestViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OdS-o3-vpd" customClass="DrawTestViewController" customModule="Capgemini" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="65u-eh-wW2"/>
                         <viewControllerLayoutGuide type="bottom" id="AUV-KC-qok"/>
@@ -221,7 +221,7 @@
                                 </constraints>
                                 <state key="normal" backgroundImage="valid"/>
                                 <connections>
-                                    <segue destination="Tnx-0Z-EW9" kind="presentation" id="lFg-cz-fWH"/>
+                                    <action selector="finishDrawing:" destination="OdS-o3-vpd" eventType="touchUpInside" id="oKk-aw-Z3m"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Po-dl-fed">
@@ -293,6 +293,7 @@
                         <outlet property="amplitudeLabel" destination="Xhy-Ag-cYV" id="dlT-Un-10P"/>
                         <outlet property="drawView" destination="kIe-s4-hBl" id="P0N-wR-rHX"/>
                         <outlet property="frequencyLabel" destination="oRe-y0-yqX" id="mDT-5d-kA9"/>
+                        <segue destination="Tnx-0Z-EW9" kind="presentation" identifier="drawingFinished" id="OvM-Ej-wC6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wMM-Vd-HsT" userLabel="First Responder" sceneMemberID="firstResponder"/>
