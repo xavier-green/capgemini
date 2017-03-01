@@ -266,6 +266,9 @@
                                 <rect key="frame" x="329" y="30" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="information"/>
+                                <connections>
+                                    <segue destination="7m4-XB-IS2" kind="presentation" id="7Hn-fc-hRA"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="Register" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qt1-fb-fBV" customClass="NuanceButtonClass" customModule="Capgemini" customModuleProvider="target">
                                 <rect key="frame" x="160" y="582" width="55" height="55"/>
@@ -428,6 +431,9 @@
                                 <state key="normal" title="Terminer">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="finishButton:" destination="7m4-XB-IS2" eventType="touchUpInside" id="T0p-sY-mOT"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" misplaced="YES" scrollEnabled="NO" editable="NO" text="Choisissez une date dont vous vous souviendrez et qui sera demandée à chaque authentification" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="33I-ws-oPx">
                                 <rect key="frame" x="16" y="145" width="343" height="126"/>
@@ -463,6 +469,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="datePicker" destination="I87-n3-Wbl" id="sAz-TQ-Xjf"/>
                         <outlet property="nextBut" destination="WUH-GG-YOy" id="Gaq-MU-yhg"/>
                         <outlet property="noticeText" destination="33I-ws-oPx" id="mPL-TP-aq8"/>
                     </connections>
@@ -660,6 +667,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Raa-dR-M6y"/>
+        <segue reference="nOT-vw-4Fc"/>
         <segue reference="VY9-H9-Dvc"/>
         <segue reference="IIF-9z-v6Z"/>
     </inferredMetricsTieBreakers>

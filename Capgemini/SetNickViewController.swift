@@ -45,7 +45,6 @@ class SetNickViewController: UIViewController, UITextFieldDelegate {
             print("nope")
             validation.isHidden=false
         } else {
-            GlobalVariables.usernames.append(nickText.text!)
             GlobalVariables.username = nickText.text!
             performSegue(withIdentifier: "gotoVoiceSegue", sender: self)
         }

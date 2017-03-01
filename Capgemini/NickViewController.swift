@@ -29,6 +29,9 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         //hide keyboard when background is pressed
         self.hideKeyboardWhenTappedAround()
         assignbackground()
+        
+        CotoBackMethods().getUsersNames()
+
     }
     
     func goForw() {

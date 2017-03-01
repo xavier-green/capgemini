@@ -89,8 +89,7 @@ class ServerFunctions {
         NotificationCenter.default.addObserver(self, selector: #selector(self.verifyDone), name: NSNotification.Name(rawValue: "VERIFY"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.enrollDone), name: NSNotification.Name(rawValue: "ENROLL"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.enrollStatus), name: NSNotification.Name(rawValue: "ENROLL_SEGMENT_STATUS"), object: nil)
-        
     }
-
+        
 }
 
