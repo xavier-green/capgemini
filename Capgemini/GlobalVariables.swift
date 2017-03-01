@@ -10,6 +10,6 @@ import Foundation
 
 struct GlobalVariables {
     static var username: String = ""
-    static var usernames: [String] = ["CTLM","VINC68","BNP17","ZORO"]
+    static var usernames: [String] = []
     static var allowedCommands: [String] = ["Authentification","Enrôlements","Suivant","Retour","Terminer","Chez Cételem ma voix et mon mot de passe","Chez Cételem ma voix est mon mot de passe","Oui","Non"]
 }

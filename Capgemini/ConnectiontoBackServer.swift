@@ -151,6 +151,13 @@ class ConnectiontoBackServer {
         
     }
     
+    func getUsersNames() {
+        let url: String = "/users"
+        let params: [[String]] = [[]]
+        
+        connectToServer(url: url, params: params, method: "GET", notificationString: "GET_USERS_NAMES")
+    }
+    
     func addUser(speakerId: String, memDate: String) {
         
         print("Adding user to back")
