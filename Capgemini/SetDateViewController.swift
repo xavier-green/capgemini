@@ -38,12 +38,27 @@ class SetDateViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func success() {
+        // create the alert
+        let alert = UIAlertController(title: "Enrôlement terminé", message: "Veuillez procéder à l'authentification.", preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {action in self.gotoHome()}))
+
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+    }
+
     func goForw() {
         CotoBackMethods().addUser(speakerId: GlobalVariables.username, memDate: secretDate)
+        success()
+    }
+    func gotoHome() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "ViewController") as! UINavigationController
         self.present(controller, animated: false, completion: nil)
     }
+    
     func goBack() {
         performSegue(withIdentifier: "goBackToVoiceRecordSegue", sender: self)
     }
