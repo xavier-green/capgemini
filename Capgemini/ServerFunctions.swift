@@ -91,6 +91,5 @@ class ServerFunctions {
         NotificationCenter.default.addObserver(self, selector: #selector(self.enrollStatus), name: NSNotification.Name(rawValue: "ENROLL_SEGMENT_STATUS"), object: nil)
     }
         
-    }
-
 }
+

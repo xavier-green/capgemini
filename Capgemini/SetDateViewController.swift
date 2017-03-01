@@ -64,7 +64,6 @@ class SetDateViewController: UIViewController {
     func goBack() {
         performSegue(withIdentifier: "goBackToVoiceRecordSegue", sender: self)
     }
-<<<<<<< HEAD
     
     func datePickerChanged() {
         secretDate = setDateFormat().string(from: self.datePicker.date)
@@ -82,6 +81,4 @@ class SetDateViewController: UIViewController {
     @IBAction func setDate(_ sender: UIButton) {
         performSegue(withIdentifier: "choseDate", sender: nil)
     }
-=======
->>>>>>> 12f99e8e8f5c930a4cb0e0f08fa38c453ab076c1
 }
