@@ -127,7 +127,7 @@
 		43266B111E64634800A644C1 /* NuanceButtonClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NuanceButtonClass.swift; sourceTree = "<group>"; };
 		43266B181E646C1B00A644C1 /* AEXML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AEXML.framework; path = Carthage/Build/iOS/AEXML.framework; sourceTree = "<group>"; };
 		43266B1E1E64734E00A644C1 /* NuanceXMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NuanceXMLParser.swift; sourceTree = "<group>"; };
-		433100A41E57344500269EEB /* Capgemini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capgemini.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		433100A41E57344500269EEB /* My VocalPrint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My VocalPrint.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		433100A71E57344500269EEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		433100A91E57344500269EEB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		433100AC1E57344500269EEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -283,7 +283,7 @@
 		433100A51E57344500269EEB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				433100A41E57344500269EEB /* Capgemini.app */,
+				433100A41E57344500269EEB /* My VocalPrint.app */,
 				433100B81E57344500269EEB /* CapgeminiTests.xctest */,
 				433100C31E57344500269EEB /* CapgeminiUITests.xctest */,
 			);
@@ -386,7 +386,7 @@
 			);
 			name = Capgemini;
 			productName = Capgemini;
-			productReference = 433100A41E57344500269EEB /* Capgemini.app */;
+			productReference = 433100A41E57344500269EEB /* My VocalPrint.app */;
 			productType = "com.apple.product-type.application";
 		};
 		433100B71E57344500269EEB /* CapgeminiTests */ = {
@@ -716,7 +716,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dty.Capgemini;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "My VocalPrint";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -736,7 +736,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dty.Capgemini;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "My VocalPrint";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
