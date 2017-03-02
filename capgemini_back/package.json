@@ -56,10 +56,12 @@
     "helmet": "2.1.1",
     "http-status": "^0.2.0",
     "joi": "8.4.2",
-    "jsonwebtoken": "7.1.9",
     "js2xmlparser": "3.0.0",
+    "jsonwebtoken": "7.1.9",
     "method-override": "^2.3.5",
     "mongoose": "^4.3.7",
+    "mongoose-auto-increment": "^5.0.1",
+    "mongoose-autopopulate": "^0.5.0",
     "morgan": "1.7.0",
     "nodemon": "^1.10.2",
     "winston": "^2.1.1"

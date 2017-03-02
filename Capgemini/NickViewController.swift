@@ -15,7 +15,8 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     @IBOutlet var usernamePicker: UIPickerView!
     @IBOutlet var validation: UILabel!
     
-    var nickname: String!
+    var nickname: String = ""
+    var pickerName: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,9 +36,9 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         self.hideKeyboardWhenTappedAround()
         assignbackground()
         if GlobalVariables.usernames.count>0 {
-            nickname = GlobalVariables.usernames[0]
+            pickerName = GlobalVariables.usernames[0]
         } else {
-            nickname = "empty nickname"
+            pickerName = "empty nickname"
         }
         CotoBackMethods().getUsersNames()
 
@@ -50,14 +51,14 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
 //    }
     
     func goForw() {
-        if (!isValidName(testStr: nickname!) || (!isValidUsername(username: nickname!))) {
-            print("nope")
-            validation.isHidden=false
+        if nickname=="" {
+            GlobalVariables.username = pickerName!
+            print("setting global username to : ",pickerName)
         } else {
+            GlobalVariables.username = nickname
             print("setting global username to : ",nickname)
-            GlobalVariables.username = nickname!
-            performSegue(withIdentifier: "authenticationSegue", sender: self)
         }
+        performSegue(withIdentifier: "authenticationSegue", sender: self)
     }
     
     // The number of columns of data
@@ -72,7 +73,8 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     
     // The data to return for the row and component (column) that's being passed in
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        nickname = GlobalVariables.usernames[row]
+        pickerName = GlobalVariables.usernames[row]
+        print("new picker name: ",pickerName)
         return GlobalVariables.usernames[row]
     }
 
@@ -98,11 +100,11 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
         nickname = textField.text!
-        if !isValidName(testStr: nickname!) {
+        if !isValidName(testStr: nickname) {
             validation.isHidden=false
             validation.text = "Lettres et chiffres uniquement"
         } else {
-            if !isValidUsername(username: nickname!) {
+            if !isValidUsername(username: nickname) {
                 validation.isHidden=false
                 validation.text = "Le pseudo n'existe pas"
             } else {

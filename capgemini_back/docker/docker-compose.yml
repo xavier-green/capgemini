@@ -17,9 +17,9 @@ services:
         environment:
             - NODE_ENV=${YOUR_APP_NODE_ENV}
             - JWT_SECRET_development=kGKTCJYF7O86485tfjygcjytdxjcuckcjycjstsj
-            - JWT_SECRET_production=${YOUR_APP_JWT_SECRET_production}
+            - JWT_SECRET_production=rdurdurdytfjuytfuytjfv
             - REDIS_SECRET_development=hjgfjytcjtj575R65RTFFJjgfjydtrd
-            - REDIS_SECRET_production=${YOUR_APP_REDIS_SECRET_production}
+            - REDIS_SECRET_production=kgciycutcfujgcjtfxjfcjc
     mongo:
         build:
             context: .
