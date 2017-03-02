@@ -12,12 +12,30 @@ class CotoBackMethods {
     private var Server: ConnectiontoBackServer!
     private var currentUsername: String = ""
     
+    func parseJsonArray(attribute: String,jsonString: String) -> AnyObject  {
+        let data: Data = jsonString.data(using: String.Encoding.utf8, allowLossyConversion: false)!
+        let json = try? JSONSerialization.jsonObject(with: data, options: [])
+        let array = json as! [AnyObject]
+        return array as AnyObject
+    }
+    
+    func parseJson(attribute: String,jsonString: String) -> String  {
+        let data: Data = jsonString.data(using: String.Encoding.utf8, allowLossyConversion: false)!
+        let json = try? JSONSerialization.jsonObject(with: data, options: [])
+        let dictionary = json as! [String:Any]
+        return dictionary["\(attribute)"] as! String
+    }
+    
     func getUserList() {
         Server.getUserList()
     }
     
     func getUsersNames() {
         Server.getUsersNames()
+    }
+    
+    func getUser(speakerId: String) {
+        Server.getUser(speakerId: speakerId)
     }
     
     func verifyUser(speakerId: String,memDate: String) {
