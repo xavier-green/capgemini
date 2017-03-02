@@ -13,7 +13,7 @@
         <!--Nick View Controller-->
         <scene sceneID="YVh-xu-lGD">
             <objects>
-                <viewController id="C4T-ua-GSd" customClass="NickViewController" customModule="Capgemini" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="C4T-ua-GSd" customClass="NickViewController" customModule="My_VocalPrint" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nyK-xx-NIO"/>
                         <viewControllerLayoutGuide type="bottom" id="x6d-cd-RCx"/>
@@ -104,7 +104,7 @@
                                     <constraint firstAttribute="height" constant="60" id="LN1-rF-7Zb"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFv-jV-Sgw" customClass="RecordButtonClass" customModule="Capgemini" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFv-jV-Sgw" customClass="RecordButtonClass" customModule="My_VocalPrint" customModuleProvider="target">
                                 <rect key="frame" x="167" y="607" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="8ng-r5-W61"/>
@@ -112,7 +112,7 @@
                                 </constraints>
                                 <state key="normal" backgroundImage="micOn"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t1g-QX-lcc" customClass="CustomButtons" customModule="Capgemini" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t1g-QX-lcc" customClass="CustomButtons" customModule="My_VocalPrint" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="497" width="375" height="90"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -193,7 +193,7 @@
         <!--Login View Controller-->
         <scene sceneID="Wpv-EL-pXH">
             <objects>
-                <viewController id="UP9-Wz-Hqu" customClass="LoginViewController" customModule="Capgemini" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="UP9-Wz-Hqu" customClass="LoginViewController" customModule="My_VocalPrint" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rVD-ZW-Ums"/>
                         <viewControllerLayoutGuide type="bottom" id="BDL-yd-b5k"/>
@@ -282,7 +282,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="Login" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IAa-ym-WDg" customClass="NuanceButtonClass" customModule="Capgemini" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="Login" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IAa-ym-WDg" customClass="NuanceButtonClass" customModule="My_VocalPrint" customModuleProvider="target">
                                 <rect key="frame" x="160.5" y="592" width="55" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="Fcz-mm-dtG"/>
@@ -290,7 +290,7 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oie-Xi-CfT" customClass="CustomButtons" customModule="Capgemini" customModuleProvider="target">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oie-Xi-CfT" customClass="CustomButtons" customModule="My_VocalPrint" customModuleProvider="target">
                                 <rect key="frame" x="0.5" y="482" width="375" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="2ze-cX-28E"/>
@@ -342,7 +342,7 @@
         <!--Error View Controller-->
         <scene sceneID="DqU-Nd-k3k">
             <objects>
-                <viewController id="DI0-p4-knE" customClass="ErrorViewController" customModule="Capgemini" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="DI0-p4-knE" customClass="ErrorViewController" customModule="My_VocalPrint" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MKL-3t-Orc"/>
                         <viewControllerLayoutGuide type="bottom" id="s0A-Ot-vCx"/>
@@ -410,7 +410,7 @@
         <!--Login Check View Controller-->
         <scene sceneID="c4l-3p-H4B">
             <objects>
-                <viewController storyboardIdentifier="LoginCheckViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eYC-8b-xhJ" customClass="LoginCheckViewController" customModule="Capgemini" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginCheckViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eYC-8b-xhJ" customClass="LoginCheckViewController" customModule="My_VocalPrint" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zEs-Ci-VuE"/>
                         <viewControllerLayoutGuide type="bottom" id="ZhC-fr-fRD"/>
@@ -462,7 +462,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UnW-Sf-SGE" customClass="CustomButtons" customModule="Capgemini" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UnW-Sf-SGE" customClass="CustomButtons" customModule="My_VocalPrint" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="412" width="375" height="90"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -497,7 +497,7 @@
                                     <constraint firstAttribute="width" constant="60" id="lVc-kc-syR"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A9Q-mx-bIr" customClass="RecordButtonClass" customModule="Capgemini" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A9Q-mx-bIr" customClass="RecordButtonClass" customModule="My_VocalPrint" customModuleProvider="target">
                                 <rect key="frame" x="167.5" y="607" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="hNe-Ws-PGu"/>
@@ -558,7 +558,7 @@
         <!--Login Date View Controller-->
         <scene sceneID="L14-dt-GZv">
             <objects>
-                <viewController storyboardIdentifier="LoginDateViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qFr-bu-2aY" customClass="LoginDateViewController" customModule="Capgemini" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginDateViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qFr-bu-2aY" customClass="LoginDateViewController" customModule="My_VocalPrint" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2dt-km-TLg"/>
                         <viewControllerLayoutGuide type="bottom" id="9xB-2b-IHf"/>
@@ -632,7 +632,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1kS-0A-TF9" customClass="CustomButtons" customModule="Capgemini" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1kS-0A-TF9" customClass="CustomButtons" customModule="My_VocalPrint" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="502" width="375" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="C32-xr-MWN"/>
@@ -677,7 +677,7 @@
         <!--Users View Controller-->
         <scene sceneID="RhN-xb-KY5">
             <objects>
-                <viewController id="tW3-5H-dDF" customClass="UsersViewController" customModule="Capgemini" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="tW3-5H-dDF" customClass="UsersViewController" customModule="My_VocalPrint" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LuA-72-u7A"/>
                         <viewControllerLayoutGuide type="bottom" id="ABR-hv-ZFS"/>
@@ -710,7 +710,7 @@
                                 <rect key="frame" x="0.0" y="65" width="375" height="602"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LabelCell" rowHeight="94" id="N4t-mY-XHO" customClass="UserTableCell" customModule="Capgemini" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LabelCell" rowHeight="94" id="N4t-mY-XHO" customClass="UserTableCell" customModule="My_VocalPrint" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="94"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N4t-mY-XHO" id="0YL-AN-BoO">
@@ -803,8 +803,8 @@
         <image name="voice" width="512" height="508"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="swq-Px-hyF"/>
-        <segue reference="fdd-ug-9tC"/>
         <segue reference="wIp-lP-eG5"/>
+        <segue reference="fdd-ug-9tC"/>
+        <segue reference="lN4-AI-sUI"/>
     </inferredMetricsTieBreakers>
 </document>
