@@ -74,8 +74,12 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     // The data to return for the row and component (column) that's being passed in
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         pickerName = GlobalVariables.usernames[row]
-        print("new picker name: ",pickerName)
         return GlobalVariables.usernames[row]
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
+    {
+        pickerName = GlobalVariables.usernames[row]
+        print("new picker name: ",pickerName)
     }
 
     override func didReceiveMemoryWarning() {
