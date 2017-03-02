@@ -10,6 +10,7 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true,
+        index: 1,
     },
     memDate: {
         type:String,
@@ -42,6 +43,21 @@ UserSchema.statics = {
      */
     get(id) {
         return this.findById(id)
+            .execAsync().then((user) => {
+                if (user) {
+                    return user;
+                }
+                const err = new APIError('No such user exists!', httpStatus.NOT_FOUND);
+                return Promise.reject(err);
+            });
+    },
+    /**
+     * Get user
+     * @param {ObjectId} name - The object username of user.
+     * @returns {Promise<User, APIError>}
+     */
+    get(name) {
+        return this.findOne({username:name})
             .execAsync().then((user) => {
                 if (user) {
                     return user;

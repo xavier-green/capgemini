@@ -2,8 +2,8 @@ const User = require('./user.model');
 /**
  * Load user and append to req.
  */
-function load(req, res, next, id) {
-    User.get(id).then((user) => {
+function load(req, res, next, username) {
+    User.get(username).then((user) => {
         req.user = user;
         return next();
     }).error((e) => {
@@ -17,6 +17,7 @@ function load(req, res, next, id) {
  * @returns {User}
  */
 function get(req, res) {
+    console.log("body= ",req.body)
     return res.json(req.user);
 }
 /**
