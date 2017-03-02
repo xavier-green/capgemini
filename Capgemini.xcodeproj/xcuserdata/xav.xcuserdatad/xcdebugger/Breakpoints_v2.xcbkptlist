@@ -147,5 +147,53 @@
             landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Capgemini/DrawTestViewController.swift"
+            timestampString = "510161484.953235"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "saveImage()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Capgemini.DrawTestViewController.saveImage () -&gt; ()"
+                  moduleName = "Capgemini"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xav/Desktop/app/capgemini/Capgemini/DrawTestViewController.swift"
+                  timestampString = "510161485.495992"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "4376">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Capgemini.DrawTestViewController.(saveImage () -&gt; ()).(closure #1)"
+                  moduleName = "Capgemini"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xav/Desktop/app/capgemini/Capgemini/DrawTestViewController.swift"
+                  timestampString = "510161485.513359"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "22">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

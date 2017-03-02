@@ -12,11 +12,11 @@ class CotoBackMethods {
     private var Server: ConnectiontoBackServer!
     private var currentUsername: String = ""
     
-    func parseJsonArray(attribute: String,jsonString: String) -> AnyObject  {
+    func parseJsonArray(jsonString: String) -> [AnyObject]  {
         let data: Data = jsonString.data(using: String.Encoding.utf8, allowLossyConversion: false)!
         let json = try? JSONSerialization.jsonObject(with: data, options: [])
         let array = json as! [AnyObject]
-        return array as AnyObject
+        return array  as! [AnyObject]
     }
     
     func parseJson(jsonString: String) -> [String:Any]  {
@@ -84,6 +84,28 @@ class CotoBackMethods {
         print(dataString)
     }
     
+    func addImage(base64image: String) {
+        Server.addImage(base64image: base64image, username: GlobalVariables.username)
+    }
+    
+    @objc func addImageDone() {
+        print("Added image !")
+    }
+    
+    func getImages() {
+        Server.getImages()
+    }
+    
+    @objc func appendImages(notification: NSNotification) {
+        let dataString = notification.object as! String
+        let result = parseJsonArray(jsonString: dataString)
+        var imageData: [String] = []
+        for image in result {
+            imageData.append(image["imageData"] as! String)
+        }
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "FINISHED_GETTING_IMAGES"), object: imageData)
+    }
+    
     init() {
         Server = ConnectiontoBackServer()
         NotificationCenter.default.addObserver(self, selector: #selector(self.getUserListDone), name: NSNotification.Name(rawValue: "GET_USERS"), object: nil)
@@ -91,5 +113,7 @@ class CotoBackMethods {
         NotificationCenter.default.addObserver(self, selector: #selector(self.getUsersNamesDone), name: NSNotification.Name(rawValue: "GET_USERS_NAMES"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.verifyUserDone), name: NSNotification.Name(rawValue: "VERIFY_USER"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.getUserDone), name: NSNotification.Name(rawValue: "GET_USER"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.addImageDone), name: NSNotification.Name(rawValue: "POST_IMAGE"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.appendImages), name: NSNotification.Name(rawValue: "GET_IMAGES"), object: nil)
     }
 }

@@ -13,7 +13,7 @@ class ConnectiontoBackServer {
         print("Initialising back server connection")
     }
     
-    private let BASE_URL: String = "http://7b25e40f.ngrok.io/api"
+    private let BASE_URL: String = "http://localhost:3000/api" //"http://7b25e40f.ngrok.io/api"
     private let SERVER_USERNAME: String = "youyoun"
     private let SERVER_PASSWORD: String = "password"
     
@@ -91,7 +91,7 @@ class ConnectiontoBackServer {
                 return
             }
             let dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as! String
-            //print(dataString)
+            print(dataString)
             
             print("Done, sending notification: ",notificationString)
             
@@ -136,8 +136,12 @@ class ConnectiontoBackServer {
     func constructParams(params: [[String]]) -> String {
         
         var finalUrl = ""
-        for param in params {
-            finalUrl += param[0]+"="+param[1]+"&"
+        print("params length: ",params.count)
+        if (params.count > 0) {
+            for param in params {
+                print("param: ",param)
+                finalUrl += param[0]+"="+param[1]+"&"
+            }
         }
         return finalUrl
         
@@ -187,4 +191,30 @@ class ConnectiontoBackServer {
         
         connectToServer(url: url, params: params, method: "GET", notificationString: "GET_USER")
     }
+    
+    func addImage(base64image: String, username: String) {
+        
+        print("saving image to server")
+        let url: String = "/images"
+        let params: [[String]] = [["imageData",base64image],["username",username]]
+        
+        connectToServer(url: url, params: params, method: "POST", notificationString: "POST_IMAGE")
+        
+    }
+    
+    func getImages() {
+        
+        print("getting images from db")
+        let url: String = "/images"
+        let params: [[String]] = [[]]
+        
+        connectToServer(url: url, params: params, method: "GET", notificationString: "GET_IMAGES")
+        
+    }
 }
+
+
+
+
+
+

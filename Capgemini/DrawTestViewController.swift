@@ -57,7 +57,8 @@ class DrawTestViewController: UIViewController {
         
         print("here")
         let base64Image = UIImageJPEGRepresentation(imageToSave, 0.9)?.base64EncodedString()
-        print(base64Image)
+        
+        CotoBackMethods().addImage(base64image: base64Image!)
         
         PHPhotoLibrary.shared().performChanges({
             print("making changes")
