@@ -23,7 +23,7 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         self.usernamePicker.dataSource = self
         nickName.delegate=self
         
-        YesBut.addTarget(self, action: #selector(self.gotoAuthentication), for: .touchUpInside)
+        YesBut.addTarget(self, action: #selector(self.goForw), for: .touchUpInside)
         
         nickName.layer.borderWidth = 1
         nickName.layer.borderColor = UIColor.lightGray.cgColor
@@ -43,19 +43,20 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
 
     }
     
-    func gotoAuthentication() {
-        if isValidUsername(username: nickname!) {
-            performSegue(withIdentifier: "authenticationSegue", sender: self)
-        }
-    }
+//    func gotoAuthentication() {
+//        if isValidUsername(username: nickname!) {
+//            performSegue(withIdentifier: "authenticationSegue", sender: self)
+//        }
+//    }
     
     func goForw() {
         if (!isValidName(testStr: nickname!) || (!isValidUsername(username: nickname!))) {
             print("nope")
             validation.isHidden=false
         } else {
+            print("setting global username to : ",nickname)
             GlobalVariables.username = nickname!
-            performSegue(withIdentifier: "recordVoiceLoginSegue", sender: self)
+            performSegue(withIdentifier: "authenticationSegue", sender: self)
         }
     }
     
@@ -71,7 +72,7 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     
     // The data to return for the row and component (column) that's being passed in
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        GlobalVariables.username = GlobalVariables.usernames[row]
+        nickname = GlobalVariables.usernames[row]
         return GlobalVariables.usernames[row]
     }
 
@@ -108,6 +109,7 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
                 validation.isHidden=true
             }
         }
+        print("new nickname: ",nickname)
     }
     
     func gotohome() {
