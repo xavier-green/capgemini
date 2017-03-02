@@ -46,14 +46,22 @@ class DrawTestViewController: UIViewController {
         drawView.layer.render(in: UIGraphicsGetCurrentContext()!)
         let viewImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
+        
+        let topMargin = self.frequencyLabel.frame.origin.y+self.frequencyLabel.frame.height*2+5
+        
+        let width = drawView.frame.width*2
+        let height = drawView.frame.height*2
+        let rect = CGRect(x: 0, y: topMargin, width: width, height: height)
+        let croppedImage = viewImage.cgImage!.cropping(to: rect)
+        let imageToSave = UIImage(cgImage: croppedImage!)
+        
         print("here")
-        //let uii = UIImage(named: "micOn")
-        let base64Image = UIImageJPEGRepresentation(viewImage, 0.9)?.base64EncodedString()
+        let base64Image = UIImageJPEGRepresentation(imageToSave, 0.9)?.base64EncodedString()
         print(base64Image)
         
         PHPhotoLibrary.shared().performChanges({
             print("making changes")
-            PHAssetChangeRequest.creationRequestForAsset(from: viewImage)
+            PHAssetChangeRequest.creationRequestForAsset(from: imageToSave)
             print("done with the saving of image")
         }, completionHandler: {
             success, error in
@@ -95,6 +103,7 @@ class DrawTestViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
         mic = AKMicrophone()
         tracker = AKFrequencyTracker.init(mic)
@@ -123,7 +132,6 @@ class DrawTestViewController: UIViewController {
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        print("YOUHOUUU")
         AudioKit.stop()
         super.viewDidDisappear(animated)
     }
@@ -149,7 +157,7 @@ class DrawTestViewController: UIViewController {
     }
     
     func analyseAudioInput() {
-        print("frequency : " + String(tracker.frequency) + " ampmlitude : " + String(tracker.amplitude))
+        //print("frequency : " + String(tracker.frequency) + " ampmlitude : " + String(tracker.amplitude))
         
         let frequencyDisplay = tracker.frequency
         let amplitudeDisplay = tracker.amplitude

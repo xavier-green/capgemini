@@ -108,6 +108,9 @@
                                     <constraint firstAttribute="width" constant="30" id="hif-h6-Po5"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="information"/>
+                                <connections>
+                                    <action selector="gotoAppHack:" destination="Sdo-X2-KVd" eventType="touchUpInside" id="dxg-1t-VpB"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bi8-tD-MVd" customClass="RecordButtonClass" customModule="Capgemini" customModuleProvider="target">
                                 <rect key="frame" x="160" y="562" width="55" height="55"/>

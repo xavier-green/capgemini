@@ -486,9 +486,6 @@
                                 <state key="normal" title="Voter !">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <segue destination="QvG-aa-Rq6" kind="presentation" id="JyV-DZ-BI0"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -510,6 +507,7 @@
                     </view>
                     <connections>
                         <outlet property="continuerButton" destination="sHY-PJ-uqD" id="gj3-O3-lsT"/>
+                        <segue destination="QvG-aa-Rq6" kind="presentation" identifier="finishedVotingSegue" modalTransitionStyle="crossDissolve" id="JWc-7b-blg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D23-gk-osJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -519,7 +517,7 @@
         <!--Replay View Controller-->
         <scene sceneID="jqc-Yg-R3K">
             <objects>
-                <viewController id="QvG-aa-Rq6" customClass="ReplayViewController" customModule="Capgemini" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ReplayViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QvG-aa-Rq6" customClass="ReplayViewController" customModule="Capgemini" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lT1-X4-nc5"/>
                         <viewControllerLayoutGuide type="bottom" id="BfH-zl-1bC"/>
@@ -529,19 +527,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Merci pour votre vote !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M3M-Cz-UAC">
-                                <rect key="frame" x="26" y="177" width="323" height="111"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="111" id="xrO-xq-SD9"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="120" width="375" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x6V-qz-bFs">
-                                <rect key="frame" x="113" y="365" width="148" height="117"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x6V-qz-bFs" customClass="CustomButtons" customModule="Capgemini" customModuleProvider="target">
+                                <rect key="frame" x="-0.5" y="491" width="375" height="90"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="117" id="aU8-eg-TDF"/>
-                                    <constraint firstAttribute="width" constant="148" id="cVS-2B-H6O"/>
+                                    <constraint firstAttribute="height" constant="90" id="uPi-wE-TfK"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <state key="normal" title="Rejouer"/>
@@ -549,18 +543,29 @@
                                     <action selector="replay:" destination="QvG-aa-Rq6" eventType="touchUpInside" id="AEE-2U-GmG"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="esR-Ec-NfG">
+                                <rect key="frame" x="62" y="206" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="OE9-fk-iuQ"/>
+                                    <constraint firstAttribute="height" constant="250" id="Y5a-6g-3ls"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="M3M-Cz-UAC" firstAttribute="top" secondItem="lT1-X4-nc5" secondAttribute="bottom" constant="157" id="8jr-bx-lTD"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="M3M-Cz-UAC" secondAttribute="trailing" constant="10" id="c0S-3y-cyB"/>
-                            <constraint firstItem="M3M-Cz-UAC" firstAttribute="centerX" secondItem="GfR-sD-47F" secondAttribute="centerX" id="fBQ-9R-2fr"/>
-                            <constraint firstItem="M3M-Cz-UAC" firstAttribute="leading" secondItem="GfR-sD-47F" secondAttribute="leadingMargin" constant="10" id="hhR-4i-A1k"/>
-                            <constraint firstItem="x6V-qz-bFs" firstAttribute="leading" secondItem="GfR-sD-47F" secondAttribute="leadingMargin" constant="97" id="mNu-Li-CU8"/>
-                            <constraint firstItem="x6V-qz-bFs" firstAttribute="centerX" secondItem="GfR-sD-47F" secondAttribute="centerX" id="qZF-Ic-1hK"/>
-                            <constraint firstItem="x6V-qz-bFs" firstAttribute="top" secondItem="M3M-Cz-UAC" secondAttribute="bottom" constant="77" id="qmL-yT-ioG"/>
+                            <constraint firstItem="x6V-qz-bFs" firstAttribute="width" secondItem="GfR-sD-47F" secondAttribute="width" id="11P-04-wrW"/>
+                            <constraint firstItem="M3M-Cz-UAC" firstAttribute="width" secondItem="GfR-sD-47F" secondAttribute="width" id="662-fE-fbe"/>
+                            <constraint firstItem="esR-Ec-NfG" firstAttribute="top" secondItem="M3M-Cz-UAC" secondAttribute="bottom" constant="50" id="U5D-YA-6b5"/>
+                            <constraint firstItem="M3M-Cz-UAC" firstAttribute="centerX" secondItem="GfR-sD-47F" secondAttribute="centerX" id="dOY-cC-Hah"/>
+                            <constraint firstItem="x6V-qz-bFs" firstAttribute="centerX" secondItem="GfR-sD-47F" secondAttribute="centerX" id="qF4-bH-xEa"/>
+                            <constraint firstItem="M3M-Cz-UAC" firstAttribute="top" secondItem="lT1-X4-nc5" secondAttribute="bottom" constant="100" id="qfb-RJ-0dA"/>
+                            <constraint firstItem="esR-Ec-NfG" firstAttribute="centerX" secondItem="GfR-sD-47F" secondAttribute="centerX" id="sDj-qI-H8n"/>
+                            <constraint firstItem="x6V-qz-bFs" firstAttribute="top" secondItem="esR-Ec-NfG" secondAttribute="bottom" constant="35" id="vz5-u1-nGV"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="selectedImageView" destination="esR-Ec-NfG" id="NU2-wl-2fS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FHF-Uz-U9F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -575,7 +580,7 @@
         <image name="valid" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="B5j-Fx-9nR"/>
+        <segue reference="OWt-eH-Dbj"/>
         <segue reference="Pzl-lX-PKu"/>
     </inferredMetricsTieBreakers>
 </document>
