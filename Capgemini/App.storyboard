@@ -507,6 +507,7 @@
                     </view>
                     <connections>
                         <outlet property="continuerButton" destination="sHY-PJ-uqD" id="gj3-O3-lsT"/>
+                        <outlet property="imagesView" destination="JKR-BN-vOZ" id="HZ7-wt-YkL"/>
                         <segue destination="QvG-aa-Rq6" kind="presentation" identifier="finishedVotingSegue" modalTransitionStyle="crossDissolve" id="JWc-7b-blg"/>
                     </connections>
                 </viewController>

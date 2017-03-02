@@ -29,14 +29,7 @@ const ImageSchema = new Schema({
 ImageSchema.plugin(autoIncrement.plugin, 'Image');
 
 ImageSchema.statics = {
-    list({ skip = 0, limit = 50 } = {}) {
-        return this.find()
-            .sort({ createdAt: -1 })
-            .skip(skip)
-            .limit(limit)
-            .execAsync();
-    },
-    vote() {
+    list({ skip = 0, limit = 4 } = {}) {
         return this.find()
             .sort({ createdAt: -1 })
             .skip(skip)

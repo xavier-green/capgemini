@@ -2,9 +2,9 @@ const Image = require('./image.model');
 
 function list(req, res, next) {
     console.log("listing images with params");
-    const { limit = 50, skip = 0 } = req.query;
+    const { limit = 4, skip = 0 } = req.query;
     Image.list({ limit, skip }).then((images) => res.json(images))
-        .error((e) => res.json(e));
+        .error((e) => res.json(e))
 }
 
 function add(req, res, next) {
@@ -22,7 +22,7 @@ function add(req, res, next) {
 
 function vote(req, res, next) {
     let _id = req.params.imageId;
-    return Image.findAsync({_id})
+    return Image.findOneAsync({_id})
     .then((image) => {
         image.votes += 1
         return image.saveAsync()
