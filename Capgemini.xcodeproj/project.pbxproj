@@ -241,6 +241,7 @@
 		43010ADC1E603691009A38A1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				435AA8FF1E5B479800BBB567 /* Speech */,
 				43266B111E64634800A644C1 /* NuanceButtonClass.swift */,
 				0EA950381E642B8100D82337 /* Model */,
 				0E1D3BED1E603A26002CE65D /* CustomButtons.swift */,
@@ -294,7 +295,6 @@
 			children = (
 				43266B0E1E64291200A644C1 /* Nuance */,
 				43010ADC1E603691009A38A1 /* Components */,
-				435AA8FF1E5B479800BBB567 /* Speech */,
 				0E7E23E01E5B00E700E0F4D9 /* Storyboards */,
 				0E7E23DF1E5B00DD00E0F4D9 /* Controllers */,
 				0E7E23DE1E5B00D100E0F4D9 /* Views */,

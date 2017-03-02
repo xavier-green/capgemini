@@ -73,11 +73,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Dites &quot;suivant&quot; pour commencer ou cliquez ci-dessous" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n7h-92-U6e">
-                                <rect key="frame" x="0.0" y="369" width="375" height="118"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Cp-7Z-XfM" customClass="CustomButtons" customModule="Capgemini" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="472" width="375" height="90"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -113,11 +108,8 @@
                                     <constraint firstAttribute="width" constant="60" id="UyV-Xk-Mc3"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Nous allons procéder à l'enregistrement de votre empreinte vocale." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mtE-QM-IXi">
-                                <rect key="frame" x="16" y="251" width="343" height="118"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="118" id="GBU-1T-bnP"/>
-                                </constraints>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Nous allons procéder à l'enregistrement de votre empreinte vocale. Dites &quot;suivant&quot; pour commencer ou cliquez ci-dessous" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mtE-QM-IXi">
+                                <rect key="frame" x="0.0" y="225" width="375" height="186"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -132,18 +124,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="mtE-QM-IXi" firstAttribute="leading" secondItem="ZvJ-bi-D1z" secondAttribute="leadingMargin" id="0TR-WK-RMQ"/>
-                            <constraint firstItem="n7h-92-U6e" firstAttribute="top" secondItem="mtE-QM-IXi" secondAttribute="bottom" id="7Q2-6k-Z4u"/>
                             <constraint firstItem="Xc6-Z0-av9" firstAttribute="leading" secondItem="f6f-8x-WDi" secondAttribute="trailing" constant="50" id="8JL-gf-bng"/>
                             <constraint firstAttribute="trailing" secondItem="xbP-hR-9hi" secondAttribute="trailing" id="LLT-v8-RCY"/>
                             <constraint firstItem="Xc6-Z0-av9" firstAttribute="centerY" secondItem="f6f-8x-WDi" secondAttribute="centerY" id="NiF-tM-Tye"/>
+                            <constraint firstItem="mtE-QM-IXi" firstAttribute="width" secondItem="ZvJ-bi-D1z" secondAttribute="width" id="OKq-h4-gBX"/>
                             <constraint firstItem="AHd-i1-8Uf" firstAttribute="centerY" secondItem="Xc6-Z0-av9" secondAttribute="centerY" id="QPE-rV-D4b"/>
-                            <constraint firstItem="n7h-92-U6e" firstAttribute="leading" secondItem="ZvJ-bi-D1z" secondAttribute="leading" id="Ugf-16-SLH"/>
                             <constraint firstItem="AHd-i1-8Uf" firstAttribute="top" secondItem="xbP-hR-9hi" secondAttribute="bottom" constant="20" id="VU9-l2-yZE"/>
                             <constraint firstItem="AHd-i1-8Uf" firstAttribute="leading" secondItem="Xc6-Z0-av9" secondAttribute="trailing" constant="50" id="YAs-fm-LvU"/>
                             <constraint firstItem="Yf3-dA-Yh4" firstAttribute="top" secondItem="0uv-B4-1Jx" secondAttribute="bottom" constant="30" id="Yfx-le-gRv"/>
-                            <constraint firstAttribute="trailing" secondItem="n7h-92-U6e" secondAttribute="trailing" id="dlf-TA-vg0"/>
                             <constraint firstItem="f6f-8x-WDi" firstAttribute="top" secondItem="xbP-hR-9hi" secondAttribute="bottom" constant="20" id="h1T-rL-4ih"/>
+                            <constraint firstItem="mtE-QM-IXi" firstAttribute="top" secondItem="AHd-i1-8Uf" secondAttribute="bottom" constant="80" id="mI3-dD-Rlc"/>
                             <constraint firstItem="xbP-hR-9hi" firstAttribute="top" secondItem="ZvJ-bi-D1z" secondAttribute="top" id="mdg-0F-y3f"/>
                             <constraint firstItem="Xc6-Z0-av9" firstAttribute="centerX" secondItem="ZvJ-bi-D1z" secondAttribute="centerX" id="pj6-yq-OGM"/>
                             <constraint firstItem="9Cp-7Z-XfM" firstAttribute="width" secondItem="ZvJ-bi-D1z" secondAttribute="width" id="po6-UA-2cA"/>
@@ -152,7 +142,6 @@
                             <constraint firstItem="xbP-hR-9hi" firstAttribute="leading" secondItem="ZvJ-bi-D1z" secondAttribute="leading" id="syf-yS-s3N"/>
                             <constraint firstItem="mtE-QM-IXi" firstAttribute="centerX" secondItem="ZvJ-bi-D1z" secondAttribute="centerX" id="uV5-35-cxx"/>
                             <constraint firstItem="9Cp-7Z-XfM" firstAttribute="centerX" secondItem="ZvJ-bi-D1z" secondAttribute="centerX" id="upT-WW-rKE"/>
-                            <constraint firstItem="mtE-QM-IXi" firstAttribute="centerY" secondItem="ZvJ-bi-D1z" secondAttribute="centerY" constant="-23.5" id="v7G-XM-rBf"/>
                             <constraint firstItem="Xc6-Z0-av9" firstAttribute="top" secondItem="xbP-hR-9hi" secondAttribute="bottom" constant="20" id="wow-L0-OwO"/>
                         </constraints>
                     </view>
@@ -349,12 +338,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="I87-n3-Wbl">
-                                <rect key="frame" x="16" y="268" width="343" height="216"/>
-                                <date key="date" timeIntervalSinceReferenceDate="509295945.39876699">
-                                    <!--2017-02-20 15:05:45 +0000-->
-                                </date>
-                            </datePicker>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vvW-ZV-GW8">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                                 <constraints>
@@ -435,11 +418,20 @@
                                     <action selector="finishButton:" destination="7m4-XB-IS2" eventType="touchUpInside" id="T0p-sY-mOT"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" misplaced="YES" scrollEnabled="NO" editable="NO" text="Choisissez une date dont vous vous souviendrez et qui sera demandée à chaque authentification" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="33I-ws-oPx">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" scrollEnabled="NO" editable="NO" text="Choisissez une date dont vous vous souviendrez et qui sera demandée à chaque authentification" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="33I-ws-oPx">
                                 <rect key="frame" x="16" y="145" width="343" height="126"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="126" id="eVp-mk-lT1"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="21"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="I87-n3-Wbl">
+                                <rect key="frame" x="0.5" y="279" width="375" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="509295945.39876699">
+                                    <!--2017-02-20 15:05:45 +0000-->
+                                </date>
+                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -449,8 +441,6 @@
                             <constraint firstItem="WUH-GG-YOy" firstAttribute="width" secondItem="Yk4-kO-wan" secondAttribute="width" id="56B-43-J4w"/>
                             <constraint firstItem="LF5-fe-1so" firstAttribute="top" secondItem="jgo-YM-Byl" secondAttribute="bottom" constant="30" id="7cH-zT-dIF"/>
                             <constraint firstItem="XI1-JJ-cXj" firstAttribute="centerY" secondItem="1DN-Zk-klO" secondAttribute="centerY" id="DHk-3s-ok4"/>
-                            <constraint firstItem="33I-ws-oPx" firstAttribute="trailing" secondItem="I87-n3-Wbl" secondAttribute="trailing" id="GGe-6y-96A"/>
-                            <constraint firstItem="I87-n3-Wbl" firstAttribute="top" secondItem="33I-ws-oPx" secondAttribute="bottom" constant="8" id="P7K-DL-0av"/>
                             <constraint firstItem="jgo-YM-Byl" firstAttribute="centerX" secondItem="Yk4-kO-wan" secondAttribute="centerX" id="QEB-sv-cLN"/>
                             <constraint firstItem="vvW-ZV-GW8" firstAttribute="leading" secondItem="Yk4-kO-wan" secondAttribute="leading" id="UTW-Ue-Cn1"/>
                             <constraint firstItem="vvW-ZV-GW8" firstAttribute="width" secondItem="Yk4-kO-wan" secondAttribute="width" id="XKk-w5-AET"/>
@@ -458,14 +448,15 @@
                             <constraint firstItem="WUH-GG-YOy" firstAttribute="centerX" secondItem="Yk4-kO-wan" secondAttribute="centerX" id="gAf-Zf-KAD"/>
                             <constraint firstItem="33I-ws-oPx" firstAttribute="trailing" secondItem="Yk4-kO-wan" secondAttribute="trailingMargin" id="hq0-LK-pgm"/>
                             <constraint firstItem="Oby-AG-kbE" firstAttribute="centerY" secondItem="XI1-JJ-cXj" secondAttribute="centerY" id="hyj-P0-ghI"/>
+                            <constraint firstItem="jgo-YM-Byl" firstAttribute="top" secondItem="I87-n3-Wbl" secondAttribute="bottom" constant="87" id="iP8-It-BEb"/>
                             <constraint firstItem="jgo-YM-Byl" firstAttribute="top" secondItem="WUH-GG-YOy" secondAttribute="bottom" id="jFn-rY-8DH"/>
-                            <constraint firstItem="33I-ws-oPx" firstAttribute="leading" secondItem="I87-n3-Wbl" secondAttribute="leading" id="kbL-2T-Tzv"/>
                             <constraint firstItem="33I-ws-oPx" firstAttribute="top" secondItem="Oby-AG-kbE" secondAttribute="bottom" id="oHV-Yd-LxL"/>
                             <constraint firstItem="XI1-JJ-cXj" firstAttribute="leading" secondItem="1DN-Zk-klO" secondAttribute="trailing" constant="50" id="p4i-R8-Mxp"/>
+                            <constraint firstItem="I87-n3-Wbl" firstAttribute="width" secondItem="Yk4-kO-wan" secondAttribute="width" id="uj4-FC-ci1"/>
                             <constraint firstItem="Oby-AG-kbE" firstAttribute="top" secondItem="vvW-ZV-GW8" secondAttribute="bottom" constant="20" id="x1d-Bv-D5k"/>
                             <constraint firstItem="vvW-ZV-GW8" firstAttribute="top" secondItem="Yk4-kO-wan" secondAttribute="top" id="xwX-aV-IGz"/>
+                            <constraint firstItem="I87-n3-Wbl" firstAttribute="centerX" secondItem="Yk4-kO-wan" secondAttribute="centerX" id="yXo-GP-Hnd"/>
                             <constraint firstItem="XI1-JJ-cXj" firstAttribute="centerX" secondItem="Yk4-kO-wan" secondAttribute="centerX" id="z0w-DF-r2l"/>
-                            <constraint firstItem="WUH-GG-YOy" firstAttribute="top" secondItem="I87-n3-Wbl" secondAttribute="bottom" constant="8" id="zYC-uf-Tyh"/>
                         </constraints>
                     </view>
                     <connections>
@@ -666,9 +657,9 @@
         <image name="voice" width="512" height="508"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nOT-vw-4Fc"/>
+        <segue reference="VY9-H9-Dvc"/>
         <segue reference="Raa-dR-M6y"/>
-        <segue reference="HXb-ZY-Fin"/>
+        <segue reference="nOT-vw-4Fc"/>
         <segue reference="IIF-9z-v6Z"/>
     </inferredMetricsTieBreakers>
 </document>
