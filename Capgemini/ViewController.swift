@@ -23,6 +23,12 @@ class ViewController: UIViewController {
         gotoRegister()
     }
     
+    @IBAction func gotoAppHack(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "App", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "DrawNavigationViewController") as! UINavigationController
+        self.present(controller, animated: true, completion: nil)
+    }
+    
     var speechToText: TextToSpeech!
     
     func gotoRegister() {

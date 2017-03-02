@@ -9,7 +9,11 @@
 import UIKit
 
 class ReplayViewController: UIViewController {
+    
+    var selectedImage: String = ""
 
+    @IBOutlet var selectedImageView: UIImageView!
+    
     @IBAction func replay(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Login", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
@@ -18,6 +22,11 @@ class ReplayViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let dataDecoded = NSData(base64Encoded: selectedImage, options: NSData.Base64DecodingOptions.init(rawValue: 0))
+        
+        let cellImage = UIImage(data: dataDecoded as! Data)
+        self.selectedImageView.image = cellImage
 
         // Do any additional setup after loading the view.
         assignbackground()
