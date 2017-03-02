@@ -75,11 +75,12 @@ function verifyDate(req,res) {
   User.findOne({ username:req.body.username })
       .then((user) => {
         if (user.memDate==req.body.memDate) {
+          user.authNumber++
+          user.saveAsync()
+              .error((e)=>(e));
           res.json({username:req.body.username,authorized:true})
-          console.log("true")
         } else {
           res.json({username:req.body.username,authorized:false})
-          console.log("false")
         }
       })
 }

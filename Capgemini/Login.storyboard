@@ -639,14 +639,7 @@
                                 </constraints>
                                 <state key="normal" title="Terminer"/>
                                 <connections>
-                                    <segue destination="tW3-5H-dDF" kind="presentation" modalTransitionStyle="crossDissolve" id="Gz7-UO-q8U"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XSZ-fY-iLA">
-                                <rect key="frame" x="313" y="449" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="test:" destination="qFr-bu-2aY" eventType="touchUpInside" id="6HS-jK-bor"/>
+                                    <action selector="nextButton:" destination="qFr-bu-2aY" eventType="touchUpInside" id="LZL-2j-mW8"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -667,20 +660,19 @@
                             <constraint firstItem="9xB-2b-IHf" firstAttribute="top" secondItem="1kS-0A-TF9" secondAttribute="bottom" constant="75" id="ivj-Bv-r6t"/>
                             <constraint firstItem="tfc-OR-hTZ" firstAttribute="centerY" secondItem="ZDG-BH-KRP" secondAttribute="centerY" id="nXy-Is-sck"/>
                             <constraint firstItem="lgr-yz-Yct" firstAttribute="width" secondItem="gaf-uo-9jO" secondAttribute="width" id="rjR-dD-Ih8"/>
-                            <constraint firstItem="XSZ-fY-iLA" firstAttribute="top" secondItem="3Xv-Ye-3PA" secondAttribute="bottom" constant="7" id="uHu-7m-GOO"/>
                             <constraint firstItem="Qdl-AR-5NM" firstAttribute="top" secondItem="lgr-yz-Yct" secondAttribute="bottom" constant="20" id="unK-6Y-UMb"/>
                             <constraint firstItem="3Xv-Ye-3PA" firstAttribute="centerY" secondItem="gaf-uo-9jO" secondAttribute="centerY" id="wQQ-0f-Wbm"/>
                             <constraint firstItem="1kS-0A-TF9" firstAttribute="centerX" secondItem="gaf-uo-9jO" secondAttribute="centerX" id="wba-w6-1OO"/>
-                            <constraint firstItem="XSZ-fY-iLA" firstAttribute="trailing" secondItem="gaf-uo-9jO" secondAttribute="trailingMargin" id="xoa-gC-pia"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="datePicker" destination="3Xv-Ye-3PA" id="6sb-65-vWI"/>
+                        <segue destination="tW3-5H-dDF" kind="presentation" identifier="checkDate" id="hYz-H2-eyK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tso-hd-XqA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3293.5999999999999" y="153.37331334332833"/>
+            <point key="canvasLocation" x="3293.5999999999999" y="152.47376311844079"/>
         </scene>
         <!--Users View Controller-->
         <scene sceneID="RhN-xb-KY5">
