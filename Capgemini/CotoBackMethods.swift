@@ -19,11 +19,11 @@ class CotoBackMethods {
         return array as AnyObject
     }
     
-    func parseJson(attribute: String,jsonString: String) -> String  {
+    func parseJson(jsonString: String) -> [String:Any]  {
         let data: Data = jsonString.data(using: String.Encoding.utf8, allowLossyConversion: false)!
         let json = try? JSONSerialization.jsonObject(with: data, options: [])
         let dictionary = json as! [String:Any]
-        return dictionary["\(attribute)"] as! String
+        return dictionary
     }
     
     func getUserList() {
@@ -44,11 +44,13 @@ class CotoBackMethods {
     @objc func verifyUserDone(notification: NSNotification) {
         var authorized: Any!
         let dataString = notification.object as! String
-        let data: Data = dataString.data(using: String.Encoding.utf8, allowLossyConversion: false)!
-        let json = try? JSONSerialization.jsonObject(with: data, options: [])
-        let dictionary = json as! [String:Any]
+        let dictionary = parseJson(jsonString: dataString)
         authorized = dictionary["authorized"] as! Bool
         NotificationCenter.default.post(name: Notification.Name(rawValue: "VERIFIED_USER"), object: authorized)
+    }
+    @objc func getUserDone(notification: NSNotification) {
+        let dataString = notification.object as! String
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "GOT_USER"), object: dataString)
     }
     
     @objc func getUserListDone(notification: NSNotification) {
@@ -67,6 +69,7 @@ class CotoBackMethods {
             name = object["username"]!
             if !GlobalVariables.usernames.contains(name as! String) {
                 GlobalVariables.usernames.append(name as! String)
+                GlobalVariables.usersAuthNumber.append(object["authNumber"] as! Int)
             }
         }
     }
@@ -87,5 +90,6 @@ class CotoBackMethods {
         NotificationCenter.default.addObserver(self, selector: #selector(self.addUserDone), name: NSNotification.Name(rawValue: "ADD_USER"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.getUsersNamesDone), name: NSNotification.Name(rawValue: "GET_USERS_NAMES"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.verifyUserDone), name: NSNotification.Name(rawValue: "VERIFY_USER"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.getUserDone), name: NSNotification.Name(rawValue: "GET_USER"), object: nil)
     }
 }

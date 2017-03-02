@@ -12,7 +12,6 @@ class UsersViewController: UIViewController,UITableViewDelegate, UITableViewData
 
     @IBOutlet weak var tableView: UITableView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -40,7 +39,7 @@ class UsersViewController: UIViewController,UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell",
                                                  for: indexPath) as! UserTableCell
         cell.userName?.text = Name
-        cell.userDrawings?.text = "5"
+        cell.userDrawings?.text = "\(GlobalVariables.usersAuthNumber[row])"
         //cell.userImage.image = UIImage(named: "question")
         return cell
     }

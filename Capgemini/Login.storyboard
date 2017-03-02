@@ -718,10 +718,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Int" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AA7-En-Ogs">
-                                                    <rect key="frame" x="336" y="36" width="21" height="21"/>
+                                                    <rect key="frame" x="329" y="36" width="28" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="plX-Iz-p1a"/>
-                                                        <constraint firstAttribute="width" constant="21" id="tqw-N9-rVa"/>
+                                                        <constraint firstAttribute="width" constant="28" id="tqw-N9-rVa"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -749,7 +749,7 @@
                                             <constraints>
                                                 <constraint firstItem="wPr-ls-rtf" firstAttribute="leading" secondItem="0YL-AN-BoO" secondAttribute="leadingMargin" constant="10" id="NZv-gF-J0S"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="AA7-En-Ogs" secondAttribute="trailing" constant="10" id="WMk-YS-1SF"/>
-                                                <constraint firstItem="AA7-En-Ogs" firstAttribute="leading" secondItem="goX-GE-HCc" secondAttribute="trailing" constant="15" id="xTL-eP-RiH"/>
+                                                <constraint firstItem="AA7-En-Ogs" firstAttribute="leading" secondItem="goX-GE-HCc" secondAttribute="trailing" constant="8" id="xTL-eP-RiH"/>
                                                 <constraint firstItem="wPr-ls-rtf" firstAttribute="centerY" secondItem="0YL-AN-BoO" secondAttribute="centerY" id="yN9-0V-Fpu"/>
                                             </constraints>
                                         </tableViewCellContentView>

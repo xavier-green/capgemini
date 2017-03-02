@@ -31,6 +31,9 @@ class LoginDateViewController: UIViewController {
     @IBAction func nextButton(_ sender: CustomButtons) {
         verifyUser()
         if (self.authorized==true) {
+            let index = GlobalVariables.usernames.index(of: GlobalVariables.username)
+            let newauthNum = GlobalVariables.usersAuthNumber[index!] + 1
+            GlobalVariables.usersAuthNumber[index!] = newauthNum
             performSegue(withIdentifier: "checkDate", sender: self)
         } else {
             // create the alert
