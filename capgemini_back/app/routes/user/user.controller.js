@@ -17,7 +17,6 @@ function load(req, res, next, username) {
  * @returns {User}
  */
 function get(req, res) {
-    console.log("body= ",req.body)
     return res.json(req.user);
 }
 /**

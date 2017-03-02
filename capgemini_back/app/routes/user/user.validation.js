@@ -14,7 +14,7 @@ module.exports = exports = {
             memDate: Joi.string().regex(/.*/).required(),
         },
         params: {
-            userId: Joi.string().hex().required(),
+            userId: Joi.string().required(),
         },
     },
 };
