@@ -30,7 +30,7 @@
         <!--Ready View Controller-->
         <scene sceneID="0OI-6f-jBG">
             <objects>
-                <viewController id="339-BB-O8U" customClass="ReadyViewController" customModule="Capgemini" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="339-BB-O8U" customClass="ReadyViewController" customModule="My_VocalPrint" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gQF-yg-bF1"/>
                         <viewControllerLayoutGuide type="bottom" id="Yf3-dA-Yh4"/>
@@ -73,7 +73,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Cp-7Z-XfM" customClass="CustomButtons" customModule="Capgemini" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Cp-7Z-XfM" customClass="CustomButtons" customModule="My_VocalPrint" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="472" width="375" height="90"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -113,7 +113,7 @@
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0uv-B4-1Jx" customClass="RecordButtonClass" customModule="Capgemini" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0uv-B4-1Jx" customClass="RecordButtonClass" customModule="My_VocalPrint" customModuleProvider="target">
                                 <rect key="frame" x="159.5" y="582" width="55" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="TGh-0c-r41"/>
@@ -158,12 +158,12 @@
         <!--Voice Rec View Controller-->
         <scene sceneID="STu-M0-mk2">
             <objects>
-                <viewController id="8Lr-5h-ajj" customClass="VoiceRecViewController" customModule="Capgemini" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8Lr-5h-ajj" customClass="VoiceRecViewController" customModule="My_VocalPrint" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MVW-gq-gRI"/>
                         <viewControllerLayoutGuide type="bottom" id="8UG-Y7-HXA"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="JMn-lf-SwO" customClass="VoiceRec" customModule="Capgemini" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="JMn-lf-SwO" customClass="VoiceRec" customModule="My_VocalPrint" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -259,7 +259,7 @@
                                     <segue destination="7m4-XB-IS2" kind="presentation" id="7Hn-fc-hRA"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="Register" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qt1-fb-fBV" customClass="NuanceButtonClass" customModule="Capgemini" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="Register" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qt1-fb-fBV" customClass="NuanceButtonClass" customModule="My_VocalPrint" customModuleProvider="target">
                                 <rect key="frame" x="160" y="582" width="55" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="M0r-Hz-9fZ"/>
@@ -274,6 +274,15 @@
                                     <constraint firstAttribute="height" constant="55" id="fTi-QF-95d"/>
                                 </constraints>
                             </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Appuyer 1 fois pour enregistrer puis 1 fois pour arrêter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4hL-cY-RTl">
+                                <rect key="frame" x="13.5" y="547" width="348" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="4hL-cY-RTl" secondAttribute="height" multiplier="371:29" id="h2R-SU-d9U"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -291,7 +300,9 @@
                             <constraint firstItem="ITW-nO-489" firstAttribute="centerX" secondItem="JMn-lf-SwO" secondAttribute="centerX" id="Dbm-Yb-F97"/>
                             <constraint firstItem="dFg-rZ-lPz" firstAttribute="centerX" secondItem="JMn-lf-SwO" secondAttribute="centerX" id="HQT-rq-eFv"/>
                             <constraint firstItem="cXx-at-LFO" firstAttribute="centerY" secondItem="JOE-aL-ss8" secondAttribute="centerY" id="JtA-n4-5D6"/>
+                            <constraint firstItem="qt1-fb-fBV" firstAttribute="top" secondItem="4hL-cY-RTl" secondAttribute="bottom" constant="8" id="LmF-Rm-DG8"/>
                             <constraint firstItem="JOE-aL-ss8" firstAttribute="leading" secondItem="Dxx-25-fNG" secondAttribute="trailing" constant="50" id="MPN-2D-v95"/>
+                            <constraint firstItem="4hL-cY-RTl" firstAttribute="centerX" secondItem="JMn-lf-SwO" secondAttribute="centerX" id="MUn-a3-rcQ"/>
                             <constraint firstItem="cpa-YA-0wK" firstAttribute="centerX" secondItem="JMn-lf-SwO" secondAttribute="centerX" id="P9h-pM-Rpe"/>
                             <constraint firstItem="dFg-rZ-lPz" firstAttribute="width" secondItem="JMn-lf-SwO" secondAttribute="width" id="R5G-9d-2RU"/>
                             <constraint firstItem="dbL-7Y-QKp" firstAttribute="top" secondItem="YJF-rh-9fV" secondAttribute="bottom" constant="28" id="T5l-ys-06D"/>
@@ -329,7 +340,7 @@
         <!--Set Date View Controller-->
         <scene sceneID="nqR-M3-cIL">
             <objects>
-                <viewController id="7m4-XB-IS2" customClass="SetDateViewController" customModule="Capgemini" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7m4-XB-IS2" customClass="SetDateViewController" customModule="My_VocalPrint" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ksw-cS-D2t"/>
                         <viewControllerLayoutGuide type="bottom" id="LF5-fe-1so"/>
@@ -375,7 +386,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jgo-YM-Byl" customClass="RecordButtonClass" customModule="Capgemini" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jgo-YM-Byl" customClass="RecordButtonClass" customModule="My_VocalPrint" customModuleProvider="target">
                                 <rect key="frame" x="160" y="582" width="55" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="Zsz-pM-Vk5"/>
@@ -405,7 +416,7 @@
                                     <constraint firstAttribute="height" constant="60" id="oFj-rr-7cE"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUH-GG-YOy" customClass="CustomButtons" customModule="Capgemini" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUH-GG-YOy" customClass="CustomButtons" customModule="My_VocalPrint" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="492" width="375" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="1Qm-Wd-JCn"/>
@@ -472,7 +483,7 @@
         <!--Set Nick View Controller-->
         <scene sceneID="dQK-Sy-SdQ">
             <objects>
-                <viewController id="S7f-yg-kdV" customClass="SetNickViewController" customModule="Capgemini" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="S7f-yg-kdV" customClass="SetNickViewController" customModule="My_VocalPrint" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HKf-Qn-AUR"/>
                         <viewControllerLayoutGuide type="bottom" id="ujl-Lc-jms"/>
@@ -543,7 +554,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3co-hP-Bp1" customClass="RecordButtonClass" customModule="Capgemini" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3co-hP-Bp1" customClass="RecordButtonClass" customModule="My_VocalPrint" customModuleProvider="target">
                                 <rect key="frame" x="160" y="582" width="55" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="Jzk-tz-ywM"/>
@@ -575,7 +586,7 @@
                                     <constraint firstAttribute="width" constant="60" id="gjf-tV-yIz"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yeo-vM-28k" customClass="CustomButtons" customModule="Capgemini" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yeo-vM-28k" customClass="CustomButtons" customModule="My_VocalPrint" customModuleProvider="target">
                                 <rect key="frame" x="0.5" y="472" width="375" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="e2q-pU-Ld9"/>
