@@ -5,6 +5,7 @@ const APIError = require('../../helpers/APIError');
 /**
  * User Schema
  */
+
 const StatSchema = new mongoose.Schema({
     AuthNumber: {
         number: {type: Number, default:0},
@@ -19,6 +20,7 @@ const StatSchema = new mongoose.Schema({
     createdAt: {
       type: Date,
       default: Date.now,
+      unique: true,
     },
 });
 /**
