@@ -9,7 +9,6 @@ const moment = require('moment');
 
 const StatSchema = new mongoose.Schema({
     AuthNumber: {
-        number: {type: Number, default:0},
         succeeded: {type: Number, default:0},
         failed: {type: Number, default:0},
     },
@@ -17,7 +16,8 @@ const StatSchema = new mongoose.Schema({
       hacker: String,
       hackee: String,
     }],
-    numberOfHacks: {type: Number, default:0},
+    succeededHacks: {type: Number, default:0},
+    attemptedHacks: {type: Number, default:0},
     createdAt: {
       type: String,
       default: moment().format("DD/MM/YYYY"),

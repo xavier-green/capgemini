@@ -69,10 +69,44 @@ function addHack(req,res) {
               .then(() => {return addHack(req,res)} )
           } else {
             stat.AccountsHacked.push({hacker:req.body.hacker,hackee:req.body.hackee});
-            stat.numberOfHacks = stat.AccountsHacked.length;
+            stat.succeededHacks = stat.AccountsHacked.length;
             stat.saveAsync()
                 .then((savedStat) => res.json(savedStat))
           }
         })
 }
-module.exports = exports = { load, get, create, list, remove, addHack };
+
+function hackAttempt(req, res, next) {
+  return Stat.findOne({ createdAt:moment().format("DD/MM/YYYY") })
+              .then((stat) => {
+                stat.attemptedHacks +=1
+                stat.saveAsync()
+                    .then((savedData) => res.json({message:"Well tried"}))
+                    .error((e)=> next(e))
+              })
+
+}
+
+function loginSuccess(req, res) {
+  return Stat.findOne({ createdAt:moment().format("DD/MM/YYYY") })
+              .then((stat) => {
+                stat.AuthNumber.succeeded +=1;
+                stat.saveAsync()
+                    .then((savedData) => res.end("Successful Login"))
+                    .error((e)=> res.json(e))
+              })
+}
+
+function loginFail(req, res) {
+  return Stat.findOne({ createdAt:moment().format("DD/MM/YYYY") })
+              .then((stat) => {
+                stat.AuthNumber.failed +=1;
+                stat.saveAsync()
+                    .then((savedData) => res.end("Successful Login"))
+                    .error((e)=> res.json(e))
+              })
+}
+
+
+
+module.exports = exports = { load, get, create, list, remove, addHack, hackAttempt, loginSuccess, loginFail };
