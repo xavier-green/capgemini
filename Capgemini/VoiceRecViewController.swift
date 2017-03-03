@@ -20,10 +20,6 @@ class VoiceRecViewController: UIViewController {
     //MARK: Outlets
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var repeatTimes: UILabel!
-    @IBAction func doneBut(_ sender: UIButton) {
-        goForw()
-    }
-    @IBOutlet weak var nextBut: UIButton!
     @IBOutlet var recordButton: NuanceButtonClass!
     
 //    func showAlert() {
@@ -54,7 +50,6 @@ class VoiceRecViewController: UIViewController {
     }
     
     func successEnrolment() {
-        self.nextBut.isHidden=false
         self.recordButton.isHidden=true
         repeatTimes.text=""
         // create the alert
@@ -111,6 +106,7 @@ class VoiceRecViewController: UIViewController {
         performSegue(withIdentifier: "goBackToStartSegue", sender: self)
     }
     func goForw() {
+        self.stopRec()
         self.performSegue(withIdentifier: "recDone", sender: nil)
     }
     
@@ -130,8 +126,6 @@ class VoiceRecViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         assignbackground()
-        nextBut.layer.borderWidth=1
-        nextBut.layer.borderColor=UIColor.lightGray.cgColor
         
         self.spinner.isHidden = true
         

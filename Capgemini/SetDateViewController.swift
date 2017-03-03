@@ -70,9 +70,9 @@ class SetDateViewController: UIViewController {
     }
     
     func setDateFormat() -> DateFormatter {
+        let gbDateFormat = DateFormatter.dateFormat(fromTemplate: "MMddyyyy", options: 0, locale: NSLocale(localeIdentifier: "en-GB") as Locale)
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = DateFormatter.Style.medium
-        dateFormatter.timeStyle = DateFormatter.Style.none
+        dateFormatter.dateFormat = gbDateFormat
         return dateFormatter
     }
     

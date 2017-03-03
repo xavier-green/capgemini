@@ -238,7 +238,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cpa-YA-0wK">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cpa-YA-0wK">
                                 <rect key="frame" x="0.0" y="472" width="375" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="TDA-tD-oJD"/>
@@ -247,9 +247,6 @@
                                 <state key="normal" title="Suivant">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <action selector="doneBut:" destination="8Lr-5h-ajj" eventType="touchUpInside" id="boT-ac-5lA"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QUt-Wc-NJO">
                                 <rect key="frame" x="329" y="30" width="30" height="30"/>
@@ -325,8 +322,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="JGB-fq-P2b"/>
                     <connections>
-                        <outlet property="doneButton" destination="cpa-YA-0wK" id="zTV-h0-TET"/>
-                        <outlet property="nextBut" destination="cpa-YA-0wK" id="pUS-lY-hpt"/>
                         <outlet property="recordButton" destination="qt1-fb-fBV" id="KVA-kF-xRq"/>
                         <outlet property="repeatTimes" destination="dFg-rZ-lPz" id="LfR-5E-psS"/>
                         <outlet property="spinner" destination="ITW-nO-489" id="MTU-A1-9PC"/>

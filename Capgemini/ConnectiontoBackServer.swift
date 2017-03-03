@@ -6,6 +6,7 @@
 //  Copyright © 2017 xavier green. All rights reserved.
 //
 import Foundation
+import UIKit
 
 class ConnectiontoBackServer {
     
@@ -30,7 +31,28 @@ class ConnectiontoBackServer {
             
             postRequest(connectionUrl: BASE_URL+url, params: params, notificationString: notificationString)
             
+        } else if method=="PUT" {
+            
+            let connectionUrl = constructURL(base: BASE_URL, url: url, params: params)
+            putRequest(connectionUrl: connectionUrl, notificationString: notificationString)
+            
         }
+        
+    }
+    
+    func putRequest(connectionUrl: String, notificationString: String) {
+        
+        print("Connecting to ",connectionUrl)
+        
+        let config = URLSessionConfiguration.default
+        let authString = constructHeaders()
+        config.httpAdditionalHeaders = ["Authorization" : authString]
+        let session = URLSession(configuration: config)
+        let url = URL(string: connectionUrl)!
+        var request = URLRequest(url: url)
+        request.httpMethod = "PUT"
+        
+        sendRequest(session: session, request: request, notificationString: notificationString)
         
     }
     
@@ -54,7 +76,7 @@ class ConnectiontoBackServer {
         print("Connecting to ",connectionUrl)
         
         let postParams = constructParams(params: params)
-        let sendData = postParams.data(using: String.Encoding.utf8)
+        let sendData = postParams.data(using: String.Encoding.utf8)!
         
         //print(postParams)
         
@@ -91,7 +113,7 @@ class ConnectiontoBackServer {
                 return
             }
             let dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as! String
-            print(dataString)
+            //print(dataString)
             
             print("Done, sending notification: ",notificationString)
             
@@ -206,11 +228,23 @@ class ConnectiontoBackServer {
         
         print("getting images from db")
         let url: String = "/images"
-        let params: [[String]] = [[]]
+        let params: [[String]] = [["username",GlobalVariables.username]]
         
         connectToServer(url: url, params: params, method: "GET", notificationString: "GET_IMAGES")
         
     }
+    
+    func voteForImage(imageId: Int) {
+        
+        print("voting for ",imageId)
+        let url: String = "/images/"+String(imageId)
+        let params: [[String]] = [[]]
+        
+        connectToServer(url: url, params: params, method: "PUT", notificationString: "VOTE_DONE")
+        
+    }
+    
+
 }
 
 
