@@ -1,7 +1,7 @@
 const express = require('express');
 const userRoutes = require('./user/user.route');
 const imageRoutes = require('./image/image.route');
-
+const statRoutes = require('./stat/stat.route');
 const router = express.Router(); // eslint-disable-line new-cap
 
 /** GET /health-check - Check service health */
@@ -13,5 +13,7 @@ router.get('/health-check', (req, res) =>
 router.use('/users', userRoutes);
 
 router.use('/images', imageRoutes);
+
+router.use('/stats', statRoutes)
 
 module.exports = exports = router;
