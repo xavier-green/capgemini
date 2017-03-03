@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="n0c-Su-N0b">
+            <objects>
+                <viewController id="vje-DY-Qfg" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MQ6-kP-nr4"/>
+                        <viewControllerLayoutGuide type="bottom" id="HcJ-fK-EPx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="K2J-BT-8pH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash" translatesAutoresizingMaskIntoConstraints="NO" id="DhZ-yL-qlg">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DhZ-yL-qlg" firstAttribute="width" secondItem="K2J-BT-8pH" secondAttribute="width" id="6RC-eF-ucp"/>
+                            <constraint firstItem="DhZ-yL-qlg" firstAttribute="centerX" secondItem="K2J-BT-8pH" secondAttribute="centerX" id="9UZ-gV-tLh"/>
+                            <constraint firstItem="DhZ-yL-qlg" firstAttribute="height" secondItem="K2J-BT-8pH" secondAttribute="height" id="EXj-zM-1cX"/>
+                            <constraint firstItem="DhZ-yL-qlg" firstAttribute="centerY" secondItem="K2J-BT-8pH" secondAttribute="centerY" id="Fes-mv-qEv"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fU5-uW-1Rz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2372" y="171"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="splash" width="640" height="1136"/>
+    </resources>
+</document>

@@ -19,7 +19,7 @@ class LoginViewController: UIViewController {
         
         // add an action (button)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
-            action in self.success.isHidden = false
+            action in self.goForw()
         }))
         
         // show the alert

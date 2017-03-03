@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "433100A31E57344400269EEB"
-               BuildableName = "Capgemini.app"
+               BuildableName = "My VocalPrint.app"
                BlueprintName = "Capgemini"
                ReferencedContainer = "container:Capgemini.xcodeproj">
             </BuildableReference>
@@ -53,7 +53,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "433100A31E57344400269EEB"
-            BuildableName = "Capgemini.app"
+            BuildableName = "My VocalPrint.app"
             BlueprintName = "Capgemini"
             ReferencedContainer = "container:Capgemini.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "433100A31E57344400269EEB"
-            BuildableName = "Capgemini.app"
+            BuildableName = "My VocalPrint.app"
             BlueprintName = "Capgemini"
             ReferencedContainer = "container:Capgemini.xcodeproj">
          </BuildableReference>
@@ -102,7 +102,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "433100A31E57344400269EEB"
-            BuildableName = "Capgemini.app"
+            BuildableName = "My VocalPrint.app"
             BlueprintName = "Capgemini"
             ReferencedContainer = "container:Capgemini.xcodeproj">
          </BuildableReference>
