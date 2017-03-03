@@ -11,12 +11,11 @@ import UIKit
 class VoteViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     @IBOutlet var continuerButton: UIButton!
     
-    var imageVoteIndex: Int = 0
-    
     @IBOutlet var imagesView: UICollectionView!
     
     let reuseIdentifier = "cell" // also enter this string as the cell identifier in the storyboard
     var items: [String] = []
+    var imagesIds: [Int] = []
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.items.count
@@ -47,7 +46,9 @@ class VoteViewController: UIViewController, UICollectionViewDataSource, UICollec
             let cell = collectionView.cellForItem(at: index)
             cell?.layer.borderColor = UIColor.black.cgColor
         }
-        imageVoteIndex = indexPath.item
+        let imageVoteIndex = indexPath.item
+        GlobalVariables.base64image = self.items[imageVoteIndex]
+        GlobalVariables.voteImageId = self.imagesIds[imageVoteIndex]
         let cell = collectionView.cellForItem(at: indexPath)
         cell?.layer.borderColor = UIColor.green.cgColor
     }
@@ -68,19 +69,23 @@ class VoteViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     func appendImages(notification: NSNotification) {
-        self.items = notification.object as! [String]
+        print("front received images")
+        let receivedImagesObject = notification.object as! [[AnyObject]]
+        let receivedImages = receivedImagesObject[0] as! [String]
+        var finalImagesCleaned: [String] = []
+        for image in receivedImages {
+            finalImagesCleaned.append(image.replacingOccurrences(of: " ", with: "+"))
+        }
+        self.items = finalImagesCleaned
+        self.imagesIds = receivedImagesObject[1] as! [Int]
         print("got ",self.items.count," images from back")
+        print("got ",self.imagesIds.count," _id from back")
         self.imagesView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination as! ReplayViewController
-        destination.selectedImage = self.items[imageVoteIndex]
     }
     
     func finir() {

@@ -1,10 +1,12 @@
 const Image = require('./image.model');
 
 function list(req, res, next) {
-    console.log("listing images with params");
-    const { limit = 4, skip = 0 } = req.query;
-    Image.list({ limit, skip }).then((images) => res.json(images))
-        .error((e) => res.json(e))
+    const { limit = 8, skip = 0, username } = req.query;
+    Image.list({ limit, skip, username }).then((images) => {
+        console.log("got "+images.count+" images");
+        res.json(images)
+    })
+    .error((e) => res.json(e))
 }
 
 function add(req, res, next) {

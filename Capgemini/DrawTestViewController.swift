@@ -56,8 +56,9 @@ class DrawTestViewController: UIViewController {
         let imageToSave = UIImage(cgImage: croppedImage!)
         
         print("here")
-        let base64Image = UIImageJPEGRepresentation(imageToSave, 0.9)?.base64EncodedString()
+        let base64Image = UIImagePNGRepresentation(imageToSave)?.base64EncodedString()
         
+        //print(base64Image)
         CotoBackMethods().addImage(base64image: base64Image!)
         
         PHPhotoLibrary.shared().performChanges({

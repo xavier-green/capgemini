@@ -96,14 +96,27 @@ class CotoBackMethods {
         Server.getImages()
     }
     
+    func voteForImage() {
+        Server.voteForImage(imageId: GlobalVariables.voteImageId)
+    }
+    
+    @objc func voteForImageDone() {
+        print("done voting for image !")
+    }
+    
     @objc func appendImages(notification: NSNotification) {
+        print("now appending images before sending to front")
         let dataString = notification.object as! String
         let result = parseJsonArray(jsonString: dataString)
         var imageData: [String] = []
+        var idData: [Int] = []
         for image in result {
             imageData.append(image["imageData"] as! String)
+            idData.append(image["_id"] as! Int)
         }
-        NotificationCenter.default.post(name: Notification.Name(rawValue: "FINISHED_GETTING_IMAGES"), object: imageData)
+        let sendObject: [[AnyObject]] = [imageData as Array<AnyObject>,idData as Array<AnyObject>]
+        print("sending FINISHED_IM")
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "FINISHED_GETTING_IMAGES"), object: sendObject)
     }
     
     init() {
@@ -115,5 +128,6 @@ class CotoBackMethods {
         NotificationCenter.default.addObserver(self, selector: #selector(self.getUserDone), name: NSNotification.Name(rawValue: "GET_USER"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.addImageDone), name: NSNotification.Name(rawValue: "POST_IMAGE"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.appendImages), name: NSNotification.Name(rawValue: "GET_IMAGES"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.voteForImageDone), name: NSNotification.Name(rawValue: "VOTE_DONE"), object: nil)
     }
 }
