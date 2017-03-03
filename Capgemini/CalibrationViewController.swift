@@ -117,7 +117,7 @@ class CalibrationViewController: UIViewController {
             instructionLabel.text = "Les plus basses fréquences feront tourner le pinceau dans le sens des aiguilles d'une montre"
             break
         case 5:
-            instructionLabel.text = "Les plus hautes fréquences feront tourner le sens inverse"
+            instructionLabel.text = "Les plus hautes fréquences le feront tourner dans le sens inverse"
             break
         case 6:
             self.performSegue(withIdentifier: "successfulCalibrationSegueToDrawView", sender: self)//segue to Draw Controller
