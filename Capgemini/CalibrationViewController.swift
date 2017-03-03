@@ -111,7 +111,7 @@ class CalibrationViewController: UIViewController {
             instructionLabel.text =  "Calibration reussie ! Votre fréquence moyenne est " + String(self.averageFrequency) + " Hz"
             break
         case 3:
-            instructionLabel.text = "Les fréquences moyennes dessineront un trai droit"
+            instructionLabel.text = "Les fréquences moyennes dessineront un trait droit"
             break
         case 4:
             instructionLabel.text = "Les plus basses fréquences feront tourner le pinceau dans le sens des aiguilles d'une montre"
