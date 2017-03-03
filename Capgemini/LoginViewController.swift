@@ -12,6 +12,8 @@ class LoginViewController: UIViewController {
     
     @IBOutlet var success: CustomButtons!
     
+    @IBOutlet var userLabel: UILabel!
+    
     func successRecording() {
         
         // create the alert
@@ -46,7 +48,7 @@ class LoginViewController: UIViewController {
 //        NotificationCenter.default.addObserver(self, selector: #selector(self.failFunc), name: NSNotification.Name(rawValue: "DEFAULT"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.successRecording), name: NSNotification.Name(rawValue: "REC_SUCCESS"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.failureRecording), name: NSNotification.Name(rawValue: "REC_FAIL"), object: nil)
-        
+        self.userLabel.text = "Utilisateur : "+GlobalVariables.username
         
     }
     

@@ -297,6 +297,12 @@
                                 </constraints>
                                 <state key="normal" title="Suivant"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ra-Ey-kgN">
+                                <rect key="frame" x="0.0" y="163" width="375" height="24"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -311,12 +317,15 @@
                             <constraint firstItem="Oie-Xi-CfT" firstAttribute="width" secondItem="VOa-Zi-thM" secondAttribute="width" id="Jlm-5d-Lnz"/>
                             <constraint firstItem="Sxm-br-7s6" firstAttribute="leading" secondItem="VOa-Zi-thM" secondAttribute="leadingMargin" id="Kjd-mM-4Hg"/>
                             <constraint firstItem="5eS-jr-e93" firstAttribute="width" secondItem="VOa-Zi-thM" secondAttribute="width" id="M6w-eL-Nbl"/>
+                            <constraint firstItem="1ra-Ey-kgN" firstAttribute="width" secondItem="VOa-Zi-thM" secondAttribute="width" id="Ohd-TO-JjJ"/>
                             <constraint firstItem="Sxb-47-gk0" firstAttribute="top" secondItem="5eS-jr-e93" secondAttribute="bottom" constant="20" id="PtK-ej-dLe"/>
                             <constraint firstItem="Sxb-47-gk0" firstAttribute="leading" secondItem="WxI-lp-YQE" secondAttribute="trailing" constant="50" id="Rqc-Nj-ApJ"/>
+                            <constraint firstItem="LyW-5K-NGH" firstAttribute="top" secondItem="1ra-Ey-kgN" secondAttribute="bottom" constant="8" id="VWI-iN-upw"/>
                             <constraint firstItem="8sl-94-eCt" firstAttribute="centerX" secondItem="VOa-Zi-thM" secondAttribute="centerX" id="Yvx-9h-Nqn"/>
                             <constraint firstItem="8sl-94-eCt" firstAttribute="top" secondItem="Sxm-br-7s6" secondAttribute="bottom" id="ZWX-ix-lwD"/>
                             <constraint firstItem="iEq-PM-7aV" firstAttribute="centerX" secondItem="VOa-Zi-thM" secondAttribute="centerX" id="awF-yQ-aFV"/>
                             <constraint firstItem="WxI-lp-YQE" firstAttribute="leading" secondItem="lBv-u8-YDF" secondAttribute="trailing" constant="50" id="b96-FF-VBV"/>
+                            <constraint firstItem="1ra-Ey-kgN" firstAttribute="centerX" secondItem="VOa-Zi-thM" secondAttribute="centerX" id="eCd-o6-xMp"/>
                             <constraint firstItem="IAa-ym-WDg" firstAttribute="top" secondItem="Oie-Xi-CfT" secondAttribute="bottom" constant="20" id="fba-Yg-OfI"/>
                             <constraint firstItem="Sxb-47-gk0" firstAttribute="centerY" secondItem="WxI-lp-YQE" secondAttribute="centerY" id="gFS-SH-VJX"/>
                             <constraint firstItem="lBv-u8-YDF" firstAttribute="top" secondItem="5eS-jr-e93" secondAttribute="bottom" constant="20" id="hc7-sU-dI5"/>
@@ -332,6 +341,7 @@
                     <navigationItem key="navigationItem" id="pA1-xl-Mro"/>
                     <connections>
                         <outlet property="success" destination="Oie-Xi-CfT" id="WLg-z5-wox"/>
+                        <outlet property="userLabel" destination="1ra-Ey-kgN" id="WFG-yp-1K5"/>
                         <segue destination="eYC-8b-xhJ" kind="presentation" identifier="loginCheckSegue" id="Taw-fj-WCH"/>
                     </connections>
                 </viewController>
@@ -803,8 +813,8 @@
         <image name="voice" width="512" height="508"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lN4-AI-sUI"/>
-        <segue reference="wIp-lP-eG5"/>
+        <segue reference="swq-Px-hyF"/>
         <segue reference="fdd-ug-9tC"/>
+        <segue reference="wIp-lP-eG5"/>
     </inferredMetricsTieBreakers>
 </document>
