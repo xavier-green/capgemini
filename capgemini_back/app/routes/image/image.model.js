@@ -31,7 +31,7 @@ ImageSchema.plugin(autoIncrement.plugin, 'Image');
 ImageSchema.statics = {
     list({ skip = 0, limit = 8, username } = {}) {
         return this.find({username:{$ne:username}})
-            .sort({ createdAt: -1 })
+            .sort({ votes: -1 })
             .skip(skip)
             .limit(limit)
             .execAsync();
