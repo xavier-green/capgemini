@@ -111,7 +111,7 @@ class ConnectiontoBackServer {
                 //print("response = \(response)")
                 print("******** REQUEST ERROR")
                 let dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as! String
-                print(dataString)
+                //print(dataString)
                 return
             }
             let dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as! String
@@ -164,7 +164,7 @@ class ConnectiontoBackServer {
         print("params length: ",params.count)
         if (params.count > 0) {
             for param in params {
-                print("param: ",param)
+                //print("param: ",param)
                 finalUrl += param[0]+"="+param[1]+"&"
             }
         }
