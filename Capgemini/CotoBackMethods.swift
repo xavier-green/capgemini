@@ -16,7 +16,7 @@ class CotoBackMethods {
         let data: Data = jsonString.data(using: String.Encoding.utf8, allowLossyConversion: false)!
         let json = try? JSONSerialization.jsonObject(with: data, options: [])
         let array = json as! [AnyObject]
-        return array  as! [AnyObject]
+        return array
     }
     
     func parseJson(jsonString: String) -> [String:Any]  {

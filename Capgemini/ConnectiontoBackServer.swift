@@ -14,7 +14,7 @@ class ConnectiontoBackServer {
         print("Initialising back server connection")
     }
     
-    private let BASE_URL: String = "http://7b25e40f.ngrok.io/api"
+    private let BASE_URL: String = "http://1ffb9f30.ngrok.io/api"
     private let SERVER_USERNAME: String = "youyoun"
     private let SERVER_PASSWORD: String = "password"
     
@@ -96,6 +96,8 @@ class ConnectiontoBackServer {
     
     func sendRequest(session: URLSession, request: URLRequest, notificationString: String) {
         
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "REQUEST_START"), object: self)
+        
         var running: Bool = false
         
         let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
@@ -118,6 +120,7 @@ class ConnectiontoBackServer {
             print("Done, sending notification: ",notificationString)
             
             NotificationCenter.default.post(name: Notification.Name(rawValue: notificationString), object: dataString)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "REQUEST_END"), object: self)
             
         })
         

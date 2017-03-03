@@ -55,6 +55,7 @@
 		435AA8FC1E5B392900BBB567 /* ReconnaissanceVocaleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435AA8FB1E5B392900BBB567 /* ReconnaissanceVocaleController.swift */; };
 		435AA8FE1E5B443100BBB567 /* TextToSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435AA8FD1E5B443100BBB567 /* TextToSpeech.swift */; };
 		438B48A51E697F83003A03DC /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 438B48A41E697F83003A03DC /* Launch.storyboard */; };
+		438B48A71E69BFCD003A03DC /* LoggedInLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438B48A61E69BFCD003A03DC /* LoggedInLabel.swift */; };
 		43921B971E5EE6F5001A952A /* ReplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43921B961E5EE6F5001A952A /* ReplayViewController.swift */; };
 		43A96CD01E5DA3C90078CEC8 /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A96CCF1E5DA3C90078CEC8 /* GlobalVariables.swift */; };
 		43A96CD71E5DA7710078CEC8 /* DrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A96CD61E5DA7710078CEC8 /* DrawViewController.swift */; };
@@ -147,6 +148,7 @@
 		435AA8FB1E5B392900BBB567 /* ReconnaissanceVocaleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReconnaissanceVocaleController.swift; sourceTree = "<group>"; };
 		435AA8FD1E5B443100BBB567 /* TextToSpeech.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextToSpeech.swift; sourceTree = "<group>"; };
 		438B48A41E697F83003A03DC /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
+		438B48A61E69BFCD003A03DC /* LoggedInLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggedInLabel.swift; sourceTree = "<group>"; };
 		43921B961E5EE6F5001A952A /* ReplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplayViewController.swift; sourceTree = "<group>"; };
 		43A96CCF1E5DA3C90078CEC8 /* GlobalVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 		43A96CD61E5DA7710078CEC8 /* DrawViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawViewController.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				0EA950381E642B8100D82337 /* Model */,
 				0E1D3BED1E603A26002CE65D /* CustomButtons.swift */,
 				43010ADD1E6036B1009A38A1 /* RecordButtonClass.swift */,
+				438B48A61E69BFCD003A03DC /* LoggedInLabel.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -534,6 +537,7 @@
 				43010AE01E60496A009A38A1 /* SpeechToText.swift in Sources */,
 				0EA950401E642BFB00D82337 /* Pointer.swift in Sources */,
 				435AA8FC1E5B392900BBB567 /* ReconnaissanceVocaleController.swift in Sources */,
+				438B48A71E69BFCD003A03DC /* LoggedInLabel.swift in Sources */,
 				0E9E39761E5C958E0000BD9E /* NickViewController.swift in Sources */,
 				43A96CD71E5DA7710078CEC8 /* DrawViewController.swift in Sources */,
 				43266B121E64634800A644C1 /* NuanceButtonClass.swift in Sources */,

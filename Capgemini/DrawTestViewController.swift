@@ -19,11 +19,12 @@ class DrawTestViewController: UIViewController {
     @IBOutlet weak var amplitudeLabel: UILabel!
     @IBOutlet weak var stackColors: UIStackView!
     
-    @IBAction func finishDrawing(_ sender: Any) {
+    func finishDrawing() {
         trySavingImage()
         performSegue(withIdentifier: "drawingFinished", sender: self)
     }
     
+    @IBOutlet var okButton: UIButton!
     
     // MARK: Audio Properties
     
@@ -31,6 +32,7 @@ class DrawTestViewController: UIViewController {
     var tracker: AKFrequencyTracker!
     var silence: AKBooster!
     
+    @IBOutlet var loadingSpinner: UIActivityIndicatorView!
     
     // MARK: Notes Properties
     
@@ -38,6 +40,18 @@ class DrawTestViewController: UIViewController {
     let noteNamesWithSharps = ["C", "C♯","D","D♯","E","F","F♯","G","G♯","A","A♯","B"]
     let noteNamesWithFlats = ["C", "D♭","D","E♭","E","F","G♭","G","A♭","A","B♭","B"]
     //MARK: Initialisation
+    
+    func startSpinner() {
+        self.okButton.isHidden = true
+        self.loadingSpinner.isHidden = false
+        self.loadingSpinner.startAnimating()
+    }
+    
+    func stopSpinner() {
+        self.okButton.isHidden = false
+        self.loadingSpinner.stopAnimating()
+        self.loadingSpinner.isHidden = true
+    }
     
     func saveImage() {
         
@@ -105,6 +119,12 @@ class DrawTestViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.startSpinner), name: NSNotification.Name(rawValue: "REQUEST_START"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.stopSpinner), name: NSNotification.Name(rawValue: "REQUEST_END"), object: nil)
+        
+        self.okButton.addTarget(self, action: #selector(self.finishDrawing), for: .touchUpInside)
+        self.loadingSpinner.isHidden = true
         
         // Do any additional setup after loading the view, typically from a nib.
         mic = AKMicrophone()
