@@ -14,7 +14,7 @@ class ConnectiontoBackServer {
         print("Initialising back server connection")
     }
     
-    private let BASE_URL: String = "http://1ffb9f30.ngrok.io/api"
+    private let BASE_URL: String = "http://vps383005.ovh.net:3000/api"
     private let SERVER_USERNAME: String = "youyoun"
     private let SERVER_PASSWORD: String = "password"
     
