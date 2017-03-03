@@ -8,6 +8,7 @@ router.route('/')
     .get(statCtrl.list)
     /** POST /api/users - Create new user */
     .post(statCtrl.create);
+
 router.route('/:statId')
     /** GET /api/users/:userId - Get user */
     .get(statCtrl.get)
@@ -16,6 +17,9 @@ router.route('/:statId')
     /** DELETE /api/users/:userId - Delete user */
     .delete(statCtrl.remove);
 
+router.route('/addStat')
+  .post(statCtrl.addHack);
+  
 /** Load user when API with userId route parameter is hit */
 router.param('statId', statCtrl.load);
 module.exports = exports = router;

@@ -2,6 +2,7 @@ const Promise = require('bluebird');
 const mongoose = require('mongoose');
 const httpStatus = require('http-status');
 const APIError = require('../../helpers/APIError');
+const moment = require('moment');
 /**
  * User Schema
  */
@@ -18,8 +19,8 @@ const StatSchema = new mongoose.Schema({
     }],
     numberOfHacks: {type: Number, default:0},
     createdAt: {
-      type: Date,
-      default: Date.now,
+      type: String,
+      default: moment().format("DD/MM/YYYY"),
       unique: true,
     },
 });

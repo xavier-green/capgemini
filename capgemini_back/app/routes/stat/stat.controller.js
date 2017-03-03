@@ -1,4 +1,5 @@
 const Stat = require('./stat.model');
+const moment = require('moment');
 /**
  * Load stat and append to req.
  */
@@ -25,12 +26,18 @@ function get(req, res) {
  * @property {string} req.body.mobileNumber - The mobileNumber of stat.
  * @returns {Stat}
  */
-function create(req, res, next) {
+function create(req, res) {
     const stat = new Stat({
     });
     stat.saveAsync()
         .then((savedStat) => res.json(savedStat))
         .error((e) => res.json(e));
+}
+
+function createStat() {
+  const stat = new Stat({
+  });
+  return stat.saveAsync()
 }
 /**
  * Get stat list.
@@ -53,4 +60,19 @@ function remove(req, res, next) {
         .then((deletedStat) => res.json(deletedStat))
         .error((e) => next(e));
 }
-module.exports = exports = { load, get, create, list, remove };
+function addHack(req,res) {
+    var createTodayStat = createStat
+    return Stat.findOne({ createdAt:moment().format("DD/MM/YYYY") })
+        .then((stat) => {
+          if (stat==null) {
+              return createTodayStat(req,res)
+              .then(() => {return addHack(req,res)} )
+          } else {
+            stat.AccountsHacked.push({hacker:req.body.hacker,hackee:req.body.hackee});
+            stat.numberOfHacks = stat.AccountsHacked.length;
+            stat.saveAsync()
+                .then((savedStat) => res.json(savedStat))
+          }
+        })
+}
+module.exports = exports = { load, get, create, list, remove, addHack };
