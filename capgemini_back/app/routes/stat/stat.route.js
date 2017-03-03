@@ -17,9 +17,18 @@ router.route('/:statId')
     /** DELETE /api/users/:userId - Delete user */
     .delete(statCtrl.remove);
 
-router.route('/addStat')
+router.route('/addHack')
   .post(statCtrl.addHack);
-  
+
+router.route('/hackAttempt')
+  .post(statCtrl.hackAttempt);
+
+router.route('/loginSuccess')
+  .post(statCtrl.loginSuccess);
+
+router.route('/loginFail')
+  .post(statCtrl.loginFail);
+
 /** Load user when API with userId route parameter is hit */
 router.param('statId', statCtrl.load);
 module.exports = exports = router;
