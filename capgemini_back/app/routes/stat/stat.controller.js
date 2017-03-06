@@ -69,7 +69,7 @@ function addHack(req,res) {
               return createTodayStat(req,res)
               .then(()=>loginSuccess(req, res))
           }
-          stat.AccountsHacked.push({hacker:req.body.hacker,hackee:req.body.hackee});
+          stat.AccountsHacked.push({hacker:req.body.hacker,hacked:req.body.hacked});
           stat.succeededHacks = stat.AccountsHacked.length;
           stat.saveAsync()
               .then((savedStat) => res.json(savedStat))

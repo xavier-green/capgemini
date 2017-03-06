@@ -377,40 +377,53 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="fKa-fL-iDz"/>
                                 </constraints>
-                                <items>
-                                    <navigationItem id="bUy-ws-Fyy">
-                                        <barButtonItem key="rightBarButtonItem" style="plain" id="LAZ-RR-Mvz">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xDF-Pr-mHE">
-                                                <rect key="frame" x="276" y="28" width="83" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="terminer &gt;"/>
-                                                <connections>
-                                                    <segue destination="C4T-ua-GSd" kind="presentation" modalTransitionStyle="crossDissolve" id="hOO-l4-jtD"/>
-                                                </connections>
-                                            </button>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
                             </navigationBar>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pseudo non valide" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T06-vq-Omj">
+                                <rect key="frame" x="-0.5" y="405" width="375" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="8UW-ia-D7U"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.139720808" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XP2-xR-mnQ" customClass="CustomButtons" customModule="My_VocalPrint" customModuleProvider="target">
+                                <rect key="frame" x="-0.5" y="477" width="375" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="ure-8W-PaZ"/>
+                                </constraints>
+                                <state key="normal" title="Valider"/>
+                                <connections>
+                                    <action selector="finishAction:" destination="DI0-p4-knE" eventType="touchUpInside" id="34H-29-iHT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="T06-vq-Omj" firstAttribute="width" secondItem="eqd-XJ-k3l" secondAttribute="width" id="7WA-Dk-PCQ"/>
                             <constraint firstItem="ILl-AQ-AC6" firstAttribute="top" secondItem="eqd-XJ-k3l" secondAttribute="top" id="9ks-o7-Ws5"/>
                             <constraint firstItem="jZZ-TV-vmN" firstAttribute="top" secondItem="8Ui-bT-kob" secondAttribute="bottom" constant="95" id="A7s-ti-uhy"/>
+                            <constraint firstItem="XP2-xR-mnQ" firstAttribute="centerX" secondItem="eqd-XJ-k3l" secondAttribute="centerX" id="JXt-EH-DYg"/>
                             <constraint firstItem="8Ui-bT-kob" firstAttribute="leading" secondItem="eqd-XJ-k3l" secondAttribute="leadingMargin" constant="50" id="Jug-pL-9re"/>
                             <constraint firstItem="s0A-Ot-vCx" firstAttribute="top" secondItem="jZZ-TV-vmN" secondAttribute="bottom" constant="272" id="KlV-kc-2d0"/>
                             <constraint firstItem="jZZ-TV-vmN" firstAttribute="leading" secondItem="eqd-XJ-k3l" secondAttribute="leadingMargin" constant="66" id="PTD-Ip-wlI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jZZ-TV-vmN" secondAttribute="trailing" constant="67" id="QlL-9o-gQ7"/>
                             <constraint firstAttribute="trailing" secondItem="ILl-AQ-AC6" secondAttribute="trailing" id="VNH-ji-55m"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8Ui-bT-kob" secondAttribute="trailing" constant="50" id="Wl3-oT-AMp"/>
+                            <constraint firstItem="T06-vq-Omj" firstAttribute="centerX" secondItem="eqd-XJ-k3l" secondAttribute="centerX" id="Yqo-cT-gyj"/>
+                            <constraint firstItem="T06-vq-Omj" firstAttribute="top" secondItem="jZZ-TV-vmN" secondAttribute="bottom" constant="10" id="bIh-Ur-s3H"/>
                             <constraint firstItem="8Ui-bT-kob" firstAttribute="top" secondItem="ILl-AQ-AC6" secondAttribute="bottom" constant="110" id="jh3-ZC-JCi"/>
                             <constraint firstItem="ILl-AQ-AC6" firstAttribute="leading" secondItem="eqd-XJ-k3l" secondAttribute="leading" id="n5l-hf-fU7"/>
+                            <constraint firstItem="XP2-xR-mnQ" firstAttribute="width" secondItem="eqd-XJ-k3l" secondAttribute="width" id="nWT-wo-8zY"/>
+                            <constraint firstItem="s0A-Ot-vCx" firstAttribute="top" secondItem="XP2-xR-mnQ" secondAttribute="bottom" constant="100" id="xb6-G8-GA1"/>
                             <constraint firstItem="jZZ-TV-vmN" firstAttribute="top" secondItem="8Ui-bT-kob" secondAttribute="bottom" constant="95" id="xj6-hS-x0A"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="descField" destination="8Ui-bT-kob" id="yQW-Il-kGU"/>
                         <outlet property="nickText" destination="jZZ-TV-vmN" id="Ueh-gZ-8Zi"/>
+                        <outlet property="validation" destination="T06-vq-Omj" id="csy-I2-DS0"/>
+                        <segue destination="C4T-ua-GSd" kind="presentation" identifier="backTologin" modalTransitionStyle="crossDissolve" id="lGg-w3-ATo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dJE-hw-ADp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -439,11 +452,6 @@
                                 <state key="normal" title="Non, je me suis fait passer pour quelqu’un d’autre">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <segue destination="DI0-p4-knE" kind="popoverPresentation" identifier="gotoHackSegue" popoverAnchorView="Cmg-XS-CoU" id="ndO-NK-4vh">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
-                                    </segue>
-                                </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hri-c1-eO5">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
@@ -559,6 +567,7 @@
                         <outlet property="NoButton" destination="Cmg-XS-CoU" id="MPl-OB-UD7"/>
                         <outlet property="YesButton" destination="UnW-Sf-SGE" id="OKi-Mh-cKO"/>
                         <outlet property="helloCheckLabel" destination="1Ax-7d-Sfc" id="RBP-4R-Dtw"/>
+                        <segue destination="DI0-p4-knE" kind="presentation" identifier="gotoErrorSegue" modalTransitionStyle="crossDissolve" id="ar2-O4-cXM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XkK-Bm-0Xr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -724,7 +733,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="94"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N4t-mY-XHO" id="0YL-AN-BoO">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="93"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="94"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Int" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AA7-En-Ogs">
@@ -813,8 +822,8 @@
         <image name="voice" width="512" height="508"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fdd-ug-9tC"/>
-        <segue reference="wIp-lP-eG5"/>
+        <segue reference="Rp1-0q-eeU"/>
         <segue reference="lN4-AI-sUI"/>
+        <segue reference="lGg-w3-ATo"/>
     </inferredMetricsTieBreakers>
 </document>

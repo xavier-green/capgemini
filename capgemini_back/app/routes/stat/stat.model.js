@@ -14,7 +14,7 @@ const StatSchema = new mongoose.Schema({
     },
     AccountsHacked: [{
       hacker: String,
-      hackee: String,
+      hacked: String,
     }],
     succeededHacks: {type: Number, default:0},
     attemptedHacks: {type: Number, default:0},

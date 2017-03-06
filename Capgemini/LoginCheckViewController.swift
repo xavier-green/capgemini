@@ -23,6 +23,11 @@ class LoginCheckViewController: UIViewController {
         performSegue(withIdentifier: "LoginDate", sender: nil)
     }
     
+    func gotoError() {
+        print("going to error segue")
+        performSegue(withIdentifier: "gotoErrorSegue", sender: self)
+    }
+    
     @IBOutlet var NoButton: UIButton!
 
     override func viewDidLoad() {
@@ -30,6 +35,7 @@ class LoginCheckViewController: UIViewController {
         YesButton.layer.borderWidth = 1
         YesButton.layer.borderColor = UIColor.lightGray.cgColor
         NoButton.layer.borderWidth = 0
+        self.NoButton.addTarget(self, action: #selector(self.gotoError), for: .touchUpInside)
         NoButton.titleLabel?.adjustsFontSizeToFitWidth=true
         helloCheckLabel.text = "Êtes vous bien "+nickName+" ?"
         assignbackground()

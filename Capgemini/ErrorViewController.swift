@@ -11,17 +11,27 @@ import UIKit
 class ErrorViewController: UIViewController, UITextFieldDelegate {
     
     var nickName: String = GlobalVariables.username
+    private var okay: Bool = false
+    @IBOutlet var validation: UILabel!
 
+    @IBAction func finishAction(_ sender: Any) {
+        if okay==true {
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "ADD_HACK"), object: nickText.text)
+            performSegue(withIdentifier: "backTologin", sender: self)
+        }
+    }
+    
     @IBOutlet var descField: UITextView!
     @IBOutlet weak var nickText: UITextField!
+    
     override func viewDidLoad() {
+        print("loading error view")
         super.viewDidLoad()
         nickText.delegate=self
         descField.text = "Vous êtes arrivés à hacker "+nickName+". Rentrez votre vrai pseudo :"
         // Do any additional setup after loading the view.
         self.hideKeyboardWhenTappedAround()
         assignbackground()
-        NotificationCenter.default.post(name: Notification.Name(rawValue: "ADD_HACK"), object: nickText.text)
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,6 +46,18 @@ class ErrorViewController: UIViewController, UITextFieldDelegate {
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
         nickText.text = textField.text!
+        if !isValidName(testStr: nickText.text!) {
+            validation.isHidden=false
+            validation.text = "Lettres et chiffres uniquement"
+        } else {
+            if !isValidUsername(username: nickText.text!) {
+                validation.isHidden=false
+                validation.text = "Le pseudo n'existe pas"
+            } else {
+                validation.isHidden=true
+                self.okay = true
+            }
+        }
     }
 
     /*
