@@ -10,7 +10,7 @@ function list(req, res, next) {
 }
 
 function leader(req,res,next) {
-    Image.find().sort({votes:-1}).execAsync()
+    Image.find().sort({votes:-1}).limit(25).execAsync()
     .then((images) => {
         res.json(images);
     })

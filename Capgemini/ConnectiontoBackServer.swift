@@ -251,7 +251,7 @@ class ConnectiontoBackServer {
         
         print("getting leaderboard")
         let url: String = "/images/leader"
-        let params: [[String]] = []
+        let params: [[String]] = [[]]
         
         connectToServer(url: url, params: params, method: "GET", notificationString: "LEADER_DONE")
 
