@@ -111,7 +111,7 @@ class ConnectiontoBackServer {
                 //print("response = \(response)")
                 print("******** REQUEST ERROR")
                 let dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as! String
-                //print(dataString)
+                print(dataString)
                 return
             }
             let dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as! String
@@ -244,6 +244,46 @@ class ConnectiontoBackServer {
         let params: [[String]] = [[]]
         
         connectToServer(url: url, params: params, method: "PUT", notificationString: "VOTE_DONE")
+        
+    }
+    
+    func addHack(hacker: String, hacked: String) {
+        
+        print("hacking of ",hacked," by ",hacker)
+        let url: String = "/stats/addHack"
+        let params: [[String]] = [["hacked",hacked],["hacker",hacker]]
+        
+        connectToServer(url: url, params: params, method: "POST", notificationString: "ADD_HACK_DONE")
+        
+    }
+    
+    func hackAttempt() {
+        
+        print("Prevented hack !")
+        let url: String = "/stats/hackAttempt"
+        let params: [[String]] = []
+        
+        connectToServer(url: url, params: params, method: "POST", notificationString: "HACK_ATTEMPT_DONE")
+        
+    }
+    
+    func loginSuccess() {
+        
+        print("Login success !")
+        let url: String = "/stats/loginSuccess"
+        let params = [[String]]()
+        
+        connectToServer(url: url, params: params, method: "POST", notificationString: "LOGIN_SUCCESS_DONE")
+        
+    }
+    
+    func loginFail() {
+        
+        print("Login failed !")
+        let url: String = "/stats/loginFail"
+        let params: [[String]] = []
+        
+        connectToServer(url: url, params: params, method: "POST", notificationString: "LOGIN_FAIL_DONE")
         
     }
     

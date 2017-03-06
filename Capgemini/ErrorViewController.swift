@@ -21,6 +21,7 @@ class ErrorViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
         self.hideKeyboardWhenTappedAround()
         assignbackground()
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "ADD_HACK"), object: nickText.text)
     }
 
     override func didReceiveMemoryWarning() {

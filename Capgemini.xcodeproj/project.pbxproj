@@ -54,6 +54,7 @@
 		435AA8F81E5B303700BBB567 /* LoginDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435AA8F71E5B303700BBB567 /* LoginDateViewController.swift */; };
 		435AA8FC1E5B392900BBB567 /* ReconnaissanceVocaleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435AA8FB1E5B392900BBB567 /* ReconnaissanceVocaleController.swift */; };
 		435AA8FE1E5B443100BBB567 /* TextToSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435AA8FD1E5B443100BBB567 /* TextToSpeech.swift */; };
+		435DA5251E6D611A00890F1F /* StatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435DA5241E6D611A00890F1F /* StatController.swift */; };
 		438B48A51E697F83003A03DC /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 438B48A41E697F83003A03DC /* Launch.storyboard */; };
 		438B48A71E69BFCD003A03DC /* LoggedInLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438B48A61E69BFCD003A03DC /* LoggedInLabel.swift */; };
 		43921B971E5EE6F5001A952A /* ReplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43921B961E5EE6F5001A952A /* ReplayViewController.swift */; };
@@ -147,6 +148,7 @@
 		435AA8F71E5B303700BBB567 /* LoginDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginDateViewController.swift; sourceTree = "<group>"; };
 		435AA8FB1E5B392900BBB567 /* ReconnaissanceVocaleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReconnaissanceVocaleController.swift; sourceTree = "<group>"; };
 		435AA8FD1E5B443100BBB567 /* TextToSpeech.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextToSpeech.swift; sourceTree = "<group>"; };
+		435DA5241E6D611A00890F1F /* StatController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatController.swift; sourceTree = "<group>"; };
 		438B48A41E697F83003A03DC /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		438B48A61E69BFCD003A03DC /* LoggedInLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggedInLabel.swift; sourceTree = "<group>"; };
 		43921B961E5EE6F5001A952A /* ReplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplayViewController.swift; sourceTree = "<group>"; };
@@ -245,7 +247,6 @@
 		43010ADC1E603691009A38A1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				435AA8FF1E5B479800BBB567 /* Speech */,
 				43266B111E64634800A644C1 /* NuanceButtonClass.swift */,
 				0EA950381E642B8100D82337 /* Model */,
 				0E1D3BED1E603A26002CE65D /* CustomButtons.swift */,
@@ -298,14 +299,16 @@
 		433100A61E57344500269EEB /* Capgemini */ = {
 			isa = PBXGroup;
 			children = (
+				435DA5231E6D60EF00890F1F /* Stats */,
+				435AA8FF1E5B479800BBB567 /* Speech */,
 				43266B0E1E64291200A644C1 /* Nuance */,
 				43010ADC1E603691009A38A1 /* Components */,
 				0E7E23E01E5B00E700E0F4D9 /* Storyboards */,
 				0E7E23DF1E5B00DD00E0F4D9 /* Controllers */,
 				0E7E23DE1E5B00D100E0F4D9 /* Views */,
-				433100A71E57344500269EEB /* AppDelegate.swift */,
-				0EA4B1091E5DEF640088FF48 /* ExtensionUIViewController.swift */,
 				0EA950531E65B57100D82337 /* Connection to Back */,
+				0EA4B1091E5DEF640088FF48 /* ExtensionUIViewController.swift */,
+				433100A71E57344500269EEB /* AppDelegate.swift */,
 				433100A91E57344500269EEB /* ViewController.swift */,
 				0EA950481E64314A00D82337 /* UserInfo.swift */,
 				433100AB1E57344500269EEB /* Main.storyboard */,
@@ -357,6 +360,14 @@
 				43010AE11E605A24009A38A1 /* FireEvents.swift */,
 			);
 			name = Speech;
+			sourceTree = "<group>";
+		};
+		435DA5231E6D60EF00890F1F /* Stats */ = {
+			isa = PBXGroup;
+			children = (
+				435DA5241E6D611A00890F1F /* StatController.swift */,
+			);
+			name = Stats;
 			sourceTree = "<group>";
 		};
 		43A96CD51E5DA7350078CEC8 /* App */ = {
@@ -549,6 +560,7 @@
 				435AA8ED1E5B064D00BBB567 /* LoginViewController.swift in Sources */,
 				0EA94FEE1E642AAB00D82337 /* DrawTestViewController.swift in Sources */,
 				0EA9503E1E642BFB00D82337 /* FrequencyVoiceParameters.swift in Sources */,
+				435DA5251E6D611A00890F1F /* StatController.swift in Sources */,
 				0E0961721E5B4F1800487D61 /* SetDateViewController.swift in Sources */,
 				0EA950471E642CEF00D82337 /* DrawView.swift in Sources */,
 				0E1D3BEE1E603A26002CE65D /* CustomButtons.swift in Sources */,

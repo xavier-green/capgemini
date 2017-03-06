@@ -23,6 +23,8 @@ class LoginDateViewController: UIViewController {
         assignbackground()
         secretDate = setDateFormat().string(from: self.datePicker.date)
         NotificationCenter.default.addObserver(self, selector: #selector(self.verifyUserDone), name: NSNotification.Name(rawValue: "VERIFIED_USER"), object: nil)
+        print("sending okay login notif")
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "LOGIN_SUCCESS"), object: self)
     }
     
     @objc func verifyUserDone(notifcation: NSNotification) {

@@ -60,25 +60,30 @@ function remove(req, res, next) {
         .then((deletedStat) => res.json(deletedStat))
         .error((e) => next(e));
 }
+
 function addHack(req,res) {
     var createTodayStat = createStat
     return Stat.findOne({ createdAt:moment().format("DD/MM/YYYY") })
         .then((stat) => {
           if (stat==null) {
               return createTodayStat(req,res)
-              .then(() => {return addHack(req,res)} )
-          } else {
-            stat.AccountsHacked.push({hacker:req.body.hacker,hackee:req.body.hackee});
-            stat.succeededHacks = stat.AccountsHacked.length;
-            stat.saveAsync()
-                .then((savedStat) => res.json(savedStat))
+              .then(()=>loginSuccess(req, res))
           }
+          stat.AccountsHacked.push({hacker:req.body.hacker,hackee:req.body.hackee});
+          stat.succeededHacks = stat.AccountsHacked.length;
+          stat.saveAsync()
+              .then((savedStat) => res.json(savedStat))
         })
 }
 
 function hackAttempt(req, res, next) {
+  var createTodayStat = createStat
   return Stat.findOne({ createdAt:moment().format("DD/MM/YYYY") })
               .then((stat) => {
+                if (stat==null) {
+                    return createTodayStat(req,res)
+                    .then(()=>loginSuccess(req, res))
+                }
                 stat.attemptedHacks +=1
                 stat.saveAsync()
                     .then((savedData) => res.json({message:"Well tried"}))
@@ -88,8 +93,17 @@ function hackAttempt(req, res, next) {
 }
 
 function loginSuccess(req, res) {
+  console.log("loginSuccess");
+  var createTodayStat = createStat
   return Stat.findOne({ createdAt:moment().format("DD/MM/YYYY") })
               .then((stat) => {
+                console.log("stat: "+stat);
+                if (stat==null) {
+                  console.log("stat null, creating it");
+                    return createTodayStat(req,res)
+                    .then(()=>loginSuccess(req, res))
+                }
+                console.log("now adding the success");
                 stat.AuthNumber.succeeded +=1;
                 stat.saveAsync()
                     .then((savedData) => res.end("Successful Login"))
@@ -98,11 +112,17 @@ function loginSuccess(req, res) {
 }
 
 function loginFail(req, res) {
+  //mailTo admin
+  var createTodayStat = createStat
   return Stat.findOne({ createdAt:moment().format("DD/MM/YYYY") })
               .then((stat) => {
+                if (stat==null) {
+                    return createTodayStat(req,res)
+                    .then(()=>loginSuccess(req, res))
+                }
                 stat.AuthNumber.failed +=1;
                 stat.saveAsync()
-                    .then((savedData) => res.end("Successful Login"))
+                    .then((savedData) => res.end("Login failed"))
                     .error((e)=> res.json(e))
               })
 }
