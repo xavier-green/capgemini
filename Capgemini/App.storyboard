@@ -136,7 +136,6 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="JOw-Zv-LWC" firstAttribute="centerX" secondItem="64k-KF-HVh" secondAttribute="centerX" id="AMK-Zc-t5t"/>
