@@ -14,6 +14,9 @@ class LeaderBoardViewController: UIViewController, UITableViewDelegate,UITableVi
     var userData: [String] = []
     var votesData: [Int] = []
 
+    @IBAction func backbutton(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()

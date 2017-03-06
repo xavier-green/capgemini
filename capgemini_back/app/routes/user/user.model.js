@@ -20,6 +20,10 @@ const UserSchema = new mongoose.Schema({
       type:Number,
       default: 0,
     },
+    frequencyParameters: {
+      registered: { type:Boolean, required:true, default:false },
+      frequency: { type:Number},
+    }
 });
 /**
  * Add your

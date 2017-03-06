@@ -13,9 +13,6 @@ class ColorPaletteViewController: UIViewController {
     // Init ColorPicker with yellow
     var selectedColor: UIColor = UIColor.white
     
-    @IBAction func backtoDraw(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
-    }
     // IBOutlet for the ColorPicker
     @IBOutlet var colorPicker: SwiftHSVColorPicker!
     
@@ -39,7 +36,7 @@ class ColorPaletteViewController: UIViewController {
     @IBAction func getSelectedColor(_ sender: UIButton) {
         // Get the selected color from the Color Picker.
         let selectedColor = colorPicker.color
-        
-        print(selectedColor!)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "CHANGED_COLOR"), object: selectedColor)
+        dismiss(animated: true, completion: nil)
     }
 }

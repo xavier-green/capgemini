@@ -84,4 +84,20 @@ function verifyDate(req,res) {
         }
       })
 }
-module.exports = exports = { load, get, create, update, list, remove, verifyDate };
+
+function addFrequency(req,res) {
+  User.findOne({ username:req.body.username })
+      .then((user) => {
+        if (user.frequencyParameters.registered==false && req.body.frequency!=null) {
+          user.frequencyParameters.frequency=req.body.frequency
+          user.frequencyParameters.registered=true
+          user.saveAsync()
+              .then((savedUser)=>res.json({username:savedUser.username, registered:savedUser.frequencyParameters.registered, frequency:savedUser.frequencyParameters.frequency}))
+              .error((e)=>(e));
+        } else {
+          res.json({username:user.username, registered:user.frequencyParameters.registered, frequency:user.frequencyParameters.frequency})
+        }
+      })
+}
+
+module.exports = exports = { load, get, create, update, list, remove, verifyDate, addFrequency };

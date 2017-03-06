@@ -145,6 +145,28 @@ class CotoBackMethods {
         NotificationCenter.default.post(name: Notification.Name(rawValue: "FINISHED_GETTING_LEADER"), object: sendObject)
     }
     
+    func getUserFreq(speakerId: String) {
+        Server.getFrequency(speakerId: speakerId)
+    }
+    
+    @objc func getUserFreqDone(notification: NSNotification) {
+        let dataString = notification.object as! String
+        let dictionary = parseJson(jsonString: dataString) as [String:Any]
+        print("Got user freq")
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "GOT_USER_FREQ"), object: dictionary)
+    }
+    
+    func sendUserFreq(speakerId: String, frequency: Any) {
+        print("sending data")
+        Server.addFrequency(speakerId: speakerId, frequency: frequency)
+        print("data sent")
+    }
+    
+    @objc func sendUserFreqDone(notification: NSNotification) {
+        let dataString = notification.object as! String
+        let dictionary = parseJson(jsonString: dataString) as [String:Any]
+        print(dictionary)
+    }
     init() {
         Server = ConnectiontoBackServer()
         NotificationCenter.default.addObserver(self, selector: #selector(self.getUserListDone), name: NSNotification.Name(rawValue: "GET_USERS"), object: nil)
@@ -157,5 +179,7 @@ class CotoBackMethods {
         NotificationCenter.default.addObserver(self, selector: #selector(self.voteForImageDone), name: NSNotification.Name(rawValue: "VOTE_DONE"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.getLeaderboardDone), name: NSNotification.Name(rawValue: "LEADER_DONE"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.getLeaderboard), name: NSNotification.Name(rawValue: "GET_LEADERS"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.getUserFreqDone), name: NSNotification.Name(rawValue: "GET_USER_FREQ"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.sendUserFreqDone), name: NSNotification.Name(rawValue: "SEND_USER_FREQ"), object: nil)
     }
 }

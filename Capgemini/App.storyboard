@@ -45,58 +45,42 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UuG-iv-4oy">
-                                <rect key="frame" x="274" y="144" width="55" height="55"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="UuG-iv-4oy" secondAttribute="height" multiplier="1:1" id="Sjs-lQ-8Dv"/>
-                                    <constraint firstAttribute="width" constant="55" id="VDF-6s-yYu"/>
-                                    <constraint firstAttribute="height" constant="55" id="tpW-Q9-WVV"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="leaderboard"/>
-                                <connections>
-                                    <segue destination="2sj-US-YZy" kind="modal" id="Wkc-dm-orn"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="14f-Pu-7Gs">
-                                <rect key="frame" x="46" y="144" width="55" height="55"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="14f-Pu-7Gs" secondAttribute="height" multiplier="1:1" id="1sK-ln-RFw"/>
-                                    <constraint firstAttribute="width" constant="55" id="99c-0V-1Ji"/>
-                                    <constraint firstAttribute="height" constant="55" id="lVh-8Z-MOX"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="micOn"/>
-                                <connections>
-                                    <action selector="backtoDraw:" destination="u9S-eE-re2" eventType="touchUpInside" id="uSI-Dy-cgW"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Ot-Vf-6eE" customClass="SwiftHSVColorPicker" customModule="My_VocalPrint" customModuleProvider="target">
-                                <rect key="frame" x="67" y="302" width="240" height="240"/>
+                                <rect key="frame" x="16" y="166" width="343" height="376"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="GEU-fe-fFo"/>
-                                    <constraint firstAttribute="height" constant="240" id="pea-lp-AJn"/>
+                                    <constraint firstAttribute="width" secondItem="0Ot-Vf-6eE" secondAttribute="height" multiplier="291:319" id="2HB-Bi-jxS"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fSE-ab-doA">
-                                <rect key="frame" x="164" y="550" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fSE-ab-doA" customClass="CustomButtons" customModule="My_VocalPrint" customModuleProvider="target">
+                                <rect key="frame" x="134" y="550" width="106" height="30"/>
+                                <state key="normal" title="Choisir Couleur"/>
                                 <connections>
                                     <action selector="getSelectedColor:" destination="u9S-eE-re2" eventType="touchUpInside" id="oTC-br-eOv"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chosen Color :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uhq-pD-zf5">
+                                <rect key="frame" x="127.5" y="135" width="120" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="qBv-gE-yUb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="4jU-l5-y6x" firstAttribute="top" secondItem="Obv-V0-KhZ" secondAttribute="bottom" id="38F-gA-6tW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0Ot-Vf-6eE" secondAttribute="trailing" id="97K-nA-79V"/>
                             <constraint firstItem="4ta-xI-u4K" firstAttribute="top" secondItem="0Ot-Vf-6eE" secondAttribute="bottom" constant="125" id="Bhz-7q-zZu"/>
+                            <constraint firstItem="0Ot-Vf-6eE" firstAttribute="top" secondItem="Uhq-pD-zf5" secondAttribute="bottom" constant="10" id="ICs-16-KhQ"/>
                             <constraint firstItem="fSE-ab-doA" firstAttribute="top" secondItem="0Ot-Vf-6eE" secondAttribute="bottom" constant="8" symbolic="YES" id="TQt-08-JE7"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="UuG-iv-4oy" secondAttribute="trailing" constant="30" id="Xyi-bm-uCe"/>
-                            <constraint firstItem="14f-Pu-7Gs" firstAttribute="top" secondItem="4jU-l5-y6x" secondAttribute="bottom" constant="100" id="Z19-dK-tM4"/>
-                            <constraint firstItem="14f-Pu-7Gs" firstAttribute="leading" secondItem="chj-qF-W3l" secondAttribute="leadingMargin" constant="30" id="afp-iy-baZ"/>
+                            <constraint firstItem="fSE-ab-doA" firstAttribute="centerX" secondItem="chj-qF-W3l" secondAttribute="centerX" id="WNO-dJ-S2I"/>
+                            <constraint firstItem="Uhq-pD-zf5" firstAttribute="centerX" secondItem="chj-qF-W3l" secondAttribute="centerX" id="gKT-HU-g5E"/>
                             <constraint firstItem="4jU-l5-y6x" firstAttribute="trailing" secondItem="chj-qF-W3l" secondAttribute="trailingMargin" id="jY3-Lv-1hf"/>
-                            <constraint firstItem="fSE-ab-doA" firstAttribute="centerX" secondItem="0Ot-Vf-6eE" secondAttribute="centerX" id="sRI-Us-xCH"/>
-                            <constraint firstItem="14f-Pu-7Gs" firstAttribute="width" secondItem="14f-Pu-7Gs" secondAttribute="height" multiplier="1:1" id="uhp-aF-b3f"/>
-                            <constraint firstItem="UuG-iv-4oy" firstAttribute="top" secondItem="4jU-l5-y6x" secondAttribute="bottom" constant="100" id="vBn-M3-yQs"/>
+                            <constraint firstItem="0Ot-Vf-6eE" firstAttribute="leading" secondItem="chj-qF-W3l" secondAttribute="leadingMargin" id="pSO-oW-tmb"/>
+                            <constraint firstItem="fSE-ab-doA" firstAttribute="top" secondItem="0Ot-Vf-6eE" secondAttribute="bottom" constant="8" id="sj8-a0-paR"/>
                             <constraint firstItem="4jU-l5-y6x" firstAttribute="leading" secondItem="chj-qF-W3l" secondAttribute="leadingMargin" id="wS0-hf-B0C"/>
                             <constraint firstItem="0Ot-Vf-6eE" firstAttribute="centerX" secondItem="chj-qF-W3l" secondAttribute="centerX" id="xUa-jh-9ru"/>
                         </constraints>
@@ -346,7 +330,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="&lt; Retour"/>
                                                 <connections>
-                                                    <segue destination="OdS-o3-vpd" kind="modal" id="IXN-Mw-KAo"/>
+                                                    <action selector="backbutton:" destination="2sj-US-YZy" eventType="touchUpInside" id="lxS-kU-uMQ"/>
                                                 </connections>
                                             </button>
                                         </barButtonItem>
@@ -501,7 +485,7 @@
                                     <navigationItem title="Vote" id="ZLl-TA-Qyk">
                                         <barButtonItem key="leftBarButtonItem" title="&lt; Retour" id="bvo-qV-2gn">
                                             <connections>
-                                                <segue destination="OdS-o3-vpd" kind="presentation" id="OWt-eH-Dbj"/>
+                                                <action selector="backButton:" destination="Tnx-0Z-EW9" id="Bbk-7h-nXl"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -610,9 +594,4 @@
         <image name="micOn" width="1024" height="1024"/>
         <image name="valid" width="512" height="512"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="IXN-Mw-KAo"/>
-        <segue reference="OWt-eH-Dbj"/>
-        <segue reference="Wkc-dm-orn"/>
-    </inferredMetricsTieBreakers>
 </document>
