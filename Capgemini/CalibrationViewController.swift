@@ -80,7 +80,7 @@ class CalibrationViewController: UIViewController {
         switch calStep{
         case -1:
             instructionLabel.text = "Vos paramètres de voix ont été enregistrés"
-            calibrationStep = 3
+            calibrationStep = 6
             break
         case 0:
             instructionLabel.text = "Nous avons juste besoin de paramétrer votre voix"
