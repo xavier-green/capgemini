@@ -20,38 +20,28 @@ class CalibrationViewController: UIViewController {
     @IBOutlet weak var mainView: UIView!
     @IBOutlet var calibrationViewTap: UITapGestureRecognizer!
     @IBOutlet weak var currentFrequencyLabel: UILabel!
+    private var frequencyRegistered: Bool!
+    private var frequencyParameters: Any!
     
-    
-    func saveUserInfo() {
-        if userInfo != nil {
-            if UserInfo.ArchiveURL.path == "" {
-                print("path nil")
-            }
-            if userInfo == nil {
-                print("userInfo nil")
-            }
-            let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(userInfo!, toFile: UserInfo.ArchiveURL.path)
-            if !isSuccessfulSave {
-                print("Failed to save user info...")
-            }
-            else {
-                print("Successful save")
-            }
-        }
-        else {
-            print("Failed to save user info, no user info found")
-        }
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         currentFrequencyLabel.isHidden = true
         // Do any additional setup after loading the view.
-        if userInfo?.frequencyParameters == nil { // We should perform the calibration
+        NotificationCenter.default.addObserver(self, selector: #selector(self.userFreq), name: NSNotification.Name(rawValue: "GOT_USER_FREQ"), object: nil)
+        CotoBackMethods().getUserFreq(speakerId: GlobalVariables.username)
+        if frequencyRegistered==false { // We should perform the calibration
             calibrationStep = 0
         }
         else { // We can skip the calibration
             calibrationStep = -1
+        }
+    }
+    
+    @objc func userFreq(notification: NSNotification) {
+        let dictionary = notification.object as! [String:Any]
+        frequencyRegistered = dictionary["registered"] as! Bool
+        if frequencyRegistered==true {
+            frequencyParameters = dictionary["frequency"]
         }
     }
     
@@ -109,6 +99,7 @@ class CalibrationViewController: UIViewController {
             AudioKit.stop()
             calibrationTimer.invalidate()
             instructionLabel.text =  "Calibration reussie ! Votre fréquence moyenne est " + String(self.averageFrequency) + " Hz"
+            CotoBackMethods().sendUserFreq(speakerId: GlobalVariables.username,frequency: self.averageFrequency)
             break
         case 3:
             instructionLabel.text = "Les fréquences moyennes dessineront un trait droit"
@@ -163,9 +154,8 @@ class CalibrationViewController: UIViewController {
                 print("average frequency :" + String(avgFreq))
                 print("Are Samples Relevant :" + String(areSamplesRelevant))
                 if areSamplesRelevant {
-                    userInfo?.frequencyParameters = FrequencyVoiceParameters(mediumFrequency: avgFreq)
+                    frequencyParameters = FrequencyVoiceParameters(mediumFrequency: avgFreq)
                     self.averageFrequency = Int(avgFreq)
-                    //saveUserInfo()
                     print("Successfully calibrated !!")
                     nextCalibrationStep() // Successfully calibrated
                 }
@@ -183,7 +173,7 @@ class CalibrationViewController: UIViewController {
     }
     
     @IBAction func SegueButtonTapped(_ sender: AnyObject) {
-        userInfo?.frequencyParameters = FrequencyVoiceParameters(mediumFrequency: 140.0)
+        frequencyParameters = FrequencyVoiceParameters(mediumFrequency: 140.0)
         self.performSegue(withIdentifier: "successfulCalibrationSegueToDrawView", sender: self)
     }
     

@@ -18,6 +18,10 @@ class DrawTestViewController: UIViewController {
     @IBOutlet weak var frequencyLabel: UILabel!
     @IBOutlet weak var amplitudeLabel: UILabel!
     @IBOutlet weak var stackColors: UIStackView!
+    var frequency: Float!
+    var frequencyParameter: FrequencyVoiceParameters!
+    var frequencyRegistered: Bool!
+    
     
     func finishDrawing() {
         trySavingImage()
@@ -125,6 +129,7 @@ class DrawTestViewController: UIViewController {
         
         self.okButton.addTarget(self, action: #selector(self.finishDrawing), for: .touchUpInside)
         self.loadingSpinner.isHidden = true
+        NotificationCenter.default.addObserver(self, selector: #selector(self.changeColor), name: NSNotification.Name(rawValue: "CHANGED_COLOR"), object: nil)
         
         // Do any additional setup after loading the view, typically from a nib.
         mic = AKMicrophone()
@@ -134,17 +139,31 @@ class DrawTestViewController: UIViewController {
         AudioKit.output = silence
         AudioKit.start()
         
-        if userInfo?.frequencyParameters != nil {
-            setFrequencyParameters((userInfo?.frequencyParameters)!)
-        }
+        NotificationCenter.default.addObserver(self, selector: #selector(self.userFreq), name: NSNotification.Name(rawValue: "GOT_USER_FREQ"), object: nil)
+        CotoBackMethods().getUserFreq(speakerId: GlobalVariables.username)
         
+        if frequency != nil {
+            frequencyParameter = FrequencyVoiceParameters(mediumFrequency: frequency / Double(1))
+            setFrequencyParameters((frequencyParameter)! )
+        }
+        Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(DrawTestViewController.analyseAudioInput), userInfo: nil, repeats: true)
         //stackColors.isHidden = true
+    }
+    @objc func changeColor(notification: NSNotification) {
+        drawView.currentColor = notification.object as! UIColor
+    }
+    
+    @objc func userFreq(notification: NSNotification) {
+        let dictionary = notification.object as! [String:Any]
+        frequencyRegistered = dictionary["registered"] as! Bool
+        if frequencyRegistered==true {
+            frequency = dictionary["frequency"] as! Float
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        AudioKit.start()
         super.viewDidAppear(animated)
-        Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(DrawTestViewController.analyseAudioInput), userInfo: nil, repeats: true)
-        
     }
     
     

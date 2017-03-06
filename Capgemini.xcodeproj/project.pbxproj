@@ -34,7 +34,6 @@
 		0EA950431E642C9E00D82337 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA950411E642C8F00D82337 /* AudioKit.framework */; };
 		0EA950441E642C9E00D82337 /* AudioKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA950411E642C8F00D82337 /* AudioKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0EA950471E642CEF00D82337 /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA950461E642CEF00D82337 /* DrawView.swift */; };
-		0EA950491E64314A00D82337 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA950481E64314A00D82337 /* UserInfo.swift */; };
 		0EA9504F1E658E3400D82337 /* ConnectiontoBackServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA9504E1E658E3400D82337 /* ConnectiontoBackServer.swift */; };
 		0EA950511E658E3F00D82337 /* ServerFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA950501E658E3F00D82337 /* ServerFunctions.swift */; };
 		0EA950551E65BBF400D82337 /* CotoBackMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA950541E65BBF400D82337 /* CotoBackMethods.swift */; };
@@ -128,7 +127,6 @@
 		0EA9503C1E642BFB00D82337 /* Pointer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pointer.swift; sourceTree = "<group>"; };
 		0EA950411E642C8F00D82337 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKit.framework; sourceTree = "<group>"; };
 		0EA950461E642CEF00D82337 /* DrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
-		0EA950481E64314A00D82337 /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInfo.swift; path = ../UserInfo.swift; sourceTree = "<group>"; };
 		0EA9504E1E658E3400D82337 /* ConnectiontoBackServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectiontoBackServer.swift; sourceTree = "<group>"; };
 		0EA950501E658E3F00D82337 /* ServerFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerFunctions.swift; sourceTree = "<group>"; };
 		0EA950541E65BBF400D82337 /* CotoBackMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CotoBackMethods.swift; sourceTree = "<group>"; };
@@ -335,7 +333,6 @@
 				0EA4B1091E5DEF640088FF48 /* ExtensionUIViewController.swift */,
 				433100A71E57344500269EEB /* AppDelegate.swift */,
 				433100A91E57344500269EEB /* ViewController.swift */,
-				0EA950481E64314A00D82337 /* UserInfo.swift */,
 				433100AB1E57344500269EEB /* Main.storyboard */,
 				433100AE1E57344500269EEB /* Assets.xcassets */,
 				433100B31E57344500269EEB /* Info.plist */,
@@ -612,7 +609,6 @@
 				4309EAAB1E5DF82F005026CB /* VoteViewController.swift in Sources */,
 				0EA950511E658E3F00D82337 /* ServerFunctions.swift in Sources */,
 				435AA8F61E5B302200BBB567 /* LoginCheckViewController.swift in Sources */,
-				0EA950491E64314A00D82337 /* UserInfo.swift in Sources */,
 				0EA4B10A1E5DEF640088FF48 /* ExtensionUIViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

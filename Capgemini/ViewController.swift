@@ -10,8 +10,6 @@ import UIKit
 import AVFoundation
 import Photos
 
-var userInfo: UserInfo?
-
 class ViewController: UIViewController {
 
     @IBOutlet var NoBut: UIButton!

@@ -11,6 +11,9 @@ import UIKit
 class VoteViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     @IBOutlet var continuerButton: UIButton!
     
+    @IBAction func backButton(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
     @IBOutlet var imagesView: UICollectionView!
     
     let reuseIdentifier = "cell" // also enter this string as the cell identifier in the storyboard

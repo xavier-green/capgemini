@@ -10,6 +10,9 @@ import UIKit
 
 class LeaderBoardViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
 
+    @IBAction func backbutton(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -88,7 +88,7 @@ function verifyDate(req,res) {
 function addFrequency(req,res) {
   User.findOne({ username:req.body.username })
       .then((user) => {
-        if (user.frequencyParameters.registered==false) {
+        if (user.frequencyParameters.registered==false && req.body.frequency!=null) {
           user.frequencyParameters.frequency=req.body.frequency
           user.frequencyParameters.registered=true
           user.saveAsync()

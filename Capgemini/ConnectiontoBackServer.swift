@@ -287,6 +287,24 @@ class ConnectiontoBackServer {
         
     }
     
+    func getFrequency(speakerId: String) {
+        print("Getting user frequency")
+        
+        let url: String = "/users/addFrequency"
+        let params: [[String]] = [["username","\(speakerId)"]]
+        
+        connectToServer(url: url, params: params, method: "POST", notificationString: "GET_USER_FREQ")
+    }
+    
+    func addFrequency(speakerId:String, frequency: Any) {
+        print("Sending user frequency")
+        
+        let url: String = "/users/addFrequency"
+        let params: [[String]] = [["username","\(speakerId)"],["frequency","\(frequency)"]]
+        
+        connectToServer(url: url, params: params, method: "POST", notificationString: "SEND_USER_FREQ")
+    }
+    
 
 }
 
