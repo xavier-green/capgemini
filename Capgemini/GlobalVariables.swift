@@ -16,4 +16,5 @@ struct GlobalVariables {
     static var allowedCommands: [String] = ["Authentification","Enrôlements","Suivant","Retour","Terminer","Chez Cételem ma voix et mon mot de passe","Chez Cételem ma voix est mon mot de passe","Oui","Non"]
     static var base64image: String = ""
     static var voteImageId: Int = 0
+    static var frequencyParameters: Int?
 }

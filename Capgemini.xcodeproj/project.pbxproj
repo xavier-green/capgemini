@@ -11,6 +11,12 @@
 		0E0961721E5B4F1800487D61 /* SetDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E09616F1E5B4F1800487D61 /* SetDateViewController.swift */; };
 		0E0961731E5B4F1800487D61 /* SetNickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0961701E5B4F1800487D61 /* SetNickViewController.swift */; };
 		0E0961741E5B4F1800487D61 /* VoiceRecViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0961711E5B4F1800487D61 /* VoiceRecViewController.swift */; };
+		0E1A97B21E6D623800F86C88 /* SwiftHSVColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1A97B11E6D623800F86C88 /* SwiftHSVColorPicker.swift */; };
+		0E1A97B41E6D680000F86C88 /* ColorPaletteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1A97B31E6D680000F86C88 /* ColorPaletteViewController.swift */; };
+		0E1A97B71E6D845900F86C88 /* SelectedColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1A97B61E6D845900F86C88 /* SelectedColorView.swift */; };
+		0E1A97B91E6D847700F86C88 /* ColorWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1A97B81E6D847700F86C88 /* ColorWheel.swift */; };
+		0E1A97BB1E6D849000F86C88 /* ColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1A97BA1E6D849000F86C88 /* ColorUtils.swift */; };
+		0E1A97BD1E6D84AE00F86C88 /* BrightnessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1A97BC1E6D84AE00F86C88 /* BrightnessView.swift */; };
 		0E1D3BEE1E603A26002CE65D /* CustomButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D3BED1E603A26002CE65D /* CustomButtons.swift */; };
 		0E7E23E21E5B010300E0F4D9 /* Enrolment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E7E23E11E5B010300E0F4D9 /* Enrolment.storyboard */; };
 		0E9E39761E5C958E0000BD9E /* NickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9E39751E5C958E0000BD9E /* NickViewController.swift */; };
@@ -101,6 +107,12 @@
 		0E09616F1E5B4F1800487D61 /* SetDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetDateViewController.swift; sourceTree = "<group>"; };
 		0E0961701E5B4F1800487D61 /* SetNickViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetNickViewController.swift; sourceTree = "<group>"; };
 		0E0961711E5B4F1800487D61 /* VoiceRecViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceRecViewController.swift; sourceTree = "<group>"; };
+		0E1A97B11E6D623800F86C88 /* SwiftHSVColorPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftHSVColorPicker.swift; sourceTree = "<group>"; };
+		0E1A97B31E6D680000F86C88 /* ColorPaletteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPaletteViewController.swift; sourceTree = "<group>"; };
+		0E1A97B61E6D845900F86C88 /* SelectedColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedColorView.swift; sourceTree = "<group>"; };
+		0E1A97B81E6D847700F86C88 /* ColorWheel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorWheel.swift; sourceTree = "<group>"; };
+		0E1A97BA1E6D849000F86C88 /* ColorUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorUtils.swift; sourceTree = "<group>"; };
+		0E1A97BC1E6D84AE00F86C88 /* BrightnessView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrightnessView.swift; sourceTree = "<group>"; };
 		0E1D3BED1E603A26002CE65D /* CustomButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButtons.swift; sourceTree = "<group>"; };
 		0E7E23E11E5B010300E0F4D9 /* Enrolment.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Enrolment.storyboard; sourceTree = "<group>"; };
 		0E9E39751E5C958E0000BD9E /* NickViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NickViewController.swift; sourceTree = "<group>"; };
@@ -196,6 +208,18 @@
 			name = Enrolment;
 			sourceTree = "<group>";
 		};
+		0E1A97B51E6D841200F86C88 /* Color Palette */ = {
+			isa = PBXGroup;
+			children = (
+				0E1A97B11E6D623800F86C88 /* SwiftHSVColorPicker.swift */,
+				0E1A97B61E6D845900F86C88 /* SelectedColorView.swift */,
+				0E1A97B81E6D847700F86C88 /* ColorWheel.swift */,
+				0E1A97BC1E6D84AE00F86C88 /* BrightnessView.swift */,
+				0E1A97BA1E6D849000F86C88 /* ColorUtils.swift */,
+			);
+			name = "Color Palette";
+			sourceTree = "<group>";
+		};
 		0E7E23DE1E5B00D100E0F4D9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +276,7 @@
 				0E1D3BED1E603A26002CE65D /* CustomButtons.swift */,
 				43010ADD1E6036B1009A38A1 /* RecordButtonClass.swift */,
 				438B48A61E69BFCD003A03DC /* LoggedInLabel.swift */,
+				0E1A97B51E6D841200F86C88 /* Color Palette */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -377,6 +402,7 @@
 				4309EAA81E5DF698005026CB /* ImageCollectionViewCell.swift */,
 				43A96CD61E5DA7710078CEC8 /* DrawViewController.swift */,
 				0EA94FEF1E642AE400D82337 /* CalibrationViewController.swift */,
+				0E1A97B31E6D680000F86C88 /* ColorPaletteViewController.swift */,
 				0EA94FED1E642AAB00D82337 /* DrawTestViewController.swift */,
 				0EA4B10B1E5DF1B30088FF48 /* LeaderBoardViewController.swift */,
 				43921B961E5EE6F5001A952A /* ReplayViewController.swift */,
@@ -549,13 +575,18 @@
 				0EA950401E642BFB00D82337 /* Pointer.swift in Sources */,
 				435AA8FC1E5B392900BBB567 /* ReconnaissanceVocaleController.swift in Sources */,
 				438B48A71E69BFCD003A03DC /* LoggedInLabel.swift in Sources */,
+				0E1A97B21E6D623800F86C88 /* SwiftHSVColorPicker.swift in Sources */,
+				0E1A97BD1E6D84AE00F86C88 /* BrightnessView.swift in Sources */,
 				0E9E39761E5C958E0000BD9E /* NickViewController.swift in Sources */,
 				43A96CD71E5DA7710078CEC8 /* DrawViewController.swift in Sources */,
 				43266B121E64634800A644C1 /* NuanceButtonClass.swift in Sources */,
 				4309EAA91E5DF698005026CB /* ImageCollectionViewCell.swift in Sources */,
 				0EA9503F1E642BFB00D82337 /* Line.swift in Sources */,
 				0EB29EC21E5EF6A800D1EAAF /* ErrorViewController.swift in Sources */,
+				0E1A97B91E6D847700F86C88 /* ColorWheel.swift in Sources */,
 				0EA4B1061E5DDFB40088FF48 /* UsersViewController.swift in Sources */,
+				0E1A97B41E6D680000F86C88 /* ColorPaletteViewController.swift in Sources */,
+				0E1A97B71E6D845900F86C88 /* SelectedColorView.swift in Sources */,
 				43A96CD01E5DA3C90078CEC8 /* GlobalVariables.swift in Sources */,
 				435AA8ED1E5B064D00BBB567 /* LoginViewController.swift in Sources */,
 				0EA94FEE1E642AAB00D82337 /* DrawTestViewController.swift in Sources */,
@@ -574,6 +605,7 @@
 				433100A81E57344500269EEB /* AppDelegate.swift in Sources */,
 				0EA9504F1E658E3400D82337 /* ConnectiontoBackServer.swift in Sources */,
 				43266B101E6429C300A644C1 /* ServerConnection.swift in Sources */,
+				0E1A97BB1E6D849000F86C88 /* ColorUtils.swift in Sources */,
 				43010ADE1E6036B1009A38A1 /* RecordButtonClass.swift in Sources */,
 				0E0961731E5B4F1800487D61 /* SetNickViewController.swift in Sources */,
 				43266B1F1E64734E00A644C1 /* NuanceXMLParser.swift in Sources */,
