@@ -28,9 +28,9 @@ class StatController {
         Server.loginSuccess()
     }
     
-    @objc func loginFail() {
+    @objc func loginFail(email: String) {
         print("adding login fail")
-        Server.loginFail()
+        Server.loginFail(email: email)
     }
     
 }

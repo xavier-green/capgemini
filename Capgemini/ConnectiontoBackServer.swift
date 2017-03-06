@@ -14,7 +14,7 @@ class ConnectiontoBackServer {
         print("Initialising back server connection")
     }
     
-    private let BASE_URL: String = "http://vps383005.ovh.net:3000/api"
+    private let BASE_URL: String = "http://71d0944c.ngrok.io/api" //vps383005.ovh.net
     private let SERVER_USERNAME: String = "youyoun"
     private let SERVER_PASSWORD: String = "password"
     
@@ -261,7 +261,7 @@ class ConnectiontoBackServer {
         
         print("Prevented hack !")
         let url: String = "/stats/hackAttempt"
-        let params: [[String]] = []
+        let params = [[String]]()
         
         connectToServer(url: url, params: params, method: "POST", notificationString: "HACK_ATTEMPT_DONE")
         
@@ -277,11 +277,11 @@ class ConnectiontoBackServer {
         
     }
     
-    func loginFail() {
+    func loginFail(email: String) {
         
-        print("Login failed !")
+        print("Login failed ! Reponse to: ",email)
         let url: String = "/stats/loginFail"
-        let params: [[String]] = []
+        let params: [[String]] = [["email",email]]
         
         connectToServer(url: url, params: params, method: "POST", notificationString: "LOGIN_FAIL_DONE")
         

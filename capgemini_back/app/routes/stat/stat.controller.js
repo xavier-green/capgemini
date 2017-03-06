@@ -82,7 +82,7 @@ function hackAttempt(req, res, next) {
               .then((stat) => {
                 if (stat==null) {
                     return createTodayStat(req,res)
-                    .then(()=>loginSuccess(req, res))
+                    .then(()=>hackAttempt(req, res))
                 }
                 stat.attemptedHacks +=1
                 stat.saveAsync()
@@ -112,19 +112,20 @@ function loginSuccess(req, res) {
 }
 
 function loginFail(req, res) {
-  //mailTo admin
+  let email = req.body.email;
+  console.log("got email: "+email);
   var createTodayStat = createStat
   return Stat.findOne({ createdAt:moment().format("DD/MM/YYYY") })
-              .then((stat) => {
-                if (stat==null) {
-                    return createTodayStat(req,res)
-                    .then(()=>loginSuccess(req, res))
-                }
-                stat.AuthNumber.failed +=1;
-                stat.saveAsync()
-                    .then((savedData) => res.end("Login failed"))
-                    .error((e)=> res.json(e))
-              })
+  .then((stat) => {
+    if (stat==null) {
+        return createTodayStat(req,res)
+        .then(()=>loginFail(req, res))
+    }
+    stat.AuthNumber.failed +=1;
+    stat.saveAsync()
+        .then((savedData) => res.end("Login failed"))
+        .error((e)=> res.json(e))
+  })
 }
 
 
