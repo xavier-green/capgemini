@@ -22,13 +22,13 @@ x509_extensions     = ca_extensions
 string_mask         = utf8only
 ####################################################################
 [ ca_distinguished_name ]
-countryName                     = US
-stateOrProvinceName             = Maryland
-localityName                    = Baltimore
-organizationName                = TestCALimited
-organizationalUnitName          = ServerResearchDepartment
-commonName                      = TestCA
-emailAddress                    = test@example.com
+countryName                     = FR
+stateOrProvinceName             = Paris
+localityName                    = Paris
+organizationName                = Capgemini
+organizationalUnitName          = Capgemini
+commonName                      = Capge
+emailAddress                    = younes.belkouchi@student.ecp.fr
 ####################################################################
 [ ca_extensions ]
 subjectKeyIdentifier=hash

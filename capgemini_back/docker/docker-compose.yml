@@ -15,7 +15,7 @@ services:
         networks:
             - back
         environment:
-            - NODE_ENV=${YOUR_APP_NODE_ENV}
+            - NODE_ENV=development
             - JWT_SECRET_development=kGKTCJYF7O86485tfjygcjytdxjcuckcjycjstsj
             - JWT_SECRET_production=rdurdurdytfjuytfuytjfv
             - REDIS_SECRET_development=hjgfjytcjtj575R65RTFFJjgfjydtrd
