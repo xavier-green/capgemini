@@ -17,4 +17,9 @@ module.exports = exports = {
             userId: Joi.string().required(),
         },
     },
+    addFrequency: {
+      body: {
+        username: Joi.string().required(),
+      },
+    },
 };

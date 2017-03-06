@@ -18,6 +18,9 @@ router.route('/:userId')
 
 router.route('/verifyDate')
     .post(validate(paramValidation.createUser), userCtrl.verifyDate)
+
+router.route('/addFrequency')
+    .post(userCtrl.addFrequency)
 /** Load user when API with userId route parameter is hit */
 router.param('userId', userCtrl.load);
 module.exports = exports = router;
