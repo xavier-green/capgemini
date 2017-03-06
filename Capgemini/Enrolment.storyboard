@@ -110,6 +110,7 @@
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Nous allons procéder à l'enregistrement de votre empreinte vocale. Dites &quot;suivant&quot; pour commencer ou cliquez ci-dessous" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mtE-QM-IXi">
                                 <rect key="frame" x="0.0" y="225" width="375" height="186"/>
+                                <color key="textColor" red="0.98551512299999999" green="0.99478732910000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -185,13 +186,14 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="xRx-Dq-ajV"/>
                                 </constraints>
+                                <color key="textColor" red="0.98551512299999999" green="0.99478732910000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Il faut réussir l'enregistrement 3 fois" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dFg-rZ-lPz">
                                 <rect key="frame" x="0.0" y="640" width="375" height="27"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.98551512299999999" green="0.99478732910000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" translatesAutoresizingMaskIntoConstraints="NO" id="YJF-rh-9fV">
@@ -235,7 +237,7 @@
                                     <constraint firstAttribute="width" secondItem="dbL-7Y-QKp" secondAttribute="height" multiplier="371:29" id="0Bi-5O-u19"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.98551512299999999" green="0.99478732910000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cpa-YA-0wK">
@@ -277,7 +279,7 @@
                                     <constraint firstAttribute="width" secondItem="4hL-cY-RTl" secondAttribute="height" multiplier="371:29" id="h2R-SU-d9U"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.98551512299999999" green="0.99478732910000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -429,11 +431,13 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="126" id="eVp-mk-lT1"/>
                                 </constraints>
+                                <color key="textColor" red="0.98551512299999999" green="0.99478732910000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="21"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="I87-n3-Wbl">
                                 <rect key="frame" x="0.5" y="279" width="375" height="216"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <date key="date" timeIntervalSinceReferenceDate="509295945.39876699">
                                     <!--2017-02-20 15:05:45 +0000-->
                                 </date>
@@ -530,7 +534,7 @@
                                     <constraint firstAttribute="height" constant="27" id="f2M-Wa-kwE"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.98551512299999999" green="0.99478732910000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pseudo :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xah-P3-I6z">
@@ -540,12 +544,12 @@
                                     <constraint firstAttribute="width" constant="120" id="YPf-kx-Ysy"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.98551512299999999" green="0.99478732910000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vef-Pl-Fb6">
                                 <rect key="frame" x="189" y="321.5" width="153" height="30"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.98551512299999999" green="0.99478732910000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -596,6 +600,7 @@
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Dites « suivant » ou cliquez ci-dessous une fois le pseudo choisi" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hh6-Bx-Slc">
                                 <rect key="frame" x="0.0" y="420" width="375" height="52"/>
+                                <color key="textColor" red="0.98551512299999999" green="0.99478732910000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>

@@ -26,6 +26,7 @@ class CalibrationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         currentFrequencyLabel.isHidden = true
+        assignbackground()
         // Do any additional setup after loading the view.
         NotificationCenter.default.addObserver(self, selector: #selector(self.userFreq), name: NSNotification.Name(rawValue: "GOT_USER_FREQ"), object: nil)
         CotoBackMethods().getUserFreq(speakerId: GlobalVariables.username)

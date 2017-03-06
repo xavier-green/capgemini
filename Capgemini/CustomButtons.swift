@@ -14,13 +14,13 @@ class CustomButtons: UIButton {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        let color = UIColor.darkGray
+        let color = UIColor.white
         let disabledColor = color.withAlphaComponent(0.3)
-        let backgroundColor = UIColor.white
+        let backgroundColor = UIColor(colorLiteralRed: 36/255, green: 179/255, blue: 199/255, alpha: 1.0) //UIColor.white
         
         //TODO: Code for our button
-        self.layer.borderWidth = 1.0
-        self.layer.borderColor = color.cgColor
+//        self.layer.borderWidth = 1.0
+//        self.layer.borderColor = color.cgColor
         self.setTitleColor(color, for: .normal)
         self.setTitleColor(disabledColor, for: .disabled)
         self.titleLabel?.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.title1)
