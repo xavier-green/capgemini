@@ -277,11 +277,11 @@ class ConnectiontoBackServer {
         
     }
     
-    func loginFail(email: String) {
+    func loginFail(email: String, username: String) {
         
         print("Login failed ! Reponse to: ",email)
         let url: String = "/stats/loginFail"
-        let params: [[String]] = [["email",email]]
+        let params: [[String]] = [["email",email],["username",username]]
         
         connectToServer(url: url, params: params, method: "POST", notificationString: "LOGIN_FAIL_DONE")
         

@@ -30,8 +30,9 @@ class StatController {
     }
     
     @objc func loginFail(email: String) {
+        let user = GlobalVariables.username
         print("adding login fail")
-        Server.loginFail(email: email)
+        Server.loginFail(email: email, username: user)
     }
     
 }

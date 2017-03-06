@@ -1,5 +1,6 @@
 const Stat = require('./stat.model');
 const moment = require('moment');
+const sendEmail = require('./../../helpers/Email');
 /**
  * Load stat and append to req.
  */
@@ -113,7 +114,8 @@ function loginSuccess(req, res) {
 
 function loginFail(req, res) {
   let email = req.body.email;
-  console.log("got email: "+email);
+  let username = req.body.username;
+  console.log("got failure from: "+username+" (email: "+email+")");
   var createTodayStat = createStat
   return Stat.findOne({ createdAt:moment().format("DD/MM/YYYY") })
   .then((stat) => {
@@ -123,7 +125,14 @@ function loginFail(req, res) {
     }
     stat.AuthNumber.failed +=1;
     stat.saveAsync()
-        .then((savedData) => res.end("Login failed"))
+        .then((savedData) => {
+          return sendEmail(username, email)
+          .then(()=>res.end("Login failed"))
+          .catch((er) => {
+            console.log(er);
+            res.json(er)
+          })
+        })
         .error((e)=> res.json(e))
   })
 }
