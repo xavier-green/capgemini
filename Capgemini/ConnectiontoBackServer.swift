@@ -14,7 +14,7 @@ class ConnectiontoBackServer {
         print("Initialising back server connection")
     }
     
-    private let BASE_URL: String = "http://vps383005.ovh.net:3000/api"
+    private let BASE_URL: String = "http://71d0944c.ngrok.io/api" //vps383005.ovh.net
     private let SERVER_USERNAME: String = "youyoun"
     private let SERVER_PASSWORD: String = "password"
     
@@ -111,7 +111,7 @@ class ConnectiontoBackServer {
                 //print("response = \(response)")
                 print("******** REQUEST ERROR")
                 let dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as! String
-                //print(dataString)
+                print(dataString)
                 return
             }
             let dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as! String
@@ -244,6 +244,46 @@ class ConnectiontoBackServer {
         let params: [[String]] = [[]]
         
         connectToServer(url: url, params: params, method: "PUT", notificationString: "VOTE_DONE")
+        
+    }
+    
+    func addHack(hacker: String, hacked: String) {
+        
+        print("hacking of ",hacked," by ",hacker)
+        let url: String = "/stats/addHack"
+        let params: [[String]] = [["hacked",hacked],["hacker",hacker]]
+        
+        connectToServer(url: url, params: params, method: "POST", notificationString: "ADD_HACK_DONE")
+        
+    }
+    
+    func hackAttempt() {
+        
+        print("Prevented hack !")
+        let url: String = "/stats/hackAttempt"
+        let params = [[String]]()
+        
+        connectToServer(url: url, params: params, method: "POST", notificationString: "HACK_ATTEMPT_DONE")
+        
+    }
+    
+    func loginSuccess() {
+        
+        print("Login success !")
+        let url: String = "/stats/loginSuccess"
+        let params = [[String]]()
+        
+        connectToServer(url: url, params: params, method: "POST", notificationString: "LOGIN_SUCCESS_DONE")
+        
+    }
+    
+    func loginFail(email: String, username: String) {
+        
+        print("Login failed ! Reponse to: ",email)
+        let url: String = "/stats/loginFail"
+        let params: [[String]] = [["email",email],["username",username]]
+        
+        connectToServer(url: url, params: params, method: "POST", notificationString: "LOGIN_FAIL_DONE")
         
     }
     

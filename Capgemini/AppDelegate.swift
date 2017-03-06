@@ -18,6 +18,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let resultat = notification.object as! String
         FireEvents().fireDone(resultat: resultat)
     }
+    
+    @objc func loginSuccess() {
+        StatController().loginSuccess()
+    }
+    
+    @objc func loginFail(notification: NSNotification) {
+        let email = notification.object as! String
+        StatController().loginFail(email: email)
+    }
+    
+    @objc func hackAttempt() {
+        StatController().hackAttempt()
+    }
+    
+    @objc func addHack(notification: NSNotification) {
+        let hacker = notification.object as! String
+        StatController().addHack(hacker: hacker)
+    }
+    
+    func initStats() {
+        print("Initialising stats listener...")
+        NotificationCenter.default.addObserver(self, selector: #selector(self.addHack), name: NSNotification.Name(rawValue: "ADD_HACK"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.hackAttempt), name: NSNotification.Name(rawValue: "HACK_ATTEMPT"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.loginSuccess), name: NSNotification.Name(rawValue: "LOGIN_SUCCESS"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.loginFail), name: NSNotification.Name(rawValue: "LOGIN_FAIL"), object: nil)
+        print("Done !")
+    }
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -25,6 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.tintColor = themeColor
         ServerFunctions().getUserList()
         CotoBackMethods().getUsersNames()
+        initStats()
         NotificationCenter.default.addObserver(self, selector: #selector(self.fireEvent), name: NSNotification.Name(rawValue: "DONE_SPEECH_TO_TEXT"), object: nil)
         return true
     }

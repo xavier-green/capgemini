@@ -14,6 +14,62 @@ class LoginViewController: UIViewController {
     
     @IBOutlet var userLabel: UILabel!
     
+    private var attempts: Int = 3
+    
+    func reduceAttempts() {
+        attempts -= 1
+        if attempts==0 {
+            attemptsError()
+        }
+    }
+    
+    func logFail(email: String) {
+        print("loggin fail with email: ",email)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "LOGIN_FAIL"), object: email)
+        self.goBack()
+    }
+    
+    func loginFail() {
+        let alert = UIAlertController(title: "Erreur", message: "Nous allons essayer de comprendre d'où vient l'erreur. Nous vous recontactons dès que possible avec une solution ! Entrez votre email pour recevoir une réponse", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addTextField(configurationHandler: {
+            (textField) in
+            textField.text = ""
+        })
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
+            [weak alert] (_) in
+            let email = alert?.textFields![0].text
+            self.logFail(email: email!)
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func hackPrevented() {
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "HACK_ATTEMPT"), object: self)
+        let alert = UIAlertController(title: "Prévention", message: "Nous avons intercepté votre tentative d'intrusion :) Veuillez maintenant réessayer avec votre propre pseudo !", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
+            action in self.goBack()
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func attemptsError() {
+        let alertController = UIAlertController(title: "Erreur", message: "Vous avez raté 3 fois votre enregistrement. Essayer vous de vous authentifier à la place de quelqu'un d'autre ?", preferredStyle: UIAlertControllerStyle.alert)
+        
+        let okAction = UIAlertAction(title: "Oui", style: UIAlertActionStyle.default) {
+            UIAlertAction in
+            self.hackPrevented()
+        }
+        let cancelAction = UIAlertAction(title: "Non", style: UIAlertActionStyle.cancel) {
+            UIAlertAction in
+            self.loginFail()
+        }
+        
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     func successRecording() {
         
         // create the alert
@@ -31,7 +87,9 @@ class LoginViewController: UIViewController {
         let alert = UIAlertController(title: "Authentification échouée", message: "Recommencez si vous êtes vraiment qui vous prétendez être", preferredStyle: UIAlertControllerStyle.alert)
         
         // add an action (button)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
+            action in self.reduceAttempts()
+        }))
         
         // show the alert
         self.present(alert, animated: true, completion: nil)
