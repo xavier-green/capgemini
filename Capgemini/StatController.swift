@@ -18,7 +18,8 @@ class StatController {
         Server.addHack(hacker: hacker, hacked: hacked)
     }
     
-    @objc func hackAttempt(hacker: String) {
+    @objc func hackAttempt() {
+        let hacker = GlobalVariables.username
         print("adding hack attempt from ",hacker)
         Server.hackAttempt()
     }

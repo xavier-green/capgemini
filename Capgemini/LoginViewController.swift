@@ -26,6 +26,7 @@ class LoginViewController: UIViewController {
     func logFail(email: String) {
         print("loggin fail with email: ",email)
         NotificationCenter.default.post(name: Notification.Name(rawValue: "LOGIN_FAIL"), object: email)
+        self.goBack()
     }
     
     func loginFail() {

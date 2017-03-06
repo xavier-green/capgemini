@@ -28,9 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         StatController().loginFail(email: email)
     }
     
-    @objc func hackAttempt(notification: NSNotification) {
-        let hacker = notification.object as! String
-        StatController().hackAttempt(hacker: hacker)
+    @objc func hackAttempt() {
+        StatController().hackAttempt()
     }
     
     @objc func addHack(notification: NSNotification) {
