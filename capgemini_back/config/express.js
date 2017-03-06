@@ -60,8 +60,6 @@ app.use(expressWinston.logger({
 
 function ensureAuthenticated(req, res, next) {
     console.log("middlewear");
-    console.log(auth);
-    console.log(req.headers.authorization);
     if (auth==req.headers.authorization) {
         next()
     } else {
