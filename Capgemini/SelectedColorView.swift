@@ -1,9 +1,30 @@
 //
 //  SelectedColorView.swift
-//  Capgemini
+//  SwiftHSVColorPicker
 //
-//  Created by Younes Belkouchi on 06/03/2017.
-//  Copyright © 2017 xavier green. All rights reserved.
+//  Created by johankasperi on 2015-08-20.
 //
+import UIKit
 
-import Foundation
+class SelectedColorView: UIView {
+    var color: UIColor!
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    init(frame: CGRect, color: UIColor) {
+        super.init(frame: frame)
+        
+        setViewColor(color)
+    }
+    
+    func setViewColor(_ _color: UIColor) {
+        color = _color
+        setBackgroundColor()
+    }
+    
+    func setBackgroundColor() {
+        backgroundColor = color
+    }
+}

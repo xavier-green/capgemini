@@ -10,26 +10,36 @@ import UIKit
 
 class ColorPaletteViewController: UIViewController {
 
+    // Init ColorPicker with yellow
+    var selectedColor: UIColor = UIColor.white
+    
+    @IBAction func backtoDraw(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    // IBOutlet for the ColorPicker
+    @IBOutlet var colorPicker: SwiftHSVColorPicker!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        print("Going to color palette")
+        // Do any additional setup after loading the view, typically from a nib.
+        // Setup Color Picker
+        colorPicker.setViewColor(selectedColor)
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func getSelectedColor(_ sender: UIButton) {
+        // Get the selected color from the Color Picker.
+        let selectedColor = colorPicker.color
+        
+        print(selectedColor!)
     }
-    */
-
 }

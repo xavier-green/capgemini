@@ -27,10 +27,10 @@
             </objects>
             <point key="canvasLocation" x="-1460" y="36"/>
         </scene>
-        <!--View Controller-->
+        <!--Color Palette View Controller-->
         <scene sceneID="ZdZ-Ku-FkU">
             <objects>
-                <viewController id="u9S-eE-re2" sceneMemberID="viewController">
+                <viewController id="u9S-eE-re2" customClass="ColorPaletteViewController" customModule="My_VocalPrint" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Obv-V0-KhZ"/>
                         <viewControllerLayoutGuide type="bottom" id="4ta-xI-u4K"/>
@@ -66,31 +66,44 @@
                                 </constraints>
                                 <state key="normal" backgroundImage="micOn"/>
                                 <connections>
-                                    <segue destination="OdS-o3-vpd" kind="modal" id="40P-Yo-pbv"/>
+                                    <action selector="backtoDraw:" destination="u9S-eE-re2" eventType="touchUpInside" id="uSI-Dy-cgW"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pick" translatesAutoresizingMaskIntoConstraints="NO" id="xIA-qw-KFv">
-                                <rect key="frame" x="68" y="299" width="240" height="240"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Ot-Vf-6eE" customClass="SwiftHSVColorPicker" customModule="My_VocalPrint" customModuleProvider="target">
+                                <rect key="frame" x="67" y="302" width="240" height="240"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="240" id="Mwl-gL-hBI"/>
-                                    <constraint firstAttribute="width" secondItem="xIA-qw-KFv" secondAttribute="height" multiplier="1:1" id="n7j-6v-MsT"/>
+                                    <constraint firstAttribute="width" constant="240" id="GEU-fe-fFo"/>
+                                    <constraint firstAttribute="height" constant="240" id="pea-lp-AJn"/>
                                 </constraints>
-                            </imageView>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fSE-ab-doA">
+                                <rect key="frame" x="164" y="550" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="getSelectedColor:" destination="u9S-eE-re2" eventType="touchUpInside" id="oTC-br-eOv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="4jU-l5-y6x" firstAttribute="top" secondItem="Obv-V0-KhZ" secondAttribute="bottom" id="38F-gA-6tW"/>
-                            <constraint firstItem="xIA-qw-KFv" firstAttribute="centerX" secondItem="chj-qF-W3l" secondAttribute="centerX" id="91D-zQ-ETH"/>
-                            <constraint firstItem="xIA-qw-KFv" firstAttribute="top" secondItem="14f-Pu-7Gs" secondAttribute="bottom" constant="100" id="E8L-41-RsJ"/>
+                            <constraint firstItem="4ta-xI-u4K" firstAttribute="top" secondItem="0Ot-Vf-6eE" secondAttribute="bottom" constant="125" id="Bhz-7q-zZu"/>
+                            <constraint firstItem="fSE-ab-doA" firstAttribute="top" secondItem="0Ot-Vf-6eE" secondAttribute="bottom" constant="8" symbolic="YES" id="TQt-08-JE7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="UuG-iv-4oy" secondAttribute="trailing" constant="30" id="Xyi-bm-uCe"/>
                             <constraint firstItem="14f-Pu-7Gs" firstAttribute="top" secondItem="4jU-l5-y6x" secondAttribute="bottom" constant="100" id="Z19-dK-tM4"/>
                             <constraint firstItem="14f-Pu-7Gs" firstAttribute="leading" secondItem="chj-qF-W3l" secondAttribute="leadingMargin" constant="30" id="afp-iy-baZ"/>
                             <constraint firstItem="4jU-l5-y6x" firstAttribute="trailing" secondItem="chj-qF-W3l" secondAttribute="trailingMargin" id="jY3-Lv-1hf"/>
+                            <constraint firstItem="fSE-ab-doA" firstAttribute="centerX" secondItem="0Ot-Vf-6eE" secondAttribute="centerX" id="sRI-Us-xCH"/>
                             <constraint firstItem="14f-Pu-7Gs" firstAttribute="width" secondItem="14f-Pu-7Gs" secondAttribute="height" multiplier="1:1" id="uhp-aF-b3f"/>
                             <constraint firstItem="UuG-iv-4oy" firstAttribute="top" secondItem="4jU-l5-y6x" secondAttribute="bottom" constant="100" id="vBn-M3-yQs"/>
                             <constraint firstItem="4jU-l5-y6x" firstAttribute="leading" secondItem="chj-qF-W3l" secondAttribute="leadingMargin" id="wS0-hf-B0C"/>
+                            <constraint firstItem="0Ot-Vf-6eE" firstAttribute="centerX" secondItem="chj-qF-W3l" secondAttribute="centerX" id="xUa-jh-9ru"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="colorPicker" destination="0Ot-Vf-6eE" id="air-p6-fAW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kig-Y0-teA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -203,7 +216,7 @@
                                 </constraints>
                                 <state key="normal" backgroundImage="color"/>
                                 <connections>
-                                    <segue destination="u9S-eE-re2" kind="modal" id="P1c-Yb-N3e"/>
+                                    <segue destination="u9S-eE-re2" kind="presentation" id="cTD-bR-7TT"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="micOn" translatesAutoresizingMaskIntoConstraints="NO" id="glu-k1-nmx">
@@ -585,11 +598,10 @@
         <image name="color" width="550" height="550"/>
         <image name="leaderboard" width="740" height="712"/>
         <image name="micOn" width="1024" height="1024"/>
-        <image name="pick" width="620" height="621"/>
         <image name="valid" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="B5j-Fx-9nR"/>
+        <segue reference="OWt-eH-Dbj"/>
         <segue reference="Wkc-dm-orn"/>
     </inferredMetricsTieBreakers>
 </document>
