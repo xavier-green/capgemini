@@ -119,6 +119,32 @@ class CotoBackMethods {
         NotificationCenter.default.post(name: Notification.Name(rawValue: "FINISHED_GETTING_IMAGES"), object: sendObject)
     }
     
+    func getLeadersPost() {
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "GET_LEADERS"), object: self)
+    }
+    
+    @objc func getLeaderboard() {
+        print("getting leaderboards")
+        Server.getLeaderboard()
+    }
+    
+    @objc func getLeaderboardDone(notification: NSNotification) {
+        print("done getting leaderboards")
+        let dataString = notification.object as! String
+        let result = parseJsonArray(jsonString: dataString)
+        var imageData: [String] = []
+        var userData: [String] = []
+        var votesData: [Int] = []
+        for image in result {
+            imageData.append(image["imageData"] as! String)
+            userData.append(image["username"] as! String)
+            votesData.append(image["votes"] as! Int)
+        }
+        let sendObject: [[AnyObject]] = [imageData as Array<AnyObject>,userData as Array<AnyObject>,votesData as Array<AnyObject>]
+        //print(dataString)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "FINISHED_GETTING_LEADER"), object: sendObject)
+    }
+    
     init() {
         Server = ConnectiontoBackServer()
         NotificationCenter.default.addObserver(self, selector: #selector(self.getUserListDone), name: NSNotification.Name(rawValue: "GET_USERS"), object: nil)
@@ -129,5 +155,7 @@ class CotoBackMethods {
         NotificationCenter.default.addObserver(self, selector: #selector(self.addImageDone), name: NSNotification.Name(rawValue: "POST_IMAGE"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.appendImages), name: NSNotification.Name(rawValue: "GET_IMAGES"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.voteForImageDone), name: NSNotification.Name(rawValue: "VOTE_DONE"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.getLeaderboardDone), name: NSNotification.Name(rawValue: "LEADER_DONE"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.getLeaderboard), name: NSNotification.Name(rawValue: "GET_LEADERS"), object: nil)
     }
 }

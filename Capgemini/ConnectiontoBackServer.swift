@@ -14,7 +14,7 @@ class ConnectiontoBackServer {
         print("Initialising back server connection")
     }
     
-    private let BASE_URL: String = "http://71d0944c.ngrok.io/api" //vps383005.ovh.net
+    private let BASE_URL: String = "http://vps383005.ovh.net:3000/api"
     private let SERVER_USERNAME: String = "youyoun"
     private let SERVER_PASSWORD: String = "password"
     
@@ -245,6 +245,16 @@ class ConnectiontoBackServer {
         
         connectToServer(url: url, params: params, method: "PUT", notificationString: "VOTE_DONE")
         
+    }
+    
+    func getLeaderboard() {
+        
+        print("getting leaderboard")
+        let url: String = "/images/leader"
+        let params: [[String]] = []
+        
+        connectToServer(url: url, params: params, method: "GET", notificationString: "LEADER_DONE")
+
     }
     
     func addHack(hacker: String, hacked: String) {

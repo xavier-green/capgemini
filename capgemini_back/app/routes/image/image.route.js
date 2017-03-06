@@ -6,6 +6,9 @@ router.route('/')
     .get(imageController.list)
     .post(imageController.add);
 
+router.route('/leader')
+    .get(imageController.leader);
+
 router.route('/:imageId')
     .put(imageController.vote)
     .delete(imageController.remove);

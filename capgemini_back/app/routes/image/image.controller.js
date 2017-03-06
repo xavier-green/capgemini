@@ -9,6 +9,16 @@ function list(req, res, next) {
     .error((e) => res.json(e))
 }
 
+function leader(req,res,next) {
+    Image.find().sort({votes:-1}).execAsync()
+    .then((images) => {
+        res.json(images);
+    })
+    .catch((e) => {
+        res.json(e)
+    })
+}
+
 function add(req, res, next) {
     let data = req.body;
     let username = data.username;
@@ -44,4 +54,4 @@ function remove(req, res, next) {
     .catch((e) => res.json(e));
 }
 
-module.exports = exports = { list, add, vote, remove };
+module.exports = exports = { list, add, vote, remove, leader };

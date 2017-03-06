@@ -53,6 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ServerFunctions().getUserList()
         CotoBackMethods().getUsersNames()
         initStats()
+        CotoBackMethods()
         NotificationCenter.default.addObserver(self, selector: #selector(self.fireEvent), name: NSNotification.Name(rawValue: "DONE_SPEECH_TO_TEXT"), object: nil)
         return true
     }

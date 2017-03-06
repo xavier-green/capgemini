@@ -247,8 +247,8 @@
 		43010ADC1E603691009A38A1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				43266B111E64634800A644C1 /* NuanceButtonClass.swift */,
 				0EA950381E642B8100D82337 /* Model */,
+				43266B111E64634800A644C1 /* NuanceButtonClass.swift */,
 				0E1D3BED1E603A26002CE65D /* CustomButtons.swift */,
 				43010ADD1E6036B1009A38A1 /* RecordButtonClass.swift */,
 				438B48A61E69BFCD003A03DC /* LoggedInLabel.swift */,

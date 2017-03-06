@@ -9,6 +9,10 @@
 import UIKit
 
 class LeaderBoardViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
+    
+    var imageData: [String] = []
+    var userData: [String] = []
+    var votesData: [Int] = []
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -18,7 +22,19 @@ class LeaderBoardViewController: UIViewController, UITableViewDelegate,UITableVi
         tableView.delegate=self
         tableView.dataSource=self
         
+        NotificationCenter.default.addObserver(self, selector: #selector(self.showLeaders), name: NSNotification.Name(rawValue: "FINISHED_GETTING_LEADER"), object: nil)
+        CotoBackMethods().getLeadersPost()
+        
         assignbackground()
+    }
+    
+    func showLeaders(notification: NSNotification) {
+        print("front getting leaderboard")
+        let receivedObject = notification.object as! [AnyObject]
+        self.imageData = receivedObject[0] as! [String]
+        self.userData = receivedObject[1] as! [String]
+        self.votesData = receivedObject[2] as! [Int]
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,16 +48,25 @@ class LeaderBoardViewController: UIViewController, UITableViewDelegate,UITableVi
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return GlobalVariables.usernames.count
+        return self.imageData.count
     }
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = indexPath.row
-        let Name = GlobalVariables.usernames[row]
+        let Name = self.userData[row]
+        let Score = self.votesData[row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell",
                                                  for: indexPath) as! leaderBoardCell
         cell.userName?.text = Name
-        cell.userRank?.text = String(20-row+1)
-        //cell.userImage.image = UIImage(named: "question")
+        cell.userRank?.text = String(Score)
+        
+        let dataDecoded = NSData(base64Encoded: self.imageData[row].replacingOccurrences(of: " ", with: "+"), options: NSData.Base64DecodingOptions.init(rawValue: 0))
+        
+        if (dataDecoded != nil) {
+            let cellImage = UIImage(data: dataDecoded as! Data)
+            cell.imageV.image = cellImage
+            cell.imageV.layer.borderWidth = 1
+            cell.imageV.layer.borderColor = UIColor.darkGray.cgColor
+        }
         return cell
     }
 
@@ -60,4 +85,5 @@ class LeaderBoardViewController: UIViewController, UITableViewDelegate,UITableVi
 class leaderBoardCell: UITableViewCell {
     @IBOutlet weak var userRank: UILabel!
     @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var imageV: UIImageView!
 }
