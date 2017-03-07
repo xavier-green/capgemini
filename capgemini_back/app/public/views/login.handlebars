@@ -1,0 +1,9 @@
+{{#if error}}
+	<p style="color:red">{{error}}</p>
+{{/if}}
+
+<form method="POST" action="/admin/login">
+	<input type="text" name="login" />
+	<input type="password" name="pass" />
+	<input type="submit" />
+</form>
