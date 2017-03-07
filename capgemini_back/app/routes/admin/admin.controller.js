@@ -24,10 +24,10 @@ function list(req, res, next) {
     		allStats.push(obj)
     	})
     	let percentages = {
-    		hacks: totalHacks/(totalHacks+totalHackAttempts)*100,
-    		hackAttempts: totalHackAttempts/(totalHacks+totalHackAttempts)*100,
-    		success: totalSuccesses/(totalSuccesses+totalFails)*100,
-    		fails: totalFails/(totalSuccesses+totalFails)*100,
+    		hacks: Math.round(totalHacks/(totalHacks+totalHackAttempts)*10000)/100,
+    		hackAttempts: Math.round(totalHackAttempts/(totalHacks+totalHackAttempts)*10000)/100,
+    		success: Math.round(totalSuccesses/(totalSuccesses+totalFails)*10000)/100,
+    		fails: Math.round(totalFails/(totalSuccesses+totalFails)*10000)/100,
     	}
     	let toSend = {
     		stats: allStats,
