@@ -14,6 +14,6 @@ router.use('/users', userRoutes);
 
 router.use('/images', imageRoutes);
 
-router.use('/stats', statRoutes)
+router.use('/stats', statRoutes);
 
 module.exports = exports = router;

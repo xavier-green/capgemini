@@ -1,0 +1,23 @@
+<h1>Admin page</h1>
+
+
+<table>
+	<tr>
+		<th>Date</th>
+		<th>Authentifications réussies</th>
+		<th>Authentifications ratées</th>
+		<th>Hacks réussis</th>
+		<th>Hacks arrétés</th>
+	</tr>
+
+{{#each stats}}
+	<tr>
+		<td>{{date}}</td>
+		<td>{{successLogins}}</td>
+		<td>{{failedLogins}}</td>
+		<td>{{hacks}}</td>
+		<td>{{hacksPrevented}}</td>
+	</tr>
+{{/each}}
+
+</table>

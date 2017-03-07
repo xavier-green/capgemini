@@ -554,7 +554,7 @@
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vef-Pl-Fb6">
                                 <rect key="frame" x="189" y="321.5" width="153" height="30"/>
-                                <color key="textColor" red="0.98551512299999999" green="0.99478732910000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -673,9 +673,9 @@
         <image name="voice" width="512" height="508"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="A1g-cC-cat"/>
         <segue reference="HXb-ZY-Fin"/>
         <segue reference="IIF-9z-v6Z"/>
-        <segue reference="Raa-dR-M6y"/>
         <segue reference="nOT-vw-4Fc"/>
     </inferredMetricsTieBreakers>
 </document>

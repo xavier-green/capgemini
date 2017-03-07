@@ -11,6 +11,7 @@ const expressValidation = require('express-validation');
 const helmet = require('helmet');
 const winstonInstance = require('./winston');
 const routes = require('../app/routes');
+const adminRoutes = require('../app/routes/adminRoute');
 const config = require('./env');
 const APIError = require('../app/helpers/APIError');
 const session = require('express-session');
@@ -69,6 +70,8 @@ function ensureAuthenticated(req, res, next) {
 
 // mount all routes on /api path
 app.use('/api', ensureAuthenticated, routes);
+
+app.use('/admin', adminRoutes);
 
 // if error is not an instanceOf APIError, convert it.
 app.use((err, req, res, next) => {

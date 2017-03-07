@@ -2,7 +2,9 @@ const Promise = require('bluebird');
 const mongoose = require('mongoose');
 const config = require('./config/env');
 const app = require('./config/express');
+const exphbs = require('express-handlebars');
 const fs = require('fs');
+const path = require("path");
 
 // promisify mongoose
 Promise.promisifyAll(mongoose);
@@ -15,6 +17,14 @@ mongoose.connection.on('error', () => {
 });
 
 const debug = require('debug')('express-mongoose-es6-rest-api:index');
+
+app.set('views', path.join(__dirname, 'app/public/views'));
+var hbs = exphbs.create({
+    defaultLayout: 'main',
+    layoutsDir:'app/public/views/layouts'
+});
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 
 // listen on port env_config.port
 app.listen(config.port, () => {

@@ -61,17 +61,22 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qvP-Zg-g2Y">
                                 <rect key="frame" x="0.0" y="637" width="375" height="30"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Phrase Juridique" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7bM-tf-FJu">
-                                        <rect key="frame" x="123" y="5" width="129" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qZt-8K-r63">
+                                        <rect key="frame" x="0.0" y="-8" width="375" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <string key="text">Application réservée à usage interne BNP Paribas Personal Finance – Direction des Opérations (DO) jusqu’au 30/05/17 dans le cadre du POC Biométrie vocale</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="qZt-8K-r63" secondAttribute="bottom" constant="8" id="86k-e3-xtj"/>
+                                    <constraint firstItem="qZt-8K-r63" firstAttribute="height" secondItem="qvP-Zg-g2Y" secondAttribute="height" id="OlA-oL-0fz"/>
+                                    <constraint firstItem="qZt-8K-r63" firstAttribute="top" secondItem="qvP-Zg-g2Y" secondAttribute="top" constant="-8" id="dsg-wD-vGN"/>
+                                    <constraint firstItem="qZt-8K-r63" firstAttribute="width" secondItem="qvP-Zg-g2Y" secondAttribute="width" id="qzW-wX-1FA"/>
                                     <constraint firstAttribute="height" constant="30" id="vxl-wu-EIW"/>
+                                    <constraint firstItem="qZt-8K-r63" firstAttribute="centerX" secondItem="qvP-Zg-g2Y" secondAttribute="centerX" id="zG7-4e-hSx"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gMs-7u-EDX">
