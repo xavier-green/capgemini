@@ -13,7 +13,6 @@ class LoginViewController: UIViewController {
     @IBOutlet var success: CustomButtons!
     
     @IBOutlet var userLabel: UILabel!
-    
     private var attempts: Int = 3
     
     func reduceAttempts() {
@@ -77,22 +76,26 @@ class LoginViewController: UIViewController {
         
         // add an action (button)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
-            action in self.goForw()
+            action in self.goForw();
+            CotoBackMethods().logAttempt();
         }))
         
         // show the alert
         self.present(alert, animated: true, completion: nil)
+        
     }
     func failureRecording() {
         let alert = UIAlertController(title: "Authentification échouée", message: "Recommencez si vous êtes vraiment qui vous prétendez être", preferredStyle: UIAlertControllerStyle.alert)
         
         // add an action (button)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
-            action in self.reduceAttempts()
+            action in self.reduceAttempts();
+            CotoBackMethods().logAttempt();
         }))
         
         // show the alert
         self.present(alert, animated: true, completion: nil)
+        
     }
     
     

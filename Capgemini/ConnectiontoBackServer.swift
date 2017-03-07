@@ -315,6 +315,23 @@ class ConnectiontoBackServer {
         connectToServer(url: url, params: params, method: "POST", notificationString: "SEND_USER_FREQ")
     }
     
+    func loggingAttempt() {
+        print("Adding login attempt")
+        let url: String = "/stats/loginAttempt"
+        let params: [[String]] = []
+        
+        connectToServer(url: url, params: params, method: "POST", notificationString: "ADD_LOG")
+    }
+    
+    func enrolAttempt() {
+        print("Adding Enrol Attempt")
+        
+        let url: String = "/stats/enrolAttempt"
+        let params: [[String]] = []
+        
+        connectToServer(url: url, params: params, method: "POST", notificationString: "ADD_ENR")
+    }
+    
 
 }
 

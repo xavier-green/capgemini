@@ -833,8 +833,8 @@
         <image name="voice" width="512" height="508"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lN4-AI-sUI"/>
         <segue reference="wIp-lP-eG5"/>
         <segue reference="fdd-ug-9tC"/>
+        <segue reference="swq-Px-hyF"/>
     </inferredMetricsTieBreakers>
 </document>
