@@ -29,6 +29,12 @@ router.route('/loginSuccess')
 router.route('/loginFail')
   .post(statCtrl.loginFail);
 
+router.route('/loginAttempt')
+  .post(statCtrl.loginAttempt);
+
+router.route('/enrolAttempt')
+  .post(statCtrl.enrolAttempt);
+
 /** Load user when API with userId route parameter is hit */
 router.param('statId', statCtrl.load);
 module.exports = exports = router;

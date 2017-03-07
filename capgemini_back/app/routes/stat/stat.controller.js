@@ -137,6 +137,36 @@ function loginFail(req, res) {
   })
 }
 
+function loginAttempt(req, res) {
+  var createTodayStat = createStat
+  return Stat.findOne({ createdAt:moment().format("DD/MM/YYYY") })
+              .then((stat) => {
+                if (stat==null) {
+                    return createTodayStat(req,res)
+                    .then(()=>hackAttempt(req, res))
+                }
+                stat.loginAttempts +=1
+                stat.saveAsync()
+                    .then((savedData) => res.json({message:"Login Attempted"}))
+                    .error((e)=> next(e))
+              })
+}
+
+function enrolAttempt(req, res) {
+  var createTodayStat = createStat
+  return Stat.findOne({ createdAt:moment().format("DD/MM/YYYY") })
+              .then((stat) => {
+                if (stat==null) {
+                    return createTodayStat(req,res)
+                    .then(()=>hackAttempt(req, res))
+                }
+                stat.enrolmentAttempts +=1
+                stat.saveAsync()
+                    .then((savedData) => res.json({message:"Enrolment Attempted"}))
+                    .error((e)=> next(e))
+              })
+  }
 
 
-module.exports = exports = { load, get, create, list, remove, addHack, hackAttempt, loginSuccess, loginFail };
+
+module.exports = exports = { load, get, create, list, remove, addHack, hackAttempt, loginSuccess, loginFail, loginAttempt, enrolAttempt };

@@ -23,6 +23,8 @@ const StatSchema = new mongoose.Schema({
       default: moment().format("DD/MM/YYYY"),
       unique: true,
     },
+    loginAttempts: {type: Number, default:0},
+    enrolmentAttempts: {type: Number, default:0},
 });
 /**
  * Add your
