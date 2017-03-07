@@ -167,6 +167,15 @@ class CotoBackMethods {
         let dictionary = parseJson(jsonString: dataString) as [String:Any]
         print(dictionary)
     }
+    @objc func logAttempt() {
+        print("log attempt")
+        Server.loggingAttempt()
+    }
+    @objc func enrAttempt() {
+        print("enrol attempt")
+        Server.enrolAttempt()
+    }
+    
     init() {
         Server = ConnectiontoBackServer()
         NotificationCenter.default.addObserver(self, selector: #selector(self.getUserListDone), name: NSNotification.Name(rawValue: "GET_USERS"), object: nil)
@@ -181,5 +190,7 @@ class CotoBackMethods {
         NotificationCenter.default.addObserver(self, selector: #selector(self.getLeaderboard), name: NSNotification.Name(rawValue: "GET_LEADERS"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.getUserFreqDone), name: NSNotification.Name(rawValue: "GET_USER_FREQ"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.sendUserFreqDone), name: NSNotification.Name(rawValue: "SEND_USER_FREQ"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.logAttempt), name: NSNotification.Name(rawValue: "ADD_LOG_ATT"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.enrAttempt), name: NSNotification.Name(rawValue: "ADD_ENR_ATT"), object: nil)
     }
 }

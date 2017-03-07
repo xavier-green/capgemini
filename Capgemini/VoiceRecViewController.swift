@@ -13,7 +13,6 @@ class VoiceRecViewController: UIViewController {
     let recordSniplets = [Any]() //Array to stor recorded samples
     var recAttempts: Int = 3 //Record Attemts
     var isRecording: Bool = false
-    
 
     @IBOutlet var spinner: UIActivityIndicatorView!
     
@@ -70,22 +69,27 @@ class VoiceRecViewController: UIViewController {
         
         // add an action (button)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
-            action in self.reduceTimes()
+            action in self.reduceTimes();
+            CotoBackMethods().enrAttempt();
         }))
         
         // show the alert
         self.present(alert, animated: true, completion: nil)
+        
     }
     func failureRecording() {
         let alert = UIAlertController(title: "Enregistrement échoué", message: "Veuillez recommencer", preferredStyle: UIAlertControllerStyle.alert)
         
         // add an action (button)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
-            action in self.stopRec()
+            action in self.stopRec();
+            CotoBackMethods().enrAttempt();
         }))
         
         // show the alert
         self.present(alert, animated: true, completion: nil)
+        
+        
     }
 
 //    func checkPassword() {
@@ -137,6 +141,7 @@ class VoiceRecViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.successRecording), name: NSNotification.Name(rawValue: "REC_SUCCESS"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.failureRecording), name: NSNotification.Name(rawValue: "REC_FAIL"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.startRecording), name: NSNotification.Name(rawValue: "NUANCE_PROCESSING"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.failureRecording), name: NSNotification.Name(rawValue: "ENROLL_ERROR"), object: nil)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
