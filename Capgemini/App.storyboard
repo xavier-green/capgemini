@@ -448,32 +448,44 @@
                                 <rect key="frame" x="26" y="202" width="323" height="355"/>
                                 <color key="backgroundColor" red="0.98551512299999999" green="0.99478732910000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="23" minimumInteritemSpacing="10" id="x3o-o1-6p4">
-                                    <size key="itemSize" width="150" height="150"/>
+                                    <size key="itemSize" width="150" height="164"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="m5R-32-3PS" customClass="ImageCollectionViewCell" customModule="My_VocalPrint" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="164"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="164"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kYr-UY-KmU">
                                                     <rect key="frame" x="8" y="8" width="134" height="134"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="kYr-UY-KmU" secondAttribute="height" multiplier="1:1" id="pkN-93-Mty"/>
+                                                    </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XXB-vZ-rLK">
+                                                    <rect key="frame" x="0.0" y="143" width="150" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </view>
                                         <constraints>
                                             <constraint firstAttribute="trailingMargin" secondItem="kYr-UY-KmU" secondAttribute="trailing" id="5fC-ZZ-gcY"/>
                                             <constraint firstItem="kYr-UY-KmU" firstAttribute="leading" secondItem="m5R-32-3PS" secondAttribute="leadingMargin" id="9Fx-SL-kTG"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="kYr-UY-KmU" secondAttribute="bottom" id="deC-GH-oF0"/>
+                                            <constraint firstItem="XXB-vZ-rLK" firstAttribute="top" secondItem="kYr-UY-KmU" secondAttribute="bottom" constant="1" id="BVN-7y-k4x"/>
+                                            <constraint firstItem="XXB-vZ-rLK" firstAttribute="width" secondItem="m5R-32-3PS" secondAttribute="width" id="KWD-SL-wQI"/>
+                                            <constraint firstItem="XXB-vZ-rLK" firstAttribute="centerX" secondItem="m5R-32-3PS" secondAttribute="centerX" id="NRC-ry-Dyg"/>
                                             <constraint firstItem="kYr-UY-KmU" firstAttribute="top" secondItem="m5R-32-3PS" secondAttribute="topMargin" id="o6Q-fd-rQS"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="image" destination="kYr-UY-KmU" id="0N8-OT-gGe"/>
+                                            <outlet property="nickName" destination="XXB-vZ-rLK" id="wQb-VF-Het"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
