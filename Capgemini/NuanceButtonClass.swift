@@ -17,19 +17,50 @@ class NuanceButtonClass: UIButton {
     
     func recordTapped() {
         if recoVocale.isRecording() {
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "NUANCE_PROCESSING"), object: self)
             self.setBackgroundImage(micOnImage, for: .normal)
             recoVocale.finishRecording(success: true)
             print("username:",GlobalVariables.username)
             if self.restorationIdentifier=="Login" {
-                recoVocale.verify(username: GlobalVariables.username)
+                self.verify()
             } else if self.restorationIdentifier=="Register"{
-                recoVocale.enroll(username: GlobalVariables.username)
+                self.enroll()
             } else {
                 print("this button has no callback function")
             }
         } else {
             self.setBackgroundImage(micOffImage, for: .normal)
             recoVocale.startRecording()
+        }
+    }
+    
+    func verify() {
+        let username = GlobalVariables.username
+        DispatchQueue.global(qos: .background).async {
+            print("Running nuance fetch in background thread")
+            let verified = self.recoVocale.verify(username: username)
+            var notifString = String()
+            if verified==true {
+                notifString = "REC_SUCCESS"
+            } else {
+                notifString = "REC_FAIL"
+            }
+            DispatchQueue.main.async {
+                print("back to main")
+                NotificationCenter.default.post(name: Notification.Name(rawValue: notifString), object: self)
+            }
+        }
+    }
+    
+    func enroll() {
+        let username = GlobalVariables.username
+        DispatchQueue.global(qos: .background).async {
+            print("Running nuance fetch in background thread")
+            let notifString = self.recoVocale.enroll(username: username)
+            DispatchQueue.main.async {
+                print("back to main")
+                NotificationCenter.default.post(name: Notification.Name(rawValue: notifString), object: self)
+            }
         }
     }
 

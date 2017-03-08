@@ -22,22 +22,24 @@ class ServerConnection {
     
     private var resultData: String = ""
     
-    func connectToServer(url: String, params: [[String]], method: String, notificationString: String) {
+    func connectToServer(url: String, params: [[String]], method: String, notificationString: String) -> String {
         
         if method=="GET" {
             
             let connectionUrl = constructURL(base: BASE_URL, url: url, params: params)
-            getRequest(connectionUrl: connectionUrl, notificationString: notificationString)
+            return getRequest(connectionUrl: connectionUrl, notificationString: notificationString)
             
         } else if method=="POST" {
             
-            postRequest(connectionUrl: BASE_URL+url, params: params, notificationString: notificationString)
+            return postRequest(connectionUrl: BASE_URL+url, params: params, notificationString: notificationString)
             
         }
         
+        return ""
+        
     }
     
-    func getRequest(connectionUrl: String, notificationString: String) {
+    func getRequest(connectionUrl: String, notificationString: String) -> String {
         
         print("Connecting to ",connectionUrl)
         
@@ -48,11 +50,11 @@ class ServerConnection {
         let url = URL(string: connectionUrl)!
         let request = URLRequest(url: url)
         
-        sendRequest(session: session, request: request, notificationString: notificationString)
+        return sendRequest(session: session, request: request, notificationString: notificationString)
         
     }
     
-    func postRequest(connectionUrl: String, params: [[String]], notificationString: String) {
+    func postRequest(connectionUrl: String, params: [[String]], notificationString: String) -> String {
         
         print("Connecting to ",connectionUrl)
         
@@ -71,44 +73,48 @@ class ServerConnection {
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.httpBody = sendData
         
-        sendRequest(session: session, request: request, notificationString: notificationString)
+        return sendRequest(session: session, request: request, notificationString: notificationString)
         
     }
     
-    func sendRequest(session: URLSession, request: URLRequest, notificationString: String) {
+    func sendRequest(session: URLSession, request: URLRequest, notificationString: String) -> String {
         
-        var running: Bool = false
+        print("sending request")
         
-        let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
-            running = false
+        let semaphore = DispatchSemaphore(value: 0)
+        var dataString: String?
+        var errors: String?
+        
+        session.dataTask(with: request, completionHandler: { (data, response, error) in
             if error != nil {
-                print(error!.localizedDescription)
-                return
+                errors = error as! String?
             }
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
                 print("statusCode should be 200, but is \(httpStatus.statusCode)")
                 //print("response = \(response)")
                 print("******** REQUEST ERROR")
-                let dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as! String
-                NotificationCenter.default.post(name: Notification.Name(rawValue: notificationString+"_ERROR"), object: dataString)
-                return
+                errors = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as? String
+//                NotificationCenter.default.post(name: Notification.Name(rawValue: notificationString+"_ERROR"), object: dataString)
+//                return
             }
-            let dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as! String
+            dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as? String
             //print(dataString)
+            
+            semaphore.signal()
             
             print("Done, sending notification: ",notificationString)
             
             NotificationCenter.default.post(name: Notification.Name(rawValue: notificationString), object: dataString)
             
-        })
+        }).resume()
         
-        running = true
-        task.resume()
+        _ = semaphore.wait(timeout: .distantFuture)
         
-        while running {
-            print("Getting data")
-            sleep(1)
+        if let error = errors {
+            print(error)
         }
+        
+        return dataString!
         
     }
     
@@ -142,34 +148,34 @@ class ServerConnection {
         
     }
     
-    func getUserList() {
+    func getUserList() -> String {
         
         let url: String = "/vocalpassword/vocalpasswordmanager.asmx/GetSpeakersList"
         let params: [[String]] = [["configSetName",CONFIG_SET_NAME],["maxSpeakers","500"]]
         
-        connectToServer(url: url, params: params, method: "GET", notificationString: "USER_LIST")
+        return connectToServer(url: url, params: params, method: "GET", notificationString: "USER_LIST")
         
     }
     
-    func isUserTrained(speakerId: String) {
+    func isUserTrained(speakerId: String) -> String {
         
         let url: String = "/vocalpassword/vocalpasswordserver.asmx/IsTrained"
         let params: [[String]] = [["sessionId","0"],["speakerId",speakerId],["configSetName",CONFIG_SET_NAME],["voiceprintTag",VOICE_PRINT_TAG]]
         
-        connectToServer(url: url, params: params, method: "GET", notificationString: "USER_TRAINED")
+        return connectToServer(url: url, params: params, method: "GET", notificationString: "USER_TRAINED")
         
     }
     
-    func deleteAllEnrollSegment(speakerId: String) {
+    func deleteAllEnrollSegment(speakerId: String) -> String {
         
         let url: String = "/vocalpassword/vocalpasswordserver.asmx/DeleteAllEnrollSegments"
         let params: [[String]] = [["sessionId","0"],["speakerId",speakerId],["configSetName",CONFIG_SET_NAME],["voiceprintTag",VOICE_PRINT_TAG]]
         
-        connectToServer(url: url, params: params, method: "GET", notificationString: "DELETE_ALL_ENROLL_SEGMENT")
+        return connectToServer(url: url, params: params, method: "GET", notificationString: "DELETE_ALL_ENROLL_SEGMENT")
         
     }
     
-    func enroll(speakerId: String, audio: String) {
+    func enroll(speakerId: String, audio: String) -> String {
         
         print("Nuance server enrollment")
         //print(audio)
@@ -177,81 +183,81 @@ class ServerConnection {
         let url: String = "/VocalPassword/VocalPasswordServer.asmx/Enroll"
         let params: [[String]] = [["sessionId","0"],["speakerId",speakerId],["configSetName",CONFIG_SET_NAME],["voiceprintTag",VOICE_PRINT_TAG],["text","null"],["audio",audio]]
         
-        connectToServer(url: url, params: params, method: "POST", notificationString: "ENROLL")
+        return connectToServer(url: url, params: params, method: "POST", notificationString: "ENROLL")
         
     }
     
-    func verify(speakerId: String, audio: String) {
+    func verify(speakerId: String, audio: String) -> String {
         
         print("Nuance server verification")
         
         let url: String = "/VocalPassword/VocalPasswordServer.asmx/Verify"
         let params: [[String]] = [["sessionId","0"],["speakerId",speakerId],["configSetName",CONFIG_SET_NAME],["voiceprintTag",VOICE_PRINT_TAG],["text","null"],["audio",audio]]
         
-        connectToServer(url: url, params: params, method: "POST", notificationString: "VERIFY")
+        return connectToServer(url: url, params: params, method: "POST", notificationString: "VERIFY")
         
     }
     
-    func getConfigurationSetList() {
+    func getConfigurationSetList() -> String {
         
         let url: String = "/VocalPassword/VocalPasswordManager.asmx/GetConfigurationSetList"
         let params: [[String]] = [["configSetName",SCOPE],["type","ConfigurationSet"]]
         
-        connectToServer(url: url, params: params, method: "GET", notificationString: "CONFIGURATION_SET_LIST")
+        return connectToServer(url: url, params: params, method: "GET", notificationString: "CONFIGURATION_SET_LIST")
         
     }
     
-    func createSpeaker(sessionId: String, speakerId: String) {
+    func createSpeaker(sessionId: String, speakerId: String) -> String {
         
         let url: String = "/vocalpassword/vocalpasswordserver.asmx/CreateSpeaker"
         let params: [[String]] = [["sessionId",sessionId],["speakerId",speakerId],["configSetName",CONFIG_SET_NAME]]
         
-        connectToServer(url: url, params: params, method: "GET", notificationString: "CREATE_SPEAKER")
+        return connectToServer(url: url, params: params, method: "GET", notificationString: "CREATE_SPEAKER")
         
     }
     
-    func getEnrollSegmentsStatus(speakerId: String) {
+    func getEnrollSegmentsStatus(speakerId: String) -> String {
         
         let url: String = "/vocalpassword/vocalpasswordserver.asmx/GetEnrollSegmentsStatus"
         let params: [[String]] = [["sessionId","0"],["speakerId",speakerId],["configSetName",CONFIG_SET_NAME],["voiceprintTag",VOICE_PRINT_TAG]]
         
-        connectToServer(url: url, params: params, method: "GET", notificationString: "ENROLL_SEGMENT_STATUS")
+        return connectToServer(url: url, params: params, method: "GET", notificationString: "ENROLL_SEGMENT_STATUS")
         
     }
     
-    func deleteSpeaker(sessionId: String, speakerId: String) {
+    func deleteSpeaker(sessionId: String, speakerId: String) -> String {
         
         let url: String = "/vocalpassword/vocalpasswordserver.asmx/DeleteSpeaker"
         let params: [[String]] = [["sessionId","0"],["speakerId",speakerId],["configSetName",CONFIG_SET_NAME]]
         
-        connectToServer(url: url, params: params, method: "GET", notificationString: "DELETE_SPEAKER")
+        return connectToServer(url: url, params: params, method: "GET", notificationString: "DELETE_SPEAKER")
         
     }
     
-    func addSpeakerToGroup(groupId: String) {
+    func addSpeakerToGroup(groupId: String) -> String {
         
         let url: String = "/vocalpassword/vocalpasswordserver.asmx/AddSpeakerToGroup"
         let params: [[String]] = [["sessionId","0"],["groupId",groupId],["configSetName",CONFIG_SET_NAME]]
         
-        connectToServer(url: url, params: params, method: "GET", notificationString: "ADD_SPEAKER")
+        return connectToServer(url: url, params: params, method: "GET", notificationString: "ADD_SPEAKER")
         
     }
     
-    func getGroupMembers(groupId: String) {
+    func getGroupMembers(groupId: String) -> String {
         
         let url: String = "/vocalpassword/vocalpasswordserver.asmx/GetGroupMembers"
         let params: [[String]] = [["sessionId","0"],["groupId",groupId],["configSetName",CONFIG_SET_NAME]]
         
-        connectToServer(url: url, params: params, method: "GET", notificationString: "GROUP_MEMBERS")
+        return connectToServer(url: url, params: params, method: "GET", notificationString: "GROUP_MEMBERS")
         
     }
     
-    func identify(groupId: String, audio: String) {
+    func identify(groupId: String, audio: String) -> String {
         
         let url: String = "/VocalPassword/VocalPasswordServer.asmx/Identify"
         let params: [[String]] = [["sessionId","0"],["groupId",groupId],["configSetName",CONFIG_SET_NAME],["voiceprintTag",VOICE_PRINT_TAG],["text","null"],["audio",audio]]
         
-        connectToServer(url: url, params: params, method: "POST", notificationString: "IDENTIFY")
+        return connectToServer(url: url, params: params, method: "POST", notificationString: "IDENTIFY")
         
     }
     

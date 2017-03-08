@@ -91,20 +91,6 @@ class VoiceRecViewController: UIViewController {
         
         
     }
-
-//    func checkPassword() {
-//        recAttempts-=1
-//        repeatTimes.text="Plus que \(String(recAttempts)) fois"
-//        if recAttempts==0 {
-//            nextBut.isHidden=false
-//            repeatTimes.isHidden=true
-//            enregistrement.isHidden=true
-//            NotificationCenter.default.post(name: Notification.Name(rawValue: "SUCCESS"), object: self)
-//        }
-//        else {
-//            NotificationCenter.default.post(name: Notification.Name(rawValue: "REC_SUCCESS"), object: self)
-//        }
-//    }
     
     func goBack() {
         performSegue(withIdentifier: "goBackToStartSegue", sender: self)

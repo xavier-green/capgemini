@@ -41,19 +41,20 @@ class SetDateViewController: UIViewController {
     }
     
     func success() {
-        // create the alert
         let alert = UIAlertController(title: "Enrôlement terminé", message: "Veuillez procéder à l'authentification.", preferredStyle: UIAlertControllerStyle.alert)
-        
-        // add an action (button)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {action in self.gotoHome()}))
-
-        // show the alert
         self.present(alert, animated: true, completion: nil)
     }
 
     func goForw() {
-        CotoBackMethods().addUser(speakerId: GlobalVariables.username, memDate: secretDate)
-        success()
+        DispatchQueue.global(qos: .background).async {
+            print("Running nuance fetch in background thread")
+            _ = CotoBackMethods().addUser(speakerId: GlobalVariables.username, memDate: self.secretDate)
+            DispatchQueue.main.async {
+                print("back to main")
+                self.success()
+            }
+        }
     }
     func gotoHome() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

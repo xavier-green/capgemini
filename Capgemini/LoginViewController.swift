@@ -15,6 +15,8 @@ class LoginViewController: UIViewController {
     @IBOutlet var userLabel: UILabel!
     private var attempts: Int = 3
     
+    @IBOutlet var spinner: UIActivityIndicatorView!
+    
     func reduceAttempts() {
         attempts -= 1
         if attempts==0 {
@@ -91,6 +93,7 @@ class LoginViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
             action in self.reduceAttempts();
             CotoBackMethods().logAttempt();
+            self.stopRec();
         }))
         
         // show the alert
@@ -98,10 +101,22 @@ class LoginViewController: UIViewController {
         
     }
     
+    func startRecording() {
+        print("start recording, showing spinner")
+        self.spinner.isHidden = false
+        self.spinner.startAnimating()
+    }
+    
+    func stopRec() {
+        self.spinner.stopAnimating()
+        self.spinner.isHidden = true
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.success.addTarget(self, action: #selector(self.goForw), for: .touchDown)
+        self.spinner.isHidden = true
         assignbackground()
         NotificationCenter.default.addObserver(self, selector: #selector(self.goBack), name: NSNotification.Name(rawValue: "RETOUR"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.goForw), name: NSNotification.Name(rawValue: "SUIVANT"), object: nil)
@@ -109,6 +124,7 @@ class LoginViewController: UIViewController {
 //        NotificationCenter.default.addObserver(self, selector: #selector(self.failFunc), name: NSNotification.Name(rawValue: "DEFAULT"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.successRecording), name: NSNotification.Name(rawValue: "REC_SUCCESS"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.failureRecording), name: NSNotification.Name(rawValue: "REC_FAIL"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.startRecording), name: NSNotification.Name(rawValue: "NUANCE_PROCESSING"), object: nil)
         self.userLabel.text = "Utilisateur : "+GlobalVariables.username
         
     }

@@ -20,27 +20,29 @@ class ConnectiontoBackServer {
     
     private var resultData: String = ""
     
-    func connectToServer(url: String, params: [[String]], method: String, notificationString: String) {
+    func connectToServer(url: String, params: [[String]], method: String, notificationString: String) -> String {
         
         if method=="GET" {
             
             let connectionUrl = constructURL(base: BASE_URL, url: url, params: params)
-            getRequest(connectionUrl: connectionUrl, notificationString: notificationString)
+            return getRequest(connectionUrl: connectionUrl, notificationString: notificationString)
             
         } else if method=="POST" {
             
-            postRequest(connectionUrl: BASE_URL+url, params: params, notificationString: notificationString)
+            return postRequest(connectionUrl: BASE_URL+url, params: params, notificationString: notificationString)
             
         } else if method=="PUT" {
             
             let connectionUrl = constructURL(base: BASE_URL, url: url, params: params)
-            putRequest(connectionUrl: connectionUrl, notificationString: notificationString)
+            return putRequest(connectionUrl: connectionUrl, notificationString: notificationString)
             
         }
         
+        return ""
+        
     }
     
-    func putRequest(connectionUrl: String, notificationString: String) {
+    func putRequest(connectionUrl: String, notificationString: String) -> String {
         
         print("Connecting to ",connectionUrl)
         
@@ -52,11 +54,11 @@ class ConnectiontoBackServer {
         var request = URLRequest(url: url)
         request.httpMethod = "PUT"
         
-        sendRequest(session: session, request: request, notificationString: notificationString)
+        return sendRequest(session: session, request: request, notificationString: notificationString)
         
     }
     
-    func getRequest(connectionUrl: String, notificationString: String) {
+    func getRequest(connectionUrl: String, notificationString: String) -> String {
         
         print("Connecting to ",connectionUrl)
         
@@ -67,11 +69,11 @@ class ConnectiontoBackServer {
         let url = URL(string: connectionUrl)!
         let request = URLRequest(url: url)
         
-        sendRequest(session: session, request: request, notificationString: notificationString)
+        return sendRequest(session: session, request: request, notificationString: notificationString)
         
     }
     
-    func postRequest(connectionUrl: String, params: [[String]], notificationString: String) {
+    func postRequest(connectionUrl: String, params: [[String]], notificationString: String) -> String {
         
         print("Connecting to ",connectionUrl)
         
@@ -90,47 +92,46 @@ class ConnectiontoBackServer {
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.httpBody = sendData
         
-        sendRequest(session: session, request: request, notificationString: notificationString)
+        return sendRequest(session: session, request: request, notificationString: notificationString)
         
     }
     
-    func sendRequest(session: URLSession, request: URLRequest, notificationString: String) {
+    func sendRequest(session: URLSession, request: URLRequest, notificationString: String) -> String {
         
-        NotificationCenter.default.post(name: Notification.Name(rawValue: "REQUEST_START"), object: self)
+        let semaphore = DispatchSemaphore(value: 0)
+        var dataString: String?
+        var errors: String?
         
-        var running: Bool = false
-        
-        let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
-            running = false
+        session.dataTask(with: request, completionHandler: { (data, response, error) in
             if error != nil {
-                print(error!.localizedDescription)
-                return
+                errors = error as! String?
             }
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
                 print("statusCode should be 200, but is \(httpStatus.statusCode)")
                 //print("response = \(response)")
                 print("******** REQUEST ERROR")
-                let dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as! String
-                print(dataString)
-                return
+                errors = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as? String
+                //                NotificationCenter.default.post(name: Notification.Name(rawValue: notificationString+"_ERROR"), object: dataString)
+                //                return
             }
-            let dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as! String
+            dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as? String
             //print(dataString)
+            
+            semaphore.signal()
             
             print("Done, sending notification: ",notificationString)
             
             NotificationCenter.default.post(name: Notification.Name(rawValue: notificationString), object: dataString)
-            NotificationCenter.default.post(name: Notification.Name(rawValue: "REQUEST_END"), object: self)
             
-        })
+        }).resume()
         
-        running = true
-        task.resume()
+        _ = semaphore.wait(timeout: .distantFuture)
         
-        while running {
-            print("Getting data")
-            sleep(1)
+        if let error = errors {
+            print(error)
         }
+        
+        return dataString!
         
     }
     
@@ -172,164 +173,164 @@ class ConnectiontoBackServer {
         
     }
     
-    func getUserList() {
+    func getUserList() -> String {
         
         let url: String = "/users"
         let params: [[String]] = [[]]
         
-        connectToServer(url: url, params: params, method: "GET", notificationString: "GET_USERS")
+        return connectToServer(url: url, params: params, method: "GET", notificationString: "GET_USERS")
         
     }
     
-    func getUsersNames() {
+    func getUsersNames() -> String {
         let url: String = "/users"
         let params: [[String]] = [[]]
         
-        connectToServer(url: url, params: params, method: "GET", notificationString: "GET_USERS_NAMES")
+        return connectToServer(url: url, params: params, method: "GET", notificationString: "GET_USERS_NAMES")
     }
     
-    func addUser(speakerId: String, memDate: String) {
+    func addUser(speakerId: String, memDate: String) -> String {
         
         print("Adding user to back")
         
         let url: String = "/users"
         let params: [[String]] = [["username",speakerId],["memDate",memDate]]
         
-        connectToServer(url: url, params: params, method: "POST", notificationString: "ADD_USER")
+        return connectToServer(url: url, params: params, method: "POST", notificationString: "ADD_USER")
         
     }
     
-    func verifyUser(speakerId: String, memDate: String) {
+    func verifyUser(speakerId: String, memDate: String) -> String {
         print("Verifying user date")
         
         let url: String = "/users/verifyDate"
         let params: [[String]] = [["username",speakerId],["memDate",memDate]]
         
-        connectToServer(url: url, params: params, method: "POST", notificationString: "VERIFY_USER")
+        return connectToServer(url: url, params: params, method: "POST", notificationString: "VERIFY_USER")
     }
     
-    func getUser(speakerId: String) {
+    func getUser(speakerId: String) -> String {
         print("Getting user attribute")
         
         let url: String = "/users/\(speakerId)"
         let params: [[String]] = [[]]
         
-        connectToServer(url: url, params: params, method: "GET", notificationString: "GET_USER")
+        return connectToServer(url: url, params: params, method: "GET", notificationString: "GET_USER")
     }
     
-    func addImage(base64image: String, username: String) {
+    func addImage(base64image: String, username: String) -> String {
         
         print("saving image to server")
         let url: String = "/images"
         let params: [[String]] = [["imageData",base64image],["username",username]]
         
-        connectToServer(url: url, params: params, method: "POST", notificationString: "POST_IMAGE")
+        return connectToServer(url: url, params: params, method: "POST", notificationString: "POST_IMAGE")
         
     }
     
-    func getImages() {
+    func getImages() -> String {
         
         print("getting images from db")
         let url: String = "/images"
         let params: [[String]] = [["username",GlobalVariables.username]]
         
-        connectToServer(url: url, params: params, method: "GET", notificationString: "GET_IMAGES")
+        return connectToServer(url: url, params: params, method: "GET", notificationString: "GET_IMAGES")
         
     }
     
-    func voteForImage(imageId: Int) {
+    func voteForImage(imageId: Int) -> String {
         
         print("voting for ",imageId)
         let url: String = "/images/"+String(imageId)
         let params: [[String]] = [[]]
         
-        connectToServer(url: url, params: params, method: "PUT", notificationString: "VOTE_DONE")
+        return connectToServer(url: url, params: params, method: "PUT", notificationString: "VOTE_DONE")
         
     }
     
-    func getLeaderboard() {
+    func getLeaderboard() -> String {
         
         print("getting leaderboard")
         let url: String = "/images/leader"
         let params: [[String]] = [[]]
         
-        connectToServer(url: url, params: params, method: "GET", notificationString: "LEADER_DONE")
+        return connectToServer(url: url, params: params, method: "GET", notificationString: "LEADER_DONE")
 
     }
     
-    func addHack(hacker: String, hacked: String) {
+    func addHack(hacker: String, hacked: String) -> String {
         
         print("hacking of ",hacked," by ",hacker)
         let url: String = "/stats/addHack"
         let params: [[String]] = [["hacked",hacked],["hacker",hacker]]
         
-        connectToServer(url: url, params: params, method: "POST", notificationString: "ADD_HACK_DONE")
+        return connectToServer(url: url, params: params, method: "POST", notificationString: "ADD_HACK_DONE")
         
     }
     
-    func hackAttempt() {
+    func hackAttempt() -> String {
         
         print("Prevented hack !")
         let url: String = "/stats/hackAttempt"
         let params = [[String]]()
         
-        connectToServer(url: url, params: params, method: "POST", notificationString: "HACK_ATTEMPT_DONE")
+        return connectToServer(url: url, params: params, method: "POST", notificationString: "HACK_ATTEMPT_DONE")
         
     }
     
-    func loginSuccess() {
+    func loginSuccess() -> String {
         
         print("Login success !")
         let url: String = "/stats/loginSuccess"
         let params = [[String]]()
         
-        connectToServer(url: url, params: params, method: "POST", notificationString: "LOGIN_SUCCESS_DONE")
+        return connectToServer(url: url, params: params, method: "POST", notificationString: "LOGIN_SUCCESS_DONE")
         
     }
     
-    func loginFail(email: String, username: String) {
+    func loginFail(email: String, username: String) -> String {
         
         print("Login failed ! Reponse to: ",email)
         let url: String = "/stats/loginFail"
         let params: [[String]] = [["email",email],["username",username]]
         
-        connectToServer(url: url, params: params, method: "POST", notificationString: "LOGIN_FAIL_DONE")
+        return connectToServer(url: url, params: params, method: "POST", notificationString: "LOGIN_FAIL_DONE")
         
     }
     
-    func getFrequency(speakerId: String) {
+    func getFrequency(speakerId: String) -> String {
         print("Getting user frequency")
         
         let url: String = "/users/addFrequency"
         let params: [[String]] = [["username","\(speakerId)"]]
         
-        connectToServer(url: url, params: params, method: "POST", notificationString: "GET_USER_FREQ")
+        return connectToServer(url: url, params: params, method: "POST", notificationString: "GET_USER_FREQ")
     }
     
-    func addFrequency(speakerId:String, frequency: Any) {
+    func addFrequency(speakerId:String, frequency: Any) -> String {
         print("Sending user frequency")
         
         let url: String = "/users/addFrequency"
         let params: [[String]] = [["username","\(speakerId)"],["frequency","\(frequency)"]]
         
-        connectToServer(url: url, params: params, method: "POST", notificationString: "SEND_USER_FREQ")
+        return connectToServer(url: url, params: params, method: "POST", notificationString: "SEND_USER_FREQ")
     }
     
-    func loggingAttempt() {
+    func loggingAttempt() -> String {
         print("Adding login attempt")
         let url: String = "/stats/loginAttempt"
         let params: [[String]] = []
         
-        connectToServer(url: url, params: params, method: "POST", notificationString: "ADD_LOG")
+        return connectToServer(url: url, params: params, method: "POST", notificationString: "ADD_LOG")
     }
     
-    func enrolAttempt() {
+    func enrolAttempt() -> String {
         print("Adding Enrol Attempt")
         
         let url: String = "/stats/enrolAttempt"
         let params: [[String]] = []
         
-        connectToServer(url: url, params: params, method: "POST", notificationString: "ADD_ENR")
+        return connectToServer(url: url, params: params, method: "POST", notificationString: "ADD_ENR")
     }
     
 

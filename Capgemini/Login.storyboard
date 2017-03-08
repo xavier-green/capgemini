@@ -308,6 +308,13 @@
                                 <color key="textColor" red="0.98551512299999999" green="0.99478732910000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="84r-g4-FID">
+                                <rect key="frame" x="158" y="497" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="gE8-Id-PD4"/>
+                                    <constraint firstAttribute="width" constant="60" id="ghk-xh-wed"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -315,6 +322,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Sxm-br-7s6" secondAttribute="trailing" id="7rs-ow-7Si"/>
                             <constraint firstItem="Oie-Xi-CfT" firstAttribute="centerX" secondItem="VOa-Zi-thM" secondAttribute="centerX" id="DzI-vH-hUC"/>
                             <constraint firstItem="iEq-PM-7aV" firstAttribute="top" secondItem="LyW-5K-NGH" secondAttribute="bottom" constant="8" id="EMG-Vz-Yc7"/>
+                            <constraint firstItem="84r-g4-FID" firstAttribute="centerY" secondItem="Oie-Xi-CfT" secondAttribute="centerY" id="G9R-Bz-y5w"/>
                             <constraint firstItem="8sl-94-eCt" firstAttribute="width" secondItem="VOa-Zi-thM" secondAttribute="width" id="GSo-SZ-j9B"/>
                             <constraint firstItem="Sxm-br-7s6" firstAttribute="top" secondItem="LyW-5K-NGH" secondAttribute="bottom" id="H0v-lB-8hQ"/>
                             <constraint firstItem="5eS-jr-e93" firstAttribute="top" secondItem="VOa-Zi-thM" secondAttribute="top" id="J1s-1P-iBi"/>
@@ -336,6 +344,7 @@
                             <constraint firstItem="lBv-u8-YDF" firstAttribute="top" secondItem="5eS-jr-e93" secondAttribute="bottom" constant="20" id="hc7-sU-dI5"/>
                             <constraint firstItem="IAa-ym-WDg" firstAttribute="centerX" secondItem="VOa-Zi-thM" secondAttribute="centerX" id="iCE-EZ-whO"/>
                             <constraint firstItem="BDL-yd-b5k" firstAttribute="top" secondItem="IAa-ym-WDg" secondAttribute="bottom" constant="20" id="lNT-4X-Ww8"/>
+                            <constraint firstItem="84r-g4-FID" firstAttribute="centerX" secondItem="Oie-Xi-CfT" secondAttribute="centerX" id="nEp-hf-d1l"/>
                             <constraint firstItem="LyW-5K-NGH" firstAttribute="centerX" secondItem="VOa-Zi-thM" secondAttribute="centerX" id="nMI-KF-poQ"/>
                             <constraint firstItem="LyW-5K-NGH" firstAttribute="top" secondItem="WxI-lp-YQE" secondAttribute="bottom" constant="50" id="nbo-VY-GHZ"/>
                             <constraint firstItem="WxI-lp-YQE" firstAttribute="top" secondItem="5eS-jr-e93" secondAttribute="bottom" constant="20" id="oPv-Mw-2GT"/>
@@ -345,6 +354,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="pA1-xl-Mro"/>
                     <connections>
+                        <outlet property="spinner" destination="84r-g4-FID" id="dKy-iH-3nq"/>
                         <outlet property="success" destination="Oie-Xi-CfT" id="WLg-z5-wox"/>
                         <outlet property="userLabel" destination="1ra-Ey-kgN" id="WFG-yp-1K5"/>
                         <segue destination="eYC-8b-xhJ" kind="presentation" identifier="loginCheckSegue" id="Taw-fj-WCH"/>
@@ -833,8 +843,8 @@
         <image name="voice" width="512" height="508"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wIp-lP-eG5"/>
-        <segue reference="fdd-ug-9tC"/>
         <segue reference="swq-Px-hyF"/>
+        <segue reference="fdd-ug-9tC"/>
+        <segue reference="wIp-lP-eG5"/>
     </inferredMetricsTieBreakers>
 </document>

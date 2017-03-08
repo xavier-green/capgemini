@@ -37,14 +37,14 @@ extension UIViewController {
         let nameTest = NSPredicate(format:"SELF MATCHES %@", nameRegEx)
         return nameTest.evaluate(with: testStr)
     }
-    func isAvailableUsername(username: String) -> Bool {
-        if (GlobalVariables.nuanceUsernames.contains(username) || (GlobalVariables.usernames.contains(username))) {
+    func isAvailableUsername(username: String, allUsernames: [String]) -> Bool {
+        if allUsernames.contains(username) {
             return false
         }
         return true
     }
-    func isValidUsername(username: String) -> Bool {
-        if GlobalVariables.usernames.contains(username) {
+    func isValidUsername(username: String, allUsernames: [String]) -> Bool {
+        if allUsernames.contains(username) {
             return true
         }
         return false
