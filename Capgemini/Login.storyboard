@@ -308,11 +308,19 @@
                                 <color key="textColor" red="0.98551512299999999" green="0.99478732910000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Appuyer 1 fois pour enregistrer puis 1 fois pour arrêter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pCS-yd-nZE">
+                                <rect key="frame" x="14" y="575" width="348" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="pCS-yd-nZE" firstAttribute="centerX" secondItem="VOa-Zi-thM" secondAttribute="centerX" id="4Wd-ES-nlD"/>
                             <constraint firstItem="lBv-u8-YDF" firstAttribute="centerY" secondItem="WxI-lp-YQE" secondAttribute="centerY" id="7Iv-YK-BZI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Sxm-br-7s6" secondAttribute="trailing" id="7rs-ow-7Si"/>
+                            <constraint firstItem="IAa-ym-WDg" firstAttribute="top" secondItem="pCS-yd-nZE" secondAttribute="bottom" id="84V-2i-Hts"/>
                             <constraint firstItem="Oie-Xi-CfT" firstAttribute="centerX" secondItem="VOa-Zi-thM" secondAttribute="centerX" id="DzI-vH-hUC"/>
                             <constraint firstItem="iEq-PM-7aV" firstAttribute="top" secondItem="LyW-5K-NGH" secondAttribute="bottom" constant="8" id="EMG-Vz-Yc7"/>
                             <constraint firstItem="8sl-94-eCt" firstAttribute="width" secondItem="VOa-Zi-thM" secondAttribute="width" id="GSo-SZ-j9B"/>
@@ -722,22 +730,11 @@
                                     <constraint firstAttribute="height" constant="65" id="xTm-p0-AWz"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem id="icy-r1-bFc">
-                                        <barButtonItem key="rightBarButtonItem" style="plain" id="86w-Li-Yjw">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eKC-8y-iVg">
-                                                <rect key="frame" x="306" y="28" width="53" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Jouer &gt;"/>
-                                                <connections>
-                                                    <action selector="goToGame:" destination="tW3-5H-dDF" eventType="touchUpInside" id="Drl-5D-kaV"/>
-                                                </connections>
-                                            </button>
-                                        </barButtonItem>
-                                    </navigationItem>
+                                    <navigationItem id="icy-r1-bFc"/>
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="94" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8Br-fT-b6P">
-                                <rect key="frame" x="0.0" y="65" width="375" height="602"/>
+                                <rect key="frame" x="0.0" y="65" width="375" height="512"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LabelCell" rowHeight="94" id="N4t-mY-XHO" customClass="UserTableCell" customModule="My_VocalPrint" customModuleProvider="target">
@@ -801,15 +798,28 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eD6-f6-0ru" customClass="CustomButtons" customModule="My_VocalPrint" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="577" width="375" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="elC-sg-5LK"/>
+                                </constraints>
+                                <state key="normal" title="Jouer"/>
+                                <connections>
+                                    <action selector="goToGame:" destination="tW3-5H-dDF" eventType="touchUpInside" id="z3F-MJ-lDN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="8Br-fT-b6P" firstAttribute="trailing" secondItem="vnR-Hz-NFo" secondAttribute="trailing" id="5jT-1p-S3n"/>
-                            <constraint firstItem="8Br-fT-b6P" firstAttribute="bottom" secondItem="ABR-hv-ZFS" secondAttribute="top" id="MuU-U7-IYg"/>
+                            <constraint firstItem="eD6-f6-0ru" firstAttribute="width" secondItem="e2J-My-7k2" secondAttribute="width" id="Mht-3y-d2k"/>
                             <constraint firstItem="vnR-Hz-NFo" firstAttribute="leading" secondItem="e2J-My-7k2" secondAttribute="leading" id="OcV-nU-w5k"/>
+                            <constraint firstItem="eD6-f6-0ru" firstAttribute="centerX" secondItem="e2J-My-7k2" secondAttribute="centerX" id="RaN-dZ-V96"/>
                             <constraint firstAttribute="trailing" secondItem="vnR-Hz-NFo" secondAttribute="trailing" id="TuM-2t-8IO"/>
                             <constraint firstItem="8Br-fT-b6P" firstAttribute="leading" secondItem="vnR-Hz-NFo" secondAttribute="leading" id="Xvk-8j-ECS"/>
+                            <constraint firstItem="ABR-hv-ZFS" firstAttribute="top" secondItem="eD6-f6-0ru" secondAttribute="bottom" id="cU5-e8-OYq"/>
                             <constraint firstItem="8Br-fT-b6P" firstAttribute="top" secondItem="vnR-Hz-NFo" secondAttribute="bottom" id="deg-Zm-6ub"/>
+                            <constraint firstItem="ABR-hv-ZFS" firstAttribute="top" secondItem="8Br-fT-b6P" secondAttribute="bottom" constant="90" id="fgq-bZ-nlG"/>
                             <constraint firstItem="vnR-Hz-NFo" firstAttribute="top" secondItem="e2J-My-7k2" secondAttribute="top" id="tUH-Io-2JH"/>
                         </constraints>
                     </view>
