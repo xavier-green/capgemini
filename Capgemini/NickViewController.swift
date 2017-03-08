@@ -18,7 +18,6 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     var nickname: String = ""
     var pickerName: String!
     
-    var allUsernames = [String]()
     var capUsernames = [String]()
     
     override func viewDidLoad() {
@@ -37,11 +36,9 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         
         DispatchQueue.global(qos: .background).async {
             print("Running nuance fetch in background thread")
-            let nuanceUsers = ServerFunctions().getUserList()
             let capUsers = CotoBackMethods().getUsersNames()[0]
             DispatchQueue.main.async {
                 print("back to main")
-                self.allUsernames = nuanceUsers+(capUsers as! [String])
                 self.capUsernames = capUsers as! [String]
                 self.usernamePicker.reloadAllComponents()
                 if self.capUsernames.count>0 {
@@ -123,7 +120,7 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
             validation.isHidden=false
             validation.text = "Lettres et chiffres uniquement"
         } else {
-            if !isValidUsername(username: nickname, allUsernames: self.allUsernames) {
+            if !isValidUsername(username: nickname, allUsernames: self.capUsernames) {
                 validation.isHidden=false
                 validation.text = "Le pseudo n'existe pas"
             } else {
