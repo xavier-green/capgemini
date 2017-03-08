@@ -14,6 +14,9 @@ class VoiceRecViewController: UIViewController {
     var recAttempts: Int = 3 //Record Attemts
     var isRecording: Bool = false
 
+    @IBAction func backButton(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
     @IBOutlet var spinner: UIActivityIndicatorView!
     
     //MARK: Outlets

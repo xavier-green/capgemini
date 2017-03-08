@@ -12,11 +12,14 @@ class ReadyViewController: UIViewController {
     
     //MARK: Outlets
     @IBOutlet weak var nextBut: UIButton!
+    @IBAction func backButton(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
     //MARK: View Funcs
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.backHome), name: NSNotification.Name(rawValue: "RETOUR"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.backButton), name: NSNotification.Name(rawValue: "RETOUR"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.nextView), name: NSNotification.Name(rawValue: "SUIVANT"), object: nil)
 
         // Do any additional setup after loading the view.
@@ -35,7 +38,4 @@ class ReadyViewController: UIViewController {
     //MARK: Actions
     
     //Back button
-    @IBAction func backHome(_ sender: UIButton) {
-        performSegue(withIdentifier: "backToLoginUsername", sender: self)
-    }
 }
