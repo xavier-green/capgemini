@@ -36,8 +36,8 @@ function list(req, res, next) {
                 hackAttempts: Math.round(totalHackAttempts/(totalHacks+totalHackAttempts)*10000)/100,
                 success: Math.round(totalSuccesses/(totalSuccesses+totalFails)*10000)/100,
                 fails: Math.round(totalFails/(totalSuccesses+totalFails)*10000)/100,
-                enrollSamples: Math.round(enrolmentAttempts/(usersCount*3)*10000)/100,
-                loginSampples: Math.round(loginAttempts/(totalSuccesses)*10000)/100
+                enrollSamples: Math.round(enrolmentAttempts/(usersCount*3)*100)/100,
+                loginSampples: Math.round(loginAttempts/(totalSuccesses)*100)/100
             }
             let toSend = {
                 stats: allStats,
