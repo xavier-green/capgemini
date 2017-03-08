@@ -304,6 +304,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+<<<<<<< HEAD
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="84r-g4-FID">
                                 <rect key="frame" x="158" y="497" width="60" height="60"/>
                                 <constraints>
@@ -311,6 +312,8 @@
                                     <constraint firstAttribute="width" constant="60" id="ghk-xh-wed"/>
                                 </constraints>
                             </activityIndicatorView>
+=======
+>>>>>>> ef0d9a8bae38c39a55a971891606c6036b52ba14
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Appuyer 1 fois pour enregistrer puis 1 fois pour arrêter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pCS-yd-nZE">
                                 <rect key="frame" x="14" y="575" width="348" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -844,6 +847,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="lN4-AI-sUI"/>
         <segue reference="fdd-ug-9tC"/>
+        <segue reference="Rp1-0q-eeU"/>
         <segue reference="wIp-lP-eG5"/>
     </inferredMetricsTieBreakers>
 </document>
