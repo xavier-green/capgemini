@@ -19,6 +19,7 @@ class VoteViewController: UIViewController, UICollectionViewDataSource, UICollec
     let reuseIdentifier = "cell" // also enter this string as the cell identifier in the storyboard
     var items: [String] = []
     var imagesIds: [Int] = []
+    var imageDrawer = [String]()
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.items.count
@@ -37,6 +38,7 @@ class VoteViewController: UIViewController, UICollectionViewDataSource, UICollec
             let cellImage = UIImage(data: dataDecoded as! Data)
             cell.image.image = cellImage
         }
+        cell.nickName.text = imageDrawer[indexPath.item]
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
@@ -81,6 +83,7 @@ class VoteViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
         self.items = finalImagesCleaned
         self.imagesIds = receivedImagesObject[1] as! [Int]
+        self.imageDrawer = receivedImagesObject[2] as! [String]
         print("got ",self.items.count," images from back")
         print("got ",self.imagesIds.count," _id from back")
         self.imagesView.reloadData()

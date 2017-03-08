@@ -110,11 +110,13 @@ class CotoBackMethods {
         let result = parseJsonArray(jsonString: dataString)
         var imageData: [String] = []
         var idData: [Int] = []
+        var drawerData : [String] = []
         for image in result {
             imageData.append(image["imageData"] as! String)
             idData.append(image["_id"] as! Int)
+            drawerData.append(image["username"] as! String)
         }
-        let sendObject: [[AnyObject]] = [imageData as Array<AnyObject>,idData as Array<AnyObject>]
+        let sendObject: [[AnyObject]] = [imageData as Array<AnyObject>,idData as Array<AnyObject>, drawerData as Array<AnyObject>]
         print("sending FINISHED_IM")
         NotificationCenter.default.post(name: Notification.Name(rawValue: "FINISHED_GETTING_IMAGES"), object: sendObject)
     }
