@@ -44,17 +44,17 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
                 self.allUsernames = nuanceUsers+(capUsers as! [String])
                 self.capUsernames = capUsers as! [String]
                 self.usernamePicker.reloadAllComponents()
+                if self.capUsernames.count>0 {
+                    self.pickerName = self.capUsernames[0]
+                } else {
+                    self.pickerName = "empty nickname"
+                }
             }
         }
         
         //hide keyboard when background is pressed
         self.hideKeyboardWhenTappedAround()
         assignbackground()
-        if GlobalVariables.usernames.count>0 {
-            pickerName = GlobalVariables.usernames[0]
-        } else {
-            pickerName = "empty nickname"
-        }
         //CotoBackMethods().getUsersNames()
 
     }

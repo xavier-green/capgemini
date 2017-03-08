@@ -11,9 +11,6 @@ import UIKit
 
 struct GlobalVariables {
     static var username: String = ""
-    static var usernames: [String] = []
-    static var nuanceUsernames: [String] = []
-    static var usersAuthNumber: [Int] = []
     static var allowedCommands: [String] = ["Authentification","Enrôlements","Suivant","Retour","Terminer","Chez Cételem ma voix et mon mot de passe","Chez Cételem ma voix est mon mot de passe","Oui","Non"]
     static var base64image: String = ""
     static var voteImageId: Int = 0
