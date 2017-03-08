@@ -55,7 +55,7 @@
                                     <constraint firstAttribute="height" constant="27" id="SQh-1f-8GQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                <color key="textColor" red="0.98551512299999999" green="0.99478732910000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y0z-R6-tYT">
@@ -127,7 +127,6 @@
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Si vous voulez essayer de vous faire passer pour un autre, choisissez un pseudo dans la liste suivante" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yma-Xs-OHT">
                                 <rect key="frame" x="16" y="318.5" width="343" height="49.5"/>
-                                <color key="textColor" red="0.98431372549999996" green="0.98431372549999996" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -247,7 +246,6 @@
                             </navigationBar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="&quot; Chez Cetelem ma voix est mon mot de passe &quot;" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sl-94-eCt">
                                 <rect key="frame" x="0.0" y="382" width="375" height="84"/>
-                                <color key="textColor" red="0.98551512299999999" green="0.99478732910000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -283,7 +281,6 @@
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Cliquez sur le micro puis dites la phrase suivante :" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sxm-br-7s6">
                                 <rect key="frame" x="16" y="345" width="343" height="37"/>
-                                <color key="textColor" red="0.98551512299999999" green="0.99478732910000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -305,7 +302,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ra-Ey-kgN">
                                 <rect key="frame" x="0.0" y="163" width="375" height="24"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                <color key="textColor" red="0.98551512299999999" green="0.99478732910000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Appuyer 1 fois pour enregistrer puis 1 fois pour arrêter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pCS-yd-nZE">
@@ -462,9 +459,7 @@
                                     <constraint firstAttribute="height" constant="40" id="IhF-C4-xwf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                <state key="normal" title="Non, je me suis fait passer pour quelqu’un d’autre">
-                                    <color key="titleColor" red="0.98551512299999999" green="0.99478732910000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
+                                <state key="normal" title="Non, je me suis fait passer pour quelqu’un d’autre"/>
                             </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hri-c1-eO5">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
@@ -545,7 +540,6 @@
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Authentification vocale réussie ! Confirmez-vous que votre vrai pseudo est : " textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ax-7d-Sfc">
                                 <rect key="frame" x="-0.5" y="175" width="375" height="67"/>
-                                <color key="textColor" red="0.98551512299999999" green="0.99478732910000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -602,16 +596,12 @@
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="3Xv-Ye-3PA">
                                 <rect key="frame" x="27" y="226" width="320" height="216"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.98551512299999999" green="0.99478732910000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <date key="date" timeIntervalSinceReferenceDate="509282355.677917">
                                     <!--2017-02-20 11:19:15 +0000-->
                                 </date>
                                 <locale key="locale" localeIdentifier="fr_FR"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </datePicker>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lgr-yz-Yct">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
@@ -667,7 +657,7 @@
                                     <constraint firstAttribute="height" constant="33.5" id="nJw-xF-VU1"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                <color key="textColor" red="0.98551512299999999" green="0.99478732910000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1kS-0A-TF9" customClass="CustomButtons" customModule="My_VocalPrint" customModuleProvider="target">
@@ -843,8 +833,8 @@
         <image name="voice" width="512" height="508"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="lN4-AI-sUI"/>
+        <segue reference="Rp1-0q-eeU"/>
         <segue reference="wIp-lP-eG5"/>
-        <segue reference="fdd-ug-9tC"/>
-        <segue reference="swq-Px-hyF"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -96,14 +96,13 @@
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Si c’est votre 1ere connexion, enrôlez-vous afin de pouvoir enregistrer votre empreinte vocale dans l’application" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YA6-ne-CYP">
                                 <rect key="frame" x="0.0" y="150" width="375" height="88"/>
-                                <color key="textColor" red="0.98551512302508137" green="0.99478732909727352" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Sinon, connectez-vous !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sDj-ga-yt9">
                                 <rect key="frame" x="0.0" y="398" width="375" height="24"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                <color key="textColor" red="0.98551512299999999" green="0.99478732910000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="color_pal" translatesAutoresizingMaskIntoConstraints="NO" id="8MR-US-c76">
