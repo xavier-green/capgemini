@@ -103,9 +103,6 @@ class ConnectiontoBackServer {
         var errors: String?
         
         session.dataTask(with: request, completionHandler: { (data, response, error) in
-            if error != nil {
-                errors = error as! String?
-            }
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
                 print("statusCode should be 200, but is \(httpStatus.statusCode)")
                 //print("response = \(response)")
@@ -113,6 +110,7 @@ class ConnectiontoBackServer {
                 errors = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as? String
                 //                NotificationCenter.default.post(name: Notification.Name(rawValue: notificationString+"_ERROR"), object: dataString)
                 //                return
+                
             }
             dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as? String
             //print(dataString)
@@ -121,7 +119,7 @@ class ConnectiontoBackServer {
             
             print("Done, sending notification: ",notificationString)
             
-            NotificationCenter.default.post(name: Notification.Name(rawValue: notificationString), object: dataString)
+//            NotificationCenter.default.post(name: Notification.Name(rawValue: notificationString), object: dataString)
             
         }).resume()
         

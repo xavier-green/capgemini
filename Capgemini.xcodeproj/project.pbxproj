@@ -60,6 +60,7 @@
 		435AA8FC1E5B392900BBB567 /* ReconnaissanceVocaleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435AA8FB1E5B392900BBB567 /* ReconnaissanceVocaleController.swift */; };
 		435AA8FE1E5B443100BBB567 /* TextToSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435AA8FD1E5B443100BBB567 /* TextToSpeech.swift */; };
 		435DA5251E6D611A00890F1F /* StatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435DA5241E6D611A00890F1F /* StatController.swift */; };
+		436290B81E705E4D00D7E4B6 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436290B71E705E4D00D7E4B6 /* Reachability.swift */; };
 		438B48A51E697F83003A03DC /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 438B48A41E697F83003A03DC /* Launch.storyboard */; };
 		438B48A71E69BFCD003A03DC /* LoggedInLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438B48A61E69BFCD003A03DC /* LoggedInLabel.swift */; };
 		43921B971E5EE6F5001A952A /* ReplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43921B961E5EE6F5001A952A /* ReplayViewController.swift */; };
@@ -159,6 +160,7 @@
 		435AA8FB1E5B392900BBB567 /* ReconnaissanceVocaleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReconnaissanceVocaleController.swift; sourceTree = "<group>"; };
 		435AA8FD1E5B443100BBB567 /* TextToSpeech.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextToSpeech.swift; sourceTree = "<group>"; };
 		435DA5241E6D611A00890F1F /* StatController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatController.swift; sourceTree = "<group>"; };
+		436290B71E705E4D00D7E4B6 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		438B48A41E697F83003A03DC /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		438B48A61E69BFCD003A03DC /* LoggedInLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggedInLabel.swift; sourceTree = "<group>"; };
 		43921B961E5EE6F5001A952A /* ReplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplayViewController.swift; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 				0EA4B1091E5DEF640088FF48 /* ExtensionUIViewController.swift */,
 				433100A71E57344500269EEB /* AppDelegate.swift */,
 				433100A91E57344500269EEB /* ViewController.swift */,
+				436290B71E705E4D00D7E4B6 /* Reachability.swift */,
 				433100AB1E57344500269EEB /* Main.storyboard */,
 				433100AE1E57344500269EEB /* Assets.xcassets */,
 				433100B31E57344500269EEB /* Info.plist */,
@@ -602,6 +605,7 @@
 				433100A81E57344500269EEB /* AppDelegate.swift in Sources */,
 				0EA9504F1E658E3400D82337 /* ConnectiontoBackServer.swift in Sources */,
 				43266B101E6429C300A644C1 /* ServerConnection.swift in Sources */,
+				436290B81E705E4D00D7E4B6 /* Reachability.swift in Sources */,
 				0E1A97BB1E6D849000F86C88 /* ColorUtils.swift in Sources */,
 				43010ADE1E6036B1009A38A1 /* RecordButtonClass.swift in Sources */,
 				0E0961731E5B4F1800487D61 /* SetNickViewController.swift in Sources */,

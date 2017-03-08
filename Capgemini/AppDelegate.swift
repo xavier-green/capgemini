@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Photos
+import Speech
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -45,6 +47,63 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(self.loginFail), name: NSNotification.Name(rawValue: "LOGIN_FAIL"), object: nil)
         print("Done !")
     }
+    
+    func checkSpeechPermission() {
+        
+        SFSpeechRecognizer.requestAuthorization { (authStatus) in
+            
+            switch authStatus {
+            case .authorized:
+                print("all okay")
+                
+            case .denied:
+                print("User denied access to speech recognition")
+                
+            case .restricted:
+                print("Speech recognition restricted on this device")
+                
+            case .notDetermined:
+                print("Speech recognition not yet authorized")
+            }
+        }
+    }
+    
+    func checkMicrophonePermission() {
+        switch AVAudioSession.sharedInstance().recordPermission() {
+            case AVAudioSessionRecordPermission.granted:
+                print("Permission granted")
+            case AVAudioSessionRecordPermission.denied:
+                print("Pemission denied")
+            case AVAudioSessionRecordPermission.undetermined:
+                print("Request permission here")
+            default:
+                break
+        }
+    }
+    
+    func checkImageSavePermission() {
+        let status = PHPhotoLibrary.authorizationStatus()
+        switch status {
+        case .authorized:
+            print("authorized")
+            break
+            
+        case .denied, .restricted : break
+            
+        case .notDetermined:
+            PHPhotoLibrary.requestAuthorization() { (status) -> Void in
+                switch status {
+                case .authorized:
+                    print("authorized")
+                    break
+                    
+                case .denied, .restricted: break
+                    
+                case .notDetermined: break
+                }
+            }
+        }
+    }
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -52,7 +111,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         window?.tintColor = themeColor
         initStats()
-        //CotoBackMethods()
+        checkMicrophonePermission()
+        checkImageSavePermission()
+        checkSpeechPermission()
         NotificationCenter.default.addObserver(self, selector: #selector(self.fireEvent), name: NSNotification.Name(rawValue: "DONE_SPEECH_TO_TEXT"), object: nil)
         return true
     }

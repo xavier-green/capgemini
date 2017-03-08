@@ -38,7 +38,7 @@ class ViewController: UIViewController {
     func nexView() {
         print("Moving to next storyboard")
         let storyboard = UIStoryboard(name: "Login", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "LoginViewController") 
+        let controller = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
         self.present(controller, animated: true, completion: nil)
     }
     
