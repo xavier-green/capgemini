@@ -1,7 +1,7 @@
 const Image = require('./image.model');
 
 function list(req, res, next) {
-    const { limit = 8, skip = 0, username } = req.query;
+    const { limit = 50, skip = 0, username } = req.query;
     Image.list({ limit, skip, username }).then((images) => {
         console.log("got "+images.count+" images");
         res.json(images)

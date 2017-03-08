@@ -8,7 +8,7 @@ const ObjectId = Schema.Types.ObjectId;
 const autoIncrement = require('mongoose-auto-increment');
 
 var connection = mongoose.createConnection(config.db, config.mongo);
- 
+
 autoIncrement.initialize(connection);
 
 const ImageSchema = new Schema({
@@ -29,7 +29,7 @@ const ImageSchema = new Schema({
 ImageSchema.plugin(autoIncrement.plugin, 'Image');
 
 ImageSchema.statics = {
-    list({ skip = 0, limit = 8, username } = {}) {
+    list({ skip = 0, limit = 50, username } = {}) {
         return this.find({username:{$ne:username}})
             .sort({ votes: -1 })
             .skip(skip)
