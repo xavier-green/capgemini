@@ -43,7 +43,7 @@ class SetDateViewController: UIViewController {
     func success() {
         let alert = UIAlertController(title: "Enrôlement terminé", message: "Veuillez procéder à l'authentification.", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {action in self.gotoHome()}))
-        self.present(alert, animated: true, completion: nil)
+        topMostController().present(alert, animated: true, completion: nil)
     }
 
     func goForw() {

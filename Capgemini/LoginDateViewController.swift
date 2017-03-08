@@ -27,7 +27,7 @@ class LoginDateViewController: UIViewController {
                 } else {
                     let alert = UIAlertController(title: "Date Erronée", message: "La date que vous avez rentré n'est pas la bonne", preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
+                    self.topMostController().present(alert, animated: true, completion: nil)
                 }
             }
         }

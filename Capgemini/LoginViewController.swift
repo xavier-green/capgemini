@@ -43,7 +43,7 @@ class LoginViewController: UIViewController {
             let email = alert?.textFields![0].text
             self.logFail(email: email!)
         }))
-        self.present(alert, animated: true, completion: nil)
+        topMostController().present(alert, animated: true, completion: nil)
     }
     
     func hackPrevented() {
@@ -52,10 +52,11 @@ class LoginViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
             action in self.goBack()
         }))
-        self.present(alert, animated: true, completion: nil)
+        topMostController().present(alert, animated: true, completion: nil)
     }
     
     func attemptsError() {
+        
         let alertController = UIAlertController(title: "Erreur", message: "Vous avez raté 3 fois votre enregistrement. Essayer vous de vous authentifier à la place de quelqu'un d'autre ?", preferredStyle: UIAlertControllerStyle.alert)
         
         let okAction = UIAlertAction(title: "Oui", style: UIAlertActionStyle.default) {
@@ -70,7 +71,7 @@ class LoginViewController: UIViewController {
         alertController.addAction(okAction)
         alertController.addAction(cancelAction)
         
-        self.present(alertController, animated: true, completion: nil)
+        topMostController().present(alertController, animated: true, completion: nil)
     }
     
     func successRecording() {
@@ -85,10 +86,11 @@ class LoginViewController: UIViewController {
         }))
         
         // show the alert
-        self.present(alert, animated: true, completion: nil)
+        topMostController().present(alert, animated: true, completion: nil)
         
     }
     func failureRecording() {
+        
         let alert = UIAlertController(title: "Authentification échouée", message: "Recommencez si vous êtes vraiment qui vous prétendez être", preferredStyle: UIAlertControllerStyle.alert)
         
         // add an action (button)
@@ -99,7 +101,7 @@ class LoginViewController: UIViewController {
         }))
         
         // show the alert
-        self.present(alert, animated: true, completion: nil)
+        topMostController().present(alert, animated: true, completion: nil)
         
     }
     

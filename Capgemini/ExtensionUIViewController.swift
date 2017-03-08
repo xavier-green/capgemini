@@ -49,6 +49,13 @@ extension UIViewController {
         }
         return false
     }
+    func topMostController() -> UIViewController {
+        var topController: UIViewController = UIApplication.shared.keyWindow!.rootViewController!
+        while (topController.presentedViewController != nil) {
+            topController = topController.presentedViewController!
+        }
+        return topController
+    }
 }
 
 extension String {
