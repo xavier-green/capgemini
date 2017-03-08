@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fwY-RH-CT5">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -34,11 +35,11 @@
                         <viewControllerLayoutGuide type="bottom" id="pGt-hs-xVQ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="UQH-4D-5hr">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LuS-XG-tDp" customClass="CustomButtons" customModule="My_VocalPrint" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="238" width="375" height="90"/>
+                                <rect key="frame" x="0.0" y="238" width="414" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="YNl-t6-LQT"/>
                                 </constraints>
@@ -49,7 +50,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yqi-xO-bym" customClass="CustomButtons" customModule="My_VocalPrint" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="422" width="375" height="90"/>
+                                <rect key="frame" x="0.0" y="422" width="414" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="eij-7j-f5J"/>
                                 </constraints>
@@ -59,10 +60,10 @@
                                 </state>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qvP-Zg-g2Y">
-                                <rect key="frame" x="0.0" y="637" width="375" height="30"/>
+                                <rect key="frame" x="0.0" y="706" width="414" height="30"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qZt-8K-r63">
-                                        <rect key="frame" x="0.0" y="-8" width="375" height="30"/>
+                                        <rect key="frame" x="0.0" y="-8" width="414" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <string key="text">Application réservée à usage interne BNP Paribas Personal Finance – Direction des Opérations (DO) jusqu’au 30/05/17 dans le cadre du POC Biométrie vocale</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="9"/>
@@ -87,7 +88,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bi8-tD-MVd" customClass="RecordButtonClass" customModule="My_VocalPrint" customModuleProvider="target">
-                                <rect key="frame" x="160" y="562" width="55" height="55"/>
+                                <rect key="frame" x="179.66666666666666" y="631" width="55" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="55" id="NUE-83-A15"/>
                                     <constraint firstAttribute="height" constant="55" id="xKF-eo-L2g"/>
@@ -95,20 +96,20 @@
                                 <state key="normal" title="Button"/>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Si c’est votre 1ere connexion, enrôlez-vous afin de pouvoir enregistrer votre empreinte vocale dans l’application" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YA6-ne-CYP">
-                                <rect key="frame" x="0.0" y="150" width="375" height="88"/>
+                                <rect key="frame" x="0.0" y="150" width="414" height="88"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Sinon, connectez-vous !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sDj-ga-yt9">
-                                <rect key="frame" x="0.0" y="398" width="375" height="24"/>
+                                <rect key="frame" x="0.0" y="398" width="414" height="24"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="color_pal" translatesAutoresizingMaskIntoConstraints="NO" id="8MR-US-c76">
-                                <rect key="frame" x="137" y="35" width="100" height="100"/>
+                                <rect key="frame" x="157" y="35" width="100" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="NOw-HH-5sT"/>
+                                    <constraint firstAttribute="width" secondItem="8MR-US-c76" secondAttribute="height" multiplier="1:1" id="FUY-A8-RYz"/>
                                     <constraint firstAttribute="width" constant="100" id="aMu-LV-w0r"/>
                                 </constraints>
                             </imageView>
