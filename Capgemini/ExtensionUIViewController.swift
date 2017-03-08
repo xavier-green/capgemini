@@ -56,6 +56,18 @@ extension UIViewController {
         }
         return topController
     }
+    func testInternetConnection() {
+        if Reachability.isConnectedToNetwork() == true {
+            print("Internet Connection Available!")
+        }
+        else
+        {
+            print("Internet Connection not Available!")
+            let alert = UIAlertController(title: "Connection Internet", message: "Vous n'êtes pas connecté à Internet. Cette application requiert une connexion à Internet", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            topMostController().present(alert, animated: true, completion: nil)
+        }
+    }
 }
 
 extension String {

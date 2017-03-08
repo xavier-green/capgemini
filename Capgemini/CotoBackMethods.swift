@@ -6,7 +6,7 @@
 //  Copyright © 2017 xavier green. All rights reserved.
 //
 import Foundation
-
+import UIKit
 class CotoBackMethods {
     
     private var Server: ConnectiontoBackServer!
@@ -124,7 +124,6 @@ class CotoBackMethods {
         print("enrol attempt")
         _ = Server.enrolAttempt()
     }
-    
     init() {
         Server = ConnectiontoBackServer()
     }

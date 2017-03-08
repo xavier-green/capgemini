@@ -57,7 +57,7 @@ class ViewController: UIViewController {
         YesBut.addTarget(self, action: #selector(self.nexView), for: .touchUpInside)
         
         assignbackground()
-        
+        testInternetConnection()
     }
 
     override func didReceiveMemoryWarning() {
