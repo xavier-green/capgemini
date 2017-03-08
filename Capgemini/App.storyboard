@@ -584,12 +584,25 @@
                                     <constraint firstAttribute="height" constant="250" id="Y5a-6g-3ls"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YLC-Ko-xvh">
+                                <rect key="frame" x="159.5" y="45" width="55" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="55" id="JF0-uf-t05"/>
+                                    <constraint firstAttribute="height" constant="55" id="s9l-Tf-HNs"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="leaderboard"/>
+                                <connections>
+                                    <segue destination="2sj-US-YZy" kind="presentation" id="aJc-4q-CBG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="x6V-qz-bFs" firstAttribute="width" secondItem="GfR-sD-47F" secondAttribute="width" id="11P-04-wrW"/>
                             <constraint firstItem="M3M-Cz-UAC" firstAttribute="width" secondItem="GfR-sD-47F" secondAttribute="width" id="662-fE-fbe"/>
                             <constraint firstItem="esR-Ec-NfG" firstAttribute="top" secondItem="M3M-Cz-UAC" secondAttribute="bottom" constant="50" id="U5D-YA-6b5"/>
+                            <constraint firstItem="YLC-Ko-xvh" firstAttribute="centerX" secondItem="GfR-sD-47F" secondAttribute="centerX" id="Vqm-Zf-U18"/>
+                            <constraint firstItem="M3M-Cz-UAC" firstAttribute="top" secondItem="YLC-Ko-xvh" secondAttribute="bottom" constant="20" id="d3p-Z4-qzS"/>
                             <constraint firstItem="M3M-Cz-UAC" firstAttribute="centerX" secondItem="GfR-sD-47F" secondAttribute="centerX" id="dOY-cC-Hah"/>
                             <constraint firstItem="x6V-qz-bFs" firstAttribute="centerX" secondItem="GfR-sD-47F" secondAttribute="centerX" id="qF4-bH-xEa"/>
                             <constraint firstItem="M3M-Cz-UAC" firstAttribute="top" secondItem="lT1-X4-nc5" secondAttribute="bottom" constant="100" id="qfb-RJ-0dA"/>
@@ -612,4 +625,7 @@
         <image name="micOn" width="1024" height="1024"/>
         <image name="valid" width="512" height="512"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="aJc-4q-CBG"/>
+    </inferredMetricsTieBreakers>
 </document>
