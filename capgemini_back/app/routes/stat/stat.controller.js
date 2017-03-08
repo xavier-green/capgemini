@@ -143,7 +143,7 @@ function loginAttempt(req, res) {
               .then((stat) => {
                 if (stat==null) {
                     return createTodayStat(req,res)
-                    .then(()=>hackAttempt(req, res))
+                    .then(()=>loginAttempt(req, res))
                 }
                 stat.loginAttempts +=1
                 stat.saveAsync()
@@ -158,7 +158,7 @@ function enrolAttempt(req, res) {
               .then((stat) => {
                 if (stat==null) {
                     return createTodayStat(req,res)
-                    .then(()=>hackAttempt(req, res))
+                    .then(()=>enrolAttempt(req, res))
                 }
                 stat.enrolmentAttempts +=1
                 stat.saveAsync()
