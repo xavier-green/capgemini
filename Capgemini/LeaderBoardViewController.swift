@@ -25,8 +25,18 @@ class LeaderBoardViewController: UIViewController, UITableViewDelegate,UITableVi
         tableView.delegate=self
         tableView.dataSource=self
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.showLeaders), name: NSNotification.Name(rawValue: "FINISHED_GETTING_LEADER"), object: nil)
-        CotoBackMethods().getLeadersPost()
+        DispatchQueue.global(qos: .background).async {
+            print("Running nuance fetch in background thread")
+            let receivedObject = CotoBackMethods().getLeadersPost()
+            DispatchQueue.main.async {
+                print("back to main")
+                self.imageData = receivedObject[0] as! [String]
+                self.userData = receivedObject[1] as! [String]
+                self.votesData = receivedObject[2] as! [Int]
+                self.tableView.reloadData()
+                
+            }
+        }
         
         assignbackground()
     }

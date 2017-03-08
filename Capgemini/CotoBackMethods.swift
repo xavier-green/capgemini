@@ -26,88 +26,52 @@ class CotoBackMethods {
         return dictionary
     }
     
-    func getUserList() {
-        Server.getUserList()
-    }
+//    func getUserList() -> String {
+//        Server.getUserList()
+//    }
     
-    func getUsersNames() {
-        Server.getUsersNames()
+    func getUsersNames() -> [AnyObject] {
+        let usernamesJSON = Server.getUsersNames()
+        let data: Data = usernamesJSON.data(using: String.Encoding.utf8, allowLossyConversion: false)!
+        let json = try? JSONSerialization.jsonObject(with: data, options: []) as! [AnyObject]
+        var usernames = [String]()
+        var usernamesAuths = [Int]()
+        for object in json! {
+            let name = object["username"]!
+            if !usernames.contains(name as! String) {
+                usernames.append(name as! String)
+                usernamesAuths.append(object["authNumber"] as! Int)
+            }
+        }
+        let sendObject = [usernames,usernamesAuths] as [Any]
+        return sendObject as [AnyObject]
     }
     
     func getUser(speakerId: String) {
-        Server.getUser(speakerId: speakerId)
+        let user = Server.getUser(speakerId: speakerId)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "GOT_USER"), object: user)
     }
     
-    func verifyUser(speakerId: String,memDate: String) {
-        Server.verifyUser(speakerId: speakerId,memDate: memDate)
-    }
-    @objc func verifyUserDone(notification: NSNotification) {
-        var authorized: Any!
-        let dataString = notification.object as! String
-        let dictionary = parseJson(jsonString: dataString)
-        authorized = dictionary["authorized"] as! Bool
-        NotificationCenter.default.post(name: Notification.Name(rawValue: "VERIFIED_USER"), object: authorized)
-    }
-    @objc func getUserDone(notification: NSNotification) {
-        let dataString = notification.object as! String
-        NotificationCenter.default.post(name: Notification.Name(rawValue: "GOT_USER"), object: dataString)
+    func verifyUser(speakerId: String,memDate: String) -> Bool {
+        let verificationJSON = Server.verifyUser(speakerId: speakerId,memDate: memDate)
+        let verification = parseJson(jsonString: verificationJSON)["authorized"] as! Bool
+        return verification
     }
     
-    @objc func getUserListDone(notification: NSNotification) {
-        let dataString = notification.object as! String
-        print("got users:")
-        print(dataString)
-    }
-    
-    @objc func getUsersNamesDone(notification: NSNotification)  {
-        var name : Any!
-        let dataString = notification.object as! String
-        let data: Data = dataString.data(using: String.Encoding.utf8, allowLossyConversion: false)!
-        let json = try? JSONSerialization.jsonObject(with: data, options: [])
-        let array = json as! [AnyObject]
-        for object in array {
-            name = object["username"]!
-            if !GlobalVariables.usernames.contains(name as! String) {
-                GlobalVariables.usernames.append(name as! String)
-                GlobalVariables.usersAuthNumber.append(object["authNumber"] as! Int)
-            }
-        }
-    }
-    
-    func addUser(speakerId: String,memDate: String) {
-        Server.addUser(speakerId: speakerId, memDate: memDate)
-    }
-        
-    @objc func addUserDone(notification: NSNotification) {
-        let dataString = notification.object as! String
+    func addUser(speakerId: String,memDate: String) -> String {
+        let userAdded = Server.addUser(speakerId: speakerId, memDate: memDate)
         print("Added User:")
-        print(dataString)
+        return userAdded
     }
     
     func addImage(base64image: String) {
-        Server.addImage(base64image: base64image, username: GlobalVariables.username)
-    }
-    
-    @objc func addImageDone() {
+        _ = Server.addImage(base64image: base64image, username: GlobalVariables.username)
         print("Added image !")
     }
     
-    func getImages() {
-        Server.getImages()
-    }
-    
-    func voteForImage() {
-        Server.voteForImage(imageId: GlobalVariables.voteImageId)
-    }
-    
-    @objc func voteForImageDone() {
-        print("done voting for image !")
-    }
-    
-    @objc func appendImages(notification: NSNotification) {
-        print("now appending images before sending to front")
-        let dataString = notification.object as! String
-        let result = parseJsonArray(jsonString: dataString)
+    func getImages() -> [[AnyObject]] {
+        let images = Server.getImages()
+        let result = parseJsonArray(jsonString: images)
         var imageData: [String] = []
         var idData: [Int] = []
         var drawerData : [String] = []
@@ -118,22 +82,17 @@ class CotoBackMethods {
         }
         let sendObject: [[AnyObject]] = [imageData as Array<AnyObject>,idData as Array<AnyObject>, drawerData as Array<AnyObject>]
         print("sending FINISHED_IM")
-        NotificationCenter.default.post(name: Notification.Name(rawValue: "FINISHED_GETTING_IMAGES"), object: sendObject)
+        return sendObject as [[AnyObject]]
     }
     
-    func getLeadersPost() {
-        NotificationCenter.default.post(name: Notification.Name(rawValue: "GET_LEADERS"), object: self)
+    func voteForImage() {
+        _ = Server.voteForImage(imageId: GlobalVariables.voteImageId)
+        print("done voting for image !")
     }
     
-    @objc func getLeaderboard() {
-        print("getting leaderboards")
-        Server.getLeaderboard()
-    }
-    
-    @objc func getLeaderboardDone(notification: NSNotification) {
-        print("done getting leaderboards")
-        let dataString = notification.object as! String
-        let result = parseJsonArray(jsonString: dataString)
+    func getLeadersPost() -> [[AnyObject]] {
+        let leaders = Server.getLeaderboard()
+        let result = parseJsonArray(jsonString: leaders)
         var imageData: [String] = []
         var userData: [String] = []
         var votesData: [Int] = []
@@ -143,56 +102,44 @@ class CotoBackMethods {
             votesData.append(image["votes"] as! Int)
         }
         let sendObject: [[AnyObject]] = [imageData as Array<AnyObject>,userData as Array<AnyObject>,votesData as Array<AnyObject>]
-        //print(dataString)
-        NotificationCenter.default.post(name: Notification.Name(rawValue: "FINISHED_GETTING_LEADER"), object: sendObject)
+        return sendObject as [[AnyObject]]
     }
     
     func getUserFreq(speakerId: String) {
-        Server.getFrequency(speakerId: speakerId)
-    }
-    
-    @objc func getUserFreqDone(notification: NSNotification) {
-        let dataString = notification.object as! String
-        let dictionary = parseJson(jsonString: dataString) as [String:Any]
+        let frequency = Server.getFrequency(speakerId: speakerId)
+        let dictionary = parseJson(jsonString: frequency) as [String:Any]
         print("Got user freq")
         NotificationCenter.default.post(name: Notification.Name(rawValue: "GOT_USER_FREQ"), object: dictionary)
     }
     
     func sendUserFreq(speakerId: String, frequency: Any) {
-        print("sending data")
-        Server.addFrequency(speakerId: speakerId, frequency: frequency)
-        print("data sent")
+        _ = Server.addFrequency(speakerId: speakerId, frequency: frequency)
     }
     
-    @objc func sendUserFreqDone(notification: NSNotification) {
-        let dataString = notification.object as! String
-        let dictionary = parseJson(jsonString: dataString) as [String:Any]
-        print(dictionary)
-    }
-    @objc func logAttempt() {
+    func logAttempt() {
         print("log attempt")
-        Server.loggingAttempt()
+        _ = Server.loggingAttempt()
     }
-    @objc func enrAttempt() {
+    func enrAttempt() {
         print("enrol attempt")
-        Server.enrolAttempt()
+        _ = Server.enrolAttempt()
     }
     
     init() {
         Server = ConnectiontoBackServer()
-        NotificationCenter.default.addObserver(self, selector: #selector(self.getUserListDone), name: NSNotification.Name(rawValue: "GET_USERS"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.addUserDone), name: NSNotification.Name(rawValue: "ADD_USER"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.getUsersNamesDone), name: NSNotification.Name(rawValue: "GET_USERS_NAMES"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.verifyUserDone), name: NSNotification.Name(rawValue: "VERIFY_USER"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.getUserDone), name: NSNotification.Name(rawValue: "GET_USER"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.addImageDone), name: NSNotification.Name(rawValue: "POST_IMAGE"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.appendImages), name: NSNotification.Name(rawValue: "GET_IMAGES"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.voteForImageDone), name: NSNotification.Name(rawValue: "VOTE_DONE"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.getLeaderboardDone), name: NSNotification.Name(rawValue: "LEADER_DONE"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.getLeaderboard), name: NSNotification.Name(rawValue: "GET_LEADERS"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.getUserFreqDone), name: NSNotification.Name(rawValue: "GET_USER_FREQ"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.sendUserFreqDone), name: NSNotification.Name(rawValue: "SEND_USER_FREQ"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.logAttempt), name: NSNotification.Name(rawValue: "ADD_LOG_ATT"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.enrAttempt), name: NSNotification.Name(rawValue: "ADD_ENR_ATT"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.getUserListDone), name: NSNotification.Name(rawValue: "GET_USERS"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.addUserDone), name: NSNotification.Name(rawValue: "ADD_USER"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.getUsersNamesDone), name: NSNotification.Name(rawValue: "GET_USERS_NAMES"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.verifyUserDone), name: NSNotification.Name(rawValue: "VERIFY_USER"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.getUserDone), name: NSNotification.Name(rawValue: "GET_USER"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.addImageDone), name: NSNotification.Name(rawValue: "POST_IMAGE"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.appendImages), name: NSNotification.Name(rawValue: "GET_IMAGES"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.voteForImageDone), name: NSNotification.Name(rawValue: "VOTE_DONE"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.getLeaderboardDone), name: NSNotification.Name(rawValue: "LEADER_DONE"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.getLeaderboard), name: NSNotification.Name(rawValue: "GET_LEADERS"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.getUserFreqDone), name: NSNotification.Name(rawValue: "GET_USER_FREQ"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.sendUserFreqDone), name: NSNotification.Name(rawValue: "SEND_USER_FREQ"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.logAttempt), name: NSNotification.Name(rawValue: "ADD_LOG_ATT"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.enrAttempt), name: NSNotification.Name(rawValue: "ADD_ENR_ATT"), object: nil)
     }
 }

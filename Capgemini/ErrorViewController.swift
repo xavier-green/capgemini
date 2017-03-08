@@ -24,6 +24,8 @@ class ErrorViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var descField: UITextView!
     @IBOutlet weak var nickText: UITextField!
     
+    var allUsernames = [String]()
+    
     override func viewDidLoad() {
         print("loading error view")
         super.viewDidLoad()
@@ -32,6 +34,14 @@ class ErrorViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
         self.hideKeyboardWhenTappedAround()
         assignbackground()
+        DispatchQueue.global(qos: .background).async {
+            print("Running nuance fetch in background thread")
+            let capUsers = CotoBackMethods().getUsersNames()[0]
+            DispatchQueue.main.async {
+                print("back to main")
+                self.allUsernames = (capUsers as! [String])
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,7 +60,7 @@ class ErrorViewController: UIViewController, UITextFieldDelegate {
             validation.isHidden=false
             validation.text = "Lettres et chiffres uniquement"
         } else {
-            if !isValidUsername(username: nickText.text!) {
+            if !isValidUsername(username: nickText.text!, allUsernames: self.allUsernames) {
                 validation.isHidden=false
                 validation.text = "Le pseudo n'existe pas"
             } else {

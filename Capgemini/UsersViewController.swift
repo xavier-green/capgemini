@@ -12,12 +12,27 @@ class UsersViewController: UIViewController,UITableViewDelegate, UITableViewData
 
     @IBOutlet weak var tableView: UITableView!
     
+    var userNames = [String]()
+    var userAuths = [Int]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         // Do any additional setup after loading the view.
         assignbackground()
+        
+        DispatchQueue.global(qos: .background).async {
+            print("Running nuance fetch in background thread")
+            let capUsers = CotoBackMethods().getUsersNames()
+            DispatchQueue.main.async {
+                print("back to main")
+                self.userNames = (capUsers[0] as! [String])
+                self.userAuths = (capUsers[1] as! [Int])
+                self.tableView.reloadData()
+            }
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,28 +46,20 @@ class UsersViewController: UIViewController,UITableViewDelegate, UITableViewData
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return GlobalVariables.usernames.count
+        return userNames.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = indexPath.row
-        let Name = GlobalVariables.usernames[row]
+        let Name = userNames[row]
+        let Score = userAuths[row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell",
                                                  for: indexPath) as! UserTableCell
         cell.userName?.text = Name
-        cell.userDrawings?.text = "\(GlobalVariables.usersAuthNumber[row])"
+        cell.userDrawings?.text = String(Score)
         //cell.userImage.image = UIImage(named: "question")
         return cell
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     @IBAction func goToGame(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "App", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "DrawNavigationViewController") as! UINavigationController

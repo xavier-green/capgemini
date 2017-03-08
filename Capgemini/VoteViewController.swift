@@ -69,24 +69,26 @@ class VoteViewController: UIViewController, UICollectionViewDataSource, UICollec
         continuerButton.addTarget(self, action: #selector(self.finir), for: .touchUpInside)
         // Do any additional setup after loading the view.
         assignbackground()
-        NotificationCenter.default.addObserver(self, selector: #selector(self.appendImages), name: NSNotification.Name(rawValue: "FINISHED_GETTING_IMAGES"), object: nil)
-        CotoBackMethods().getImages()
-    }
-    
-    func appendImages(notification: NSNotification) {
-        print("front received images")
-        let receivedImagesObject = notification.object as! [[AnyObject]]
-        let receivedImages = receivedImagesObject[0] as! [String]
-        var finalImagesCleaned: [String] = []
-        for image in receivedImages {
-            finalImagesCleaned.append(image.replacingOccurrences(of: " ", with: "+"))
+        
+        DispatchQueue.global(qos: .background).async {
+            print("Running nuance fetch in background thread")
+            let receivedImagesObject = CotoBackMethods().getImages()
+            DispatchQueue.main.async {
+                print("back to main")
+                let receivedImages = receivedImagesObject[0] as! [String]
+                var finalImagesCleaned: [String] = []
+                for image in receivedImages {
+                    finalImagesCleaned.append(image.replacingOccurrences(of: " ", with: "+"))
+                }
+                self.items = finalImagesCleaned
+                self.imagesIds = receivedImagesObject[1] as! [Int]
+                self.imageDrawer = receivedImagesObject[2] as! [String]
+                print("got ",self.items.count," images from back")
+                print("got ",self.imagesIds.count," _id from back")
+                self.imagesView.reloadData()
+
+            }
         }
-        self.items = finalImagesCleaned
-        self.imagesIds = receivedImagesObject[1] as! [Int]
-        self.imageDrawer = receivedImagesObject[2] as! [String]
-        print("got ",self.items.count," images from back")
-        print("got ",self.imagesIds.count," _id from back")
-        self.imagesView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {

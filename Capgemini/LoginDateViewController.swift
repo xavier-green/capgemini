@@ -15,38 +15,32 @@ class LoginDateViewController: UIViewController {
     private var authorized: Bool!
 
     func verifyUser() {
-        CotoBackMethods().verifyUser(speakerId: GlobalVariables.username, memDate: secretDate)
+        DispatchQueue.global(qos: .background).async {
+            print("Running nuance fetch in background thread")
+            let verified = CotoBackMethods().verifyUser(speakerId: GlobalVariables.username, memDate: self.secretDate)
+            DispatchQueue.main.async {
+                print("back to main")
+                if verified==true {
+                    self.performSegue(withIdentifier: "checkDate", sender: self)
+                } else {
+                    let alert = UIAlertController(title: "Date Erronée", message: "La date que vous avez rentré n'est pas la bonne", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.datePicker.addTarget(self, action: #selector(self.datePickerChanged), for: UIControlEvents.valueChanged)
         assignbackground()
         secretDate = setDateFormat().string(from: self.datePicker.date)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.verifyUserDone), name: NSNotification.Name(rawValue: "VERIFIED_USER"), object: nil)
         print("sending okay login notif")
         NotificationCenter.default.post(name: Notification.Name(rawValue: "LOGIN_SUCCESS"), object: self)
     }
     
-    @objc func verifyUserDone(notifcation: NSNotification) {
-        self.authorized = notifcation.object as! Bool!
-    }
     @IBAction func nextButton(_ sender: CustomButtons) {
         verifyUser()
-        if (self.authorized==true) {
-            let index = GlobalVariables.usernames.index(of: GlobalVariables.username)
-            let newauthNum = GlobalVariables.usersAuthNumber[index!] + 1
-            GlobalVariables.usersAuthNumber[index!] = newauthNum
-            performSegue(withIdentifier: "checkDate", sender: self)
-        } else {
-            // create the alert
-            let alert = UIAlertController(title: "Date Erronée", message: "La date que vous avez rentré n'est pas la bonne", preferredStyle: UIAlertControllerStyle.alert)
-            
-            // add an action (button)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-            
-            // show the alert
-            self.present(alert, animated: true, completion: nil)
-        }
     }
     
     func goback() {

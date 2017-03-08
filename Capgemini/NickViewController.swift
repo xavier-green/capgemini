@@ -18,6 +18,8 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     var nickname: String = ""
     var pickerName: String!
     
+    var capUsernames = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.usernamePicker.delegate = self
@@ -32,15 +34,25 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         NotificationCenter.default.addObserver(self, selector: #selector(self.gotoHome), name: NSNotification.Name(rawValue: "RETOUR"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.goForw), name: NSNotification.Name(rawValue: "SUIVANT"), object: nil)
         
+        DispatchQueue.global(qos: .background).async {
+            print("Running nuance fetch in background thread")
+            let capUsers = CotoBackMethods().getUsersNames()[0]
+            DispatchQueue.main.async {
+                print("back to main")
+                self.capUsernames = capUsers as! [String]
+                self.usernamePicker.reloadAllComponents()
+                if self.capUsernames.count>0 {
+                    self.pickerName = self.capUsernames[0]
+                } else {
+                    self.pickerName = "empty nickname"
+                }
+            }
+        }
+        
         //hide keyboard when background is pressed
         self.hideKeyboardWhenTappedAround()
         assignbackground()
-        if GlobalVariables.usernames.count>0 {
-            pickerName = GlobalVariables.usernames[0]
-        } else {
-            pickerName = "empty nickname"
-        }
-        CotoBackMethods().getUsersNames()
+        //CotoBackMethods().getUsersNames()
 
     }
     
@@ -68,17 +80,17 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     
     // The number of rows of data
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return GlobalVariables.usernames.count
+        return capUsernames.count
     }
     
     // The data to return for the row and component (column) that's being passed in
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        pickerName = GlobalVariables.usernames[row]
-        return GlobalVariables.usernames[row]
+        pickerName = capUsernames[row]
+        return pickerName
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
-        pickerName = GlobalVariables.usernames[row]
+        pickerName = capUsernames[row]
         print("new picker name: ",pickerName)
     }
 
@@ -108,7 +120,7 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
             validation.isHidden=false
             validation.text = "Lettres et chiffres uniquement"
         } else {
-            if !isValidUsername(username: nickname) {
+            if !isValidUsername(username: nickname, allUsernames: self.capUsernames) {
                 validation.isHidden=false
                 validation.text = "Le pseudo n'existe pas"
             } else {

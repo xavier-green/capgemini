@@ -16,6 +16,8 @@ class SetNickViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var nextBut: UIButton!
     
+    var allUsernames = [String]()
+    
     //MARK: View Funcs
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,15 @@ class SetNickViewController: UIViewController, UITextFieldDelegate {
         self.hideKeyboardWhenTappedAround()
         
         assignbackground()
+        
+        DispatchQueue.global(qos: .background).async {
+            print("Running nuance fetch in background thread")
+            let capUsers = CotoBackMethods().getUsersNames()[0]
+            DispatchQueue.main.async {
+                print("back to main")
+                self.allUsernames = (capUsers as! [String])
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,7 +48,7 @@ class SetNickViewController: UIViewController, UITextFieldDelegate {
     }
     
     func goForw() {
-        if (!isValidName(testStr: nickText.text!) || (!isAvailableUsername(username: nickText.text!))) {
+        if (!isValidName(testStr: nickText.text!) || (!isAvailableUsername(username: nickText.text!, allUsernames: self.allUsernames))) {
             print("nope")
             validation.isHidden=false
         } else {
@@ -65,7 +76,7 @@ class SetNickViewController: UIViewController, UITextFieldDelegate {
             validation.isHidden=false
             validation.text = "Lettres et chiffres uniquement"
         } else {
-            if !isAvailableUsername(username: nickText.text!) {
+            if !isAvailableUsername(username: nickText.text!, allUsernames: self.allUsernames) {
                 validation.isHidden=false
                 validation.text = "Le pseudo est déjà utilisé"
             } else {

@@ -48,12 +48,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
         // Override point for customization after application launch.
         window?.tintColor = themeColor
-        ServerFunctions().getUserList()
-        CotoBackMethods().getUsersNames()
         initStats()
-        CotoBackMethods()
+        //CotoBackMethods()
         NotificationCenter.default.addObserver(self, selector: #selector(self.fireEvent), name: NSNotification.Name(rawValue: "DONE_SPEECH_TO_TEXT"), object: nil)
         return true
     }
