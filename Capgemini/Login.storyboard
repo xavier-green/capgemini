@@ -226,7 +226,7 @@
                                                 </constraints>
                                                 <state key="normal" title="&lt; Retour"/>
                                                 <connections>
-                                                    <segue destination="C4T-ua-GSd" kind="presentation" identifier="backToNicknameSegue" modalTransitionStyle="crossDissolve" id="wIp-lP-eG5"/>
+                                                    <action selector="backButton:" destination="UP9-Wz-Hqu" eventType="touchUpInside" id="S1C-gM-wxg"/>
                                                 </connections>
                                             </button>
                                         </barButtonItem>
@@ -236,9 +236,6 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" backgroundImage="information"/>
                                             </button>
-                                            <connections>
-                                                <segue destination="eYC-8b-xhJ" kind="presentation" id="swq-Px-hyF"/>
-                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -442,7 +439,6 @@
                         <outlet property="descField" destination="8Ui-bT-kob" id="yQW-Il-kGU"/>
                         <outlet property="nickText" destination="jZZ-TV-vmN" id="Ueh-gZ-8Zi"/>
                         <outlet property="validation" destination="T06-vq-Omj" id="csy-I2-DS0"/>
-                        <segue destination="C4T-ua-GSd" kind="presentation" identifier="backTologin" modalTransitionStyle="crossDissolve" id="lGg-w3-ATo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dJE-hw-ADp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -483,7 +479,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="&lt; Retour"/>
                                                 <connections>
-                                                    <segue destination="UP9-Wz-Hqu" kind="presentation" modalTransitionStyle="crossDissolve" id="Rp1-0q-eeU"/>
+                                                    <action selector="backButton:" destination="eYC-8b-xhJ" eventType="touchUpInside" id="08e-IP-oS8"/>
                                                 </connections>
                                             </button>
                                         </barButtonItem>
@@ -625,7 +621,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="&lt; Retour"/>
                                                 <connections>
-                                                    <segue destination="eYC-8b-xhJ" kind="presentation" identifier="backToCheckSegue" modalTransitionStyle="crossDissolve" id="lN4-AI-sUI"/>
+                                                    <action selector="backButton:" destination="qFr-bu-2aY" eventType="touchUpInside" id="oIX-Xd-0WC"/>
                                                 </connections>
                                             </button>
                                         </barButtonItem>
@@ -841,10 +837,4 @@
         <image name="valid" width="512" height="512"/>
         <image name="voice" width="512" height="508"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="lN4-AI-sUI"/>
-        <segue reference="fdd-ug-9tC"/>
-        <segue reference="Rp1-0q-eeU"/>
-        <segue reference="wIp-lP-eG5"/>
-    </inferredMetricsTieBreakers>
 </document>

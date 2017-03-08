@@ -14,7 +14,9 @@ class LoginViewController: UIViewController {
     
     @IBOutlet var userLabel: UILabel!
     private var attempts: Int = 3
-    
+    @IBAction func backButton(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
     @IBOutlet var spinner: UIActivityIndicatorView!
     
     func reduceAttempts() {

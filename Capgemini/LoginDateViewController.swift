@@ -13,7 +13,9 @@ class LoginDateViewController: UIViewController {
     @IBOutlet var datePicker: UIDatePicker!
     private var secretDate: String!
     private var authorized: Bool!
-
+    @IBAction func backButton(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
     func verifyUser() {
         DispatchQueue.global(qos: .background).async {
             print("Running nuance fetch in background thread")

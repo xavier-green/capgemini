@@ -14,7 +14,9 @@ class LoginCheckViewController: UIViewController {
     
     @IBOutlet var helloCheckLabel: UITextView!
     @IBOutlet var YesButton: UIButton!
-
+    @IBAction func backButton(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
     @IBAction func GotoDate(_ sender: Any) {
         gotodate()
     }

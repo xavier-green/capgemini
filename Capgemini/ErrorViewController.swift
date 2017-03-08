@@ -17,7 +17,10 @@ class ErrorViewController: UIViewController, UITextFieldDelegate {
     @IBAction func finishAction(_ sender: Any) {
         if okay==true {
             NotificationCenter.default.post(name: Notification.Name(rawValue: "ADD_HACK"), object: nickText.text)
-            performSegue(withIdentifier: "backTologin", sender: self)
+            print("Moving to next storyboard")
+            let storyboard = UIStoryboard(name: "Login", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+            self.present(controller, animated: true, completion: nil)
         }
     }
     
