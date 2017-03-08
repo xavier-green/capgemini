@@ -120,7 +120,6 @@
                                             <constraint firstAttribute="width" constant="240" id="JVl-qy-yEt"/>
                                             <constraint firstAttribute="height" constant="154" id="vOm-xa-8Tf"/>
                                         </constraints>
-                                        <color key="textColor" red="0.98551512299999999" green="0.99478732910000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -447,6 +446,7 @@
                             </textView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="VotingImages" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JKR-BN-vOZ">
                                 <rect key="frame" x="26" y="202" width="323" height="355"/>
+                                <color key="backgroundColor" red="0.98551512299999999" green="0.99478732910000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="23" minimumInteritemSpacing="10" id="x3o-o1-6p4">
                                     <size key="itemSize" width="150" height="150"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
