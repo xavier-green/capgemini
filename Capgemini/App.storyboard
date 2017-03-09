@@ -506,6 +506,13 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down" translatesAutoresizingMaskIntoConstraints="NO" id="l1n-7x-FNS">
+                                <rect key="frame" x="157" y="582" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="Q39-cg-yoh"/>
+                                    <constraint firstAttribute="height" constant="60" id="iBY-Xy-KpT"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHY-PJ-uqD">
                                 <rect key="frame" x="0.0" y="567" width="375" height="90"/>
                                 <color key="backgroundColor" red="0.98431372549999996" green="0.98431372549999996" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -520,12 +527,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="l1n-7x-FNS" firstAttribute="centerX" secondItem="sHY-PJ-uqD" secondAttribute="centerX" id="1jG-wE-uUZ"/>
                             <constraint firstItem="52c-YQ-pdj" firstAttribute="top" secondItem="sHY-PJ-uqD" secondAttribute="bottom" constant="10" id="3AT-V1-mjh"/>
                             <constraint firstItem="JKR-BN-vOZ" firstAttribute="leading" secondItem="uag-YJ-uXQ" secondAttribute="leadingMargin" constant="10" id="6xE-cm-vRK"/>
                             <constraint firstItem="p09-wW-ENI" firstAttribute="leading" secondItem="uag-YJ-uXQ" secondAttribute="leading" id="E5i-Y8-Sqz"/>
                             <constraint firstItem="fMX-50-l2J" firstAttribute="leading" secondItem="uag-YJ-uXQ" secondAttribute="leadingMargin" constant="51" id="NrB-QM-pxW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="JKR-BN-vOZ" secondAttribute="trailing" constant="10" id="QH9-CM-tEo"/>
                             <constraint firstItem="sHY-PJ-uqD" firstAttribute="width" secondItem="uag-YJ-uXQ" secondAttribute="width" id="Tsl-Bd-X53"/>
+                            <constraint firstItem="l1n-7x-FNS" firstAttribute="centerY" secondItem="sHY-PJ-uqD" secondAttribute="centerY" id="aW0-2z-8sa"/>
                             <constraint firstItem="sHY-PJ-uqD" firstAttribute="top" secondItem="JKR-BN-vOZ" secondAttribute="bottom" constant="10" id="dJb-JR-EgA"/>
                             <constraint firstItem="p09-wW-ENI" firstAttribute="top" secondItem="uag-YJ-uXQ" secondAttribute="top" id="dsP-bH-QVZ"/>
                             <constraint firstItem="fMX-50-l2J" firstAttribute="centerX" secondItem="uag-YJ-uXQ" secondAttribute="centerX" id="gvy-ST-8zj"/>
@@ -618,6 +627,7 @@
     </scenes>
     <resources>
         <image name="color" width="550" height="550"/>
+        <image name="down" width="512" height="512"/>
         <image name="leaderboard" width="740" height="712"/>
         <image name="micOn" width="1024" height="1024"/>
         <image name="valid" width="512" height="512"/>

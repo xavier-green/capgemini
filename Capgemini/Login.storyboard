@@ -420,7 +420,7 @@
                                 </constraints>
                                 <items>
                                     <navigationItem id="KRt-kc-ZSe">
-                                        <barButtonItem key="leftBarButtonItem" title="&lt; Retours" id="VME-R4-OpN">
+                                        <barButtonItem key="leftBarButtonItem" title="&lt; Retour" id="VME-R4-OpN">
                                             <connections>
                                                 <action selector="retours:" destination="DI0-p4-knE" id="2vW-M2-yvg"/>
                                             </connections>

@@ -107,8 +107,9 @@
                                     <constraint firstAttribute="width" constant="60" id="UyV-Xk-Mc3"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Nous allons procéder à l'enregistrement de votre empreinte vocale. Dites &quot;suivant&quot; pour commencer ou cliquez ci-dessous" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mtE-QM-IXi">
-                                <rect key="frame" x="0.0" y="225" width="375" height="186"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mtE-QM-IXi">
+                                <rect key="frame" x="0.0" y="225" width="375" height="254"/>
+                                <string key="text">Nous allons procéder à l'enregistrement de votre empreinte vocale. Dites "suivant" en maintenant le micro appuyé pour commencer ou cliquez ci-dessous</string>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>

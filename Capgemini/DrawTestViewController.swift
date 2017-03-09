@@ -17,13 +17,13 @@ class DrawTestViewController: UIViewController {
     @IBOutlet weak var drawView: DrawView!
     @IBOutlet weak var frequencyLabel: UILabel!
     @IBOutlet weak var amplitudeLabel: UILabel!
-    @IBOutlet weak var stackColors: UIStackView!
     var frequency: Float!
     var frequencyParameter: FrequencyVoiceParameters!
     var frequencyRegistered: Bool!
     
     
     func finishDrawing() {
+        AudioKit.stop()
         trySavingImage()
         performSegue(withIdentifier: "drawingFinished", sender: self)
     }
@@ -220,36 +220,4 @@ class DrawTestViewController: UIViewController {
         drawView.fe = frequencyParameters.fe
     }
     
-    
-    @IBAction func colorsButtonTapped(_ sender: UIButton) {
-        stackColors.isHidden = !stackColors.isHidden
-    }
-    
-    @IBAction func redButtonTapped(_ sender: UIButton) {
-        drawView.currentColor = UIColor.red
-        stackColors.isHidden = true
-        
-    }
-    
-    @IBAction func greenButtonTapped(_ sender: AnyObject) {
-        drawView.currentColor = UIColor.green
-        stackColors.isHidden = true
-    }
-    
-    @IBAction func blueButtonTapped(_ sender: AnyObject) {
-        drawView.currentColor = UIColor.blue
-        stackColors.isHidden = true
-    }
-    
-    @IBAction func blackButtonTapped(_ sender: UIButton) {
-        drawView.currentColor = UIColor.black
-        stackColors.isHidden = true
-    }
-    
-    @IBAction func navigatingTo(_ segue: UIStoryboardSegue) {
-        
-    }
-    
-
-
 }

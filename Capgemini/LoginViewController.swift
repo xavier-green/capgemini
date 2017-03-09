@@ -80,6 +80,7 @@ class LoginViewController: UIViewController {
     
     func successRecording() {
         _ = CotoBackMethods().logAttempt();
+        stopRec()
         
         // create the alert
         let alert = UIAlertController(title: "Authentification réussie", message: "", preferredStyle: UIAlertControllerStyle.alert)
