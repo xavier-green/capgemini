@@ -45,6 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(self.hackAttempt), name: NSNotification.Name(rawValue: "HACK_ATTEMPT"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.loginSuccess), name: NSNotification.Name(rawValue: "LOGIN_SUCCESS"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.loginFail), name: NSNotification.Name(rawValue: "LOGIN_FAIL"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.connectionToServerFail), name: NSNotification.Name(rawValue: "ERROR"), object: nil)
         print("Done !")
     }
     
@@ -66,6 +67,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("Speech recognition not yet authorized")
             }
         }
+    }
+    func bottomMostController() -> UIViewController {
+        var topController: UIViewController = UIApplication.shared.keyWindow!.rootViewController!
+        while (topController.presentingViewController != nil) {
+            topController = topController.presentingViewController!
+        }
+        return topController
+    }
+    func topMostController() -> UIViewController {
+        var topController: UIViewController = UIApplication.shared.keyWindow!.rootViewController!
+        while (topController.presentedViewController != nil) {
+            topController = topController.presentedViewController!
+        }
+        return topController
+    }
+    func connectionToServerFail() {
+        print("server error")
+        let alert = UIAlertController(title: "Erreur", message: "Une erreur est survenue", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {action in self.bottomMostController().dismiss(animated: true, completion: nil)}))
+        topMostController().present(alert, animated: true, completion: nil)
     }
     
     func checkMicrophonePermission() {

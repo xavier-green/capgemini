@@ -110,8 +110,8 @@ class ConnectiontoBackServer {
                 //print("response = \(response)")
                 print("******** REQUEST ERROR")
                 errors = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as? String
-                NotificationCenter.default.post(name: Notification.Name(rawValue: notificationString+"_ERROR"), object: errors)
-                //                return
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "ERROR"), object: errors)
+                return
                 
             }
             dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as? String
