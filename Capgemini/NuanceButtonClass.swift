@@ -87,7 +87,9 @@ class NuanceButtonClass: UIButton {
             switch authStatus {
             case .authorized:
                 self.isHidden = false
+                self.addTarget(self, action: #selector(self.recordTapped), for: .touchDown)
                 self.addTarget(self, action: #selector(self.recordTapped), for: .touchUpInside)
+                self.addTarget(self, action: #selector(self.recordTapped), for: .touchDragExit)
                 print("all okay")
                 
             case .denied:
