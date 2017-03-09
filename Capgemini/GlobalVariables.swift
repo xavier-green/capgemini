@@ -15,4 +15,5 @@ struct GlobalVariables {
     static var base64image: String = ""
     static var voteImageId: Int = 0
     static var drawColor = UIColor.black
+    static var lineSizeMultiplier: Double = 50
 }

@@ -12,9 +12,8 @@ import Photos
 class DrawView: UIView {
 
     // MARK: Outlets
-    
+
     // MARK: Properties
-    
     var pointer: Pointer! = nil
     var timer: Timer!
     var lastPoint: CGPoint!
@@ -38,7 +37,6 @@ class DrawView: UIView {
     var currentColor = UIColor.black
     
     var viewImage = UIImage()
-    
     
     // MARK: Initialisation
     
@@ -90,7 +88,7 @@ class DrawView: UIView {
         
         let context3: CGContext = UIGraphicsGetCurrentContext()!
         context3.setFillColor(UIColor.init(red: 16.0/255.0, green: 122.0/255.0, blue: 255.0/255.0, alpha: 1).cgColor)
-        context3.fill(CGRect(x: pointer.position.x, y: pointer.position.y, width: 2, height: 2))
+        context3.fill(CGRect(x: pointer.position.x, y: pointer.position.y, width: 2, height:2))
         
         let context2: CGContext = UIGraphicsGetCurrentContext()!
         context2.setBlendMode(CGBlendMode.colorBurn)
@@ -142,7 +140,7 @@ class DrawView: UIView {
          currentColor = UIColor.init(red: previousAmplitude, green: previousAmplitude, blue: 0, alpha: 1)
          }*/
         
-        let lineSize = CGFloat(3 + (amplitude - 0.06) * 50)
+        let lineSize = CGFloat(3 + (amplitude - 0.06) * GlobalVariables.lineSizeMultiplier)
         
         let drawColor = currentColor.withAlphaComponent(getOpacity(lineSize))
         

@@ -13,21 +13,27 @@ import Photos
 class DrawTestViewController: UIViewController {
 
     // MARK: Outlets
-    
     @IBOutlet weak var drawView: DrawView!
     @IBOutlet weak var frequencyLabel: UILabel!
     @IBOutlet weak var amplitudeLabel: UILabel!
     var frequency: Float!
     var frequencyParameter: FrequencyVoiceParameters!
     var frequencyRegistered: Bool!
-    
-    
+    @IBAction func linesizeModifier(_ sender: UIButton) {
+        slider.isHidden = !slider.isHidden
+    }
+    @IBOutlet weak var slider: UISlider!
     func finishDrawing() {
         AudioKit.stop()
         trySavingImage()
         performSegue(withIdentifier: "drawingFinished", sender: self)
     }
     
+    @IBAction func sliderValueChanged(sender: UISlider) {
+        GlobalVariables.lineSizeMultiplier = Double(sender.value)
+        slider.isHidden=true
+
+    }
     @IBOutlet var okButton: UIButton!
     
     // MARK: Audio Properties
@@ -148,6 +154,7 @@ class DrawTestViewController: UIViewController {
         }
         Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(DrawTestViewController.analyseAudioInput), userInfo: nil, repeats: true)
         //stackColors.isHidden = true
+        slider.isContinuous = false
     }
     @objc func changeColor(notification: NSNotification) {
         drawView.currentColor = notification.object as! UIColor
@@ -221,3 +228,4 @@ class DrawTestViewController: UIViewController {
     }
     
 }
+
