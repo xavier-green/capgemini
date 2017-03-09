@@ -56,6 +56,13 @@ extension UIViewController {
         }
         return topController
     }
+    func bottomMostController() -> UIViewController {
+        var topController: UIViewController = UIApplication.shared.keyWindow!.rootViewController!
+        while (topController.presentingViewController != nil) {
+            topController = topController.presentingViewController!
+        }
+        return topController
+    }
     func testInternetConnection() {
         if Reachability.isConnectedToNetwork() == true {
             print("Internet Connection Available!")

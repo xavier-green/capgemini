@@ -50,7 +50,7 @@ class LoginCheckViewController: UIViewController {
         goback()
     }
     func goback() {
-        performSegue(withIdentifier: "BackToLogin", sender: self)
+        dismiss(animated: true, completion: nil)
     }
     func goHack() {
         performSegue(withIdentifier: "gotoHackSegue", sender: self)

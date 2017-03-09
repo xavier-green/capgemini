@@ -22,10 +22,6 @@ class SetDateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.nextBut.addTarget(self, action: #selector(self.goForw), for: .touchUpInside)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(self.goBack), name: NSNotification.Name(rawValue: "RETOUR"), object: nil)
-        
         self.datePicker.addTarget(self, action: #selector(self.datePickerChanged), for: UIControlEvents.valueChanged)
         NotificationCenter.default.addObserver(self, selector: #selector(self.goForw), name: NSNotification.Name(rawValue: "TERMINER"), object: nil)
 
@@ -48,7 +44,6 @@ class SetDateViewController: UIViewController {
 
     func goForw() {
         DispatchQueue.global(qos: .background).async {
-            print("Running nuance fetch in background thread")
             _ = CotoBackMethods().addUser(speakerId: GlobalVariables.username, memDate: self.secretDate)
             DispatchQueue.main.async {
                 print("back to main")
@@ -57,13 +52,7 @@ class SetDateViewController: UIViewController {
         }
     }
     func gotoHome() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "ViewController") as! UINavigationController
-        self.present(controller, animated: false, completion: nil)
-    }
-    
-    func goBack() {
-        performSegue(withIdentifier: "goBackToVoiceRecordSegue", sender: self)
+        bottomMostController().dismiss(animated: true, completion: nil)
     }
     
     func datePickerChanged() {
@@ -76,10 +65,5 @@ class SetDateViewController: UIViewController {
         dateFormatter.dateFormat = gbDateFormat
         return dateFormatter
     }
-    
 
-    //MARK: Segue
-    @IBAction func setDate(_ sender: UIButton) {
-        performSegue(withIdentifier: "choseDate", sender: nil)
-    }
 }

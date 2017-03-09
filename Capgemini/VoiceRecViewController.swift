@@ -31,6 +31,8 @@ class VoiceRecViewController: UIViewController {
     }
     
     func successEnrolment() {
+        CotoBackMethods().enrAttempt();
+
         self.recordButton.isHidden=true
         repeatTimes.text=""
         // create the alert
@@ -46,13 +48,14 @@ class VoiceRecViewController: UIViewController {
     }
     func successRecording() {
         
+        CotoBackMethods().enrAttempt();
+        
         // create the alert
         let alert = UIAlertController(title: "Enregistrement vocal réussi", message: "", preferredStyle: UIAlertControllerStyle.alert)
         
         // add an action (button)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
             action in self.reduceTimes();
-            CotoBackMethods().enrAttempt();
         }))
         
         // show the alert
@@ -60,12 +63,12 @@ class VoiceRecViewController: UIViewController {
         
     }
     func failureRecording() {
+        CotoBackMethods().enrAttempt();
         let alert = UIAlertController(title: "Enregistrement échoué", message: "Veuillez recommencer", preferredStyle: UIAlertControllerStyle.alert)
         
         // add an action (button)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
             action in self.stopRec();
-            CotoBackMethods().enrAttempt();
         }))
         
         // show the alert

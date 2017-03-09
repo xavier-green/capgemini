@@ -75,6 +75,7 @@ class LoginViewController: UIViewController {
     }
     
     func successRecording() {
+        _ = CotoBackMethods().logAttempt();
         
         // create the alert
         let alert = UIAlertController(title: "Authentification réussie", message: "", preferredStyle: UIAlertControllerStyle.alert)
@@ -82,7 +83,6 @@ class LoginViewController: UIViewController {
         // add an action (button)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
             action in self.goForw();
-//            CotoBackMethods().logAttempt();
         }))
         
         // show the alert
@@ -91,12 +91,13 @@ class LoginViewController: UIViewController {
     }
     func failureRecording() {
         
+        _ = CotoBackMethods().logAttempt();
+        
         let alert = UIAlertController(title: "Authentification échouée", message: "Recommencez si vous êtes vraiment qui vous prétendez être", preferredStyle: UIAlertControllerStyle.alert)
         
         // add an action (button)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
             action in self.reduceAttempts();
-//            CotoBackMethods().logAttempt();
             self.stopRec();
         }))
         
@@ -123,9 +124,6 @@ class LoginViewController: UIViewController {
         self.spinner.isHidden = true
         assignbackground()
         NotificationCenter.default.addObserver(self, selector: #selector(self.goBack), name: NSNotification.Name(rawValue: "RETOUR"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.goForw), name: NSNotification.Name(rawValue: "SUIVANT"), object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(self.successFunc), name: NSNotification.Name(rawValue: "VOICE_AUTH"), object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(self.failFunc), name: NSNotification.Name(rawValue: "DEFAULT"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.successRecording), name: NSNotification.Name(rawValue: "REC_SUCCESS"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.failureRecording), name: NSNotification.Name(rawValue: "REC_FAIL"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.startRecording), name: NSNotification.Name(rawValue: "NUANCE_PROCESSING"), object: nil)
@@ -134,7 +132,7 @@ class LoginViewController: UIViewController {
     }
     
     func goBack() {
-        performSegue(withIdentifier: "backToNicknameSegue", sender: self)
+        dismiss(animated: true, completion: nil)
     }
     func goForw() {
         performSegue(withIdentifier: "loginCheckSegue", sender: self)

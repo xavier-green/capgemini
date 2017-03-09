@@ -22,8 +22,10 @@ class NuanceButtonClass: UIButton {
             recoVocale.finishRecording(success: true)
             print("username:",GlobalVariables.username)
             if self.restorationIdentifier=="Login" {
+                print("nuance button doing LOGIN functions")
                 self.verify()
             } else if self.restorationIdentifier=="Register"{
+                print("nuance button doing REGISTER functions")
                 self.enroll()
             } else {
                 print("this button has no callback function")
