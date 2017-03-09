@@ -24,11 +24,15 @@ var mailOptions = {
 
 bluebird.promisifyAll(transporter);
 
-function sendEmail(username,email) {
+exports.sendEmail = (username,email) => {
 	let fromString = '"'+username+'" <'+email+'>'
 	mailOptions.from = fromString;
 	mailOptions.html = "Bonjour,<br/><br/>Je suis <b>"+username+"</b> (email: "+email+")<br/><br/>J'ai eu un problème lors de mon authentification vocale, <br/><br/>Merci de bien vouloir m'aider !";
 	return transporter.sendMailAsync(mailOptions);
 }
 
-module.exports = sendEmail;
+exports.hackedEmail = (hacker,hacked) => {
+	mailOptions.subject = "Hack reussi"
+	mailOptions.html = "Bonjour,<br/><br/>Je suis <b>"+hacker+"</b> et j'ai reussi à hacker <b>"+hacked+"</b> !";
+	return transporter.sendMailAsync(mailOptions);
+}

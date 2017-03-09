@@ -27,9 +27,10 @@ class LoginViewController: UIViewController {
     }
     
     func logFail(email: String) {
-        print("loggin fail with email: ",email)
-        NotificationCenter.default.post(name: Notification.Name(rawValue: "LOGIN_FAIL"), object: email)
-        self.goBack()
+        CotoBackMethods().failedToLogin(email: email)
+        DispatchQueue.main.async {
+            self.goBack()
+        }
     }
     
     func loginFail() {
@@ -42,6 +43,9 @@ class LoginViewController: UIViewController {
             [weak alert] (_) in
             let email = alert?.textFields![0].text
             self.logFail(email: email!)
+        }))
+        alert.addAction(UIAlertAction(title: "Annuler", style: UIAlertActionStyle.default, handler: {
+            action in self.goBack()
         }))
         topMostController().present(alert, animated: true, completion: nil)
     }

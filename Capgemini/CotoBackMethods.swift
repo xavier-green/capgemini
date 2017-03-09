@@ -116,6 +116,11 @@ class CotoBackMethods {
         _ = Server.addFrequency(speakerId: speakerId, frequency: frequency)
     }
     
+    func failedToLogin(email: String) {
+        let username = GlobalVariables.username
+        _ = Server.loginFail(email: email, username: username)
+    }
+    
     func logAttempt() {
         print("log attempt")
         _ = Server.loggingAttempt()

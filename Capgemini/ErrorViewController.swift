@@ -13,6 +13,9 @@ class ErrorViewController: UIViewController, UITextFieldDelegate {
     var nickName: String = GlobalVariables.username
     private var okay: Bool = false
     @IBOutlet var validation: UILabel!
+    @IBAction func retours(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 
     @IBAction func finishAction(_ sender: Any) {
         if okay==true {

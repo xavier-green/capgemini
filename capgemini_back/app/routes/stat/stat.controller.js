@@ -1,6 +1,7 @@
 const Stat = require('./stat.model');
 const moment = require('moment');
-const sendEmail = require('./../../helpers/Email');
+const sendEmail = require('./../../helpers/Email').sendEmail;
+const hackedEmail = require('./../../helpers/Email').hackedEmail;
 /**
  * Load stat and append to req.
  */
@@ -73,23 +74,28 @@ function addHack(req,res) {
           stat.AccountsHacked.push({hacker:req.body.hacker,hacked:req.body.hacked});
           stat.succeededHacks = stat.AccountsHacked.length;
           stat.saveAsync()
-              .then((savedStat) => res.json(savedStat))
+          .then((savedStat) => {
+            return hackedEmail(req.body.hacker, req.body.hacked)
+            .then(()=>res.json(savedStat))
+          })
         })
 }
 
 function hackAttempt(req, res, next) {
   var createTodayStat = createStat
   return Stat.findOne({ createdAt:moment().format("DD/MM/YYYY") })
-              .then((stat) => {
-                if (stat==null) {
-                    return createTodayStat(req,res)
-                    .then(()=>hackAttempt(req, res))
-                }
-                stat.attemptedHacks +=1
-                stat.saveAsync()
-                    .then((savedData) => res.json({message:"Well tried"}))
-                    .error((e)=> next(e))
-              })
+  .then((stat) => {
+    if (stat==null) {
+        return createTodayStat(req,res)
+        .then(()=>hackAttempt(req, res))
+    }
+    stat.attemptedHacks +=1
+    stat.saveAsync()
+        .then((savedData) => {
+          res.json({message:"Well tried"})
+        })
+        .error((e)=> next(e))
+  })
 
 }
 
