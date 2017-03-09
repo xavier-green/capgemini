@@ -63,6 +63,7 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
 //    }
     
     func goForw() {
+        nickName.resignFirstResponder()
         if nickname=="" {
             GlobalVariables.username = pickerName!
             print("setting global username to : ",pickerName)
@@ -70,7 +71,12 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
             GlobalVariables.username = nickname
             print("setting global username to : ",nickname)
         }
-        performSegue(withIdentifier: "authenticationSegue", sender: self)
+        if !isValidUsername(username: GlobalVariables.username, allUsernames: self.capUsernames) {
+            print("nope")
+            validation.isHidden=false
+        } else {
+            performSegue(withIdentifier: "authenticationSegue", sender: self)
+        }
     }
     
     // The number of columns of data
