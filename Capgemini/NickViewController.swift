@@ -36,10 +36,11 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         
         DispatchQueue.global(qos: .background).async {
             print("Running nuance fetch in background thread")
-            let capUsers = CotoBackMethods().getUsersNames()[0]
+            var capUsers = CotoBackMethods().getUsersNames()[0] as! [String]
+            capUsers = capUsers.sorted{$0.localizedCompare($1) == .orderedAscending}
             DispatchQueue.main.async {
                 print("back to main")
-                self.capUsernames = capUsers as! [String]
+                self.capUsernames = capUsers
                 self.usernamePicker.reloadAllComponents()
                 if self.capUsernames.count>0 {
                     self.pickerName = self.capUsernames[0]
