@@ -86,13 +86,17 @@ class ServerConnection {
         var errors: String?
         
         session.dataTask(with: request, completionHandler: { (data, response, error) in
+            if error != nil {
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "ERROR"), object: errors)
+                return
+            }
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
                 print("statusCode should be 200, but is \(httpStatus.statusCode)")
                 //print("response = \(response)")
                 print("******** REQUEST ERROR")
                 errors = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as? String
                 NotificationCenter.default.post(name: Notification.Name(rawValue: "ERROR"), object: errors)
-//                return
+                return
             }
             dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as? String
             //print(dataString)

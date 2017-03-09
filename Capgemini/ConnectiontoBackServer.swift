@@ -105,6 +105,10 @@ class ConnectiontoBackServer {
         var errors: String?
         
         session.dataTask(with: request, completionHandler: { (data, response, error) in
+            if error != nil {
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "ERROR"), object: errors)
+                return
+            }
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
                 print("statusCode should be 200, but is \(httpStatus.statusCode)")
                 //print("response = \(response)")
