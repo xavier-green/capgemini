@@ -82,7 +82,7 @@ class LoginViewController: UIViewController {
         // add an action (button)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
             action in self.goForw();
-            CotoBackMethods().logAttempt();
+//            CotoBackMethods().logAttempt();
         }))
         
         // show the alert
@@ -96,7 +96,7 @@ class LoginViewController: UIViewController {
         // add an action (button)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
             action in self.reduceAttempts();
-            CotoBackMethods().logAttempt();
+//            CotoBackMethods().logAttempt();
             self.stopRec();
         }))
         

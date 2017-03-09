@@ -98,6 +98,8 @@ class ConnectiontoBackServer {
     
     func sendRequest(session: URLSession, request: URLRequest, notificationString: String) -> String {
         
+        print("sending request")
+        
         let semaphore = DispatchSemaphore(value: 0)
         var dataString: String?
         var errors: String?

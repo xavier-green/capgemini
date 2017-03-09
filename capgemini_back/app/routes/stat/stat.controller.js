@@ -138,33 +138,36 @@ function loginFail(req, res) {
 }
 
 function loginAttempt(req, res) {
+  console.log("got login attempt");
   var createTodayStat = createStat
   return Stat.findOne({ createdAt:moment().format("DD/MM/YYYY") })
-              .then((stat) => {
-                if (stat==null) {
-                    return createTodayStat(req,res)
-                    .then(()=>loginAttempt(req, res))
-                }
-                stat.loginAttempts +=1
-                stat.saveAsync()
-                    .then((savedData) => res.json({message:"Login Attempted"}))
-                    .error((e)=> next(e))
-              })
+  .then((stat) => {
+    if (stat==null) {
+      console.log("creating associated stat");
+        return createTodayStat(req,res)
+        .then(()=>loginAttempt(req, res))
+    }
+    console.log("now incrementing the attempt");
+    stat.loginAttempts +=1
+    stat.saveAsync()
+    .then((savedData) => res.json({message:"Login Attempted"}))
+    .error((e)=> next(e))
+  })
 }
 
 function enrolAttempt(req, res) {
   var createTodayStat = createStat
   return Stat.findOne({ createdAt:moment().format("DD/MM/YYYY") })
-              .then((stat) => {
-                if (stat==null) {
-                    return createTodayStat(req,res)
-                    .then(()=>enrolAttempt(req, res))
-                }
-                stat.enrolmentAttempts +=1
-                stat.saveAsync()
-                    .then((savedData) => res.json({message:"Enrolment Attempted"}))
-                    .error((e)=> next(e))
-              })
+  .then((stat) => {
+    if (stat==null) {
+        return createTodayStat(req,res)
+        .then(()=>enrolAttempt(req, res))
+    }
+    stat.enrolmentAttempts +=1
+    stat.saveAsync()
+        .then((savedData) => res.json({message:"Enrolment Attempted"}))
+        .error((e)=> next(e))
+  })
   }
 
 

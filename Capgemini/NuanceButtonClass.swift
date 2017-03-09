@@ -47,6 +47,7 @@ class NuanceButtonClass: UIButton {
             }
             DispatchQueue.main.async {
                 print("back to main")
+                print("nuance sending notif "+notifString)
                 NotificationCenter.default.post(name: Notification.Name(rawValue: notifString), object: self)
             }
         }
@@ -59,6 +60,7 @@ class NuanceButtonClass: UIButton {
             let notifString = self.recoVocale.enroll(username: username)
             DispatchQueue.main.async {
                 print("back to main")
+                print("nuance sending notif "+notifString)
                 NotificationCenter.default.post(name: Notification.Name(rawValue: notifString), object: self)
             }
         }
