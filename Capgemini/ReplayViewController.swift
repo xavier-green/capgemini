@@ -13,9 +13,7 @@ class ReplayViewController: UIViewController {
     @IBOutlet var selectedImageView: UIImageView!
     
     @IBAction func replay(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Login", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
-        self.present(controller, animated: true, completion: nil)
+        goBacktohomefromApp()
     }
     
     override func viewDidLoad() {

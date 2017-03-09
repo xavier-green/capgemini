@@ -75,6 +75,11 @@ extension UIViewController {
             topMostController().present(alert, animated: true, completion: nil)
         }
     }
+    
+    func goBacktohomefromApp() {
+        bottomMostController().dismiss(animated: true, completion: nil)
+        bottomMostController().dismiss(animated: false, completion: nil)
+    }
 }
 
 extension String {
