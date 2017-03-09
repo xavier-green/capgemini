@@ -36,8 +36,8 @@ app.use(session({
 }));
 
 // parse body params and attach them to req.body
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json({ limit:'50mb' }));
+app.use(bodyParser.urlencoded({ extended: true, limit:'50mb', parameterLimit:50000 }));
 
 app.use(cookieParser());
 app.use(compress());
