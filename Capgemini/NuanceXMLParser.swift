@@ -93,8 +93,9 @@ class NuanceXMLParser {
         
         do {
             let xmlDoc = try AEXMLDocument(xml: xmlData)
-            let isMatch = xmlDoc.root["SpeakerResults"]["SpeakerResult"]["Decision"].value=="Match"
-            //print("is user matched: ",isMatch)
+            let score = Int(xmlDoc.root["SpeakerResults"]["SpeakerResult"]["BiometricScore"].value!)!
+            let isMatch = score > 30
+            print("is user matched: ",isMatch," biometric score: ",score)
             return isMatch
         } catch {
             print("field Decision not found")
