@@ -26,6 +26,11 @@ class ServerFunctions {
         return Parser.extractMatch(xmlString: verification)
     }
     
+    func getScore(username: String, audio: String) -> Int {
+        let verification = Server.verify(speakerId: username, audio: audio)
+        return Parser.extractScore(xmlString: verification)
+    }
+    
     func enroll(username: String, audio: String) -> String {
         self.currentUsername = username
         let statusXML = Server.enroll(speakerId: username, audio: audio)

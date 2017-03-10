@@ -9,7 +9,7 @@
 import UIKit
 import Speech
 
-class NuanceButtonClass: UIButton {
+class NuanceTestButton: UIButton {
     
     var recoVocale: ReconnaissanceVocaleController!
     let micOffImage = UIImage(named: "micOff")
@@ -20,46 +20,24 @@ class NuanceButtonClass: UIButton {
             NotificationCenter.default.post(name: Notification.Name(rawValue: "NUANCE_PROCESSING"), object: self)
             self.setBackgroundImage(micOnImage, for: .normal)
             recoVocale.finishRecording(success: true)
-            if self.restorationIdentifier=="Login" {
-                self.verify()
-            } else if self.restorationIdentifier=="Register"{
-                self.enroll()
-            } else {
-                print("this button has no callback function")
-            }
+            self.verify(username1: GlobalVariables.speaker1, username2: GlobalVariables.speaker2)
         } else {
             self.setBackgroundImage(micOffImage, for: .normal)
             recoVocale.startRecording()
         }
     }
     
-    func verify() {
-        let username = GlobalVariables.username
+    func verify(username1: String, username2: String) {
         DispatchQueue.global(qos: .background).async {
-            let verified = self.recoVocale.verify(username: username)
-            var notifString = String()
-            if verified==true {
-                notifString = "REC_SUCCESS"
-            } else {
-                notifString = "REC_FAIL"
-            }
+            let verified1 = self.recoVocale.getScore(username: username1)
+            let verified2 = self.recoVocale.getScore(username: username2)
             DispatchQueue.main.async {
-                NotificationCenter.default.post(name: Notification.Name(rawValue: notifString), object: self)
+                print(username1,"  :  ",verified1)
+                print(username2,"  :  ",verified2)
             }
         }
     }
     
-    func enroll() {
-        let username = GlobalVariables.username
-        DispatchQueue.global(qos: .background).async {
-            let notifString = self.recoVocale.enroll(username: username)
-            DispatchQueue.main.async {
-                print("nuance sending notif "+notifString)
-                NotificationCenter.default.post(name: Notification.Name(rawValue: notifString), object: self)
-            }
-        }
-    }
-
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         recoVocale = ReconnaissanceVocaleController()
@@ -97,5 +75,5 @@ class NuanceButtonClass: UIButton {
             }
         }
     }
-
+    
 }

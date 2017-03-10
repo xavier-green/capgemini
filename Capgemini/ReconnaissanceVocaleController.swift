@@ -83,6 +83,11 @@ class ReconnaissanceVocaleController {
         return Server.verify(username: username, audio: base64data!.RFC3986UnreservedEncoded)
     }
     
+    func getScore(username: String) -> Int {
+        let base64data = NSData(contentsOf: fileUrl)?.base64EncodedString()
+        return Server.getScore(username: username, audio: base64data!.RFC3986UnreservedEncoded)
+    }
+    
     func enroll(username: String) -> String {
         let base64data = NSData(contentsOf: fileUrl)?.base64EncodedString()
         return Server.enroll(username: username, audio: base64data!.RFC3986UnreservedEncoded)

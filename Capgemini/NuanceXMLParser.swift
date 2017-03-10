@@ -104,4 +104,19 @@ class NuanceXMLParser {
         
     }
     
+    func extractScore(xmlString: String) -> Int {
+        
+        let xmlData = xmlString.data(using: String.Encoding.utf8)!
+        
+        do {
+            let xmlDoc = try AEXMLDocument(xml: xmlData)
+            let score = Int(xmlDoc.root["SpeakerResults"]["SpeakerResult"]["BiometricScore"].value!)!
+            return score
+        } catch {
+            print("field Decision not found")
+            return 0
+        }
+        
+    }
+    
 }
