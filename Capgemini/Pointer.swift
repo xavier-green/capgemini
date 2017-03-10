@@ -50,7 +50,7 @@ class Pointer {
     
     func moves() -> (PositionAndChangeOfSide){
         
-        position.x += direction.dx * CGFloat(SPEED)
+        position.x += direction.dx * CGFloat(SPEED * GlobalVariables.lineSpeedMultiplier)
         position.y += direction.dy * CGFloat(SPEED)
         
         let width = self.drawView.bounds.size.width

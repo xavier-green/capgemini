@@ -19,9 +19,6 @@ class DrawTestViewController: UIViewController {
     var frequency: Float!
     var frequencyParameter: FrequencyVoiceParameters!
     var frequencyRegistered: Bool!
-    @IBAction func linesizeModifier(_ sender: UIButton) {
-        slider.isHidden = !slider.isHidden
-    }
     @IBOutlet weak var slider: UISlider!
     func finishDrawing() {
         AudioKit.stop()
@@ -30,9 +27,7 @@ class DrawTestViewController: UIViewController {
     }
     
     @IBAction func sliderValueChanged(sender: UISlider) {
-        GlobalVariables.lineSizeMultiplier = Double(sender.value)
-        slider.isHidden=true
-
+        GlobalVariables.lineSpeedMultiplier = Int(sender.value)
     }
     @IBOutlet var okButton: UIButton!
     
