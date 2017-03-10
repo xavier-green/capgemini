@@ -23,7 +23,8 @@ class NuanceTestViewController: UIViewController, UITextFieldDelegate {
         self.hideKeyboardWhenTappedAround()
         firstSpeaker.delegate = self
         secondSpeaker.delegate = self
-        // Do any additional setup after loading the view.
+        NotificationCenter.default.addObserver(self, selector: #selector(self.processResult), name: NSNotification.Name(rawValue: "PIEUVRE"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.processName), name: NSNotification.Name(rawValue: "PIEUVRE_NAME"), object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,6 +32,23 @@ class NuanceTestViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func processName(notification: NSNotification) {
+        
+        print("got name")
+        
+        let result = notification.object as! String
+        results.text = result+" : "+results.text
+        
+    }
+    
+    func processResult(notification: NSNotification) {
+        
+        print("got phrase")
+        
+        let result = notification.object as! String
+        results.text = results.text + result
+        
+    }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()

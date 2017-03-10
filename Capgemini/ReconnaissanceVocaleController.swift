@@ -8,6 +8,7 @@
 
 import Foundation
 import AVFoundation
+import Speech
 
 class ReconnaissanceVocaleController {
     
@@ -16,6 +17,8 @@ class ReconnaissanceVocaleController {
     var audioPlayer : AVAudioPlayer!
     var Server : ServerFunctions!
     private var fileUrl : URL!
+    
+    private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "fr-FR"))!
     
     var recordingOkay: Bool = false
     
@@ -85,7 +88,8 @@ class ReconnaissanceVocaleController {
     
     func getScore(username: String) -> Int {
         let base64data = NSData(contentsOf: fileUrl)?.base64EncodedString()
-        return Server.getScore(username: username, audio: base64data!.RFC3986UnreservedEncoded)
+        let score = Server.getScore(username: username, audio: base64data!.RFC3986UnreservedEncoded)
+        return score
     }
     
     func enroll(username: String) -> String {
@@ -122,6 +126,28 @@ class ReconnaissanceVocaleController {
     }
     internal func audioPlayerBeginInterruption(_ player: AVAudioPlayer){
         print(player.debugDescription)
+    }
+    
+    func recognizeFile() {
+        print("recognising")
+        
+        let request = SFSpeechURLRecognitionRequest(url: self.fileUrl)
+        speechRecognizer.recognitionTask(with: request) { result, error in
+            if (error != nil) {
+                print(error ?? "here but no error")
+            }
+            if let result = result {
+                //print(result.bestTranscription.formattedString)
+                if result.isFinal {
+                    print("speech recog done")
+                    let phrase = result.bestTranscription.formattedString
+                    NotificationCenter.default.post(name: Notification.Name(rawValue: "PIEUVRE"), object: phrase)
+                    //print(result.bestTranscription.formattedString)
+                }
+            } else if let error = error {
+                print(error)
+            }
+        }
     }
     
 }

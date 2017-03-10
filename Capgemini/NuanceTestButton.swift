@@ -29,11 +29,15 @@ class NuanceTestButton: UIButton {
     
     func verify(username1: String, username2: String) {
         DispatchQueue.global(qos: .background).async {
-            let verified1 = self.recoVocale.getScore(username: username1)
-            let verified2 = self.recoVocale.getScore(username: username2)
+            let res1 = self.recoVocale.getScore(username: username1)
+            let res2 = self.recoVocale.getScore(username: username2)
+            self.recoVocale.recognizeFile()
             DispatchQueue.main.async {
-                print(username1,"  :  ",verified1)
-                print(username2,"  :  ",verified2)
+                if (res1<res2) {
+                    NotificationCenter.default.post(name: Notification.Name(rawValue: "PIEUVRE_NAME"), object: username2)
+                } else {
+                    NotificationCenter.default.post(name: Notification.Name(rawValue: "PIEUVRE_NAME"), object: username1)
+                }
             }
         }
     }
