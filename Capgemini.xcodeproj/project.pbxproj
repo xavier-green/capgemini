@@ -38,6 +38,7 @@
 		0EA950511E658E3F00D82337 /* ServerFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA950501E658E3F00D82337 /* ServerFunctions.swift */; };
 		0EA950551E65BBF400D82337 /* CotoBackMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA950541E65BBF400D82337 /* CotoBackMethods.swift */; };
 		0EB29EC21E5EF6A800D1EAAF /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB29EC11E5EF6A800D1EAAF /* ErrorViewController.swift */; };
+		0ED116B01E769AE700DF6940 /* VoicetoTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED116AF1E769AE700DF6940 /* VoicetoTextViewController.swift */; };
 		43010ADE1E6036B1009A38A1 /* RecordButtonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43010ADD1E6036B1009A38A1 /* RecordButtonClass.swift */; };
 		43010AE01E60496A009A38A1 /* SpeechToText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43010ADF1E60496A009A38A1 /* SpeechToText.swift */; };
 		43010AE21E605A24009A38A1 /* FireEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43010AE11E605A24009A38A1 /* FireEvents.swift */; };
@@ -137,6 +138,7 @@
 		0EA950501E658E3F00D82337 /* ServerFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerFunctions.swift; sourceTree = "<group>"; };
 		0EA950541E65BBF400D82337 /* CotoBackMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CotoBackMethods.swift; sourceTree = "<group>"; };
 		0EB29EC11E5EF6A800D1EAAF /* ErrorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
+		0ED116AF1E769AE700DF6940 /* VoicetoTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoicetoTextViewController.swift; sourceTree = "<group>"; };
 		43010ADD1E6036B1009A38A1 /* RecordButtonClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordButtonClass.swift; sourceTree = "<group>"; };
 		43010ADF1E60496A009A38A1 /* SpeechToText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechToText.swift; sourceTree = "<group>"; };
 		43010AE11E605A24009A38A1 /* FireEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireEvents.swift; sourceTree = "<group>"; };
@@ -381,6 +383,8 @@
 		433BC7301E7697CE00B1C012 /* Pieuvre */ = {
 			isa = PBXGroup;
 			children = (
+				433BC7311E7697E100B1C012 /* PseudoAddCell.swift */,
+				0ED116AF1E769AE700DF6940 /* VoicetoTextViewController.swift */,
 				433BC7331E76993900B1C012 /* PieuvrePseudoAddViewController.swift */,
 			);
 			name = Pieuvre;
@@ -621,6 +625,7 @@
 				435DA5251E6D611A00890F1F /* StatController.swift in Sources */,
 				0E0961721E5B4F1800487D61 /* SetDateViewController.swift in Sources */,
 				0EA950471E642CEF00D82337 /* DrawView.swift in Sources */,
+				0ED116B01E769AE700DF6940 /* VoicetoTextViewController.swift in Sources */,
 				0E1D3BEE1E603A26002CE65D /* CustomButtons.swift in Sources */,
 				433100AA1E57344500269EEB /* ViewController.swift in Sources */,
 				0E09616E1E5B4EF400487D61 /* ReadyViewController.swift in Sources */,
