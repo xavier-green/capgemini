@@ -42,11 +42,8 @@
                                 </state>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3pt-LN-IqM">
-                                <rect key="frame" x="0.0" y="356.5" width="375" height="150"/>
+                                <rect key="frame" x="0.0" y="356.5" width="375" height="170.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="VFj-Y3-4pJ"/>
-                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pseudoCell" id="3zb-y3-TEz" customClass="PieuvrePseudoCell" customModule="My_VocalPrint" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -101,6 +98,9 @@
                                     <constraint firstAttribute="height" constant="90" id="4TX-Xi-FKK"/>
                                 </constraints>
                                 <state key="normal" title="Suivant"/>
+                                <connections>
+                                    <action selector="gotoPieuvreMain:" destination="a9K-ef-Yvy" eventType="touchUpInside" id="V0d-OQ-bvC"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -116,6 +116,7 @@
                             <constraint firstItem="tjN-B3-Nhe" firstAttribute="leading" secondItem="3Il-fW-Nup" secondAttribute="leadingMargin" constant="50" id="UyY-vu-xBR"/>
                             <constraint firstItem="XO3-Hr-bCp" firstAttribute="centerX" secondItem="3Il-fW-Nup" secondAttribute="centerX" id="ZG3-fn-TZM"/>
                             <constraint firstItem="yNZ-jU-b2W" firstAttribute="top" secondItem="FW1-SE-yKP" secondAttribute="bottom" constant="50" id="ahx-X3-LoK"/>
+                            <constraint firstItem="XO3-Hr-bCp" firstAttribute="top" secondItem="3pt-LN-IqM" secondAttribute="bottom" constant="50" id="bky-5D-9kc"/>
                             <constraint firstItem="XO3-Hr-bCp" firstAttribute="width" secondItem="3Il-fW-Nup" secondAttribute="width" id="dGm-md-joy"/>
                             <constraint firstItem="F25-b3-uY6" firstAttribute="top" secondItem="XO3-Hr-bCp" secondAttribute="bottom" id="fWo-hB-JGE"/>
                             <constraint firstItem="tbD-Zy-yNZ" firstAttribute="centerX" secondItem="3Il-fW-Nup" secondAttribute="centerX" id="g27-Up-3yq"/>
@@ -131,6 +132,7 @@
                         <outlet property="usernameAdd" destination="tbD-Zy-yNZ" id="T1m-NE-Lwg"/>
                         <outlet property="usernamesView" destination="3pt-LN-IqM" id="1DI-5s-6dL"/>
                         <outlet property="validation" destination="i4c-2R-Ks0" id="Dcq-B8-Jnv"/>
+                        <segue destination="4gm-qC-d7W" kind="show" identifier="gotoPieuvreView" id="KpT-aW-vE1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1TJ-1x-MQA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -150,7 +152,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ddu-0I-oMB">
-                                <rect key="frame" x="16" y="28" width="343" height="219"/>
+                                <rect key="frame" x="16" y="72" width="343" height="175"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="This is what is being said :" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EH9-HO-c7y">
