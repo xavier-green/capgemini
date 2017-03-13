@@ -10,7 +10,7 @@ import UIKit
 
 class PieuvrePseudoAddViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
-    var testUsernames = [String]()
+    var testUsernames: [String] = ["xavtest","youyountest"]
     var capUsernames = [String]()
     
     @IBOutlet var usernamesView: UITableView!

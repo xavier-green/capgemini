@@ -16,6 +16,8 @@ class StatsViewController: UIViewController {
     
     @IBOutlet var statsView: UITextView!
 
+    @IBOutlet var wordsView: UITextView!
+    
     @IBAction func backToMain(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
@@ -49,13 +51,34 @@ class StatsViewController: UIViewController {
                 let str = independentUsers[i]+" : "+String(round(Double(percentage)))+"%\n"
                 self.statsView.text = self.statsView.text! + str
             }
-            print(GlobalVariables.words)
         }
+    }
+    
+    func processWords() {
+        let sortedWords = Array(GlobalVariables.words).sorted(by: { $0.1 > $1.1 })
+        var n = Int()
+        if (sortedWords.count<3) {
+            n = sortedWords.count
+        } else {
+            n = 3
+        }
+        let mostUsedWords = sortedWords[0..<n]
+        self.wordsView.text = ""
+        if mostUsedWords.count>0 {
+            for i in 0...mostUsedWords.count-1 {
+                let str = mostUsedWords[i].key+" :  "+String(mostUsedWords[i].value)+"\n"
+                self.wordsView.text = self.wordsView.text! + str
+            }
+        } else {
+            self.wordsView.text = "Aucun mot enregistré"
+        }
+        print(sortedWords)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         processCounts()
+        processWords()
         // Do any additional setup after loading the view.
     }
 
