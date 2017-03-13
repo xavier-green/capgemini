@@ -23,4 +23,7 @@ struct GlobalVariables {
     
     static var namesInOrder = [String]()
     static var phrasesInOrder = [String]()
+    
+    static var words = Dictionary<String, Int>()
+    static var wordCount = [Int]()
 }

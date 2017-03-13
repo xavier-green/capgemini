@@ -21,9 +21,16 @@ class NuanceTestButton: UIButton {
             self.setBackgroundImage(micOnImage, for: .normal)
             recoVocale.finishRecording(success: true)
             self.verify(namesArray: GlobalVariables.pieuvreUsernames)
+            speechToText()
         } else {
             self.setBackgroundImage(micOffImage, for: .normal)
             recoVocale.startRecording()
+        }
+    }
+    
+    func speechToText() {
+        DispatchQueue.global(qos: .background).async {
+            self.recoVocale.recognizeFile()
         }
     }
     
@@ -35,7 +42,6 @@ class NuanceTestButton: UIButton {
             }
             let maxScore = results.max()
             let maxIndex = results.index(of: maxScore!)
-            self.recoVocale.recognizeFile()
             DispatchQueue.main.async {
                 NotificationCenter.default.post(name: Notification.Name(rawValue: "PIEUVRE_NAME"), object: namesArray[maxIndex!])
             }

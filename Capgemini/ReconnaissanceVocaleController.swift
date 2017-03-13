@@ -150,7 +150,6 @@ class ReconnaissanceVocaleController {
                     print("speech recog done")
                     let phrase = result.bestTranscription.formattedString
                     NotificationCenter.default.post(name: Notification.Name(rawValue: "PIEUVRE"), object: phrase)
-                    //print(result.bestTranscription.formattedString)
                 }
             } else if let error = error {
                 print(error)

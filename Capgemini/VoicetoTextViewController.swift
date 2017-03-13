@@ -14,9 +14,9 @@ class VoicetoTextViewController: UIViewController, UITableViewDelegate, UITableV
     
     private var namesInOrder = [String]()
     private var phrasesInOrder = [String]()
+    private var wordCount = [Int]()
 
     @IBOutlet weak var usernames: UITableView!
-    @IBOutlet weak var recordedText: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(self.processResult), name: NSNotification.Name(rawValue: "PIEUVRE"), object: nil)
@@ -31,17 +31,6 @@ class VoicetoTextViewController: UIViewController, UITableViewDelegate, UITableV
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -67,7 +56,6 @@ class VoicetoTextViewController: UIViewController, UITableViewDelegate, UITableV
         let result = notification.object as! String
         namesInOrder.append(result)
         self.speakingUsername = result
-        recordedText.text = ""
         usernames.beginUpdates()
         let indexPosition = GlobalVariables.pieuvreUsernames.index(of: result)
         usernames.moveRow(at: NSIndexPath(row: indexPosition!, section: 0) as IndexPath, to: NSIndexPath(row: 0, section: 0) as IndexPath)
@@ -82,12 +70,38 @@ class VoicetoTextViewController: UIViewController, UITableViewDelegate, UITableV
         
         let result = notification.object as! String
         phrasesInOrder.append(result)
-        recordedText.text = recordedText.text + result
+        wordCount(s: result)
         
     }
-    @IBAction func showResultingText(_ sender: Any) {
+    
+    func wordCount(s: String) {
+        let words = s.components(separatedBy: .whitespacesAndNewlines).filter{!$0.isEmpty}
+        wordCount.append(words.count)
+        print("finished adding word count: ",words.count)
+        for word in words {
+            if let count = GlobalVariables.words[word] {
+                GlobalVariables.words[word] = count + 1
+            } else {
+                GlobalVariables.words[word] = 1
+            }
+        }
+    }
+    
+    func setGlobalVariables() {
         GlobalVariables.namesInOrder = self.namesInOrder
         GlobalVariables.phrasesInOrder = self.phrasesInOrder
+        print("setting global variables:")
+        print(self.wordCount)
+        GlobalVariables.wordCount = self.wordCount
+    }
+    
+    @IBAction func getStats(_ sender: Any) {
+        self.setGlobalVariables()
+        performSegue(withIdentifier: "gotoStats", sender: self)
+    }
+    
+    @IBAction func showResultingText(_ sender: UIButton) {
+        self.setGlobalVariables()
         print(namesInOrder)
         print("*******")
         print(phrasesInOrder)

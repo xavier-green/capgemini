@@ -280,11 +280,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capgemini/VoicetoTextViewController.swift"
-            timestampString = "511094997.651378"
+            timestampString = "511111353.693222"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
             landmarkName = "processName(notification:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -303,6 +303,22 @@
             endingLineNumber = "21"
             landmarkName = "ReconnaissanceVocaleController"
             landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Capgemini/VoicetoTextViewController.swift"
+            timestampString = "511111675.211232"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "getStats(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
