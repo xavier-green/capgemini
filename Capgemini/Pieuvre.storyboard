@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Pieuvre Pseudo Add View Controller-->
         <scene sceneID="VR2-4i-SJD">
             <objects>
-                <viewController id="a9K-ef-Yvy" sceneMemberID="viewController">
+                <viewController id="a9K-ef-Yvy" customClass="PieuvrePseudoAddViewController" customModule="My_VocalPrint" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FW1-SE-yKP"/>
                         <viewControllerLayoutGuide type="bottom" id="F25-b3-uY6"/>
@@ -47,6 +47,34 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="VFj-Y3-4pJ"/>
                                 </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pseudoCell" id="3zb-y3-TEz" customClass="PieuvrePseudoCell" customModule="My_VocalPrint" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3zb-y3-TEz" id="QPe-OG-Xs0">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dyj-6V-hVo">
+                                                    <rect key="frame" x="0.0" y="9.5" width="375" height="24"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="dyj-6V-hVo" firstAttribute="width" secondItem="QPe-OG-Xs0" secondAttribute="width" id="43J-6C-ATI"/>
+                                                <constraint firstItem="dyj-6V-hVo" firstAttribute="centerY" secondItem="QPe-OG-Xs0" secondAttribute="centerY" id="XU7-ZA-bxa"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstItem="dyj-6V-hVo" firstAttribute="centerX" secondItem="3zb-y3-TEz" secondAttribute="centerX" id="L3s-nZ-Myj"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="username" destination="dyj-6V-hVo" id="RDH-Sb-TBC"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -67,6 +95,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qzT-6b-Y8a"/>
+                    <connections>
+                        <outlet property="usernamesView" destination="3pt-LN-IqM" id="1DI-5s-6dL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1TJ-1x-MQA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

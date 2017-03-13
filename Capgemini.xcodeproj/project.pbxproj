@@ -54,7 +54,7 @@
 		433100BD1E57344500269EEB /* CapgeminiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433100BC1E57344500269EEB /* CapgeminiTests.swift */; };
 		433100C81E57344500269EEB /* CapgeminiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433100C71E57344500269EEB /* CapgeminiUITests.swift */; };
 		433BC72F1E76938A00B1C012 /* Pieuvre.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 433BC72E1E76938A00B1C012 /* Pieuvre.storyboard */; };
-		433BC7321E7697E100B1C012 /* PseudoAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433BC7311E7697E100B1C012 /* PseudoAddCell.swift */; };
+		433BC7341E76993900B1C012 /* PieuvrePseudoAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433BC7331E76993900B1C012 /* PieuvrePseudoAddViewController.swift */; };
 		435AA8EB1E5B05CC00BBB567 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 435AA8EA1E5B05CC00BBB567 /* Login.storyboard */; };
 		435AA8ED1E5B064D00BBB567 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435AA8EC1E5B064D00BBB567 /* LoginViewController.swift */; };
 		435AA8F61E5B302200BBB567 /* LoginCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435AA8F51E5B302200BBB567 /* LoginCheckViewController.swift */; };
@@ -159,7 +159,7 @@
 		433100C71E57344500269EEB /* CapgeminiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapgeminiUITests.swift; sourceTree = "<group>"; };
 		433100C91E57344500269EEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		433BC72E1E76938A00B1C012 /* Pieuvre.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Pieuvre.storyboard; sourceTree = "<group>"; };
-		433BC7311E7697E100B1C012 /* PseudoAddCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PseudoAddCell.swift; sourceTree = "<group>"; };
+		433BC7331E76993900B1C012 /* PieuvrePseudoAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieuvrePseudoAddViewController.swift; sourceTree = "<group>"; };
 		435AA8EA1E5B05CC00BBB567 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		435AA8EC1E5B064D00BBB567 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		435AA8F51E5B302200BBB567 /* LoginCheckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCheckViewController.swift; sourceTree = "<group>"; };
@@ -381,7 +381,7 @@
 		433BC7301E7697CE00B1C012 /* Pieuvre */ = {
 			isa = PBXGroup;
 			children = (
-				433BC7311E7697E100B1C012 /* PseudoAddCell.swift */,
+				433BC7331E76993900B1C012 /* PieuvrePseudoAddViewController.swift */,
 			);
 			name = Pieuvre;
 			sourceTree = "<group>";
@@ -617,6 +617,7 @@
 				435AA8ED1E5B064D00BBB567 /* LoginViewController.swift in Sources */,
 				0EA94FEE1E642AAB00D82337 /* DrawTestViewController.swift in Sources */,
 				0EA9503E1E642BFB00D82337 /* FrequencyVoiceParameters.swift in Sources */,
+				433BC7341E76993900B1C012 /* PieuvrePseudoAddViewController.swift in Sources */,
 				435DA5251E6D611A00890F1F /* StatController.swift in Sources */,
 				0E0961721E5B4F1800487D61 /* SetDateViewController.swift in Sources */,
 				0EA950471E642CEF00D82337 /* DrawView.swift in Sources */,
@@ -635,7 +636,6 @@
 				436290B81E705E4D00D7E4B6 /* Reachability.swift in Sources */,
 				0E1A97BB1E6D849000F86C88 /* ColorUtils.swift in Sources */,
 				43010ADE1E6036B1009A38A1 /* RecordButtonClass.swift in Sources */,
-				433BC7321E7697E100B1C012 /* PseudoAddCell.swift in Sources */,
 				0E0961731E5B4F1800487D61 /* SetNickViewController.swift in Sources */,
 				43266B1F1E64734E00A644C1 /* NuanceXMLParser.swift in Sources */,
 				4309EAAB1E5DF82F005026CB /* VoteViewController.swift in Sources */,
