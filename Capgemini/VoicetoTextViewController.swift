@@ -8,14 +8,18 @@
 
 import UIKit
 
-class VoicetoTextViewController: UIViewController {
+class VoicetoTextViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var usernames: UITableView!
     @IBOutlet weak var recordedText: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(self.processResult), name: NSNotification.Name(rawValue: "PIEUVRE"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.processName), name: NSNotification.Name(rawValue: "PIEUVRE_NAME"), object: nil)
         // Do any additional setup after loading the view.
+        usernames.delegate=self
+        usernames.dataSource=self
+        print(GlobalVariables.pieuvreUsernames)
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,11 +45,9 @@ class VoicetoTextViewController: UIViewController {
         return GlobalVariables.pieuvreUsernames.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as? nameCell else {
-            fatalError("The dequeued cell is not an instance of MealTableViewCell.")
-        }
-        cell.nameLabel.text = GlobalVariables.pieuvreUsernames[indexPath.row]
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as? nameCell
+        cell?.nameLabel.text = GlobalVariables.pieuvreUsernames[indexPath.row]
+        return cell!
     }
     func processName(notification: NSNotification) {
         
