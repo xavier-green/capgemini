@@ -115,9 +115,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ddu-0I-oMB">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="37" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ddu-0I-oMB">
                                 <rect key="frame" x="16" y="28" width="343" height="219"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" rowHeight="37" id="xfv-dz-kE3" customClass="nameCell" customModule="My_VocalPrint" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="37"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xfv-dz-kE3" id="cfO-3o-FqZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="36"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bvo-6l-mv9">
+                                                    <rect key="frame" x="0.0" y="8" width="343" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="bvo-6l-mv9" firstAttribute="centerY" secondItem="cfO-3o-FqZ" secondAttribute="centerY" id="7pa-GN-fUB"/>
+                                                <constraint firstItem="bvo-6l-mv9" firstAttribute="centerX" secondItem="cfO-3o-FqZ" secondAttribute="centerX" id="cKN-J2-j01"/>
+                                                <constraint firstItem="bvo-6l-mv9" firstAttribute="width" secondItem="cfO-3o-FqZ" secondAttribute="width" id="uZT-IY-ECo"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="bvo-6l-mv9" id="ntz-CV-kaW"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="This is what is being said :" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EH9-HO-c7y">
                                 <rect key="frame" x="0.0" y="257" width="375" height="300"/>
@@ -128,6 +154,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="Login" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1lp-sY-B9p" customClass="RecordButtonClass" customModule="My_VocalPrint" customModuleProvider="target">
+                                <rect key="frame" x="162.5" y="577" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="CUA-x9-Qcr"/>
+                                    <constraint firstAttribute="width" constant="50" id="s2I-4u-Ep8"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -135,11 +169,16 @@
                             <constraint firstItem="eic-5p-Hu5" firstAttribute="top" secondItem="EH9-HO-c7y" secondAttribute="bottom" constant="110" id="BJ7-Q0-IsJ"/>
                             <constraint firstItem="ddu-0I-oMB" firstAttribute="leading" secondItem="egV-Bh-wd2" secondAttribute="leadingMargin" id="JrG-A2-YeK"/>
                             <constraint firstItem="EH9-HO-c7y" firstAttribute="top" secondItem="ddu-0I-oMB" secondAttribute="bottom" constant="10" id="P7M-dx-PYv"/>
+                            <constraint firstItem="1lp-sY-B9p" firstAttribute="top" secondItem="EH9-HO-c7y" secondAttribute="bottom" constant="20" id="W6I-kp-b0x"/>
                             <constraint firstItem="ddu-0I-oMB" firstAttribute="centerX" secondItem="EH9-HO-c7y" secondAttribute="centerX" id="Yp5-Q5-aX2"/>
                             <constraint firstItem="EH9-HO-c7y" firstAttribute="width" secondItem="egV-Bh-wd2" secondAttribute="width" id="sIW-Zx-MaJ"/>
                             <constraint firstItem="ddu-0I-oMB" firstAttribute="top" secondItem="HJa-rK-oAx" secondAttribute="bottom" constant="8" symbolic="YES" id="xb5-wh-WUE"/>
+                            <constraint firstItem="1lp-sY-B9p" firstAttribute="centerX" secondItem="egV-Bh-wd2" secondAttribute="centerX" id="y6y-Ln-hVh"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="recordedText" destination="EH9-HO-c7y" id="L4U-0Z-Xff"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v50-3q-bfC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
