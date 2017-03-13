@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Pieuvre Pseudo Add View Controller-->
+        <!--Préparation réunion-->
         <scene sceneID="VR2-4i-SJD">
             <objects>
                 <viewController id="a9K-ef-Yvy" customClass="PieuvrePseudoAddViewController" customModule="My_VocalPrint" customModuleProvider="target" sceneMemberID="viewController">
@@ -40,6 +40,9 @@
                                 <state key="normal" title="Ajouter">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="addNickname:" destination="a9K-ef-Yvy" eventType="touchUpInside" id="scs-2N-Jtq"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3pt-LN-IqM">
                                 <rect key="frame" x="0.0" y="356.5" width="375" height="170.5"/>
@@ -127,7 +130,7 @@
                             <constraint firstItem="tjN-B3-Nhe" firstAttribute="top" secondItem="tbD-Zy-yNZ" secondAttribute="bottom" constant="50" id="vpx-4B-pFV"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="qzT-6b-Y8a"/>
+                    <navigationItem key="navigationItem" title="Préparation réunion" id="qzT-6b-Y8a"/>
                     <connections>
                         <outlet property="usernameAdd" destination="tbD-Zy-yNZ" id="T1m-NE-Lwg"/>
                         <outlet property="usernamesView" destination="3pt-LN-IqM" id="1DI-5s-6dL"/>
@@ -151,9 +154,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="37" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ddu-0I-oMB">
-                                <rect key="frame" x="16" y="28" width="343" height="219"/>
+                                <rect key="frame" x="16" y="72" width="343" height="175"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" rowHeight="37" id="xfv-dz-kE3" customClass="nameCell" customModule="My_VocalPrint" customModuleProvider="target">

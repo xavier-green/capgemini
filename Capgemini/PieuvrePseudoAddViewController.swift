@@ -44,6 +44,9 @@ class PieuvrePseudoAddViewController: UIViewController, UITableViewDelegate, UIT
         GlobalVariables.pieuvreUsernames = self.testUsernames
         performSegue(withIdentifier: "gotoPieuvreView", sender: self)
     }
+    @IBAction func addNickname(_ sender: Any) {
+        usernameAdd.resignFirstResponder()
+    }
     
     //MARK: TableView
     func numberOfSections(in tableView: UITableView) -> Int {
