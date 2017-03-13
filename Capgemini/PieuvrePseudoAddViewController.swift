@@ -40,6 +40,11 @@ class PieuvrePseudoAddViewController: UIViewController, UITableViewDelegate, UIT
         self.usernamesView.reloadData()
     }
     
+    @IBAction func gotoPieuvreMain(_ sender: Any) {
+        GlobalVariables.pieuvreUsernames = self.testUsernames
+        performSegue(withIdentifier: "gotoPieuvreView", sender: self)
+    }
+    
     //MARK: TableView
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
