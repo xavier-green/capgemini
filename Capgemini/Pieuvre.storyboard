@@ -233,8 +233,8 @@
                     </view>
                     <connections>
                         <outlet property="usernames" destination="ddu-0I-oMB" id="dQO-sZ-FOV"/>
-                        <segue destination="ujj-aN-FVU" kind="presentation" identifier="showTexteSegue" modalTransitionStyle="crossDissolve" id="C7F-DU-nuv"/>
-                        <segue destination="L6A-UO-5Ga" kind="presentation" identifier="gotoStats" id="lTi-bn-e7g"/>
+                        <segue destination="ujj-aN-FVU" kind="presentation" identifier="showTexteSegue" modalTransitionStyle="coverVertical" id="C7F-DU-nuv"/>
+                        <segue destination="L6A-UO-5Ga" kind="presentation" identifier="gotoStats" modalTransitionStyle="coverVertical" id="lTi-bn-e7g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v50-3q-bfC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -345,7 +345,7 @@
                                     <constraint firstAttribute="height" constant="65" id="PYG-kT-ygn"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="Texte" id="xuj-Qc-3Ul">
+                                    <navigationItem title="Compte rendu" id="xuj-Qc-3Ul">
                                         <barButtonItem key="leftBarButtonItem" title="&lt; Retour" id="iff-Fo-b7P">
                                             <connections>
                                                 <action selector="backToRecording:" destination="ujj-aN-FVU" id="1QL-jU-WQT"/>
@@ -355,19 +355,29 @@
                                 </items>
                             </navigationBar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Chargement..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KUB-yH-rrZ">
-                                <rect key="frame" x="16" y="73" width="343" height="594"/>
+                                <rect key="frame" x="16" y="73" width="343" height="494"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qcv-aO-qdN" customClass="CustomButtons" customModule="My_VocalPrint" customModuleProvider="target">
+                                <rect key="frame" x="-0.5" y="577" width="375" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="JXx-Q1-OCo"/>
+                                </constraints>
+                                <state key="normal" title="Envoyer par email"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="qcv-aO-qdN" firstAttribute="width" secondItem="O1N-vW-8ds" secondAttribute="width" id="7MC-Xy-a4e"/>
+                            <constraint firstItem="9s9-ks-9aU" firstAttribute="top" secondItem="qcv-aO-qdN" secondAttribute="bottom" id="Bfj-ZC-qpg"/>
                             <constraint firstItem="8p6-CT-3Km" firstAttribute="width" secondItem="O1N-vW-8ds" secondAttribute="width" id="JEn-Ih-M5Z"/>
+                            <constraint firstItem="qcv-aO-qdN" firstAttribute="centerX" secondItem="O1N-vW-8ds" secondAttribute="centerX" id="TCr-I3-0dG"/>
                             <constraint firstItem="8p6-CT-3Km" firstAttribute="top" secondItem="O1N-vW-8ds" secondAttribute="top" id="Uc4-Sz-aYY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="KUB-yH-rrZ" secondAttribute="trailing" id="d0V-7L-Drt"/>
                             <constraint firstItem="KUB-yH-rrZ" firstAttribute="leading" secondItem="O1N-vW-8ds" secondAttribute="leadingMargin" id="dfC-xX-rbf"/>
-                            <constraint firstItem="9s9-ks-9aU" firstAttribute="top" secondItem="KUB-yH-rrZ" secondAttribute="bottom" id="gqP-hZ-hIf"/>
+                            <constraint firstItem="9s9-ks-9aU" firstAttribute="top" secondItem="KUB-yH-rrZ" secondAttribute="bottom" constant="100" id="gqP-hZ-hIf"/>
                             <constraint firstItem="8p6-CT-3Km" firstAttribute="leading" secondItem="O1N-vW-8ds" secondAttribute="leading" id="mcV-HU-ZjJ"/>
                             <constraint firstItem="KUB-yH-rrZ" firstAttribute="top" secondItem="8p6-CT-3Km" secondAttribute="bottom" constant="8" id="uDf-ce-wJZ"/>
                         </constraints>

@@ -76,7 +76,6 @@
     "eslint": "^3.4.0",
     "eslint-config-airbnb-base": "^7.0.0",
     "eslint-plugin-import": "^1.14.0",
-    "ghooks": "^1.2.0",
     "isparta": "4.0.0",
     "mocha": "2.5.3",
     "run-sequence": "^1.1.5",
@@ -86,10 +85,6 @@
   },
   "license": "MIT",
   "config": {
-    "ghooks": {
-      "pre-commit": "npm run lint && npm test",
-      "commit-msg": "validate-commit-msg"
-    },
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
