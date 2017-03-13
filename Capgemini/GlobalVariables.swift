@@ -18,4 +18,7 @@ struct GlobalVariables {
     static var voteImageId: Int = 0
     static var drawColor = UIColor.black
     static var lineSizeMultiplier: Double = 50
+    
+    static var pieuvreUsernames = [String]()
+    
 }
