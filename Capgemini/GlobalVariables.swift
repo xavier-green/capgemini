@@ -21,4 +21,6 @@ struct GlobalVariables {
     
     static var pieuvreUsernames = [String]()
     
+    static var namesInOrder = [String]()
+    static var phrasesInOrder = [String]()
 }

@@ -9,6 +9,11 @@
 import UIKit
 
 class VoicetoTextViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    private var speakingUsername = ""
+    
+    private var namesInOrder = [String]()
+    private var phrasesInOrder = [String]()
 
     @IBOutlet weak var usernames: UITableView!
     @IBOutlet weak var recordedText: UITextView!
@@ -46,16 +51,29 @@ class VoicetoTextViewController: UIViewController, UITableViewDelegate, UITableV
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as? nameCell
-        cell?.nameLabel.text = GlobalVariables.pieuvreUsernames[indexPath.row]
+        let currentUsername = GlobalVariables.pieuvreUsernames[indexPath.row]
+        cell?.nameLabel.text = currentUsername
+        if (currentUsername == self.speakingUsername) {
+            cell?.layer.borderWidth = 1
+            cell?.layer.borderColor = UIColor.blue.cgColor
+        } else {
+            cell?.layer.borderWidth = 0
+        }
         return cell!
     }
     func processName(notification: NSNotification) {
         
         print("got name")
-        recordedText.text = ""
         let result = notification.object as! String
-        recordedText.text = result+" : "+recordedText.text
-        
+        namesInOrder.append(result)
+        self.speakingUsername = result
+        recordedText.text = ""
+        usernames.beginUpdates()
+        let indexPosition = GlobalVariables.pieuvreUsernames.index(of: result)
+        usernames.moveRow(at: NSIndexPath(row: indexPosition!, section: 0) as IndexPath, to: NSIndexPath(row: 0, section: 0) as IndexPath)
+        GlobalVariables.pieuvreUsernames.insert(GlobalVariables.pieuvreUsernames.remove(at: indexPosition!), at: 0)
+        usernames.endUpdates()
+        usernames.reloadData()
     }
     
     func processResult(notification: NSNotification) {
@@ -63,9 +81,17 @@ class VoicetoTextViewController: UIViewController, UITableViewDelegate, UITableV
         print("got phrase")
         
         let result = notification.object as! String
-        recordedText.text = ""
+        phrasesInOrder.append(result)
         recordedText.text = recordedText.text + result
         
+    }
+    @IBAction func showResultingText(_ sender: Any) {
+        GlobalVariables.namesInOrder = self.namesInOrder
+        GlobalVariables.phrasesInOrder = self.phrasesInOrder
+        print(namesInOrder)
+        print("*******")
+        print(phrasesInOrder)
+        performSegue(withIdentifier: "showTexteSegue", sender: self)
     }
 }
 

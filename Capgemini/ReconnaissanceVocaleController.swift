@@ -18,6 +18,10 @@ class ReconnaissanceVocaleController {
     var Server : ServerFunctions!
     private var fileUrl : URL!
     
+    private var fileUrls = [URL]();
+    
+    var i=0
+    
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "fr-FR"))!
     
     var recordingOkay: Bool = false
@@ -104,11 +108,12 @@ class ReconnaissanceVocaleController {
     }
     
     func directoryURL() -> NSURL? {
+        i += 1
         let fileManager = FileManager.default
         let urls = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
         let documentDirectory = urls[0] as NSURL
-        let soundURL = documentDirectory.appendingPathComponent("recording.wav")
-        print(soundURL!)
+        let soundURL = documentDirectory.appendingPathComponent("recording"+String(i)+".wav")
+        fileUrls.append(soundURL!)
         return soundURL as NSURL?
     }
     
@@ -131,7 +136,10 @@ class ReconnaissanceVocaleController {
     func recognizeFile() {
         print("recognising")
         
-        let request = SFSpeechURLRecognitionRequest(url: self.fileUrl)
+        let url = fileUrls[0]
+        fileUrls.remove(at: 0)
+        
+        let request = SFSpeechURLRecognitionRequest(url: url)
         speechRecognizer.recognitionTask(with: request) { result, error in
             if (error != nil) {
                 print(error ?? "here but no error")

@@ -184,13 +184,13 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="This is what is being said :" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EH9-HO-c7y">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="This is what is being said :" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EH9-HO-c7y">
                                 <rect key="frame" x="0.0" y="257" width="375" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="iIn-Ge-gMN"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="Login" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1lp-sY-B9p" customClass="NuanceTestButton" customModule="My_VocalPrint" customModuleProvider="target">
@@ -200,6 +200,14 @@
                                     <constraint firstAttribute="width" constant="50" id="s2I-4u-Ep8"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2x4-Sx-2hZ">
+                                <rect key="frame" x="313" y="587" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Finir"/>
+                                <connections>
+                                    <action selector="showResultingText:" destination="4gm-qC-d7W" eventType="touchUpInside" id="hL0-0E-YGj"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -218,11 +226,65 @@
                     <connections>
                         <outlet property="recordedText" destination="EH9-HO-c7y" id="L4U-0Z-Xff"/>
                         <outlet property="usernames" destination="ddu-0I-oMB" id="dQO-sZ-FOV"/>
+                        <segue destination="ujj-aN-FVU" kind="presentation" identifier="showTexteSegue" modalTransitionStyle="crossDissolve" id="C7F-DU-nuv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v50-3q-bfC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1775.2" y="-13.043478260869566"/>
+        </scene>
+        <!--Texte View Controller-->
+        <scene sceneID="JLo-Cn-PLS">
+            <objects>
+                <viewController id="ujj-aN-FVU" customClass="TexteViewController" customModule="My_VocalPrint" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XHl-y7-A8z"/>
+                        <viewControllerLayoutGuide type="bottom" id="9s9-ks-9aU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="O1N-vW-8ds">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8p6-CT-3Km">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="PYG-kT-ygn"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Texte" id="xuj-Qc-3Ul">
+                                        <barButtonItem key="leftBarButtonItem" title="&lt; Retour" id="iff-Fo-b7P">
+                                            <connections>
+                                                <action selector="backToRecording:" destination="ujj-aN-FVU" id="1QL-jU-WQT"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Chargement..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KUB-yH-rrZ">
+                                <rect key="frame" x="16" y="65" width="343" height="602"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8p6-CT-3Km" firstAttribute="width" secondItem="O1N-vW-8ds" secondAttribute="width" id="JEn-Ih-M5Z"/>
+                            <constraint firstItem="8p6-CT-3Km" firstAttribute="top" secondItem="O1N-vW-8ds" secondAttribute="top" id="Uc4-Sz-aYY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KUB-yH-rrZ" secondAttribute="trailing" id="d0V-7L-Drt"/>
+                            <constraint firstItem="KUB-yH-rrZ" firstAttribute="leading" secondItem="O1N-vW-8ds" secondAttribute="leadingMargin" id="dfC-xX-rbf"/>
+                            <constraint firstItem="9s9-ks-9aU" firstAttribute="top" secondItem="KUB-yH-rrZ" secondAttribute="bottom" id="gqP-hZ-hIf"/>
+                            <constraint firstItem="8p6-CT-3Km" firstAttribute="leading" secondItem="O1N-vW-8ds" secondAttribute="leading" id="mcV-HU-ZjJ"/>
+                            <constraint firstItem="KUB-yH-rrZ" firstAttribute="top" secondItem="8p6-CT-3Km" secondAttribute="bottom" id="uDf-ce-wJZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="texteView" destination="KUB-yH-rrZ" id="zBf-Fl-mh7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JaH-Gd-YDE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2673" y="-14"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ODD-Of-vEv">
