@@ -13,7 +13,8 @@ class VoicetoTextViewController: UIViewController {
     @IBOutlet weak var recordedText: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        NotificationCenter.default.addObserver(self, selector: #selector(self.processResult), name: NSNotification.Name(rawValue: "PIEUVRE"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.processName), name: NSNotification.Name(rawValue: "PIEUVRE_NAME"), object: nil)
         // Do any additional setup after loading the view.
     }
 
@@ -46,7 +47,24 @@ class VoicetoTextViewController: UIViewController {
         cell.nameLabel.text = GlobalVariables.pieuvreUsernames[indexPath.row]
         return cell
     }
-
+    func processName(notification: NSNotification) {
+        
+        print("got name")
+        recordedText.text = ""
+        let result = notification.object as! String
+        recordedText.text = result+" : "+recordedText.text
+        
+    }
+    
+    func processResult(notification: NSNotification) {
+        
+        print("got phrase")
+        
+        let result = notification.object as! String
+        recordedText.text = ""
+        recordedText.text = recordedText.text + result
+        
+    }
 }
 
 class nameCell: UITableViewCell {
