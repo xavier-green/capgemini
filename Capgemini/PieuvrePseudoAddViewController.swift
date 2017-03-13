@@ -75,6 +75,7 @@ class PieuvrePseudoAddViewController: UIViewController, UITableViewDelegate, UIT
             } else {
                 self.testUsernames.append(nickname)
                 self.usernamesView.reloadData()
+                textField.text = ""
                 validation.isHidden=true
             }
         }
