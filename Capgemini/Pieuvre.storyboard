@@ -72,6 +72,48 @@
             </objects>
             <point key="canvasLocation" x="727.20000000000005" y="-16.641679160419791"/>
         </scene>
+        <!--Voiceto Text View Controller-->
+        <scene sceneID="ABf-8e-Gq9">
+            <objects>
+                <viewController id="4gm-qC-d7W" customClass="VoicetoTextViewController" customModule="My_VocalPrint" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HJa-rK-oAx"/>
+                        <viewControllerLayoutGuide type="bottom" id="eic-5p-Hu5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="egV-Bh-wd2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ddu-0I-oMB">
+                                <rect key="frame" x="16" y="28" width="343" height="219"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="This is what is being said :" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EH9-HO-c7y">
+                                <rect key="frame" x="0.0" y="257" width="375" height="300"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="iIn-Ge-gMN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="EH9-HO-c7y" firstAttribute="centerX" secondItem="egV-Bh-wd2" secondAttribute="centerX" id="5Ko-Px-hxU"/>
+                            <constraint firstItem="eic-5p-Hu5" firstAttribute="top" secondItem="EH9-HO-c7y" secondAttribute="bottom" constant="110" id="BJ7-Q0-IsJ"/>
+                            <constraint firstItem="ddu-0I-oMB" firstAttribute="leading" secondItem="egV-Bh-wd2" secondAttribute="leadingMargin" id="JrG-A2-YeK"/>
+                            <constraint firstItem="EH9-HO-c7y" firstAttribute="top" secondItem="ddu-0I-oMB" secondAttribute="bottom" constant="10" id="P7M-dx-PYv"/>
+                            <constraint firstItem="ddu-0I-oMB" firstAttribute="centerX" secondItem="EH9-HO-c7y" secondAttribute="centerX" id="Yp5-Q5-aX2"/>
+                            <constraint firstItem="EH9-HO-c7y" firstAttribute="width" secondItem="egV-Bh-wd2" secondAttribute="width" id="sIW-Zx-MaJ"/>
+                            <constraint firstItem="ddu-0I-oMB" firstAttribute="top" secondItem="HJa-rK-oAx" secondAttribute="bottom" constant="8" symbolic="YES" id="xb5-wh-WUE"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v50-3q-bfC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1775.2" y="-13.043478260869566"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="ODD-Of-vEv">
             <objects>
