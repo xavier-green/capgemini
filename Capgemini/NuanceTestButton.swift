@@ -20,24 +20,24 @@ class NuanceTestButton: UIButton {
             NotificationCenter.default.post(name: Notification.Name(rawValue: "NUANCE_PROCESSING"), object: self)
             self.setBackgroundImage(micOnImage, for: .normal)
             recoVocale.finishRecording(success: true)
-            self.verify(username1: GlobalVariables.speaker1, username2: GlobalVariables.speaker2)
+            self.verify(namesArray: GlobalVariables.pieuvreUsernames)
         } else {
             self.setBackgroundImage(micOffImage, for: .normal)
             recoVocale.startRecording()
         }
     }
     
-    func verify(username1: String, username2: String) {
+    func verify(namesArray: [String]) {
         DispatchQueue.global(qos: .background).async {
-            let res1 = self.recoVocale.getScore(username: username1)
-            let res2 = self.recoVocale.getScore(username: username2)
+            var results = [Int]()
+            for name in namesArray {
+                results.append(self.recoVocale.getScore(username: name))
+            }
+            let maxScore = results.max()
+            let maxIndex = results.index(of: maxScore!)
             self.recoVocale.recognizeFile()
             DispatchQueue.main.async {
-                if (res1<res2) {
-                    NotificationCenter.default.post(name: Notification.Name(rawValue: "PIEUVRE_NAME"), object: username2)
-                } else {
-                    NotificationCenter.default.post(name: Notification.Name(rawValue: "PIEUVRE_NAME"), object: username1)
-                }
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "PIEUVRE_NAME"), object: namesArray[maxIndex!])
             }
         }
     }

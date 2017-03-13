@@ -193,7 +193,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="Login" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1lp-sY-B9p" customClass="RecordButtonClass" customModule="My_VocalPrint" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="Login" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1lp-sY-B9p" customClass="NuanceTestButton" customModule="My_VocalPrint" customModuleProvider="target">
                                 <rect key="frame" x="162.5" y="577" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="CUA-x9-Qcr"/>
@@ -217,6 +217,7 @@
                     </view>
                     <connections>
                         <outlet property="recordedText" destination="EH9-HO-c7y" id="L4U-0Z-Xff"/>
+                        <outlet property="usernames" destination="ddu-0I-oMB" id="dQO-sZ-FOV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v50-3q-bfC" userLabel="First Responder" sceneMemberID="firstResponder"/>
