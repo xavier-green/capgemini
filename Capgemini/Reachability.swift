@@ -4,6 +4,8 @@
 //
 //  Created by Younes Belkouchi on 08/03/2017.
 //  Copyright © 2017 xavier green. All rights reserved.
+//  
+//  This module verifies if User has internet connection when he enters the application
 //
 
 import Foundation
@@ -27,13 +29,6 @@ public class Reachability {
         if SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) == false {
             return false
         }
-        
-        /* Only Working for WIFI
-         let isReachable = flags == .reachable
-         let needsConnection = flags == .connectionRequired
-         
-         return isReachable && !needsConnection
-         */
         
         // Working for Cellular and WIFI
         let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0

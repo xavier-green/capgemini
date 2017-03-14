@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     let themeColor = UIColor(red: 1/255, green: 1/255, blue: 1/255, alpha: 1.0)
     
+    
+    //MARK: Events Functions
     @objc func fireEvent(notification: NSNotification) {
         let resultat = notification.object as! String
         FireEvents().fireDone(resultat: resultat)
@@ -41,11 +43,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func initStats() {
         print("Initialising stats listener...")
+        // Add Hacker and Hacked to Server when user gets hacked
         NotificationCenter.default.addObserver(self, selector: #selector(self.addHack), name: NSNotification.Name(rawValue: "ADD_HACK"), object: nil)
+        
+        // Add Hack Attempt to Server when user tries to log in as another user
         NotificationCenter.default.addObserver(self, selector: #selector(self.hackAttempt), name: NSNotification.Name(rawValue: "HACK_ATTEMPT"), object: nil)
+        
+        // Increment Login Success in Server when user successfully authenticates
         NotificationCenter.default.addObserver(self, selector: #selector(self.loginSuccess), name: NSNotification.Name(rawValue: "LOGIN_SUCCESS"), object: nil)
+        
+        // Increment Login Success in Server when user fails authentication
         NotificationCenter.default.addObserver(self, selector: #selector(self.loginFail), name: NSNotification.Name(rawValue: "LOGIN_FAIL"), object: nil)
+        
+        // If Server Status is != from 200, send an Error Notification
         NotificationCenter.default.addObserver(self, selector: #selector(self.connectionToServerFail), name: NSNotification.Name(rawValue: "ERROR"), object: nil)
+        
         print("Done !")
     }
     
@@ -68,6 +80,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    /**
+     Gets the bottom most View Controller
+     
+     - Parameters: None
+     - Returns: First Root View Controller
+     */
     func bottomMostController() -> UIViewController {
         var topController: UIViewController = UIApplication.shared.keyWindow!.rootViewController!
         while (topController.presentingViewController != nil) {
@@ -75,13 +94,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return topController
     }
+    
+    /**
+     Gets the bottom most View Controller
+     
+     - Parameters: None
+     - Returns: First Root View Controller
+     */
     func topMostController() -> UIViewController {
         var topController: UIViewController = UIApplication.shared.keyWindow!.rootViewController!
+        // Loops until there's no ViewController
         while (topController.presentedViewController != nil) {
             topController = topController.presentedViewController!
         }
         return topController
     }
+    
+    /**
+     Presents pop-up when a server error happens.
+     The pop up happens when a notification is send and caught by an observer initialised in the InitStats
+     
+     - Parameters: None
+    */
     func connectionToServerFail() {
         print("server error")
         let alert = UIAlertController(title: "Erreur", message: "Une erreur est survenue", preferredStyle: UIAlertControllerStyle.alert)

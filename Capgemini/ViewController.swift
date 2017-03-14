@@ -11,7 +11,9 @@ import AVFoundation
 import Photos
 
 class ViewController: UIViewController {
-
+    
+    
+    
     @IBOutlet var NoBut: UIButton!
     @IBOutlet var YesBut: UIButton!
     @IBOutlet var HelloLabel: UILabel!
