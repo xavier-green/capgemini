@@ -19,17 +19,22 @@ class ReplayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        CotoBackMethods().voteForImage()
+        DispatchQueue.global(qos: .background).async {
+            CotoBackMethods().voteForImage()
+            CotoBackMethods().addImage(base64image: GlobalVariables.myBase64Image)
+        }
         
+        // Do any additional setup after loading the view.
+        assignbackground()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         let selectedImage = GlobalVariables.base64image
         
         let dataDecoded = NSData(base64Encoded: selectedImage, options: NSData.Base64DecodingOptions.init(rawValue: 0))
         
         let cellImage = UIImage(data: dataDecoded as! Data)
         self.selectedImageView.image = cellImage
-        
-        // Do any additional setup after loading the view.
-        assignbackground()
     }
 
     override func didReceiveMemoryWarning() {

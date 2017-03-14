@@ -65,14 +65,11 @@ class VoteViewController: UIViewController, UICollectionViewDataSource, UICollec
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.spinner.isHidden = true
         continuerButton.isHidden = true
         continuerButton.layer.borderWidth = 1
         continuerButton.layer.borderColor = UIColor.lightGray.cgColor
         continuerButton.addTarget(self, action: #selector(self.finir), for: .touchUpInside)
-        let transform = CGAffineTransform(scaleX: 3, y: 3)
-        self.spinner.transform = transform
-        self.spinner.startAnimating()
-        self.spinner.isHidden = false
         // Do any additional setup after loading the view.
         assignbackground()
         
@@ -97,6 +94,13 @@ class VoteViewController: UIViewController, UICollectionViewDataSource, UICollec
 
             }
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let transform = CGAffineTransform(scaleX: 3, y: 3)
+        self.spinner.transform = transform
+        self.spinner.startAnimating()
+        self.spinner.isHidden = false
     }
 
     override func didReceiveMemoryWarning() {
