@@ -10,7 +10,8 @@ import UIKit
 
 class CustomButtons: UIButton {
     
-
+    // Initialises Button
+    // Set Color, font and background
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
