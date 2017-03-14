@@ -5,6 +5,10 @@
 //  Created by younes belkouchi on 27/02/2017.
 //  Copyright © 2017 xavier green. All rights reserved.
 //
+//  This Module Defines the functions that send requests to the server.
+//  They are later used in CotoBackMethods.swift
+//
+
 import Foundation
 import UIKit
 
@@ -13,12 +17,16 @@ class ConnectiontoBackServer {
     init() {
         print("Initialising back server connection")
     }
-    
+    /**
+        SERVER INFORMATION
+    **/
     private let BASE_URL: String = "http://vps383005.ovh.net:3000/api"
     private let SERVER_USERNAME: String = "youyoun"
     private let SERVER_PASSWORD: String = "password"
     
     private var resultData: String = ""
+    
+    //MARK: Request Functions
     
     func connectToServer(url: String, params: [[String]], method: String, notificationString: String) -> String {
         
@@ -114,6 +122,9 @@ class ConnectiontoBackServer {
                 //print("response = \(response)")
                 print("******** REQUEST ERROR")
                 errors = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as? String
+                
+                // In case of error, send notification observed from App Delegate
+                // Shows pop up the says an error happened
                 NotificationCenter.default.post(name: Notification.Name(rawValue: "ERROR"), object: errors)
                 return
                 
@@ -139,6 +150,8 @@ class ConnectiontoBackServer {
         
     }
     
+    //MARK: Set Headers for request
+    
     func constructHeaders() -> String {
         
         let loginString = String(format: "%@:%@", SERVER_USERNAME, SERVER_PASSWORD)
@@ -163,6 +176,8 @@ class ConnectiontoBackServer {
         }
     }
     
+    //MARK: Set Parameters for request
+    
     func constructParams(params: [[String]]) -> String {
         
         var finalUrl = ""
@@ -177,6 +192,15 @@ class ConnectiontoBackServer {
         
     }
     
+    //MARK: Request Functions used in App
+    
+    
+    /**
+     Gets all Users Json
+     Contains All Attributes for each user
+     - Parameters: None
+     - Returns: Users Json
+     */
     func getUserList() -> String {
         
         let url: String = "/users"
@@ -186,6 +210,14 @@ class ConnectiontoBackServer {
         
     }
     
+    /**
+     Gets all Users Json
+     Contains All Attributes for each user
+     - Parameters: None
+     - Returns: Users Json
+     
+     This function is parsed differently
+     */
     func getUsersNames() -> String {
         let url: String = "/users"
         let params: [[String]] = [[]]
@@ -193,6 +225,15 @@ class ConnectiontoBackServer {
         return connectToServer(url: url, params: params, method: "GET", notificationString: "GET_USERS_NAMES")
     }
     
+    
+    /**
+     Add User To database in Enrolment Phase
+     Post request containing request data
+     - Parameters: 
+        - speakerID : String containing the name chosen by the user
+        - memDate : Memorable Date chosen by user
+     - Returns: JSON of the new added user
+     */
     func addUser(speakerId: String, memDate: String) -> String {
         
         print("Adding user to back")
@@ -204,6 +245,15 @@ class ConnectiontoBackServer {
         
     }
     
+    
+    /**
+     Verify User's Date in Authentication
+     Post request containing request data
+     - Parameters:
+        - speakerID : String containing the name chosen by the user
+        - memDate : Memorable Date chosen by user
+     - Returns: Json containing speakerId and authorised attributes. Authorized is true when user has entered correct date.
+     */
     func verifyUser(speakerId: String, memDate: String) -> String {
         print("Verifying user date")
         
@@ -213,6 +263,11 @@ class ConnectiontoBackServer {
         return connectToServer(url: url, params: params, method: "POST", notificationString: "VERIFY_USER")
     }
     
+    /**
+     Get One user by Name
+     - Parameter SpeakerId: User name
+     - Returns: Json containing speakerId's Information
+     */
     func getUser(speakerId: String) -> String {
         print("Getting user attribute")
         
@@ -222,6 +277,12 @@ class ConnectiontoBackServer {
         return connectToServer(url: url, params: params, method: "GET", notificationString: "GET_USER")
     }
     
+    /**
+     Add Image in base64 to the database in App Storyboard
+     - Parameters:
+        - username : String containing the name chosen by the user
+        - base64Image : Image Drawn encoded in base64
+     */
     func addImage(base64image: String, username: String) -> String {
         
         print("saving image to server")
@@ -232,6 +293,11 @@ class ConnectiontoBackServer {
         
     }
     
+    /**
+     
+     Add Images in base64 from the database in App Storyboard
+    
+     */
     func getImages() -> String {
         
         print("getting images from db")
@@ -242,6 +308,11 @@ class ConnectiontoBackServer {
         
     }
     
+    /**
+     Vote for an image from all the images
+     Increments the vote attribute of image in database
+     - Parameter imageId: ImageId in the database
+     */
     func voteForImage(imageId: Int) -> String {
         
         print("voting for ",imageId)
@@ -252,6 +323,9 @@ class ConnectiontoBackServer {
         
     }
     
+    /**
+     Get images classed by votes
+    */
     func getLeaderboard() -> String {
         
         print("getting leaderboard")
@@ -262,6 +336,46 @@ class ConnectiontoBackServer {
 
     }
     
+    /**
+     Get User frequency
+     - Parameter speakerId: name chosen by user
+     - Returns: Json containing Registered that is true when user has registered his frequency. Json also contains said frequency.
+     */
+    func getFrequency(speakerId: String) -> String {
+        print("Getting user frequency")
+        
+        let url: String = "/users/addFrequency"
+        let params: [[String]] = [["username","\(speakerId)"]]
+        
+        return connectToServer(url: url, params: params, method: "POST", notificationString: "GET_USER_FREQ")
+    }
+    
+    /**
+     Add User frequency
+     - Parameters:
+        - speakerId: name chosen by user
+        - frequency: frequency of the user
+     - Returns: Json containing Registered=true. Json also contains set frequency.
+     */
+    func addFrequency(speakerId:String, frequency: Any) -> String {
+        print("Sending user frequency")
+        
+        let url: String = "/users/addFrequency"
+        let params: [[String]] = [["username","\(speakerId)"],["frequency","\(frequency)"]]
+        
+        return connectToServer(url: url, params: params, method: "POST", notificationString: "SEND_USER_FREQ")
+    }
+    
+    
+    //MARK: Stats
+    
+    /**
+     Add Hack success to database
+     Hacker And Hacked Must be Entered
+     - Parameters:
+        - hacker : String containing the name of the hacker
+        - hacked : String containing the name of the hacked
+     */
     func addHack(hacker: String, hacked: String) -> String {
         
         print("hacking of ",hacked," by ",hacker)
@@ -272,6 +386,10 @@ class ConnectiontoBackServer {
         
     }
     
+    /**
+     Increment hackAttempt in Database
+     Post request to url
+     */
     func hackAttempt() -> String {
         
         print("Prevented hack !")
@@ -282,6 +400,10 @@ class ConnectiontoBackServer {
         
     }
     
+    /**
+     Increment hackAttempt in Database
+     Post request to url
+     */
     func loginSuccess() -> String {
         
         print("Login success !")
@@ -292,6 +414,10 @@ class ConnectiontoBackServer {
         
     }
     
+    /**
+     Increment hackAttempt in Database
+     Post request to url
+     */
     func loginFail(email: String, username: String) -> String {
         
         print("Login failed ! Reponse to: ",email)
@@ -302,24 +428,10 @@ class ConnectiontoBackServer {
         
     }
     
-    func getFrequency(speakerId: String) -> String {
-        print("Getting user frequency")
-        
-        let url: String = "/users/addFrequency"
-        let params: [[String]] = [["username","\(speakerId)"]]
-        
-        return connectToServer(url: url, params: params, method: "POST", notificationString: "GET_USER_FREQ")
-    }
-    
-    func addFrequency(speakerId:String, frequency: Any) -> String {
-        print("Sending user frequency")
-        
-        let url: String = "/users/addFrequency"
-        let params: [[String]] = [["username","\(speakerId)"],["frequency","\(frequency)"]]
-        
-        return connectToServer(url: url, params: params, method: "POST", notificationString: "SEND_USER_FREQ")
-    }
-    
+    /**
+     Increment hackAttempt in Database
+     Post request to url
+     */
     func loggingAttempt() -> String {
         print("Adding login attempt")
         let url: String = "/stats/loginAttempt"
@@ -328,6 +440,10 @@ class ConnectiontoBackServer {
         return connectToServer(url: url, params: params, method: "POST", notificationString: "ADD_LOG")
     }
     
+    /**
+     Increment hackAttempt in Database
+     Post request to url
+     */
     func enrolAttempt() -> String {
         print("Adding Enrol Attempt")
         
