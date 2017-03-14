@@ -374,15 +374,6 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Votes :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="svU-A9-DST">
-                                                    <rect key="frame" x="255" y="23.5" width="53" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="53" id="hOK-0j-Vyx"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1qh-0v-1KM">
                                                     <rect key="frame" x="18" y="0.0" width="67.5" height="67.5"/>
                                                     <constraints>
@@ -391,7 +382,6 @@
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Mdk-c5-2NN" firstAttribute="leading" secondItem="svU-A9-DST" secondAttribute="trailing" constant="10" id="D81-eu-YGz"/>
                                                 <constraint firstItem="1qh-0v-1KM" firstAttribute="height" secondItem="Sgy-AB-I8h" secondAttribute="height" id="GdP-lB-KN8"/>
                                                 <constraint firstItem="1qh-0v-1KM" firstAttribute="leading" secondItem="Sgy-AB-I8h" secondAttribute="leadingMargin" constant="10" id="Tp7-SZ-W5f"/>
                                                 <constraint firstItem="4Hf-gJ-vc1" firstAttribute="leading" secondItem="1qh-0v-1KM" secondAttribute="trailing" constant="10" id="lom-Kp-ID1"/>
@@ -401,7 +391,6 @@
                                         </tableViewCellContentView>
                                         <constraints>
                                             <constraint firstItem="4Hf-gJ-vc1" firstAttribute="centerY" secondItem="pg4-Jt-S7s" secondAttribute="centerY" id="Bqx-aN-Lak"/>
-                                            <constraint firstItem="svU-A9-DST" firstAttribute="centerY" secondItem="pg4-Jt-S7s" secondAttribute="centerY" id="Obl-X0-s3k"/>
                                             <constraint firstItem="Mdk-c5-2NN" firstAttribute="centerY" secondItem="pg4-Jt-S7s" secondAttribute="centerY" id="Rxd-X2-kGw"/>
                                         </constraints>
                                         <connections>
@@ -657,6 +646,6 @@
         <image name="valid" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9lJ-RJ-Ut2"/>
+        <segue reference="Pzl-lX-PKu"/>
     </inferredMetricsTieBreakers>
 </document>

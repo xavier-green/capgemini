@@ -10,9 +10,9 @@ import UIKit
 
 class LeaderBoardViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
     
-    var imageData: [String] = []
-    var userData: [String] = []
-    var votesData: [Int] = []
+    var imageData: [String] = ["-1"]
+    var userData: [String] = ["Chargement..."]
+    var votesData: [Int] = [-1]
 
     @IBAction func backbutton(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
@@ -70,15 +70,21 @@ class LeaderBoardViewController: UIViewController, UITableViewDelegate,UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell",
                                                  for: indexPath) as! leaderBoardCell
         cell.userName?.text = Name
-        cell.userRank?.text = String(Score)
+        if (Score == (-1)) {
+            cell.userRank?.text = ""
+        } else {
+            cell.userRank?.text = String(Score)
+        }
         
-        let dataDecoded = NSData(base64Encoded: self.imageData[row].replacingOccurrences(of: " ", with: "+"), options: NSData.Base64DecodingOptions.init(rawValue: 0))
-        
-        if (dataDecoded != nil) {
-            let cellImage = UIImage(data: dataDecoded as! Data)
-            cell.imageV.image = cellImage
-            cell.imageV.layer.borderWidth = 1
-            cell.imageV.layer.borderColor = UIColor.darkGray.cgColor
+        if (self.imageData[row] != "-1") {
+            let dataDecoded = NSData(base64Encoded: self.imageData[row].replacingOccurrences(of: " ", with: "+"), options: NSData.Base64DecodingOptions.init(rawValue: 0))
+            
+            if (dataDecoded != nil) {
+                let cellImage = UIImage(data: dataDecoded as! Data)
+                cell.imageV.image = cellImage
+                cell.imageV.layer.borderWidth = 1
+                cell.imageV.layer.borderColor = UIColor.darkGray.cgColor
+            }
         }
         return cell
     }

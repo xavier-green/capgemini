@@ -66,7 +66,7 @@ class DrawTestViewController: UIViewController {
         let viewImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
-        let topMargin = self.frequencyLabel.frame.origin.y+self.frequencyLabel.frame.height*2+5
+        let topMargin = self.frequencyLabel.frame.origin.y+self.frequencyLabel.frame.height*2+15
         
         let width = drawView.frame.width*2
         let height = drawView.frame.height*2
