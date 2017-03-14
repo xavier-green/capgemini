@@ -56,7 +56,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(self.loginFail), name: NSNotification.Name(rawValue: "LOGIN_FAIL"), object: nil)
         
         // If Server Status is != from 200, send an Error Notification
-        NotificationCenter.default.addObserver(self, selector: #selector(self.connectionToServerFail), name: NSNotification.Name(rawValue: "ERROR"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.connectionToNuanceFail), name: NSNotification.Name(rawValue: "ERROR_NUANCE"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.connectionToServerFail), name: NSNotification.Name(rawValue: "ERROR_BACK"), object: nil)
         
         print("Done !")
     }
@@ -116,12 +117,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      
      - Parameters: None
     */
-    func connectionToServerFail() {
+    func connectionToNuanceFail() {
         print("server error")
-        let alert = UIAlertController(title: "Erreur", message: "Une erreur est survenue", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Erreur de connection", message: "Erreur de connection au serveur Nuance", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
         topMostController().present(alert, animated: true, completion: nil)
     }
+    func connectionToServerFail() {
+        print("server error")
+        let alert = UIAlertController(title: "Erreur de connection", message: "Erreur de connection au serveur", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        topMostController().present(alert, animated: true, completion: nil)
+    }
+
     
     func checkMicrophonePermission() {
         switch AVAudioSession.sharedInstance().recordPermission() {

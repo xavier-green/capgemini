@@ -65,19 +65,21 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     
     func goForw() {
         nickName.resignFirstResponder()
-        if nickname=="" {
-            GlobalVariables.username = pickerName!
-            print("setting global username to : ",pickerName)
-        } else {
-            GlobalVariables.username = nickname
-            print("setting global username to : ",nickname)
-        }
-        if !isValidUsername(username: GlobalVariables.username, allUsernames: self.capUsernames) {
-            print("nope")
-            validation.isHidden=false
-        } else {
-            performSegue(withIdentifier: "authenticationSegue", sender: self)
-        }
+        if capUsernames.count>0 {
+            if nickname=="" {
+                GlobalVariables.username = pickerName!
+                print("setting global username to : ",pickerName)
+            } else {
+                GlobalVariables.username = nickname
+                print("setting global username to : ",nickname)
+            }
+            if !isValidUsername(username: GlobalVariables.username, allUsernames: self.capUsernames) {
+                print("nope")
+                validation.isHidden=false
+            } else {
+                performSegue(withIdentifier: "authenticationSegue", sender: self)
+            }
+        } else {print("nope")}
     }
     
     // The number of columns of data
@@ -97,8 +99,12 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
+        if capUsernames.count > 0 {
         pickerName = capUsernames[row]
         print("new picker name: ",pickerName)
+        } else {
+            pickerName = "None"
+        }
     }
 
     override func didReceiveMemoryWarning() {
