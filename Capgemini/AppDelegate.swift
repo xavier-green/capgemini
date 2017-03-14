@@ -129,7 +129,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
         topMostController().present(alert, animated: true, completion: nil)
     }
-
     
     func checkMicrophonePermission() {
         switch AVAudioSession.sharedInstance().recordPermission() {

@@ -49,6 +49,8 @@ class ServerConnection {
         print("Connecting to ",connectionUrl)
         
         let config = URLSessionConfiguration.default
+        config.timeoutIntervalForRequest=TimeInterval(20)
+        config.timeoutIntervalForResource=TimeInterval(20)
         let authString = constructHeaders()
         config.httpAdditionalHeaders = ["Authorization" : authString]
         let session = URLSession(configuration: config)
@@ -70,6 +72,8 @@ class ServerConnection {
         //print(postParams)
         
         let config = URLSessionConfiguration.default
+        config.timeoutIntervalForRequest=TimeInterval(20)
+        config.timeoutIntervalForResource=TimeInterval(20)
         let authString = constructHeaders()
         config.httpAdditionalHeaders = ["Authorization" : authString]
         let session = URLSession(configuration: config)
@@ -94,7 +98,7 @@ class ServerConnection {
         
         session.dataTask(with: request, completionHandler: { (data, response, error) in
             if error != nil {
-                NotificationCenter.default.post(name: Notification.Name(rawValue: "ERROR"), object: errors)
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "TIME_OUT_NUANCE"), object: errors)
                 return
             }
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {

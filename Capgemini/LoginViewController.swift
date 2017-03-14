@@ -132,9 +132,18 @@ class LoginViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.successRecording), name: NSNotification.Name(rawValue: "REC_SUCCESS"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.failureRecording), name: NSNotification.Name(rawValue: "REC_FAIL"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.startRecording), name: NSNotification.Name(rawValue: "NUANCE_PROCESSING"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.connectivityFail), name: NSNotification.Name(rawValue: "TIME_OUT_NUANCE"), object: nil)
         self.userLabel.text = "Utilisateur : "+GlobalVariables.username
         
     }
+    func connectivityFail() {
+        print("server error")
+        let alert = UIAlertController(title: "Erreur de connection", message: "La requête a prit très longtemps. Assurez vous d'avoir une bonne connection.", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        topMostController().present(alert, animated: true, completion: nil)
+        stopRec()
+    }
+
     
     func goBack() {
         dismiss(animated: true, completion: nil)
