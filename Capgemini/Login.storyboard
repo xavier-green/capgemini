@@ -637,16 +637,6 @@
                                 </constraints>
                                 <items>
                                     <navigationItem title="Authentification" id="pHF-5W-B6P">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" id="XT7-z5-8Zw">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oOX-rr-Z8J">
-                                                <rect key="frame" x="16" y="28" width="83" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="&lt; Retour"/>
-                                                <connections>
-                                                    <action selector="backButton:" destination="qFr-bu-2aY" eventType="touchUpInside" id="oIX-Xd-0WC"/>
-                                                </connections>
-                                            </button>
-                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" style="plain" id="ZfZ-HI-Qi6">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4gL-7h-gO5">
                                                 <rect key="frame" x="329" y="28" width="30" height="30"/>

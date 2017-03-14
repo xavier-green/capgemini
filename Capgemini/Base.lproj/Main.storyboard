@@ -97,7 +97,7 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Si c’est votre 1ere connexion, enrôlez-vous afin de pouvoir enregistrer votre empreinte vocale dans l’application" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YA6-ne-CYP">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Si c’est votre 1ère connexion, enrôlez-vous afin de pouvoir enregistrer votre empreinte vocale dans l’application" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YA6-ne-CYP">
                                 <rect key="frame" x="0.0" y="150" width="414" height="88"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

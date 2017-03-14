@@ -21,12 +21,6 @@ class LoginDateViewController: UIViewController {
         DispatchQueue.global(qos: .background).async {
             print("Running nuance fetch in background thread")
             let verified = CotoBackMethods().verifyUser(speakerId: GlobalVariables.username, memDate: self.secretDate)
-            if self.attempts==0 {
-                let alert = UIAlertController(title: "Date Erronée", message: "La date que vous avez rentré n'est pas la bonne. Vous serez redirigé à l'authentification", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {action in self.presentingViewController?.presentingViewController?.dismiss(animated:true, completion:nil)}))
-                self.topMostController().present(alert, animated: true, completion: nil)
-            }
-            else {
                 DispatchQueue.main.async {
                     print("back to main")
                     if verified==true {
@@ -34,11 +28,15 @@ class LoginDateViewController: UIViewController {
                     } else {
                         self.attempts-=1
                         let alert = UIAlertController(title: "Date Erronée", message: "La date que vous avez rentré n'est pas la bonne", preferredStyle: UIAlertControllerStyle.alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {action in if self.attempts==0 {
+                            let alert = UIAlertController(title: "3 Tentatives échouées", message: "La date que vous avez rentré n'est pas la bonne. Vous serez redirigé à l'authentification", preferredStyle: UIAlertControllerStyle.alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {action in self.presentingViewController?.presentingViewController?.dismiss(animated:true, completion:nil)}))
+                            self.topMostController().present(alert, animated: true, completion: nil)
+                            }
+}))
                         self.topMostController().present(alert, animated: true, completion: nil)
                     }
                 }
-            }
         }
     }
     override func viewDidLoad() {

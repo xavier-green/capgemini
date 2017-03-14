@@ -91,7 +91,7 @@ class ServerConnection {
     func sendRequest(session: URLSession, request: URLRequest, notificationString: String) -> String {
         
         print("sending request")
-        
+        let start = NSDate()
         let semaphore = DispatchSemaphore(value: 0)
         var dataString: String?
         var errors: String?
@@ -125,7 +125,9 @@ class ServerConnection {
         if let error = errors {
             print(error)
         }
-        
+        let end = NSDate()
+        let timeInterval: Double = end.timeIntervalSince(start as Date)
+        print("Time to evaluate problem: \(timeInterval) seconds")
         return dataString!
         
     }
