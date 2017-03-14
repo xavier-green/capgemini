@@ -115,7 +115,10 @@ extension UIViewController {
         return topController
     }
     
-    
+    /**
+     Function Used in ViewDidLoad
+     Shows pop up when no internet connection is detected
+     */
     func testInternetConnection() {
         if Reachability.isConnectedToNetwork() == true {
             print("Internet Connection Available!")
@@ -129,7 +132,10 @@ extension UIViewController {
         }
     }
     
-    
+    /**
+     Used in the end of App Storyboard
+     Dismisses all views until Home
+     */
     func goBacktohomefromApp() {
         bottomMostController().dismiss(animated: true, completion: nil)
         bottomMostController().dismiss(animated: false, completion: nil)

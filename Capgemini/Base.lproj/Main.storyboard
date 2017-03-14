@@ -46,7 +46,7 @@
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <state key="normal" title="Enrôlement"/>
                                 <connections>
-                                    <action selector="NoButton:" destination="Sdo-X2-KVd" eventType="touchUpInside" id="aLU-7M-T6R"/>
+                                    <action selector="EnrolmentButton:" destination="Sdo-X2-KVd" eventType="touchUpInside" id="mS7-Va-i69"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yqi-xO-bym" customClass="CustomButtons" customModule="My_VocalPrint" customModuleProvider="target">
@@ -58,6 +58,9 @@
                                 <state key="normal" title="Authentification">
                                     <color key="titleColor" red="0.32452234460000001" green="0.32452234460000001" blue="0.32452234460000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="LoginButton:" destination="Sdo-X2-KVd" eventType="touchUpInside" id="n5c-ON-7Zj"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qvP-Zg-g2Y">
                                 <rect key="frame" x="0.0" y="706" width="414" height="30"/>
@@ -138,10 +141,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PA9-ZU-bto"/>
-                    <connections>
-                        <outlet property="NoBut" destination="LuS-XG-tDp" id="VmT-ct-p1p"/>
-                        <outlet property="YesBut" destination="Yqi-xO-bym" id="vIk-Au-3L1"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VTl-pt-r7X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
