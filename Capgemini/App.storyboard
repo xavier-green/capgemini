@@ -359,7 +359,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pg4-Jt-S7s" id="Sgy-AB-I8h">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="67.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rank" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mdk-c5-2NN">
@@ -445,15 +445,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Pour soumettre votre dessin veuillez d'abord voter pour l'un des dessins ci-dessous" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMX-50-l2J">
-                                <rect key="frame" x="67" y="70" width="240" height="112"/>
+                                <rect key="frame" x="67" y="70" width="240" height="140"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="112" id="mAT-ax-t8H"/>
+                                    <constraint firstAttribute="height" constant="140" id="mAT-ax-t8H"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="VotingImages" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JKR-BN-vOZ">
-                                <rect key="frame" x="26" y="202" width="323" height="355"/>
+                                <rect key="frame" x="26" y="230" width="323" height="327"/>
                                 <color key="backgroundColor" red="0.98551512299999999" green="0.99478732910000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="23" minimumInteritemSpacing="10" id="x3o-o1-6p4">
                                     <size key="itemSize" width="150" height="164"/>
@@ -524,7 +524,7 @@
                                     <constraint firstAttribute="height" constant="60" id="iBY-Xy-KpT"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHY-PJ-uqD">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHY-PJ-uqD" customClass="CustomButtons" customModule="My_VocalPrint" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="567" width="375" height="90"/>
                                 <color key="backgroundColor" red="0.98431372549999996" green="0.98431372549999996" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -535,6 +535,13 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="peL-Cq-Jqj">
+                                <rect key="frame" x="137.5" y="283.5" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="9Vq-EA-YHA"/>
+                                    <constraint firstAttribute="width" constant="100" id="b0r-lI-Tpy"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -543,6 +550,7 @@
                             <constraint firstItem="JKR-BN-vOZ" firstAttribute="leading" secondItem="uag-YJ-uXQ" secondAttribute="leadingMargin" constant="10" id="6xE-cm-vRK"/>
                             <constraint firstItem="p09-wW-ENI" firstAttribute="leading" secondItem="uag-YJ-uXQ" secondAttribute="leading" id="E5i-Y8-Sqz"/>
                             <constraint firstItem="fMX-50-l2J" firstAttribute="leading" secondItem="uag-YJ-uXQ" secondAttribute="leadingMargin" constant="51" id="NrB-QM-pxW"/>
+                            <constraint firstItem="peL-Cq-Jqj" firstAttribute="centerX" secondItem="uag-YJ-uXQ" secondAttribute="centerX" id="OeE-0E-eCI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="JKR-BN-vOZ" secondAttribute="trailing" constant="10" id="QH9-CM-tEo"/>
                             <constraint firstItem="sHY-PJ-uqD" firstAttribute="width" secondItem="uag-YJ-uXQ" secondAttribute="width" id="Tsl-Bd-X53"/>
                             <constraint firstItem="l1n-7x-FNS" firstAttribute="centerY" secondItem="sHY-PJ-uqD" secondAttribute="centerY" id="aW0-2z-8sa"/>
@@ -551,6 +559,7 @@
                             <constraint firstItem="fMX-50-l2J" firstAttribute="centerX" secondItem="uag-YJ-uXQ" secondAttribute="centerX" id="gvy-ST-8zj"/>
                             <constraint firstItem="JKR-BN-vOZ" firstAttribute="top" secondItem="fMX-50-l2J" secondAttribute="bottom" constant="20" id="oXJ-af-m1b"/>
                             <constraint firstItem="sHY-PJ-uqD" firstAttribute="centerX" secondItem="uag-YJ-uXQ" secondAttribute="centerX" id="pDx-Bx-XzG"/>
+                            <constraint firstItem="peL-Cq-Jqj" firstAttribute="centerY" secondItem="uag-YJ-uXQ" secondAttribute="centerY" id="qZM-uF-4qf"/>
                             <constraint firstItem="fMX-50-l2J" firstAttribute="top" secondItem="k2H-AO-tp6" secondAttribute="bottom" constant="50" id="umm-6U-Gmu"/>
                             <constraint firstAttribute="trailing" secondItem="p09-wW-ENI" secondAttribute="trailing" id="vAd-j7-gCL"/>
                         </constraints>
@@ -558,6 +567,7 @@
                     <connections>
                         <outlet property="continuerButton" destination="sHY-PJ-uqD" id="gj3-O3-lsT"/>
                         <outlet property="imagesView" destination="JKR-BN-vOZ" id="HZ7-wt-YkL"/>
+                        <outlet property="spinner" destination="peL-Cq-Jqj" id="aBK-Dv-aBb"/>
                         <segue destination="QvG-aa-Rq6" kind="presentation" identifier="finishedVotingSegue" modalTransitionStyle="crossDissolve" id="JWc-7b-blg"/>
                     </connections>
                 </viewController>
@@ -578,38 +588,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Merci pour votre vote !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M3M-Cz-UAC">
-                                <rect key="frame" x="0.0" y="120" width="375" height="36"/>
+                                <rect key="frame" x="0.0" y="80" width="375" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x6V-qz-bFs" customClass="CustomButtons" customModule="My_VocalPrint" customModuleProvider="target">
-                                <rect key="frame" x="-0.5" y="491" width="375" height="90"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x6V-qz-bFs">
+                                <rect key="frame" x="-0.5" y="451" width="375" height="90"/>
+                                <color key="backgroundColor" red="1" green="0.54111497900000005" blue="0.36709255699999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="uPi-wE-TfK"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <state key="normal" title="Rejouer"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <state key="normal" title="Classement">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
-                                    <action selector="replay:" destination="QvG-aa-Rq6" eventType="touchUpInside" id="AEE-2U-GmG"/>
+                                    <segue destination="2sj-US-YZy" kind="presentation" modalTransitionStyle="flipHorizontal" id="9lJ-RJ-Ut2"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="esR-Ec-NfG">
-                                <rect key="frame" x="62" y="206" width="250" height="250"/>
+                                <rect key="frame" x="62" y="166" width="250" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="OE9-fk-iuQ"/>
                                     <constraint firstAttribute="height" constant="250" id="Y5a-6g-3ls"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YLC-Ko-xvh">
-                                <rect key="frame" x="159.5" y="45" width="55" height="55"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZyM-Wm-cze" customClass="CustomButtons" customModule="My_VocalPrint" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="577" width="375" height="90"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="55" id="JF0-uf-t05"/>
-                                    <constraint firstAttribute="height" constant="55" id="s9l-Tf-HNs"/>
+                                    <constraint firstAttribute="height" constant="90" id="dKc-ZG-HIr"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="leaderboard"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <state key="normal" title="Rejouer"/>
                                 <connections>
-                                    <segue destination="2sj-US-YZy" kind="presentation" id="aJc-4q-CBG"/>
+                                    <action selector="replay:" destination="QvG-aa-Rq6" eventType="touchUpInside" id="It9-qe-r47"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -617,12 +630,13 @@
                         <constraints>
                             <constraint firstItem="x6V-qz-bFs" firstAttribute="width" secondItem="GfR-sD-47F" secondAttribute="width" id="11P-04-wrW"/>
                             <constraint firstItem="M3M-Cz-UAC" firstAttribute="width" secondItem="GfR-sD-47F" secondAttribute="width" id="662-fE-fbe"/>
+                            <constraint firstItem="BfH-zl-1bC" firstAttribute="top" secondItem="ZyM-Wm-cze" secondAttribute="bottom" id="SM4-12-L19"/>
                             <constraint firstItem="esR-Ec-NfG" firstAttribute="top" secondItem="M3M-Cz-UAC" secondAttribute="bottom" constant="50" id="U5D-YA-6b5"/>
-                            <constraint firstItem="YLC-Ko-xvh" firstAttribute="centerX" secondItem="GfR-sD-47F" secondAttribute="centerX" id="Vqm-Zf-U18"/>
-                            <constraint firstItem="M3M-Cz-UAC" firstAttribute="top" secondItem="YLC-Ko-xvh" secondAttribute="bottom" constant="20" id="d3p-Z4-qzS"/>
+                            <constraint firstItem="ZyM-Wm-cze" firstAttribute="leading" secondItem="GfR-sD-47F" secondAttribute="leading" id="UEy-zP-IqJ"/>
                             <constraint firstItem="M3M-Cz-UAC" firstAttribute="centerX" secondItem="GfR-sD-47F" secondAttribute="centerX" id="dOY-cC-Hah"/>
+                            <constraint firstItem="ZyM-Wm-cze" firstAttribute="width" secondItem="GfR-sD-47F" secondAttribute="width" id="lID-rC-ILY"/>
                             <constraint firstItem="x6V-qz-bFs" firstAttribute="centerX" secondItem="GfR-sD-47F" secondAttribute="centerX" id="qF4-bH-xEa"/>
-                            <constraint firstItem="M3M-Cz-UAC" firstAttribute="top" secondItem="lT1-X4-nc5" secondAttribute="bottom" constant="100" id="qfb-RJ-0dA"/>
+                            <constraint firstItem="M3M-Cz-UAC" firstAttribute="top" secondItem="lT1-X4-nc5" secondAttribute="bottom" constant="60" id="qfb-RJ-0dA"/>
                             <constraint firstItem="esR-Ec-NfG" firstAttribute="centerX" secondItem="GfR-sD-47F" secondAttribute="centerX" id="sDj-qI-H8n"/>
                             <constraint firstItem="x6V-qz-bFs" firstAttribute="top" secondItem="esR-Ec-NfG" secondAttribute="bottom" constant="35" id="vz5-u1-nGV"/>
                         </constraints>
@@ -643,6 +657,6 @@
         <image name="valid" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Pzl-lX-PKu"/>
+        <segue reference="9lJ-RJ-Ut2"/>
     </inferredMetricsTieBreakers>
 </document>

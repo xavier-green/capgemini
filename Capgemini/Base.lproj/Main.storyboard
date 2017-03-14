@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -109,11 +108,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="color_pal" translatesAutoresizingMaskIntoConstraints="NO" id="8MR-US-c76">
-                                <rect key="frame" x="157" y="35" width="100" height="100"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bnp" translatesAutoresizingMaskIntoConstraints="NO" id="8MR-US-c76">
+                                <rect key="frame" x="50" y="50" width="314" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="8MR-US-c76" secondAttribute="height" multiplier="1:1" id="FUY-A8-RYz"/>
-                                    <constraint firstAttribute="width" constant="100" id="aMu-LV-w0r"/>
+                                    <constraint firstAttribute="height" constant="50" id="cTf-ga-5V2"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -128,14 +126,16 @@
                             <constraint firstItem="sDj-ga-yt9" firstAttribute="top" secondItem="LuS-XG-tDp" secondAttribute="bottom" constant="70" id="Pbr-pV-Eso"/>
                             <constraint firstItem="YA6-ne-CYP" firstAttribute="leading" secondItem="UQH-4D-5hr" secondAttribute="leading" id="TGg-zE-Ppz"/>
                             <constraint firstItem="qvP-Zg-g2Y" firstAttribute="width" secondItem="UQH-4D-5hr" secondAttribute="width" id="YGQ-Kr-Ppa"/>
+                            <constraint firstItem="8MR-US-c76" firstAttribute="leading" secondItem="UQH-4D-5hr" secondAttribute="leading" constant="50" id="dVG-xp-rCb"/>
                             <constraint firstItem="pGt-hs-xVQ" firstAttribute="top" secondItem="qvP-Zg-g2Y" secondAttribute="bottom" id="gCN-Lj-CVY"/>
+                            <constraint firstAttribute="trailing" secondItem="8MR-US-c76" secondAttribute="trailing" constant="50" id="grd-rN-WVp"/>
                             <constraint firstItem="Yqi-xO-bym" firstAttribute="width" secondItem="UQH-4D-5hr" secondAttribute="width" id="gwi-Je-7ju"/>
-                            <constraint firstItem="8MR-US-c76" firstAttribute="top" secondItem="c9w-Cf-dDX" secondAttribute="bottom" constant="15" id="hsB-BF-jzY"/>
+                            <constraint firstItem="8MR-US-c76" firstAttribute="top" secondItem="c9w-Cf-dDX" secondAttribute="bottom" constant="30" id="hsB-BF-jzY"/>
                             <constraint firstAttribute="trailing" secondItem="YA6-ne-CYP" secondAttribute="trailing" id="kmn-84-fwf"/>
                             <constraint firstItem="YA6-ne-CYP" firstAttribute="width" secondItem="UQH-4D-5hr" secondAttribute="width" id="q1e-rx-QTo"/>
                             <constraint firstItem="Yqi-xO-bym" firstAttribute="leading" secondItem="UQH-4D-5hr" secondAttribute="leading" id="uQA-R5-EUr"/>
                             <constraint firstItem="qvP-Zg-g2Y" firstAttribute="top" secondItem="Bi8-tD-MVd" secondAttribute="bottom" constant="20" id="xL6-Cm-oqn"/>
-                            <constraint firstItem="YA6-ne-CYP" firstAttribute="top" secondItem="8MR-US-c76" secondAttribute="bottom" constant="15" id="y1V-n2-eaz"/>
+                            <constraint firstItem="YA6-ne-CYP" firstAttribute="top" secondItem="8MR-US-c76" secondAttribute="bottom" constant="50" id="y1V-n2-eaz"/>
                             <constraint firstItem="Yqi-xO-bym" firstAttribute="top" secondItem="sDj-ga-yt9" secondAttribute="bottom" id="zqX-yt-rMw"/>
                             <constraint firstItem="sDj-ga-yt9" firstAttribute="centerX" secondItem="UQH-4D-5hr" secondAttribute="centerX" id="zv7-JC-d9l"/>
                         </constraints>
@@ -148,6 +148,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="color_pal" width="512" height="512"/>
+        <image name="bnp" width="604" height="128"/>
     </resources>
 </document>

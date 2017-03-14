@@ -11,6 +11,8 @@ import UIKit
 class VoteViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     @IBOutlet var continuerButton: UIButton!
     
+    @IBOutlet var spinner: UIActivityIndicatorView!
+    
     @IBAction func backButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
@@ -67,6 +69,10 @@ class VoteViewController: UIViewController, UICollectionViewDataSource, UICollec
         continuerButton.layer.borderWidth = 1
         continuerButton.layer.borderColor = UIColor.lightGray.cgColor
         continuerButton.addTarget(self, action: #selector(self.finir), for: .touchUpInside)
+        let transform = CGAffineTransform(scaleX: 3, y: 3)
+        self.spinner.transform = transform
+        self.spinner.startAnimating()
+        self.spinner.isHidden = false
         // Do any additional setup after loading the view.
         assignbackground()
         
@@ -86,6 +92,8 @@ class VoteViewController: UIViewController, UICollectionViewDataSource, UICollec
                 print("got ",self.items.count," images from back")
                 print("got ",self.imagesIds.count," _id from back")
                 self.imagesView.reloadData()
+                self.spinner.stopAnimating()
+                self.spinner.isHidden = true
 
             }
         }
