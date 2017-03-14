@@ -95,7 +95,7 @@ class ServerConnection {
                 //print("response = \(response)")
                 print("******** REQUEST ERROR")
                 errors = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as? String
-                NotificationCenter.default.post(name: Notification.Name(rawValue: "ERROR"), object: errors)
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "ERROR_NUANCE"), object: errors)
                 return
             }
             dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as? String
