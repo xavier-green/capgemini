@@ -130,7 +130,13 @@
                             <constraint firstItem="tjN-B3-Nhe" firstAttribute="top" secondItem="tbD-Zy-yNZ" secondAttribute="bottom" constant="50" id="vpx-4B-pFV"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Préparation réunion" id="qzT-6b-Y8a"/>
+                    <navigationItem key="navigationItem" title="Préparation réunion" id="qzT-6b-Y8a">
+                        <barButtonItem key="leftBarButtonItem" title="&lt; Retour" id="cNe-9u-fq7">
+                            <connections>
+                                <action selector="backToSelection:" destination="a9K-ef-Yvy" id="rtT-rz-L47"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="usernameAdd" destination="tbD-Zy-yNZ" id="T1m-NE-Lwg"/>
                         <outlet property="usernamesView" destination="3pt-LN-IqM" id="1DI-5s-6dL"/>
@@ -393,7 +399,7 @@
         <!--Navigation Controller-->
         <scene sceneID="ODD-Of-vEv">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="W8G-SP-hMo" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="pieuvreNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="W8G-SP-hMo" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4dM-hY-2h0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

@@ -146,13 +146,31 @@
                                     <outletCollection property="gestureRecognizers" destination="cUu-CJ-73V" appends="YES" id="ODI-PH-CjP"/>
                                 </connections>
                             </view>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ESO-vv-ykl">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="mxr-uq-dy5"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Dessine avec ta voix" id="J2X-2G-uyV">
+                                        <barButtonItem key="leftBarButtonItem" title="&lt; Retour" id="mor-RZ-11O">
+                                            <connections>
+                                                <action selector="backtochoice:" destination="ACH-Yq-k8Q" id="Zxh-Uc-12w"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ESO-vv-ykl" firstAttribute="leading" secondItem="I6V-Dt-Ry5" secondAttribute="leading" id="ITG-aT-oTt"/>
                             <constraint firstItem="JOw-Zv-LWC" firstAttribute="width" secondItem="I6V-Dt-Ry5" secondAttribute="width" id="SND-Sd-GG7"/>
+                            <constraint firstItem="ESO-vv-ykl" firstAttribute="top" secondItem="I6V-Dt-Ry5" secondAttribute="top" id="TKS-PO-lBz"/>
                             <constraint firstAttribute="trailing" secondItem="64k-KF-HVh" secondAttribute="trailing" id="fL2-9w-h9I"/>
                             <constraint firstItem="qhd-XO-G2u" firstAttribute="top" secondItem="64k-KF-HVh" secondAttribute="bottom" constant="43" id="g8Z-n4-8IY"/>
                             <constraint firstItem="64k-KF-HVh" firstAttribute="leading" secondItem="I6V-Dt-Ry5" secondAttribute="leading" id="geD-S4-YhZ"/>
+                            <constraint firstItem="ESO-vv-ykl" firstAttribute="width" secondItem="I6V-Dt-Ry5" secondAttribute="width" id="jlt-wh-4CV"/>
                             <constraint firstItem="JOw-Zv-LWC" firstAttribute="centerX" secondItem="I6V-Dt-Ry5" secondAttribute="centerX" id="mvn-Jw-d0P"/>
                             <constraint firstItem="64k-KF-HVh" firstAttribute="top" secondItem="xD6-T5-W9f" secondAttribute="bottom" constant="100" id="uCA-Tm-Zfe"/>
                         </constraints>
@@ -364,7 +382,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pg4-Jt-S7s" id="Sgy-AB-I8h">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="67.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="67"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rank" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mdk-c5-2NN">

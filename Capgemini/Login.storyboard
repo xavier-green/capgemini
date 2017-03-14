@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -732,7 +733,7 @@
         <!--Users View Controller-->
         <scene sceneID="RhN-xb-KY5">
             <objects>
-                <viewController id="tW3-5H-dDF" customClass="UsersViewController" customModule="My_VocalPrint" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="menuSelection" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tW3-5H-dDF" customClass="UsersViewController" customModule="My_VocalPrint" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LuA-72-u7A"/>
                         <viewControllerLayoutGuide type="bottom" id="ABR-hv-ZFS"/>
@@ -816,28 +817,41 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eD6-f6-0ru" customClass="CustomButtons" customModule="My_VocalPrint" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="577" width="375" height="90"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="elC-sg-5LK"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="577" width="187.5" height="90"/>
                                 <state key="normal" title="Jouer"/>
                                 <connections>
                                     <action selector="goToGame:" destination="tW3-5H-dDF" eventType="touchUpInside" id="z3F-MJ-lDN"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TV3-Y5-lAQ">
+                                <rect key="frame" x="187.5" y="577" width="187.5" height="90"/>
+                                <color key="backgroundColor" red="1" green="0.54111497902358963" blue="0.36709255700494403" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <state key="normal" title="Pieuvre">
+                                    <color key="titleColor" red="1" green="0.98073058262433843" blue="0.98748692563257068" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="gotoPieuvre:" destination="tW3-5H-dDF" eventType="touchUpInside" id="aTA-Wb-6yR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="eD6-f6-0ru" firstAttribute="width" secondItem="e2J-My-7k2" secondAttribute="width" multiplier="1:2" id="1Yq-qu-Ks0"/>
+                            <constraint firstItem="TV3-Y5-lAQ" firstAttribute="width" secondItem="eD6-f6-0ru" secondAttribute="width" id="3si-Ko-Ubn"/>
                             <constraint firstItem="8Br-fT-b6P" firstAttribute="trailing" secondItem="vnR-Hz-NFo" secondAttribute="trailing" id="5jT-1p-S3n"/>
-                            <constraint firstItem="eD6-f6-0ru" firstAttribute="width" secondItem="e2J-My-7k2" secondAttribute="width" id="Mht-3y-d2k"/>
+                            <constraint firstAttribute="trailing" secondItem="TV3-Y5-lAQ" secondAttribute="trailing" id="Ak7-lx-RnE"/>
+                            <constraint firstItem="ABR-hv-ZFS" firstAttribute="top" secondItem="TV3-Y5-lAQ" secondAttribute="bottom" id="MyY-Db-hOs"/>
                             <constraint firstItem="vnR-Hz-NFo" firstAttribute="leading" secondItem="e2J-My-7k2" secondAttribute="leading" id="OcV-nU-w5k"/>
-                            <constraint firstItem="eD6-f6-0ru" firstAttribute="centerX" secondItem="e2J-My-7k2" secondAttribute="centerX" id="RaN-dZ-V96"/>
                             <constraint firstAttribute="trailing" secondItem="vnR-Hz-NFo" secondAttribute="trailing" id="TuM-2t-8IO"/>
+                            <constraint firstItem="ABR-hv-ZFS" firstAttribute="top" secondItem="eD6-f6-0ru" secondAttribute="bottom" id="UMF-dA-z5z"/>
                             <constraint firstItem="8Br-fT-b6P" firstAttribute="leading" secondItem="vnR-Hz-NFo" secondAttribute="leading" id="Xvk-8j-ECS"/>
-                            <constraint firstItem="ABR-hv-ZFS" firstAttribute="top" secondItem="eD6-f6-0ru" secondAttribute="bottom" id="cU5-e8-OYq"/>
                             <constraint firstItem="8Br-fT-b6P" firstAttribute="top" secondItem="vnR-Hz-NFo" secondAttribute="bottom" id="deg-Zm-6ub"/>
                             <constraint firstItem="ABR-hv-ZFS" firstAttribute="top" secondItem="8Br-fT-b6P" secondAttribute="bottom" constant="90" id="fgq-bZ-nlG"/>
+                            <constraint firstItem="eD6-f6-0ru" firstAttribute="top" secondItem="8Br-fT-b6P" secondAttribute="bottom" id="iRT-6U-d52"/>
+                            <constraint firstItem="eD6-f6-0ru" firstAttribute="leading" secondItem="e2J-My-7k2" secondAttribute="leading" id="l8F-rd-BJM"/>
                             <constraint firstItem="vnR-Hz-NFo" firstAttribute="top" secondItem="e2J-My-7k2" secondAttribute="top" id="tUH-Io-2JH"/>
+                            <constraint firstItem="TV3-Y5-lAQ" firstAttribute="top" secondItem="8Br-fT-b6P" secondAttribute="bottom" id="ySR-23-ehU"/>
                         </constraints>
                     </view>
                     <connections>

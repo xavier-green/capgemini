@@ -10,7 +10,7 @@ import UIKit
 
 class PieuvrePseudoAddViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
-    var testUsernames: [String] = ["xavtest","youyountest"]
+    var testUsernames: [String] = []
     var capUsernames = [String]()
     
     @IBOutlet var usernamesView: UITableView!
@@ -89,6 +89,10 @@ class PieuvrePseudoAddViewController: UIViewController, UITableViewDelegate, UIT
         }
     }
 
+    @IBAction func backToSelection(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

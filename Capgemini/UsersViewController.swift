@@ -15,6 +15,9 @@ class UsersViewController: UIViewController,UITableViewDelegate, UITableViewData
     var userNames = [String]()
     var userAuths = [Int]()
     
+    
+    let screenWidth = UIScreen.main.bounds.width
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -58,6 +61,12 @@ class UsersViewController: UIViewController,UITableViewDelegate, UITableViewData
         cell.userDrawings?.text = String(Score)
         //cell.userImage.image = UIImage(named: "question")
         return cell
+    }
+    
+    @IBAction func gotoPieuvre(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Pieuvre", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "pieuvreNavigationController") as! UINavigationController
+        self.present(controller, animated: true, completion: nil)
     }
 
     @IBAction func goToGame(_ sender: UIButton) {

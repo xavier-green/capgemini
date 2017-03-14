@@ -178,6 +178,10 @@ class CalibrationViewController: UIViewController {
         self.performSegue(withIdentifier: "successfulCalibrationSegueToDrawView", sender: self)
     }
     
+    @IBAction func backtochoice(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     
     // MARK: - Navigation
     
