@@ -16,4 +16,5 @@ struct GlobalVariables {
     static var voteImageId: Int = 0 //ImageID for sent to server
     static var drawColor = UIColor.black //Color chosen at color screen in App Storyboard
     static var lineSpeedMultiplier: Int = 1 //Line speed multiplier used in Draw Components to increase speed
+    static var myBase64Image = String()
 }
