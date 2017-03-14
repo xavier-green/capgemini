@@ -9,6 +9,10 @@
 import Foundation
 import Speech
 
+/*
+ Cette classe gère les commandes vocales
+ AppDelegate renvoit toutes les notifications SPEECH_DONE vers cette classe, une fois que l'on a extrait la commande on renvoit la notification vers le front */
+
 class FireEvents {
     
     @objc func fireDone(resultat: String) {
@@ -48,6 +52,7 @@ class FireEvents {
             print("not an identified case")
         }
         
+        // Notification envoyée pour enlever les spinner dans le front
         NotificationCenter.default.post(name: Notification.Name(rawValue: "FINISHED_RECORDING"), object: self)
         
     }

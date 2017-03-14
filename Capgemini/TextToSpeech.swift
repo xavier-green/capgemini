@@ -9,6 +9,14 @@
 import Foundation
 import AVFoundation
 
+/*
+ Class that manages the TextToSpeech synthesizer with Siri frameword
+ Parameters:
+    - language: "fr-CA"
+    - delay between sentences spoken: postUtteranceDelay
+    - spoken speed: rate
+ */
+
 class TextToSpeech {
     
     var synthesizer = AVSpeechSynthesizer()
