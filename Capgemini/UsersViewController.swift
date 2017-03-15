@@ -91,7 +91,7 @@ class UsersViewController: UIViewController,UITableViewDelegate, UITableViewData
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = indexPath.row
-        if row == 0 {
+        if (row == 0 && userAuths[0]==(-1)) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "loadingCell",
                                                      for: indexPath)
             return cell

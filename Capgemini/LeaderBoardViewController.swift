@@ -93,7 +93,7 @@ class LeaderBoardViewController: UIViewController, UITableViewDelegate,UITableVi
     }
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = indexPath.row
-        if row == 0 {
+        if (row == 0 && votesData[0]==(-1)) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "loadingCell",
                                                      for: indexPath)
             return cell
