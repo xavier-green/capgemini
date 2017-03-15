@@ -73,25 +73,56 @@ class VoteViewController: UIViewController, UICollectionViewDataSource, UICollec
         // Do any additional setup after loading the view.
         assignbackground()
         
+        getTopImage()
+        
+//        DispatchQueue.global(qos: .background).async {
+//            print("Running nuance fetch in background thread")
+//            let receivedImagesObject = CotoBackMethods().getImages()
+//            DispatchQueue.main.async {
+//                print("back to main")
+//                let receivedImages = receivedImagesObject[0] as! [String]
+//                let finalImagesCleaned = self.convertToBase64(receivedImages: receivedImages)
+//                self.items = finalImagesCleaned
+//                self.imagesIds = receivedImagesObject[1] as! [Int]
+//                self.imageDrawer = receivedImagesObject[2] as! [String]
+//                self.imagesView.reloadData()
+//                self.spinner.stopAnimating()
+//                self.spinner.isHidden = true
+//
+//            }
+//        }
+    }
+    
+    func convertToBase64(receivedImages: [String]) -> [String] {
+        var finalImagesCleaned: [String] = []
+        for image in receivedImages {
+            finalImagesCleaned.append(image.replacingOccurrences(of: " ", with: "+"))
+        }
+        return finalImagesCleaned
+    }
+    
+    func getTopImage() {
+        self.getImage(position: 0)
+    }
+    
+    func getImage(position: Int){
+        var gotPosition = position
         DispatchQueue.global(qos: .background).async {
-            print("Running nuance fetch in background thread")
-            let receivedImagesObject = CotoBackMethods().getImages()
+            let receivedImagesObject = CotoBackMethods().getTopImage(position: position)
             DispatchQueue.main.async {
-                print("back to main")
+                
                 let receivedImages = receivedImagesObject[0] as! [String]
-                var finalImagesCleaned: [String] = []
-                for image in receivedImages {
-                    finalImagesCleaned.append(image.replacingOccurrences(of: " ", with: "+"))
-                }
+                let finalImagesCleaned = self.convertToBase64(receivedImages: receivedImages)
                 self.items = finalImagesCleaned
-                self.imagesIds = receivedImagesObject[1] as! [Int]
-                self.imageDrawer = receivedImagesObject[2] as! [String]
-                print("got ",self.items.count," images from back")
-                print("got ",self.imagesIds.count," _id from back")
-                self.imagesView.reloadData()
-                self.spinner.stopAnimating()
-                self.spinner.isHidden = true
-
+                self.imagesIds.append(receivedImagesObject[1][0] as! Int)
+                self.imageDrawer.append(receivedImagesObject[2][0] as! String)
+                
+                self.imagesView.insertItems(at: [IndexPath(row: self.imagesIds.count-1, section: 0)])
+                
+                gotPosition += 1
+                if (gotPosition<25) {
+                    self.getImage(position: gotPosition)
+                }
             }
         }
     }

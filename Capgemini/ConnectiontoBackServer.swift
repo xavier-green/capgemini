@@ -308,6 +308,16 @@ class ConnectiontoBackServer {
         
     }
     
+    func getTopImage(position: Int) -> String {
+        
+        print("getting images from db")
+        let url: String = "/images"
+        let params: [[String]] = [["username",GlobalVariables.username],["position",String(position)]]
+        
+        return connectToServer(url: url, params: params, method: "POST", notificationString: "GET_IMAGES")
+        
+    }
+    
     /**
      Vote for an image from all the images
      Increments the vote attribute of image in database
