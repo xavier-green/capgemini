@@ -767,8 +767,39 @@
                                 <rect key="frame" x="0.0" y="65" width="375" height="512"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LabelCell" rowHeight="94" id="N4t-mY-XHO" customClass="UserTableCell" customModule="My_VocalPrint" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="loadingCell" id="jvM-aU-sas">
                                         <rect key="frame" x="0.0" y="28" width="375" height="94"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jvM-aU-sas" id="wQg-6l-F7N">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="93"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y9f-iv-oO3">
+                                                    <rect key="frame" x="103.5" y="10" width="168.5" height="20"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chargement...         " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1Q-eT-AQA">
+                                                            <rect key="frame" x="0.0" y="0.0" width="148.5" height="20"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="C8x-DD-RTH">
+                                                            <rect key="frame" x="148.5" y="0.0" width="20" height="20"/>
+                                                        </activityIndicatorView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="y9f-iv-oO3" firstAttribute="top" secondItem="wQg-6l-F7N" secondAttribute="topMargin" constant="2" id="bft-ZF-9eE"/>
+                                                <constraint firstItem="y9f-iv-oO3" firstAttribute="centerX" secondItem="wQg-6l-F7N" secondAttribute="centerX" id="mAS-Z1-dTk"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstItem="y9f-iv-oO3" firstAttribute="centerX" secondItem="jvM-aU-sas" secondAttribute="centerX" id="Z2t-ru-ZlW"/>
+                                        </constraints>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LabelCell" rowHeight="94" id="N4t-mY-XHO" customClass="UserTableCell" customModule="My_VocalPrint" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="122" width="375" height="94"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N4t-mY-XHO" id="0YL-AN-BoO">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="93"/>
