@@ -72,11 +72,10 @@ class DrawTestViewController: UIViewController {
         let height = drawView.frame.height*2
         let rect = CGRect(x: 0, y: topMargin, width: width, height: height)
         let croppedImage = viewImage.cgImage!.cropping(to: rect)
-        let imageToSave = UIImage(cgImage: croppedImage!)
+        let imageToSave = UIImage(cgImage: croppedImage!).resizeImage(newWidth: 500)
         
         print("here")
-        GlobalVariables.myBase64Image = (UIImagePNGRepresentation(imageToSave)?.base64EncodedString())!
-        
+        GlobalVariables.myBase64Image = (UIImageJPEGRepresentation(imageToSave,0.5)?.base64EncodedString())!
         PHPhotoLibrary.shared().performChanges({
             print("making changes")
             PHAssetChangeRequest.creationRequestForAsset(from: imageToSave)
