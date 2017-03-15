@@ -19,6 +19,17 @@ function load(req, res, next, username) {
 function get(req, res) {
     return res.json(req.user);
 }
+
+function firstUser(req, res, next) {
+  let position = parseInt(req.body.position)
+  User.find().sort({ authNumber: -1 }).skip(position).limit(1).execAsync()
+    .then((users) => {
+        res.json(users);
+    })
+    .catch((e) => {
+        res.json(e)
+    })
+}
 /**
  * Create new user
  * @property {string} req.body.username - The username of user.
@@ -100,4 +111,4 @@ function addFrequency(req,res) {
       })
 }
 
-module.exports = exports = { load, get, create, update, list, remove, verifyDate, addFrequency };
+module.exports = exports = { load, get, create, update, list, remove, verifyDate, addFrequency, firstUser };

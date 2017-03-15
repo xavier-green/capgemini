@@ -19,6 +19,9 @@ router.route('/:userId')
 router.route('/verifyDate')
     .post(validate(paramValidation.createUser), userCtrl.verifyDate)
 
+router.route('/getfirst')
+    .post(userCtrl.firstUser)
+
 router.route('/addFrequency')
     .post(userCtrl.addFrequency)
 /** Load user when API with userId route parameter is hit */
