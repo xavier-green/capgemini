@@ -34,6 +34,32 @@ class UsersViewController: UIViewController,UITableViewDelegate, UITableViewData
         }
         
     }
+    
+    func getAllUsers() {
+        getUser(position: 0)
+    }
+    
+    func getUser(position: Int){
+        var gotPosition = position
+        DispatchQueue.global(qos: .background).async {
+            print("getting user ",position)
+            let capUsers = CotoBackMethods().getTopUsersName(position: position)
+            DispatchQueue.main.async {
+                print("adding to table")
+                self.tableView.beginUpdates()
+                let usernames = capUsers[0] as! [String]
+                let userauths = capUsers[1] as! [Int]
+                self.userNames.append(usernames[0])
+                self.userAuths.append(userauths[0])
+                self.tableView.insertRows(at: [IndexPath(row: self.userNames.count-1, section: 0)], with: .automatic)
+                self.tableView.endUpdates()
+                gotPosition += 1
+                if (gotPosition<50) {
+                    self.getUser(position: gotPosition)
+                }
+            }
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

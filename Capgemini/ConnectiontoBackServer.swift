@@ -231,6 +231,13 @@ class ConnectiontoBackServer {
         return connectToServer(url: url, params: params, method: "GET", notificationString: "GET_USERS_NAMES")
     }
     
+    func getTopUsersName(position: Int) -> String {
+        let url: String = "/users/getfirst"
+        let params: [[String]] = [["position", String(position)]]
+        
+        return connectToServer(url: url, params: params, method: "POST", notificationString: "GET_USERS_NAMES")
+    }
+    
     
     /**
      Add User To database in Enrolment Phase

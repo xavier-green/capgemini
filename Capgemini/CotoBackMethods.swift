@@ -63,6 +63,23 @@ class CotoBackMethods {
         return sendObject as [AnyObject]
     }
     
+    func getTopUsersName(position: Int) -> [AnyObject] {
+        let usernamesJSON = Server.getTopUsersName(position: position)
+        let data: Data = usernamesJSON.data(using: String.Encoding.utf8, allowLossyConversion: false)!
+        let json = try? JSONSerialization.jsonObject(with: data, options: []) as! [AnyObject]
+        var usernames = [String]()
+        var usernamesAuths = [Int]()
+        for object in json! {
+            let name = object["username"]!
+            if !usernames.contains(name as! String) {
+                usernames.append(name as! String)
+                usernamesAuths.append(object["authNumber"] as! Int)
+            }
+        }
+        let sendObject = [usernames,usernamesAuths] as [Any]
+        return sendObject as [AnyObject]
+    }
+    
     /**
      Gets user information
      - Parameter speakerID: Chosen user name
