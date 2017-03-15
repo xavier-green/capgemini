@@ -359,7 +359,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pg4-Jt-S7s" id="Sgy-AB-I8h">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="67.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="67"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rank" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mdk-c5-2NN">
@@ -524,13 +524,6 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="peL-Cq-Jqj">
-                                <rect key="frame" x="137.5" y="283.5" width="100" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="9Vq-EA-YHA"/>
-                                    <constraint firstAttribute="width" constant="100" id="b0r-lI-Tpy"/>
-                                </constraints>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -539,7 +532,6 @@
                             <constraint firstItem="JKR-BN-vOZ" firstAttribute="leading" secondItem="uag-YJ-uXQ" secondAttribute="leadingMargin" constant="10" id="6xE-cm-vRK"/>
                             <constraint firstItem="p09-wW-ENI" firstAttribute="leading" secondItem="uag-YJ-uXQ" secondAttribute="leading" id="E5i-Y8-Sqz"/>
                             <constraint firstItem="fMX-50-l2J" firstAttribute="leading" secondItem="uag-YJ-uXQ" secondAttribute="leadingMargin" constant="51" id="NrB-QM-pxW"/>
-                            <constraint firstItem="peL-Cq-Jqj" firstAttribute="centerX" secondItem="uag-YJ-uXQ" secondAttribute="centerX" id="OeE-0E-eCI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="JKR-BN-vOZ" secondAttribute="trailing" constant="10" id="QH9-CM-tEo"/>
                             <constraint firstItem="sHY-PJ-uqD" firstAttribute="width" secondItem="uag-YJ-uXQ" secondAttribute="width" id="Tsl-Bd-X53"/>
                             <constraint firstItem="l1n-7x-FNS" firstAttribute="centerY" secondItem="sHY-PJ-uqD" secondAttribute="centerY" id="aW0-2z-8sa"/>
@@ -548,7 +540,6 @@
                             <constraint firstItem="fMX-50-l2J" firstAttribute="centerX" secondItem="uag-YJ-uXQ" secondAttribute="centerX" id="gvy-ST-8zj"/>
                             <constraint firstItem="JKR-BN-vOZ" firstAttribute="top" secondItem="fMX-50-l2J" secondAttribute="bottom" constant="20" id="oXJ-af-m1b"/>
                             <constraint firstItem="sHY-PJ-uqD" firstAttribute="centerX" secondItem="uag-YJ-uXQ" secondAttribute="centerX" id="pDx-Bx-XzG"/>
-                            <constraint firstItem="peL-Cq-Jqj" firstAttribute="centerY" secondItem="uag-YJ-uXQ" secondAttribute="centerY" id="qZM-uF-4qf"/>
                             <constraint firstItem="fMX-50-l2J" firstAttribute="top" secondItem="k2H-AO-tp6" secondAttribute="bottom" constant="50" id="umm-6U-Gmu"/>
                             <constraint firstAttribute="trailing" secondItem="p09-wW-ENI" secondAttribute="trailing" id="vAd-j7-gCL"/>
                         </constraints>
@@ -556,7 +547,6 @@
                     <connections>
                         <outlet property="continuerButton" destination="sHY-PJ-uqD" id="gj3-O3-lsT"/>
                         <outlet property="imagesView" destination="JKR-BN-vOZ" id="HZ7-wt-YkL"/>
-                        <outlet property="spinner" destination="peL-Cq-Jqj" id="aBK-Dv-aBb"/>
                         <segue destination="QvG-aa-Rq6" kind="presentation" identifier="finishedVotingSegue" modalTransitionStyle="crossDissolve" id="JWc-7b-blg"/>
                     </connections>
                 </viewController>

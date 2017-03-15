@@ -11,8 +11,6 @@ import UIKit
 class VoteViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     @IBOutlet var continuerButton: UIButton!
     
-    @IBOutlet var spinner: UIActivityIndicatorView!
-    
     @IBAction func backButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
@@ -65,7 +63,6 @@ class VoteViewController: UIViewController, UICollectionViewDataSource, UICollec
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.spinner.isHidden = true
         continuerButton.isHidden = true
         continuerButton.layer.borderWidth = 1
         continuerButton.layer.borderColor = UIColor.lightGray.cgColor
@@ -74,23 +71,6 @@ class VoteViewController: UIViewController, UICollectionViewDataSource, UICollec
         assignbackground()
         
         getTopImage()
-        
-//        DispatchQueue.global(qos: .background).async {
-//            print("Running nuance fetch in background thread")
-//            let receivedImagesObject = CotoBackMethods().getImages()
-//            DispatchQueue.main.async {
-//                print("back to main")
-//                let receivedImages = receivedImagesObject[0] as! [String]
-//                let finalImagesCleaned = self.convertToBase64(receivedImages: receivedImages)
-//                self.items = finalImagesCleaned
-//                self.imagesIds = receivedImagesObject[1] as! [Int]
-//                self.imageDrawer = receivedImagesObject[2] as! [String]
-//                self.imagesView.reloadData()
-//                self.spinner.stopAnimating()
-//                self.spinner.isHidden = true
-//
-//            }
-//        }
     }
     
     func convertToBase64(receivedImages: [String]) -> [String] {
@@ -113,7 +93,7 @@ class VoteViewController: UIViewController, UICollectionViewDataSource, UICollec
                 
                 let receivedImages = receivedImagesObject[0] as! [String]
                 let finalImagesCleaned = self.convertToBase64(receivedImages: receivedImages)
-                self.items = finalImagesCleaned
+                self.items.append(finalImagesCleaned[0])
                 self.imagesIds.append(receivedImagesObject[1][0] as! Int)
                 self.imageDrawer.append(receivedImagesObject[2][0] as! String)
                 
@@ -125,13 +105,6 @@ class VoteViewController: UIViewController, UICollectionViewDataSource, UICollec
                 }
             }
         }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        let transform = CGAffineTransform(scaleX: 3, y: 3)
-        self.spinner.transform = transform
-        self.spinner.startAnimating()
-        self.spinner.isHidden = false
     }
 
     override func didReceiveMemoryWarning() {
