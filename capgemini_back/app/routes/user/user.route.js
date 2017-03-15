@@ -19,7 +19,7 @@ router.route('/:userId')
 router.route('/verifyDate')
     .post(validate(paramValidation.createUser), userCtrl.verifyDate)
 
-router.router('/getfirst')
+router.route('/getfirst')
     .post(userCtrl.firstUser)
 
 router.route('/addFrequency')
