@@ -16,6 +16,8 @@ class VoteViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     @IBOutlet var imagesView: UICollectionView!
     
+    @IBOutlet var scrollLabel: UILabel!
+    
     let reuseIdentifier = "cell" // also enter this string as the cell identifier in the storyboard
     var items: [String] = []
     var imagesIds: [Int] = []
@@ -46,6 +48,7 @@ class VoteViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
         continuerButton.isHidden = false
+        scrollLabel.isHidden = true
         for i in 0...self.items.count {
             let index = IndexPath(item: i, section: 0)
             let cell = collectionView.cellForItem(at: index)
