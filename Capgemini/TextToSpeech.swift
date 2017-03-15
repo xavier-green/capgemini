@@ -21,7 +21,7 @@ class TextToSpeech {
     
     var synthesizer = AVSpeechSynthesizer()
     var utterance: AVSpeechUtterance!
-    var voice = AVSpeechSynthesisVoice(language: "fr-CA")
+    var voice = AVSpeechSynthesisVoice(language: Config.speechLanguage)
     
     func speak(sentences: [String]) {
         for sentence in sentences {

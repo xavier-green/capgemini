@@ -14,7 +14,7 @@ import Speech
 class SpeechToText {
     
     // Initialisation du speechRecognizer natif en langue francaise
-    private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "fr-FR"))!
+    private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: Config.speechLanguage))!
     
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?

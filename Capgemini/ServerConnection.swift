@@ -17,12 +17,12 @@ class ServerConnection {
         print("Initialising nuance server connection")
     }
     
-    private let BASE_URL: String = "http://82.80.219.196"
-    private let SERVER_USERNAME: String = "Capgemini"
-    private let SERVER_PASSWORD: String = "12345678"
-    private let SCOPE: String = "CAPGEMINI"
-    private let VOICE_PRINT_TAG: String = "Mobile"
-    private let CONFIG_SET_NAME: String = "Capgemini"
+    private let BASE_URL: String = Config.nuanceURL
+    private let SERVER_USERNAME: String = Config.nuanceUsername
+    private let SERVER_PASSWORD: String = Config.nuancePassword
+    private let SCOPE: String = Config.nuanceScope
+    private let VOICE_PRINT_TAG: String = Config.nuanceVoicePrintTag
+    private let CONFIG_SET_NAME: String = Config.nuanceConfig
     
     private var resultData: String = ""
     
