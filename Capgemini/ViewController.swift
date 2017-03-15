@@ -46,7 +46,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         speechToText = TextToSpeech()
-        
+        GlobalVariables.lineSpeedMultiplier = 1
         assignbackground()
         testInternetConnection()
     }

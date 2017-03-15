@@ -51,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If Server Status is != from 200, send an Error Notification
         NotificationCenter.default.addObserver(self, selector: #selector(self.connectionToNuanceFail), name: NSNotification.Name(rawValue: "ERROR_NUANCE"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.connectionToServerFail), name: NSNotification.Name(rawValue: "ERROR_BACK"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.connectionToServerFail), name: NSNotification.Name(rawValue: "TIME_OUT_BACK"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.connectionToServerTimeOut), name: NSNotification.Name(rawValue: "TIME_OUT_BACK"), object: nil)
         
         print("Done !")
     }
@@ -120,6 +120,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func connectionToServerFail() {
         print("server error")
         let alert = UIAlertController(title: "Erreur de connection", message: "Erreur de connection au serveur", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        topMostController().present(alert, animated: true, completion: nil)
+    }
+    func connectionToServerTimeOut() {
+        print("server time out")
+        let alert = UIAlertController(title: "Erreur de connection", message: "La connexion au serveur a time out. Vérifiez votre connection internet.", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
         topMostController().present(alert, animated: true, completion: nil)
     }
