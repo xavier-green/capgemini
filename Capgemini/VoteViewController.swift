@@ -11,6 +11,8 @@ import UIKit
 class VoteViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     @IBOutlet var continuerButton: UIButton!
     
+    @IBOutlet var chargement: UIStackView!
+    
     @IBAction func backButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
@@ -19,9 +21,9 @@ class VoteViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet var scrollLabel: UILabel!
     
     let reuseIdentifier = "cell" // also enter this string as the cell identifier in the storyboard
-    var items: [String] = [""]
-    var imagesIds: [Int] = [0]
-    var imageDrawer: [String] = ["Chargement..."]
+    var items: [String] = []
+    var imagesIds: [Int] = []
+    var imageDrawer: [String] = []
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.items.count
@@ -32,15 +34,13 @@ class VoteViewController: UIViewController, UICollectionViewDataSource, UICollec
         cell.layer.borderWidth = 1
         cell.layer.cornerRadius = 8
         
-        if (items[indexPath.item] != "") {
-            let dataDecoded = NSData(base64Encoded: items[indexPath.item], options: NSData.Base64DecodingOptions.init(rawValue: 0))
-            
-            //print(dataDecoded ?? "no data")
-            
-            if (dataDecoded != nil) {
-                let cellImage = UIImage(data: dataDecoded as! Data)
-                cell.image.image = cellImage
-            }
+        let dataDecoded = NSData(base64Encoded: items[indexPath.item], options: NSData.Base64DecodingOptions.init(rawValue: 0))
+        
+        //print(dataDecoded ?? "no data")
+        
+        if (dataDecoded != nil) {
+            let cellImage = UIImage(data: dataDecoded as! Data)
+            cell.image.image = cellImage
         }
         
         cell.nickName.text = imageDrawer[indexPath.item]
@@ -107,24 +107,14 @@ class VoteViewController: UIViewController, UICollectionViewDataSource, UICollec
         let receivedUsers = receivedImagesObject[2] as! [String]
         let finalImagesCleaned = self.convertToBase64(receivedImages: receivedImages)
         if (receivedImages.count>0) {
-            if position==0 {
-                self.items = [finalImagesCleaned[0]]
-                self.imagesIds = [receivedIds[0]]
-                self.imageDrawer = [receivedUsers[0]]
-                self.imagesView.reloadData()
-            } else {
-                self.items.append(finalImagesCleaned[0])
-                self.imagesIds.append(receivedIds[0])
-                self.imageDrawer.append(receivedUsers[0])
-                self.imagesView.insertItems(at: [IndexPath(row: self.items.count-1, section: 0)])
-            }
+            self.items.append(finalImagesCleaned[0])
+            self.imagesIds.append(receivedIds[0])
+            self.imageDrawer.append(receivedUsers[0])
+            self.imagesView.insertItems(at: [IndexPath(row: self.items.count-1, section: 0)])
             gotPosition += 1
             self.getImage(position: gotPosition)
         } else {
-            self.items.remove(at: 0)
-            self.imagesIds.remove(at: 0)
-            self.imageDrawer.remove(at: 0)
-            self.imagesView.reloadData()
+            self.chargement.isHidden = true
         }
     }
 

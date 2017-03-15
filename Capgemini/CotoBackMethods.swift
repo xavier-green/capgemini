@@ -149,6 +149,8 @@ class CotoBackMethods {
     
     func getTopImage(position: Int) -> [[AnyObject]] {
         let images = Server.getTopImage(position: position)
+        print("image:")
+        print(images)
         let result = parseJsonArray(jsonString: images)
         var imageData: [String] = []
         var idData: [Int] = []
