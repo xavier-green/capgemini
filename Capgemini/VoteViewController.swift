@@ -92,15 +92,15 @@ class VoteViewController: UIViewController, UICollectionViewDataSource, UICollec
             DispatchQueue.main.async {
                 
                 let receivedImages = receivedImagesObject[0] as! [String]
-                let finalImagesCleaned = self.convertToBase64(receivedImages: receivedImages)
-                self.items.append(finalImagesCleaned[0])
-                self.imagesIds.append(receivedImagesObject[1][0] as! Int)
-                self.imageDrawer.append(receivedImagesObject[2][0] as! String)
-                
-                self.imagesView.insertItems(at: [IndexPath(row: self.imagesIds.count-1, section: 0)])
-                
-                gotPosition += 1
-                if (gotPosition<25) {
+                if (receivedImages.count>0) {
+                    let finalImagesCleaned = self.convertToBase64(receivedImages: receivedImages)
+                    self.items.append(finalImagesCleaned[0])
+                    self.imagesIds.append(receivedImagesObject[1][0] as! Int)
+                    self.imageDrawer.append(receivedImagesObject[2][0] as! String)
+                    
+                    self.imagesView.insertItems(at: [IndexPath(row: self.imagesIds.count-1, section: 0)])
+                    
+                    gotPosition += 1
                     self.getImage(position: gotPosition)
                 }
             }
