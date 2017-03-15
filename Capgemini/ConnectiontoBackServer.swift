@@ -56,7 +56,7 @@ class ConnectiontoBackServer {
         
         let config = URLSessionConfiguration.default
         config.timeoutIntervalForRequest=TimeInterval(20)
-        config.timeoutIntervalForResource=TimeInterval(20)
+        config.timeoutIntervalForResource=TimeInterval(60)
         let authString = constructHeaders()
         config.httpAdditionalHeaders = ["Authorization" : authString]
         let session = URLSession(configuration: config)
@@ -74,7 +74,7 @@ class ConnectiontoBackServer {
         
         let config = URLSessionConfiguration.default
         config.timeoutIntervalForRequest=TimeInterval(20)
-        config.timeoutIntervalForResource=TimeInterval(20)
+        config.timeoutIntervalForResource=TimeInterval(60)
         let authString = constructHeaders()
         config.httpAdditionalHeaders = ["Authorization" : authString]
         let session = URLSession(configuration: config)
@@ -96,7 +96,7 @@ class ConnectiontoBackServer {
         
         let config = URLSessionConfiguration.default
         config.timeoutIntervalForRequest=TimeInterval(20)
-        config.timeoutIntervalForResource=TimeInterval(20)
+        config.timeoutIntervalForResource=TimeInterval(60)
         let authString = constructHeaders()
         config.httpAdditionalHeaders = ["Authorization" : authString]
         let session = URLSession(configuration: config)
