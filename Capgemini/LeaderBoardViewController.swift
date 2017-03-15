@@ -50,24 +50,22 @@ class LeaderBoardViewController: UIViewController, UITableViewDelegate,UITableVi
         let imageDataObj = receivedObject[0] as! [String]
         let userData0bj = receivedObject[1] as! [String]
         let votesDataObj = receivedObject[2] as! [Int]
-        if position==0 {
-            print("position 0, overwriting existing data")
-            self.imageData = imageDataObj
-            self.userData = userData0bj
-            self.votesData = votesDataObj
-            self.tableView.reloadData()
-        } else {
-            print("now just appending to the end")
-            self.tableView.beginUpdates()
-            self.imageData.append(imageDataObj[0])
-            self.userData.append(userData0bj[0])
-            self.votesData.append(votesDataObj[0])
-            self.tableView.insertRows(at: [IndexPath(row: self.imageData.count-1, section: 0)], with: .automatic)
-            self.tableView.endUpdates()
-        }
+        self.tableView.beginUpdates()
+        self.imageData.append(imageDataObj[0])
+        self.userData.append(userData0bj[0])
+        self.votesData.append(votesDataObj[0])
+        self.tableView.insertRows(at: [IndexPath(row: self.imageData.count-1, section: 0)], with: .automatic)
+        self.tableView.endUpdates()
         gotPosition += 1
         if (gotPosition<25) {
             self.getLeader(position: gotPosition)
+        } else {
+            self.tableView.beginUpdates()
+            self.imageData.remove(at: 0)
+            self.votesData.remove(at: 0)
+            self.userData.remove(at: 0)
+            self.tableView.deleteRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+            self.tableView.endUpdates()
         }
     }
     
@@ -95,27 +93,40 @@ class LeaderBoardViewController: UIViewController, UITableViewDelegate,UITableVi
     }
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = indexPath.row
-        let Name = self.userData[row]
-        let Score = self.votesData[row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell",
-                                                 for: indexPath) as! leaderBoardCell
-        cell.userName?.text = Name
-        if (Score != (-1)) {
-            cell.userRank?.text = String(Score)
-        }
-        
-        if (self.imageData[row] != "") {
-            let dataDecoded = NSData(base64Encoded: self.imageData[row].replacingOccurrences(of: " ", with: "+"), options: NSData.Base64DecodingOptions.init(rawValue: 0))
-            
-            if (dataDecoded != nil) {
-                let cellImage = UIImage(data: dataDecoded as! Data)
-                cell.imageV.image = cellImage
-                cell.imageV.layer.borderWidth = 1
-                cell.imageV.layer.borderColor = UIColor.darkGray.cgColor
+        if row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "loadingCell",
+                                                     for: indexPath)
+            return cell
+        } else {
+            let Name = self.userData[row]
+            let Score = self.votesData[row]
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell",
+                                                     for: indexPath) as! leaderBoardCell
+            cell.userName?.text = Name
+            if (Score != (-1)) {
+                cell.userRank?.text = String(Score)
             }
+            
+            if (self.imageData[row] != "") {
+                let dataDecoded = NSData(base64Encoded: self.imageData[row].replacingOccurrences(of: " ", with: "+"), options: NSData.Base64DecodingOptions.init(rawValue: 0))
+                
+                if (dataDecoded != nil) {
+                    let cellImage = UIImage(data: dataDecoded as! Data)
+                    cell.imageV.image = cellImage
+                    cell.imageV.layer.borderWidth = 1
+                    cell.imageV.layer.borderColor = UIColor.darkGray.cgColor
+                }
+            }
+            
+            return cell
         }
-
-        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if (indexPath.row == 0 && votesData[0]==(-1)) {
+            return 40
+        }
+        return 94
     }
 
     /*

@@ -20,7 +20,7 @@ class VoteViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     let reuseIdentifier = "cell" // also enter this string as the cell identifier in the storyboard
     var items: [String] = [""]
-    var imagesIds: [Int] = []
+    var imagesIds: [Int] = [0]
     var imageDrawer: [String] = ["Chargement..."]
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -120,6 +120,11 @@ class VoteViewController: UIViewController, UICollectionViewDataSource, UICollec
             }
             gotPosition += 1
             self.getImage(position: gotPosition)
+        } else {
+            self.items.remove(at: 0)
+            self.imagesIds.remove(at: 0)
+            self.imageDrawer.remove(at: 0)
+            self.imagesView.reloadData()
         }
     }
 
