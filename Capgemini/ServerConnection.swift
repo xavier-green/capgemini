@@ -99,6 +99,9 @@ class ServerConnection {
         session.dataTask(with: request, completionHandler: { (data, response, error) in
             if error != nil {
                 NotificationCenter.default.post(name: Notification.Name(rawValue: "TIME_OUT_NUANCE"), object: errors)
+                let end = NSDate()
+                let timeInterval: Double = end.timeIntervalSince(start as Date)
+                print("Time to evaluate problem: \(timeInterval) seconds")
                 return
             }
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
@@ -115,9 +118,6 @@ class ServerConnection {
             semaphore.signal()
             
             print("Done, sending notification: ",notificationString)
-            let end = NSDate()
-            let timeInterval: Double = end.timeIntervalSince(start as Date)
-            print("Time to evaluate problem: \(timeInterval) seconds")
             NotificationCenter.default.post(name: Notification.Name(rawValue: notificationString), object: dataString)
             
         }).resume()

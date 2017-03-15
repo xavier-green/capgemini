@@ -27,7 +27,7 @@ class StatController {
     }
     
     // Lorsque quelqu'un reussi à s'authentifier
-    @objc func loginSuccess() {
+    func loginSuccess() {
         print("adding login success")
         _ = Server.loginSuccess()
     }

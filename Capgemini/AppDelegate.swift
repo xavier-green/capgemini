@@ -23,10 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FireEvents().fireDone(resultat: resultat)
     }
     
-    @objc func loginSuccess() {
-        StatController().loginSuccess()
-    }
-    
     @objc func loginFail(notification: NSNotification) {
         let email = notification.object as! String
         StatController().loginFail(email: email)
@@ -48,10 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Add Hack Attempt to Server when user tries to log in as another user
         NotificationCenter.default.addObserver(self, selector: #selector(self.hackAttempt), name: NSNotification.Name(rawValue: "HACK_ATTEMPT"), object: nil)
-        
-        // Increment Login Success in Server when user successfully authenticates
-        NotificationCenter.default.addObserver(self, selector: #selector(self.loginSuccess), name: NSNotification.Name(rawValue: "LOGIN_SUCCESS"), object: nil)
-        
+       
         // Increment Login Success in Server when user fails authentication
         NotificationCenter.default.addObserver(self, selector: #selector(self.loginFail), name: NSNotification.Name(rawValue: "LOGIN_FAIL"), object: nil)
         

@@ -17,10 +17,13 @@ class SetDateViewController: UIViewController {
     }
     @IBOutlet weak var nextBut: UIButton!
     @IBOutlet weak var noticeText: UITextView!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.spinner.isHidden=true
         
         self.datePicker.addTarget(self, action: #selector(self.datePickerChanged), for: UIControlEvents.valueChanged)
         NotificationCenter.default.addObserver(self, selector: #selector(self.goForw), name: NSNotification.Name(rawValue: "TERMINER"), object: nil)
@@ -46,10 +49,12 @@ class SetDateViewController: UIViewController {
     //Asynchronous adding of user to the database before moving to success function
     func goForw() {
         DispatchQueue.global(qos: .background).async {
+            self.spinner.startSpinner()
             _ = CotoBackMethods().addUser(speakerId: GlobalVariables.username, memDate: self.secretDate)
             DispatchQueue.main.async {
                 print("back to main")
                 self.success()
+                self.spinner.stopSpinner()
             }
         }
     }

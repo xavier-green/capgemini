@@ -159,3 +159,16 @@ extension NSMutableData {
         append(data!)
     }
 }
+
+extension UIActivityIndicatorView {
+    func startSpinner() {
+        print("start recording, showing spinner")
+        self.isHidden = false
+        self.startAnimating()
+    }
+    
+    func stopSpinner() {
+        self.stopAnimating()
+        self.isHidden = true
+    }
+}

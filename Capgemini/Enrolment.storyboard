@@ -429,6 +429,13 @@
                                     <!--2017-02-20 15:05:45 +0000-->
                                 </date>
                             </datePicker>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="5E3-n1-kSd">
+                                <rect key="frame" x="157" y="357" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="5Ty-Rh-HE1"/>
+                                    <constraint firstAttribute="height" constant="60" id="6rO-cg-krh"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -440,6 +447,7 @@
                             <constraint firstItem="XI1-JJ-cXj" firstAttribute="centerY" secondItem="1DN-Zk-klO" secondAttribute="centerY" id="DHk-3s-ok4"/>
                             <constraint firstItem="4k5-mj-dGD" firstAttribute="centerY" secondItem="vvW-ZV-GW8" secondAttribute="centerY" id="J1d-QG-rYC"/>
                             <constraint firstItem="jgo-YM-Byl" firstAttribute="centerX" secondItem="Yk4-kO-wan" secondAttribute="centerX" id="QEB-sv-cLN"/>
+                            <constraint firstItem="5E3-n1-kSd" firstAttribute="centerY" secondItem="I87-n3-Wbl" secondAttribute="centerY" id="RMl-6p-cDq"/>
                             <constraint firstItem="vvW-ZV-GW8" firstAttribute="leading" secondItem="Yk4-kO-wan" secondAttribute="leading" id="UTW-Ue-Cn1"/>
                             <constraint firstItem="vvW-ZV-GW8" firstAttribute="width" secondItem="Yk4-kO-wan" secondAttribute="width" id="XKk-w5-AET"/>
                             <constraint firstItem="1DN-Zk-klO" firstAttribute="top" secondItem="vvW-ZV-GW8" secondAttribute="bottom" constant="20" id="d0o-01-Hje"/>
@@ -448,6 +456,7 @@
                             <constraint firstItem="Oby-AG-kbE" firstAttribute="centerY" secondItem="XI1-JJ-cXj" secondAttribute="centerY" id="hyj-P0-ghI"/>
                             <constraint firstItem="jgo-YM-Byl" firstAttribute="top" secondItem="I87-n3-Wbl" secondAttribute="bottom" constant="87" id="iP8-It-BEb"/>
                             <constraint firstItem="jgo-YM-Byl" firstAttribute="top" secondItem="WUH-GG-YOy" secondAttribute="bottom" id="jFn-rY-8DH"/>
+                            <constraint firstItem="5E3-n1-kSd" firstAttribute="centerX" secondItem="Yk4-kO-wan" secondAttribute="centerX" id="lp1-GA-p6A"/>
                             <constraint firstItem="33I-ws-oPx" firstAttribute="top" secondItem="Oby-AG-kbE" secondAttribute="bottom" id="oHV-Yd-LxL"/>
                             <constraint firstItem="XI1-JJ-cXj" firstAttribute="leading" secondItem="1DN-Zk-klO" secondAttribute="trailing" constant="50" id="p4i-R8-Mxp"/>
                             <constraint firstItem="4k5-mj-dGD" firstAttribute="centerX" secondItem="vvW-ZV-GW8" secondAttribute="centerX" id="pKS-UF-asa"/>
@@ -462,6 +471,7 @@
                         <outlet property="datePicker" destination="I87-n3-Wbl" id="sAz-TQ-Xjf"/>
                         <outlet property="nextBut" destination="WUH-GG-YOy" id="Gaq-MU-yhg"/>
                         <outlet property="noticeText" destination="33I-ws-oPx" id="mPL-TP-aq8"/>
+                        <outlet property="spinner" destination="5E3-n1-kSd" id="PcK-9O-zcB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fj7-0C-w9Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
