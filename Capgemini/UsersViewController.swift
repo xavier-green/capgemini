@@ -94,6 +94,7 @@ class UsersViewController: UIViewController,UITableViewDelegate, UITableViewData
         if (row == 0 && userAuths[0]==(-1)) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "loadingCell",
                                                      for: indexPath)
+            cell.layer
             return cell
         } else {
             let Name = userNames[row]
