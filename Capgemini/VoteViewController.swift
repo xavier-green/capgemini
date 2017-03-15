@@ -19,9 +19,9 @@ class VoteViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet var scrollLabel: UILabel!
     
     let reuseIdentifier = "cell" // also enter this string as the cell identifier in the storyboard
-    var items: [String] = []
+    var items: [String] = [""]
     var imagesIds: [Int] = []
-    var imageDrawer = [String]()
+    var imageDrawer: [String] = ["Chargement..."]
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.items.count
@@ -32,14 +32,17 @@ class VoteViewController: UIViewController, UICollectionViewDataSource, UICollec
         cell.layer.borderWidth = 1
         cell.layer.cornerRadius = 8
         
-        let dataDecoded = NSData(base64Encoded: items[indexPath.item], options: NSData.Base64DecodingOptions.init(rawValue: 0))
-        
-        //print(dataDecoded ?? "no data")
-        
-        if (dataDecoded != nil) {
-            let cellImage = UIImage(data: dataDecoded as! Data)
-            cell.image.image = cellImage
+        if (items[indexPath.item] != "") {
+            let dataDecoded = NSData(base64Encoded: items[indexPath.item], options: NSData.Base64DecodingOptions.init(rawValue: 0))
+            
+            //print(dataDecoded ?? "no data")
+            
+            if (dataDecoded != nil) {
+                let cellImage = UIImage(data: dataDecoded as! Data)
+                cell.image.image = cellImage
+            }
         }
+        
         cell.nickName.text = imageDrawer[indexPath.item]
         return cell
     }
@@ -89,24 +92,34 @@ class VoteViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     func getImage(position: Int){
-        var gotPosition = position
         DispatchQueue.global(qos: .background).async {
             let receivedImagesObject = CotoBackMethods().getTopImage(position: position)
             DispatchQueue.main.async {
-                
-                let receivedImages = receivedImagesObject[0] as! [String]
-                if (receivedImages.count>0) {
-                    let finalImagesCleaned = self.convertToBase64(receivedImages: receivedImages)
-                    self.items.append(finalImagesCleaned[0])
-                    self.imagesIds.append(receivedImagesObject[1][0] as! Int)
-                    self.imageDrawer.append(receivedImagesObject[2][0] as! String)
-                    
-                    self.imagesView.insertItems(at: [IndexPath(row: self.imagesIds.count-1, section: 0)])
-                    
-                    gotPosition += 1
-                    self.getImage(position: gotPosition)
-                }
+                self.updateList(position: position, receivedImagesObject: receivedImagesObject as [AnyObject])
             }
+        }
+    }
+    
+    func updateList(position: Int, receivedImagesObject: [AnyObject]) {
+        var gotPosition = position
+        let receivedImages = receivedImagesObject[0] as! [String]
+        let receivedIds = receivedImagesObject[1] as! [Int]
+        let receivedUsers = receivedImagesObject[2] as! [String]
+        let finalImagesCleaned = self.convertToBase64(receivedImages: receivedImages)
+        if (receivedImages.count>0) {
+            if position==0 {
+                self.items = [finalImagesCleaned[0]]
+                self.imagesIds = [receivedIds[0]]
+                self.imageDrawer = [receivedUsers[0]]
+                self.imagesView.reloadData()
+            } else {
+                self.items.append(finalImagesCleaned[0])
+                self.imagesIds.append(receivedIds[0])
+                self.imageDrawer.append(receivedUsers[0])
+                self.imagesView.insertItems(at: [IndexPath(row: self.items.count-1, section: 0)])
+            }
+            gotPosition += 1
+            self.getImage(position: gotPosition)
         }
     }
 

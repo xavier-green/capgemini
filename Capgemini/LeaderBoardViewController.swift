@@ -10,9 +10,9 @@ import UIKit
 
 class LeaderBoardViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
     
-    var imageData: [String] = []
-    var userData: [String] = []
-    var votesData: [Int] = []
+    var imageData: [String] = [""]
+    var userData: [String] = ["Chargement..."]
+    var votesData: [Int] = [-1]
 
     @IBAction func backbutton(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
@@ -35,23 +35,39 @@ class LeaderBoardViewController: UIViewController, UITableViewDelegate,UITableVi
     }
     
     func getLeader(position: Int){
-        var gotPosition = position
         DispatchQueue.global(qos: .background).async {
             print("getting leader ",position)
             let receivedObject = CotoBackMethods().getTopLeadersPost(position: position)
             DispatchQueue.main.async {
                 print("adding to table")
-                self.tableView.beginUpdates()
-                self.imageData.append(receivedObject[0][0] as! String)
-                self.userData.append(receivedObject[1][0] as! String)
-                self.votesData.append(receivedObject[2][0] as! Int)
-                self.tableView.insertRows(at: [IndexPath(row: self.imageData.count-1, section: 0)], with: .automatic)
-                self.tableView.endUpdates()
-                gotPosition += 1
-                if (gotPosition<25) {
-                    self.getLeader(position: gotPosition)
-                }
+                self.updateList(position: position, receivedObject: receivedObject as [AnyObject])
             }
+        }
+    }
+    
+    func updateList(position: Int, receivedObject: [AnyObject]) {
+        var gotPosition = position
+        let imageDataObj = receivedObject[0] as! [String]
+        let userData0bj = receivedObject[1] as! [String]
+        let votesDataObj = receivedObject[2] as! [Int]
+        if position==0 {
+            print("position 0, overwriting existing data")
+            self.imageData = imageDataObj
+            self.userData = userData0bj
+            self.votesData = votesDataObj
+            self.tableView.reloadData()
+        } else {
+            print("now just appending to the end")
+            self.tableView.beginUpdates()
+            self.imageData.append(imageDataObj[0])
+            self.userData.append(userData0bj[0])
+            self.votesData.append(votesDataObj[0])
+            self.tableView.insertRows(at: [IndexPath(row: self.imageData.count-1, section: 0)], with: .automatic)
+            self.tableView.endUpdates()
+        }
+        gotPosition += 1
+        if (gotPosition<25) {
+            self.getLeader(position: gotPosition)
         }
     }
     
@@ -84,16 +100,21 @@ class LeaderBoardViewController: UIViewController, UITableViewDelegate,UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell",
                                                  for: indexPath) as! leaderBoardCell
         cell.userName?.text = Name
-        cell.userRank?.text = String(Score)
-        
-        let dataDecoded = NSData(base64Encoded: self.imageData[row].replacingOccurrences(of: " ", with: "+"), options: NSData.Base64DecodingOptions.init(rawValue: 0))
-        
-        if (dataDecoded != nil) {
-            let cellImage = UIImage(data: dataDecoded as! Data)
-            cell.imageV.image = cellImage
-            cell.imageV.layer.borderWidth = 1
-            cell.imageV.layer.borderColor = UIColor.darkGray.cgColor
+        if (Score != (-1)) {
+            cell.userRank?.text = String(Score)
         }
+        
+        if (self.imageData[row] != "") {
+            let dataDecoded = NSData(base64Encoded: self.imageData[row].replacingOccurrences(of: " ", with: "+"), options: NSData.Base64DecodingOptions.init(rawValue: 0))
+            
+            if (dataDecoded != nil) {
+                let cellImage = UIImage(data: dataDecoded as! Data)
+                cell.imageV.image = cellImage
+                cell.imageV.layer.borderWidth = 1
+                cell.imageV.layer.borderColor = UIColor.darkGray.cgColor
+            }
+        }
+
         return cell
     }
 

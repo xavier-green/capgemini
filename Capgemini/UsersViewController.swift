@@ -12,8 +12,8 @@ class UsersViewController: UIViewController,UITableViewDelegate, UITableViewData
 
     @IBOutlet weak var tableView: UITableView!
     
-    var userNames = [String]()
-    var userAuths = [Int]()
+    var userNames: [String] = ["Chargement..."]
+    var userAuths: [Int] = [-1]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,16 +22,18 @@ class UsersViewController: UIViewController,UITableViewDelegate, UITableViewData
         // Do any additional setup after loading the view.
         assignbackground()
         
-        DispatchQueue.global(qos: .background).async {
-            print("Running nuance fetch in background thread")
-            let capUsers = CotoBackMethods().getUsersNames()
-            DispatchQueue.main.async {
-                print("back to main")
-                self.userNames = (capUsers[0] as! [String])
-                self.userAuths = (capUsers[1] as! [Int])
-                self.tableView.reloadData()
-            }
-        }
+        getAllUsers()
+        
+//        DispatchQueue.global(qos: .background).async {
+//            print("Running nuance fetch in background thread")
+//            let capUsers = CotoBackMethods().getUsersNames()
+//            DispatchQueue.main.async {
+//                print("back to main")
+//                self.userNames = (capUsers[0] as! [String])
+//                self.userAuths = (capUsers[1] as! [Int])
+//                self.tableView.reloadData()
+//            }
+//        }
         
     }
     
@@ -40,25 +42,39 @@ class UsersViewController: UIViewController,UITableViewDelegate, UITableViewData
     }
     
     func getUser(position: Int){
-        var gotPosition = position
         DispatchQueue.global(qos: .background).async {
             print("getting user ",position)
             let capUsers = CotoBackMethods().getTopUsersName(position: position)
+            print(capUsers[0])
+            print(capUsers[1])
             DispatchQueue.main.async {
-                print("adding to table")
-                self.tableView.beginUpdates()
-                let usernames = capUsers[0] as! [String]
-                let userauths = capUsers[1] as! [Int]
-                self.userNames.append(usernames[0])
-                self.userAuths.append(userauths[0])
-                self.tableView.insertRows(at: [IndexPath(row: self.userNames.count-1, section: 0)], with: .automatic)
-                self.tableView.endUpdates()
-                gotPosition += 1
-                if (gotPosition<50) {
-                    self.getUser(position: gotPosition)
+                if (capUsers[0].count>0) {
+                    print("adding data to table")
+                    let usernames = capUsers[0] as! [String]
+                    let userauths = capUsers[1] as! [Int]
+                    self.updateList(position: position, usernames: usernames, userauths: userauths)
                 }
             }
         }
+    }
+    
+    func updateList(position: Int, usernames: [String], userauths: [Int]) {
+        var gotPosition = position
+        if position==0 {
+            print("position 0, overwriting existing data")
+            self.userNames = [usernames[0]]
+            self.userAuths = [userauths[0]]
+            self.tableView.reloadData()
+        } else {
+            print("now just appending to the end")
+            self.tableView.beginUpdates()
+            self.userNames.append(usernames[0])
+            self.userAuths.append(userauths[0])
+            self.tableView.insertRows(at: [IndexPath(row: self.userNames.count-1, section: 0)], with: .automatic)
+            self.tableView.endUpdates()
+        }
+        gotPosition += 1
+        self.getUser(position: gotPosition)
     }
 
     override func didReceiveMemoryWarning() {
@@ -81,7 +97,9 @@ class UsersViewController: UIViewController,UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell",
                                                  for: indexPath) as! UserTableCell
         cell.userName?.text = Name
-        cell.userDrawings?.text = String(Score)
+        if (Score != (-1)) {
+            cell.userDrawings?.text = String(Score)
+        }
         //cell.userImage.image = UIImage(named: "question")
         return cell
     }
