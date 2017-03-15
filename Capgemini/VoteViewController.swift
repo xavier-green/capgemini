@@ -11,12 +11,12 @@ import UIKit
 class VoteViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     @IBOutlet var continuerButton: UIButton!
     
-    @IBOutlet var spinner: UIActivityIndicatorView!
-    
     @IBAction func backButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
     @IBOutlet var imagesView: UICollectionView!
+    
+    @IBOutlet var scrollLabel: UILabel!
     
     let reuseIdentifier = "cell" // also enter this string as the cell identifier in the storyboard
     var items: [String] = []
@@ -48,6 +48,7 @@ class VoteViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
         continuerButton.isHidden = false
+        scrollLabel.isHidden = true
         for i in 0...self.items.count {
             let index = IndexPath(item: i, section: 0)
             let cell = collectionView.cellForItem(at: index)
@@ -65,7 +66,6 @@ class VoteViewController: UIViewController, UICollectionViewDataSource, UICollec
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.spinner.isHidden = true
         continuerButton.isHidden = true
         continuerButton.layer.borderWidth = 1
         continuerButton.layer.borderColor = UIColor.lightGray.cgColor
@@ -73,34 +73,41 @@ class VoteViewController: UIViewController, UICollectionViewDataSource, UICollec
         // Do any additional setup after loading the view.
         assignbackground()
         
-        DispatchQueue.global(qos: .background).async {
-            print("Running nuance fetch in background thread")
-            let receivedImagesObject = CotoBackMethods().getImages()
-            DispatchQueue.main.async {
-                print("back to main")
-                let receivedImages = receivedImagesObject[0] as! [String]
-                var finalImagesCleaned: [String] = []
-                for image in receivedImages {
-                    finalImagesCleaned.append(image.replacingOccurrences(of: " ", with: "+"))
-                }
-                self.items = finalImagesCleaned
-                self.imagesIds = receivedImagesObject[1] as! [Int]
-                self.imageDrawer = receivedImagesObject[2] as! [String]
-                print("got ",self.items.count," images from back")
-                print("got ",self.imagesIds.count," _id from back")
-                self.imagesView.reloadData()
-                self.spinner.stopAnimating()
-                self.spinner.isHidden = true
-
-            }
-        }
+        getTopImage()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        let transform = CGAffineTransform(scaleX: 3, y: 3)
-        self.spinner.transform = transform
-        self.spinner.startAnimating()
-        self.spinner.isHidden = false
+    func convertToBase64(receivedImages: [String]) -> [String] {
+        var finalImagesCleaned: [String] = []
+        for image in receivedImages {
+            finalImagesCleaned.append(image.replacingOccurrences(of: " ", with: "+"))
+        }
+        return finalImagesCleaned
+    }
+    
+    func getTopImage() {
+        self.getImage(position: 0)
+    }
+    
+    func getImage(position: Int){
+        var gotPosition = position
+        DispatchQueue.global(qos: .background).async {
+            let receivedImagesObject = CotoBackMethods().getTopImage(position: position)
+            DispatchQueue.main.async {
+                
+                let receivedImages = receivedImagesObject[0] as! [String]
+                if (receivedImages.count>0) {
+                    let finalImagesCleaned = self.convertToBase64(receivedImages: receivedImages)
+                    self.items.append(finalImagesCleaned[0])
+                    self.imagesIds.append(receivedImagesObject[1][0] as! Int)
+                    self.imageDrawer.append(receivedImagesObject[2][0] as! String)
+                    
+                    self.imagesView.insertItems(at: [IndexPath(row: self.imagesIds.count-1, section: 0)])
+                    
+                    gotPosition += 1
+                    self.getImage(position: gotPosition)
+                }
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {

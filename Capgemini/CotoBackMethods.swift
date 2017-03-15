@@ -130,6 +130,22 @@ class CotoBackMethods {
         return sendObject as [[AnyObject]]
     }
     
+    func getTopImage(position: Int) -> [[AnyObject]] {
+        let images = Server.getTopImage(position: position)
+        let result = parseJsonArray(jsonString: images)
+        var imageData: [String] = []
+        var idData: [Int] = []
+        var drawerData : [String] = []
+        for image in result {
+            imageData.append(image["imageData"] as! String)
+            idData.append(image["_id"] as! Int)
+            drawerData.append(image["username"] as! String)
+        }
+        let sendObject: [[AnyObject]] = [imageData as Array<AnyObject>,idData as Array<AnyObject>, drawerData as Array<AnyObject>]
+        print("sending FINISHED_IM")
+        return sendObject as [[AnyObject]]
+    }
+    
     /**
      Vote for an image from all the images
      Increments the vote attribute of image in database

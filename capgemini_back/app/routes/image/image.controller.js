@@ -9,6 +9,18 @@ function list(req, res, next) {
     .error((e) => res.json(e))
 }
 
+function getTopImage(req, res, next) {
+    let position = parseInt(req.body.position)
+    let username = req.body.username
+    Image.find({username:{$ne:username}}).sort({votes:-1}).skip(position).limit(1).execAsync()
+    .then((images) => {
+        res.json(images);
+    })
+    .catch((e) => {
+        res.json(e)
+    })
+}
+
 function leader(req,res,next) {
     Image.find().sort({votes:-1}).limit(25).execAsync()
     .then((images) => {
@@ -67,4 +79,4 @@ function remove(req, res, next) {
     .catch((e) => res.json(e));
 }
 
-module.exports = exports = { list, add, vote, remove, leader, getFirst };
+module.exports = exports = { list, add, vote, remove, leader, getFirst, getTopImage };

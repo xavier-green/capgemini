@@ -359,7 +359,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pg4-Jt-S7s" id="Sgy-AB-I8h">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="67.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="67"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rank" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mdk-c5-2NN">
@@ -506,13 +506,6 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down" translatesAutoresizingMaskIntoConstraints="NO" id="l1n-7x-FNS">
-                                <rect key="frame" x="157" y="582" width="60" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="Q39-cg-yoh"/>
-                                    <constraint firstAttribute="height" constant="60" id="iBY-Xy-KpT"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHY-PJ-uqD" customClass="CustomButtons" customModule="My_VocalPrint" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="567" width="375" height="90"/>
                                 <color key="backgroundColor" red="0.98431372549999996" green="0.98431372549999996" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -524,31 +517,29 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="peL-Cq-Jqj">
-                                <rect key="frame" x="137.5" y="283.5" width="100" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="9Vq-EA-YHA"/>
-                                    <constraint firstAttribute="width" constant="100" id="b0r-lI-Tpy"/>
-                                </constraints>
-                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Faites défiler pour voir plus d'images" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f7l-zY-osB">
+                                <rect key="frame" x="-0.5" y="604.5" width="375" height="16"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="l1n-7x-FNS" firstAttribute="centerX" secondItem="sHY-PJ-uqD" secondAttribute="centerX" id="1jG-wE-uUZ"/>
                             <constraint firstItem="52c-YQ-pdj" firstAttribute="top" secondItem="sHY-PJ-uqD" secondAttribute="bottom" constant="10" id="3AT-V1-mjh"/>
                             <constraint firstItem="JKR-BN-vOZ" firstAttribute="leading" secondItem="uag-YJ-uXQ" secondAttribute="leadingMargin" constant="10" id="6xE-cm-vRK"/>
                             <constraint firstItem="p09-wW-ENI" firstAttribute="leading" secondItem="uag-YJ-uXQ" secondAttribute="leading" id="E5i-Y8-Sqz"/>
                             <constraint firstItem="fMX-50-l2J" firstAttribute="leading" secondItem="uag-YJ-uXQ" secondAttribute="leadingMargin" constant="51" id="NrB-QM-pxW"/>
-                            <constraint firstItem="peL-Cq-Jqj" firstAttribute="centerX" secondItem="uag-YJ-uXQ" secondAttribute="centerX" id="OeE-0E-eCI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="JKR-BN-vOZ" secondAttribute="trailing" constant="10" id="QH9-CM-tEo"/>
                             <constraint firstItem="sHY-PJ-uqD" firstAttribute="width" secondItem="uag-YJ-uXQ" secondAttribute="width" id="Tsl-Bd-X53"/>
-                            <constraint firstItem="l1n-7x-FNS" firstAttribute="centerY" secondItem="sHY-PJ-uqD" secondAttribute="centerY" id="aW0-2z-8sa"/>
+                            <constraint firstItem="f7l-zY-osB" firstAttribute="width" secondItem="sHY-PJ-uqD" secondAttribute="width" id="VQN-TG-maq"/>
+                            <constraint firstItem="f7l-zY-osB" firstAttribute="centerX" secondItem="sHY-PJ-uqD" secondAttribute="centerX" id="Xfm-yp-T2M"/>
                             <constraint firstItem="sHY-PJ-uqD" firstAttribute="top" secondItem="JKR-BN-vOZ" secondAttribute="bottom" constant="10" id="dJb-JR-EgA"/>
                             <constraint firstItem="p09-wW-ENI" firstAttribute="top" secondItem="uag-YJ-uXQ" secondAttribute="top" id="dsP-bH-QVZ"/>
                             <constraint firstItem="fMX-50-l2J" firstAttribute="centerX" secondItem="uag-YJ-uXQ" secondAttribute="centerX" id="gvy-ST-8zj"/>
+                            <constraint firstItem="f7l-zY-osB" firstAttribute="centerY" secondItem="sHY-PJ-uqD" secondAttribute="centerY" id="nwj-EO-Zff"/>
                             <constraint firstItem="JKR-BN-vOZ" firstAttribute="top" secondItem="fMX-50-l2J" secondAttribute="bottom" constant="20" id="oXJ-af-m1b"/>
                             <constraint firstItem="sHY-PJ-uqD" firstAttribute="centerX" secondItem="uag-YJ-uXQ" secondAttribute="centerX" id="pDx-Bx-XzG"/>
-                            <constraint firstItem="peL-Cq-Jqj" firstAttribute="centerY" secondItem="uag-YJ-uXQ" secondAttribute="centerY" id="qZM-uF-4qf"/>
                             <constraint firstItem="fMX-50-l2J" firstAttribute="top" secondItem="k2H-AO-tp6" secondAttribute="bottom" constant="50" id="umm-6U-Gmu"/>
                             <constraint firstAttribute="trailing" secondItem="p09-wW-ENI" secondAttribute="trailing" id="vAd-j7-gCL"/>
                         </constraints>
@@ -556,7 +547,7 @@
                     <connections>
                         <outlet property="continuerButton" destination="sHY-PJ-uqD" id="gj3-O3-lsT"/>
                         <outlet property="imagesView" destination="JKR-BN-vOZ" id="HZ7-wt-YkL"/>
-                        <outlet property="spinner" destination="peL-Cq-Jqj" id="aBK-Dv-aBb"/>
+                        <outlet property="scrollLabel" destination="f7l-zY-osB" id="0JN-aW-RF2"/>
                         <segue destination="QvG-aa-Rq6" kind="presentation" identifier="finishedVotingSegue" modalTransitionStyle="crossDissolve" id="JWc-7b-blg"/>
                     </connections>
                 </viewController>
@@ -641,7 +632,6 @@
     </scenes>
     <resources>
         <image name="color" width="550" height="550"/>
-        <image name="down" width="512" height="512"/>
         <image name="leaderboard" width="740" height="712"/>
         <image name="valid" width="512" height="512"/>
     </resources>
