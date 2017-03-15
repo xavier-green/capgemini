@@ -14,7 +14,7 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     @IBOutlet weak var nickName: UITextField!
     @IBOutlet var usernamePicker: UIPickerView!
     @IBOutlet var validation: UILabel!
-    
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     var nickname: String = ""
     var pickerName: String!
     
@@ -26,6 +26,8 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         self.usernamePicker.dataSource = self
         nickName.delegate=self
         
+        self.spinner.isHidden = true
+        
         YesBut.addTarget(self, action: #selector(self.goForw), for: .touchUpInside)
         
         nickName.layer.borderWidth = 1
@@ -36,6 +38,7 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         
         DispatchQueue.global(qos: .background).async {
             print("Running nuance fetch in background thread")
+            self.startSpinner()
             var capUsers = CotoBackMethods().getUsersNames()[0] as! [String]
             capUsers = capUsers.sorted{$0.localizedCompare($1) == .orderedAscending}
             DispatchQueue.main.async {
@@ -47,6 +50,7 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
                 } else {
                     self.pickerName = "empty nickname"
                 }
+                self.stopSpinner()
             }
         }
         
@@ -112,7 +116,18 @@ class NickViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         // Dispose of any resources that can be recreated.
     }
     
-
+    
+    func startSpinner() {
+        print("start recording, showing spinner")
+        self.spinner.isHidden = false
+        self.spinner.startAnimating()
+    }
+    
+    func stopSpinner() {
+        self.spinner.stopAnimating()
+        self.spinner.isHidden = true
+    }
+    
     /*
     // MARK: - Navigation
 

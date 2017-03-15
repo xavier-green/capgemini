@@ -434,7 +434,7 @@ class ConnectiontoBackServer {
     }
     
     /**
-     Increment hackAttempt in Database
+     Increment LoginSuccess in Database
      Post request to url
      */
     func loginSuccess() -> String {
@@ -448,7 +448,7 @@ class ConnectiontoBackServer {
     }
     
     /**
-     Increment hackAttempt in Database
+     Increment LoginFail in Database
      Post request to url
      */
     func loginFail(email: String, username: String) -> String {
