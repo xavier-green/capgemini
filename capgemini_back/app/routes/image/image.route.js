@@ -13,4 +13,7 @@ router.route('/:imageId')
     .put(imageController.vote)
     .delete(imageController.remove);
 
+router.route('/getfirst')
+	.post(imageController.getFirst)
+
 module.exports = exports = router;
