@@ -25,20 +25,46 @@ class LeaderBoardViewController: UIViewController, UITableViewDelegate,UITableVi
         tableView.delegate=self
         tableView.dataSource=self
         
-        DispatchQueue.global(qos: .background).async {
-            print("Running nuance fetch in background thread")
-            let receivedObject = CotoBackMethods().getLeadersPost()
-            DispatchQueue.main.async {
-                print("back to main")
-                self.imageData = receivedObject[0] as! [String]
-                self.userData = receivedObject[1] as! [String]
-                self.votesData = receivedObject[2] as! [Int]
-                self.tableView.reloadData()
-                
-            }
-        }
+//        DispatchQueue.global(qos: .background).async {
+//            print("Running nuance fetch in background thread")
+//            let receivedObject = CotoBackMethods().getLeadersPost()
+//            DispatchQueue.main.async {
+//                print("back to main")
+//                self.imageData = receivedObject[0] as! [String]
+//                self.userData = receivedObject[1] as! [String]
+//                self.votesData = receivedObject[2] as! [Int]
+//                self.tableView.reloadData()
+//                
+//            }
+//        }
+        
+        getTopLeaders()
         
         assignbackground()
+    }
+    
+    func getTopLeaders() {
+        var i = 0
+        repeat {
+            getLeader(position: i)
+            i += 1
+        } while i<25
+    }
+    
+    func getLeader(position: Int){
+        DispatchQueue.global(qos: .background).async {
+            print("getting leader ",position)
+            let receivedObject = CotoBackMethods().getTopLeadersPost(position: position)
+            DispatchQueue.main.async {
+                print("adding to table")
+                self.tableView.beginUpdates()
+                self.imageData.append(receivedObject[0][0] as! String)
+                self.userData.append(receivedObject[1][0] as! String)
+                self.votesData.append(receivedObject[2][0] as! Int)
+                self.tableView.insertRows(at: [IndexPath(row: self.imageData.count-1, section: 0)], with: .automatic)
+                self.tableView.endUpdates()
+            }
+        }
     }
     
     func showLeaders(notification: NSNotification) {

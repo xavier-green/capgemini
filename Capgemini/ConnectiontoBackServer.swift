@@ -336,6 +336,16 @@ class ConnectiontoBackServer {
 
     }
     
+    func getTopLeaderboard(position: Int) -> String {
+        
+        print("getting leaderboard")
+        let url: String = "/images/getfirst"
+        let params: [[String]] = [["position",String(position)]]
+        
+        return connectToServer(url: url, params: params, method: "POST", notificationString: "LEADER_DONE")
+        
+    }
+    
     /**
      Get User frequency
      - Parameter speakerId: name chosen by user

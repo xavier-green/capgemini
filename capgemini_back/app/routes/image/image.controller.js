@@ -21,7 +21,7 @@ function leader(req,res,next) {
 
 function getFirst(req,res,next) {
     console.log("getting top image");
-    let position = req.body.position
+    let position = parseInt(req.body.position)
     console.log("skipping the first "+position+" items");
     Image.find().sort({votes:-1}).skip(position).limit(1).execAsync()
     .then((images) => {
