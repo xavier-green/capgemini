@@ -20,9 +20,9 @@ class ConnectiontoBackServer {
     /**
         SERVER INFORMATION
     **/
-    private let BASE_URL: String = "http://vps383005.ovh.net:3000/api"
-    private let SERVER_USERNAME: String = "youyoun"
-    private let SERVER_PASSWORD: String = "password"
+    private let BASE_URL: String = Config.serverURL
+    private let SERVER_USERNAME: String = Config.serverUsername
+    private let SERVER_PASSWORD: String = Config.serverPassword
     
     private var resultData: String = ""
     
@@ -340,6 +340,16 @@ class ConnectiontoBackServer {
         
         return connectToServer(url: url, params: params, method: "GET", notificationString: "LEADER_DONE")
 
+    }
+    
+    func getTopLeaderboard(position: Int) -> String {
+        
+        print("getting leaderboard")
+        let url: String = "/images/getfirst"
+        let params: [[String]] = [["position",String(position)]]
+        
+        return connectToServer(url: url, params: params, method: "POST", notificationString: "LEADER_DONE")
+        
     }
     
     /**

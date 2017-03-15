@@ -158,6 +158,23 @@ class CotoBackMethods {
         return sendObject as [[AnyObject]]
     }
     
+    func getTopLeadersPost(position: Int) -> [[AnyObject]] {
+        let leaders = Server.getTopLeaderboard(position: position)
+        print("leader:")
+        print(leaders)
+        let result = parseJsonArray(jsonString: leaders)
+        var imageData: [String] = []
+        var userData: [String] = []
+        var votesData: [Int] = []
+        for image in result {
+            imageData.append(image["imageData"] as! String)
+            userData.append(image["username"] as! String)
+            votesData.append(image["votes"] as! Int)
+        }
+        let sendObject: [[AnyObject]] = [imageData as Array<AnyObject>,userData as Array<AnyObject>,votesData as Array<AnyObject>]
+        return sendObject as [[AnyObject]]
+    }
+    
     /**
      Get User frequency
      - Parameter speakerId: name chosen by user

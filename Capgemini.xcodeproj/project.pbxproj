@@ -53,6 +53,7 @@
 		433100AF1E57344500269EEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 433100AE1E57344500269EEB /* Assets.xcassets */; };
 		433100BD1E57344500269EEB /* CapgeminiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433100BC1E57344500269EEB /* CapgeminiTests.swift */; };
 		433100C81E57344500269EEB /* CapgeminiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433100C71E57344500269EEB /* CapgeminiUITests.swift */; };
+		43577BB01E793598008F49B8 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43577BAF1E793598008F49B8 /* Config.swift */; };
 		435AA8EB1E5B05CC00BBB567 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 435AA8EA1E5B05CC00BBB567 /* Login.storyboard */; };
 		435AA8ED1E5B064D00BBB567 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435AA8EC1E5B064D00BBB567 /* LoginViewController.swift */; };
 		435AA8F61E5B302200BBB567 /* LoginCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435AA8F51E5B302200BBB567 /* LoginCheckViewController.swift */; };
@@ -153,6 +154,7 @@
 		433100C31E57344500269EEB /* CapgeminiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CapgeminiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		433100C71E57344500269EEB /* CapgeminiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapgeminiUITests.swift; sourceTree = "<group>"; };
 		433100C91E57344500269EEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		43577BAF1E793598008F49B8 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		435AA8EA1E5B05CC00BBB567 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		435AA8EC1E5B064D00BBB567 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		435AA8F51E5B302200BBB567 /* LoginCheckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCheckViewController.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 		0E7E23DF1E5B00DD00E0F4D9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				43577BB11E79373B008F49B8 /* Main */,
 				43A96CD51E5DA7350078CEC8 /* App */,
 				0E0961751E5B4F1E00487D61 /* Enrolment */,
 				435AA8F41E5B2F3C00BBB567 /* Login */,
@@ -241,6 +244,8 @@
 		0E7E23E01E5B00E700E0F4D9 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				438B48A41E697F83003A03DC /* Launch.storyboard */,
+				433100AB1E57344500269EEB /* Main.storyboard */,
 				0E7E23E11E5B010300E0F4D9 /* Enrolment.storyboard */,
 				435AA8EA1E5B05CC00BBB567 /* Login.storyboard */,
 				0EA950361E642B6A00D82337 /* App.storyboard */,
@@ -262,6 +267,7 @@
 		0EA950531E65B57100D82337 /* Connection to Back */ = {
 			isa = PBXGroup;
 			children = (
+				435DA5241E6D611A00890F1F /* StatController.swift */,
 				0EA9504E1E658E3400D82337 /* ConnectiontoBackServer.swift */,
 				0EA950541E65BBF400D82337 /* CotoBackMethods.swift */,
 			);
@@ -271,12 +277,12 @@
 		43010ADC1E603691009A38A1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				0E1A97B51E6D841200F86C88 /* Color Palette */,
 				0EA950381E642B8100D82337 /* Model */,
 				43266B111E64634800A644C1 /* NuanceButtonClass.swift */,
 				0E1D3BED1E603A26002CE65D /* CustomButtons.swift */,
 				43010ADD1E6036B1009A38A1 /* RecordButtonClass.swift */,
 				438B48A61E69BFCD003A03DC /* LoggedInLabel.swift */,
-				0E1A97B51E6D841200F86C88 /* Color Palette */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -324,7 +330,6 @@
 		433100A61E57344500269EEB /* Capgemini */ = {
 			isa = PBXGroup;
 			children = (
-				435DA5231E6D60EF00890F1F /* Stats */,
 				435AA8FF1E5B479800BBB567 /* Speech */,
 				43266B0E1E64291200A644C1 /* Nuance */,
 				43010ADC1E603691009A38A1 /* Components */,
@@ -334,13 +339,10 @@
 				0EA950531E65B57100D82337 /* Connection to Back */,
 				0EA4B1091E5DEF640088FF48 /* ExtensionUIViewController.swift */,
 				433100A71E57344500269EEB /* AppDelegate.swift */,
-				433100A91E57344500269EEB /* ViewController.swift */,
-				436290B71E705E4D00D7E4B6 /* Reachability.swift */,
-				433100AB1E57344500269EEB /* Main.storyboard */,
 				433100AE1E57344500269EEB /* Assets.xcassets */,
 				433100B31E57344500269EEB /* Info.plist */,
 				43A96CCF1E5DA3C90078CEC8 /* GlobalVariables.swift */,
-				438B48A41E697F83003A03DC /* Launch.storyboard */,
+				43577BAF1E793598008F49B8 /* Config.swift */,
 			);
 			path = Capgemini;
 			sourceTree = "<group>";
@@ -361,6 +363,15 @@
 				433100C91E57344500269EEB /* Info.plist */,
 			);
 			path = CapgeminiUITests;
+			sourceTree = "<group>";
+		};
+		43577BB11E79373B008F49B8 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				436290B71E705E4D00D7E4B6 /* Reachability.swift */,
+				433100A91E57344500269EEB /* ViewController.swift */,
+			);
+			name = Main;
 			sourceTree = "<group>";
 		};
 		435AA8F41E5B2F3C00BBB567 /* Login */ = {
@@ -385,14 +396,6 @@
 				43010AE11E605A24009A38A1 /* FireEvents.swift */,
 			);
 			name = Speech;
-			sourceTree = "<group>";
-		};
-		435DA5231E6D60EF00890F1F /* Stats */ = {
-			isa = PBXGroup;
-			children = (
-				435DA5241E6D611A00890F1F /* StatController.swift */,
-			);
-			name = Stats;
 			sourceTree = "<group>";
 		};
 		43A96CD51E5DA7350078CEC8 /* App */ = {
@@ -596,6 +599,7 @@
 				0EA950471E642CEF00D82337 /* DrawView.swift in Sources */,
 				0E1D3BEE1E603A26002CE65D /* CustomButtons.swift in Sources */,
 				433100AA1E57344500269EEB /* ViewController.swift in Sources */,
+				43577BB01E793598008F49B8 /* Config.swift in Sources */,
 				0E09616E1E5B4EF400487D61 /* ReadyViewController.swift in Sources */,
 				43921B971E5EE6F5001A952A /* ReplayViewController.swift in Sources */,
 				43010AE21E605A24009A38A1 /* FireEvents.swift in Sources */,
