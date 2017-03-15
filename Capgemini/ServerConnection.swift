@@ -115,7 +115,9 @@ class ServerConnection {
             semaphore.signal()
             
             print("Done, sending notification: ",notificationString)
-            
+            let end = NSDate()
+            let timeInterval: Double = end.timeIntervalSince(start as Date)
+            print("Time to evaluate problem: \(timeInterval) seconds")
             NotificationCenter.default.post(name: Notification.Name(rawValue: notificationString), object: dataString)
             
         }).resume()
@@ -125,9 +127,7 @@ class ServerConnection {
         if let error = errors {
             print(error)
         }
-        let end = NSDate()
-        let timeInterval: Double = end.timeIntervalSince(start as Date)
-        print("Time to evaluate problem: \(timeInterval) seconds")
+    
         return dataString!
         
     }

@@ -55,6 +55,8 @@ class ConnectiontoBackServer {
         print("Connecting to ",connectionUrl)
         
         let config = URLSessionConfiguration.default
+        config.timeoutIntervalForRequest=TimeInterval(20)
+        config.timeoutIntervalForResource=TimeInterval(20)
         let authString = constructHeaders()
         config.httpAdditionalHeaders = ["Authorization" : authString]
         let session = URLSession(configuration: config)
@@ -71,6 +73,8 @@ class ConnectiontoBackServer {
         print("Connecting to ",connectionUrl)
         
         let config = URLSessionConfiguration.default
+        config.timeoutIntervalForRequest=TimeInterval(20)
+        config.timeoutIntervalForResource=TimeInterval(20)
         let authString = constructHeaders()
         config.httpAdditionalHeaders = ["Authorization" : authString]
         let session = URLSession(configuration: config)
@@ -91,6 +95,8 @@ class ConnectiontoBackServer {
         //print(postParams)
         
         let config = URLSessionConfiguration.default
+        config.timeoutIntervalForRequest=TimeInterval(20)
+        config.timeoutIntervalForResource=TimeInterval(20)
         let authString = constructHeaders()
         config.httpAdditionalHeaders = ["Authorization" : authString]
         let session = URLSession(configuration: config)
@@ -114,7 +120,7 @@ class ConnectiontoBackServer {
         
         session.dataTask(with: request, completionHandler: { (data, response, error) in
             if error != nil {
-                NotificationCenter.default.post(name: Notification.Name(rawValue: "ERROR_BACK"), object: errors)
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "TIME_OUT_BACK"), object: errors)
                 return
             }
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
@@ -125,7 +131,7 @@ class ConnectiontoBackServer {
                 
                 // In case of error, send notification observed from App Delegate
                 // Shows pop up the says an error happened
-                NotificationCenter.default.post(name: Notification.Name(rawValue: "ERROR"), object: errors)
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "ERROR_BACK"), object: errors)
                 return
                 
             }

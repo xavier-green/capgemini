@@ -58,6 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If Server Status is != from 200, send an Error Notification
         NotificationCenter.default.addObserver(self, selector: #selector(self.connectionToNuanceFail), name: NSNotification.Name(rawValue: "ERROR_NUANCE"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.connectionToServerFail), name: NSNotification.Name(rawValue: "ERROR_BACK"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.connectionToServerFail), name: NSNotification.Name(rawValue: "TIME_OUT_BACK"), object: nil)
         
         print("Done !")
     }
