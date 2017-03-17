@@ -7,18 +7,22 @@
 //
 import Foundation
 
+/* 
+    Classe qui va gérer toutes les connexions au serveur de nuance
+ */
+
 class ServerConnection {
     
     init() {
         print("Initialising nuance server connection")
     }
     
-    private let BASE_URL: String = "http://82.80.219.196"
-    private let SERVER_USERNAME: String = "Capgemini"
-    private let SERVER_PASSWORD: String = "12345678"
-    private let SCOPE: String = "CAPGEMINI"
-    private let VOICE_PRINT_TAG: String = "Mobile"
-    private let CONFIG_SET_NAME: String = "Capgemini"
+    private let BASE_URL: String = Config.nuanceURL
+    private let SERVER_USERNAME: String = Config.nuanceUsername
+    private let SERVER_PASSWORD: String = Config.nuancePassword
+    private let SCOPE: String = Config.nuanceScope
+    private let VOICE_PRINT_TAG: String = Config.nuanceVoicePrintTag
+    private let CONFIG_SET_NAME: String = Config.nuanceConfig
     
     private var resultData: String = ""
     
@@ -39,11 +43,14 @@ class ServerConnection {
         
     }
     
+    // Requête GET
     func getRequest(connectionUrl: String, notificationString: String) -> String {
         
         print("Connecting to ",connectionUrl)
         
         let config = URLSessionConfiguration.default
+        config.timeoutIntervalForRequest=TimeInterval(20)
+        config.timeoutIntervalForResource=TimeInterval(20)
         let authString = constructHeaders()
         config.httpAdditionalHeaders = ["Authorization" : authString]
         let session = URLSession(configuration: config)
@@ -54,6 +61,7 @@ class ServerConnection {
         
     }
     
+    // Requête POST
     func postRequest(connectionUrl: String, params: [[String]], notificationString: String) -> String {
         
         print("Connecting to ",connectionUrl)
@@ -64,6 +72,8 @@ class ServerConnection {
         //print(postParams)
         
         let config = URLSessionConfiguration.default
+        config.timeoutIntervalForRequest=TimeInterval(20)
+        config.timeoutIntervalForResource=TimeInterval(20)
         let authString = constructHeaders()
         config.httpAdditionalHeaders = ["Authorization" : authString]
         let session = URLSession(configuration: config)
@@ -77,17 +87,21 @@ class ServerConnection {
         
     }
     
+    // Envoi de la requête, qui lors de sa finalisation enverra une notification au front
     func sendRequest(session: URLSession, request: URLRequest, notificationString: String) -> String {
         
         print("sending request")
-        
+        let start = NSDate()
         let semaphore = DispatchSemaphore(value: 0)
         var dataString: String?
         var errors: String?
         
         session.dataTask(with: request, completionHandler: { (data, response, error) in
             if error != nil {
-                NotificationCenter.default.post(name: Notification.Name(rawValue: "ERROR"), object: errors)
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "TIME_OUT_NUANCE"), object: errors)
+                let end = NSDate()
+                let timeInterval: Double = end.timeIntervalSince(start as Date)
+                print("Time to evaluate problem: \(timeInterval) seconds")
                 return
             }
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
@@ -95,7 +109,7 @@ class ServerConnection {
                 //print("response = \(response)")
                 print("******** REQUEST ERROR")
                 errors = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as? String
-                NotificationCenter.default.post(name: Notification.Name(rawValue: "ERROR"), object: errors)
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "ERROR_NUANCE"), object: errors)
                 return
             }
             dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as? String
@@ -104,7 +118,6 @@ class ServerConnection {
             semaphore.signal()
             
             print("Done, sending notification: ",notificationString)
-            
             NotificationCenter.default.post(name: Notification.Name(rawValue: notificationString), object: dataString)
             
         }).resume()
@@ -114,11 +127,12 @@ class ServerConnection {
         if let error = errors {
             print(error)
         }
-        
+    
         return dataString!
         
     }
     
+    // Construction des headers d'authentification pour nuance
     func constructHeaders() -> String {
         
         let loginString = String(format: "%@:%@", SERVER_USERNAME, SERVER_PASSWORD)
@@ -129,6 +143,7 @@ class ServerConnection {
         
     }
     
+    // Construction de l'url GET à partir de la base, de la page à query et des paramètres éventuels
     func constructURL(base: String, url: String, params: [[String]]) -> String {
         
         var finalUrl = base + url + "?"
@@ -139,6 +154,7 @@ class ServerConnection {
         
     }
     
+    // Construction de l'url POST à partir de la page à query et des paramètres éventuels
     func constructParams(params: [[String]]) -> String {
         
         var finalUrl = ""
@@ -149,6 +165,7 @@ class ServerConnection {
         
     }
     
+    // Fetch de la liste des utilisateurs inscrits chez Nuance (pour qu'il n'y ait pas de conflits lors d'un nouvel enrollement)
     func getUserList() -> String {
         
         let url: String = "/vocalpassword/vocalpasswordmanager.asmx/GetSpeakersList"
@@ -158,6 +175,7 @@ class ServerConnection {
         
     }
     
+    // Test pour voir si un utilisateur à déjà un enrollement en cours, et si oui combien d'enregistrements doit il encore faire
     func isUserTrained(speakerId: String) -> String {
         
         let url: String = "/vocalpassword/vocalpasswordserver.asmx/IsTrained"
@@ -167,6 +185,7 @@ class ServerConnection {
         
     }
     
+    // Suppresssion de tous les enregistrements audio pour un utilisateur déjà enrôlé
     func deleteAllEnrollSegment(speakerId: String) -> String {
         
         let url: String = "/vocalpassword/vocalpasswordserver.asmx/DeleteAllEnrollSegments"
@@ -176,6 +195,7 @@ class ServerConnection {
         
     }
     
+    // Enrollement d'un utilisateur à partir de son pseudo et de son enregistrement audio en base64
     func enroll(speakerId: String, audio: String) -> String {
         
         print("Nuance server enrollment")
@@ -188,6 +208,7 @@ class ServerConnection {
         
     }
     
+    // Authentification d'un utilisateur à partir de son pseudo et de son enregistrement audio en base64
     func verify(speakerId: String, audio: String) -> String {
         
         print("Nuance server verification")
@@ -199,24 +220,7 @@ class ServerConnection {
         
     }
     
-    func getConfigurationSetList() -> String {
-        
-        let url: String = "/VocalPassword/VocalPasswordManager.asmx/GetConfigurationSetList"
-        let params: [[String]] = [["configSetName",SCOPE],["type","ConfigurationSet"]]
-        
-        return connectToServer(url: url, params: params, method: "GET", notificationString: "CONFIGURATION_SET_LIST")
-        
-    }
-    
-    func createSpeaker(sessionId: String, speakerId: String) -> String {
-        
-        let url: String = "/vocalpassword/vocalpasswordserver.asmx/CreateSpeaker"
-        let params: [[String]] = [["sessionId",sessionId],["speakerId",speakerId],["configSetName",CONFIG_SET_NAME]]
-        
-        return connectToServer(url: url, params: params, method: "GET", notificationString: "CREATE_SPEAKER")
-        
-    }
-    
+    // Permet de savoir le nombre d'enregistrements restants pour un enrôlement
     func getEnrollSegmentsStatus(speakerId: String) -> String {
         
         let url: String = "/vocalpassword/vocalpasswordserver.asmx/GetEnrollSegmentsStatus"
@@ -226,39 +230,13 @@ class ServerConnection {
         
     }
     
-    func deleteSpeaker(sessionId: String, speakerId: String) -> String {
+    // Supprimer un utilisateur de nuance à partir de son pseudo
+    func deleteSpeaker(speakerId: String) -> String {
         
         let url: String = "/vocalpassword/vocalpasswordserver.asmx/DeleteSpeaker"
         let params: [[String]] = [["sessionId","0"],["speakerId",speakerId],["configSetName",CONFIG_SET_NAME]]
         
         return connectToServer(url: url, params: params, method: "GET", notificationString: "DELETE_SPEAKER")
-        
-    }
-    
-    func addSpeakerToGroup(groupId: String) -> String {
-        
-        let url: String = "/vocalpassword/vocalpasswordserver.asmx/AddSpeakerToGroup"
-        let params: [[String]] = [["sessionId","0"],["groupId",groupId],["configSetName",CONFIG_SET_NAME]]
-        
-        return connectToServer(url: url, params: params, method: "GET", notificationString: "ADD_SPEAKER")
-        
-    }
-    
-    func getGroupMembers(groupId: String) -> String {
-        
-        let url: String = "/vocalpassword/vocalpasswordserver.asmx/GetGroupMembers"
-        let params: [[String]] = [["sessionId","0"],["groupId",groupId],["configSetName",CONFIG_SET_NAME]]
-        
-        return connectToServer(url: url, params: params, method: "GET", notificationString: "GROUP_MEMBERS")
-        
-    }
-    
-    func identify(groupId: String, audio: String) -> String {
-        
-        let url: String = "/VocalPassword/VocalPasswordServer.asmx/Identify"
-        let params: [[String]] = [["sessionId","0"],["groupId",groupId],["configSetName",CONFIG_SET_NAME],["voiceprintTag",VOICE_PRINT_TAG],["text","null"],["audio",audio]]
-        
-        return connectToServer(url: url, params: params, method: "POST", notificationString: "IDENTIFY")
         
     }
     

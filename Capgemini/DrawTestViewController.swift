@@ -19,9 +19,6 @@ class DrawTestViewController: UIViewController {
     var frequency: Float!
     var frequencyParameter: FrequencyVoiceParameters!
     var frequencyRegistered: Bool!
-    @IBAction func linesizeModifier(_ sender: UIButton) {
-        slider.isHidden = !slider.isHidden
-    }
     @IBOutlet weak var slider: UISlider!
     func finishDrawing() {
         AudioKit.stop()
@@ -30,9 +27,7 @@ class DrawTestViewController: UIViewController {
     }
     
     @IBAction func sliderValueChanged(sender: UISlider) {
-        GlobalVariables.lineSizeMultiplier = Double(sender.value)
-        slider.isHidden=true
-
+        GlobalVariables.lineSpeedMultiplier = Int(sender.value)
     }
     @IBOutlet var okButton: UIButton!
     
@@ -71,20 +66,16 @@ class DrawTestViewController: UIViewController {
         let viewImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
-        let topMargin = self.frequencyLabel.frame.origin.y+self.frequencyLabel.frame.height*2+5
+        let topMargin = self.frequencyLabel.frame.origin.y+self.frequencyLabel.frame.height*2+15
         
         let width = drawView.frame.width*2
         let height = drawView.frame.height*2
         let rect = CGRect(x: 0, y: topMargin, width: width, height: height)
         let croppedImage = viewImage.cgImage!.cropping(to: rect)
-        let imageToSave = UIImage(cgImage: croppedImage!)
+        let imageToSave = UIImage(cgImage: croppedImage!).resizeImage(newWidth: 500)
         
         print("here")
-        let base64Image = UIImagePNGRepresentation(imageToSave)?.base64EncodedString()
-        
-        //print(base64Image)
-        CotoBackMethods().addImage(base64image: base64Image!)
-        
+        GlobalVariables.myBase64Image = (UIImageJPEGRepresentation(imageToSave,0.5)?.base64EncodedString())!
         PHPhotoLibrary.shared().performChanges({
             print("making changes")
             PHAssetChangeRequest.creationRequestForAsset(from: imageToSave)

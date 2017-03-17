@@ -48,6 +48,7 @@ class SetNickViewController: UIViewController, UITextFieldDelegate {
     }
     
     func goForw() {
+        if allUsernames.count>0 {
         if (!isValidName(testStr: nickText.text!) || (!isAvailableUsername(username: nickText.text!, allUsernames: self.allUsernames))) {
             print("nope")
             validation.isHidden=false
@@ -55,6 +56,7 @@ class SetNickViewController: UIViewController, UITextFieldDelegate {
             GlobalVariables.username = nickText.text!
             performSegue(withIdentifier: "gotoVoiceSegue", sender: self)
         }
+        } else {print("nope")}
     }
     func goBack() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

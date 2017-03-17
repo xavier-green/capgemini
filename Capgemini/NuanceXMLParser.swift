@@ -17,6 +17,7 @@ class NuanceXMLParser {
         
     }
     
+    // Parseur pour la liste d'un utilisateur (de son pseudo)
     func extractSpeaker(xmlString: String) -> String {
         
         let xmlData = xmlString.data(using: String.Encoding.utf8)!
@@ -33,6 +34,7 @@ class NuanceXMLParser {
         
     }
     
+    // Parseur pour le statut d'un utilisateur durant l'enrôlement auprès de Nuance
     func extractUserStatus(xmlString: String) -> String {
         
         let xmlData = xmlString.data(using: String.Encoding.utf8)!

@@ -11,51 +11,42 @@ import AVFoundation
 import Photos
 
 class ViewController: UIViewController {
-
-    @IBOutlet var NoBut: UIButton!
-    @IBOutlet var YesBut: UIButton!
-    @IBOutlet var HelloLabel: UILabel!
-    @IBOutlet var AccountLabel: UITextView!
     
-    @IBAction func NoButton(_ sender: Any) {
-        gotoRegister()
+    //MARK: IBActions
+    @IBAction func EnrolmentButton(_ sender: CustomButtons) {
+        gotoEnrolment()
+    }
+    @IBAction func LoginButton(_ sender: CustomButtons) {
+        gotoLogin()
     }
     
-    @IBAction func gotoAppHack(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "App", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "DrawNavigationViewController") as! UINavigationController
-        self.present(controller, animated: true, completion: nil)
-    }
-    
+    //MARK: Variables
     var speechToText: TextToSpeech!
     
-    func gotoRegister() {
+    //MARK: Change Storyboard
+    func gotoEnrolment() {
         let storyboard = UIStoryboard(name: "Enrolment", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "EnrolmentViewController") as! UINavigationController
         self.present(controller, animated: true, completion: nil)
     }
     
-    func nexView() {
+    func gotoLogin() {
         print("Moving to next storyboard")
         let storyboard = UIStoryboard(name: "Login", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
         self.present(controller, animated: true, completion: nil)
     }
     
+    //MARK: View
     override func viewDidLoad() {
         
         print("started main app")
-        NotificationCenter.default.addObserver(self, selector: #selector(self.nexView), name: NSNotification.Name(rawValue: "AUTHENTIFICATION"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.gotoRegister), name: NSNotification.Name(rawValue: "ENROLLEMENT"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.gotoLogin), name: NSNotification.Name(rawValue: "AUTHENTIFICATION"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.gotoEnrolment), name: NSNotification.Name(rawValue: "ENROLLEMENT"), object: nil)
         super.viewDidLoad()
+        
         speechToText = TextToSpeech()
-        
-        NoBut.layer.borderWidth = 1
-        NoBut.layer.borderColor = UIColor.lightGray.cgColor
-        YesBut.layer.borderWidth = 1
-        YesBut.layer.borderColor = UIColor.lightGray.cgColor
-        YesBut.addTarget(self, action: #selector(self.nexView), for: .touchUpInside)
-        
+        GlobalVariables.lineSpeedMultiplier = 1
         assignbackground()
         testInternetConnection()
     }

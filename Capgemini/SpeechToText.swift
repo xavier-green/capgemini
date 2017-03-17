@@ -9,9 +9,12 @@
 import Foundation
 import Speech
 
+// Classe qui va gérer le SpeechToText qui permet la navigation dans l'application avec la voix, le speechToText est fait en meme temps que la voix est enregistrée
+
 class SpeechToText {
     
-    private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "fr-FR"))!
+    // Initialisation du speechRecognizer natif en langue francaise
+    private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: Config.speechLanguage))!
     
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
@@ -26,6 +29,7 @@ class SpeechToText {
         }
     }
     
+    // Fonction appelée lorsque l'on appuye sur le bouton d'enregistrement pour naviger avec la voix
     func startRecording() {
         
         if recognitionTask != nil {  //1
@@ -54,8 +58,10 @@ class SpeechToText {
         
         recognitionRequest.shouldReportPartialResults = true  //6
         
+        // C'est ici que se fait le reconnaissance, tache asynchrone
         recognitionTask = speechRecognizer.recognitionTask(with: recognitionRequest, resultHandler: { (result, error) in  //7
             
+            // isFinal est appelée lorsque la fonction décèle que la personne a fini de parler
             var isFinal = false  //8
             
             if result != nil {
@@ -72,6 +78,7 @@ class SpeechToText {
                 self.recognitionRequest = nil
                 self.recognitionTask = nil
                 
+                // Lorsque la requête est terminée une notification est renvoyée au front pour informer le main thread que le processing est fini
                 NotificationCenter.default.post(name: Notification.Name(rawValue: "DONE_SPEECH_TO_TEXT"), object: self.textString)
                 self.textString=""
             }
@@ -101,6 +108,7 @@ class SpeechToText {
         return textString
     }
     
+    // Vérifie que l'application a bien les permissions necessaires a l'acces du microphone
     func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
         if available {
             print("microphone available")

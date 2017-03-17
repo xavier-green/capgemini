@@ -140,7 +140,7 @@ class DrawView: UIView {
          currentColor = UIColor.init(red: previousAmplitude, green: previousAmplitude, blue: 0, alpha: 1)
          }*/
         
-        let lineSize = CGFloat(3 + (amplitude - 0.06) * GlobalVariables.lineSizeMultiplier)
+        let lineSize = CGFloat(3 + (amplitude - 0.06) * 50)
         
         let drawColor = currentColor.withAlphaComponent(getOpacity(lineSize))
         

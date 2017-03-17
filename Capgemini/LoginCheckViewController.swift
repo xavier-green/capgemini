@@ -12,15 +12,17 @@ class LoginCheckViewController: UIViewController {
     
     var nickName: String = GlobalVariables.username
     
+    @IBOutlet weak var YesButton: CustomButtons!
+    @IBAction func YesButton(_ sender: CustomButtons) {
+        DispatchQueue.global(qos: .background).async {
+            _ = ConnectiontoBackServer().loginSuccess()
+        }
+        self.gotodate()
+    }
     @IBOutlet var helloCheckLabel: UITextView!
-    @IBOutlet var YesButton: UIButton!
     @IBAction func backButton(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
-    @IBAction func GotoDate(_ sender: Any) {
-        gotodate()
-    }
-    
     func gotodate() {
         performSegue(withIdentifier: "LoginDate", sender: nil)
     }

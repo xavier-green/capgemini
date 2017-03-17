@@ -58,6 +58,7 @@
 		433BC7361E76AF1600B1C012 /* TexteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433BC7351E76AF1600B1C012 /* TexteViewController.swift */; };
 		433BC7381E76E80600B1C012 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433BC7371E76E80600B1C012 /* StatsViewController.swift */; };
 		433BC73A1E76EAE900B1C012 /* Pieuvre.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 433BC7391E76EAE900B1C012 /* Pieuvre.storyboard */; };
+		43577BB01E793598008F49B8 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43577BAF1E793598008F49B8 /* Config.swift */; };
 		435AA8EB1E5B05CC00BBB567 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 435AA8EA1E5B05CC00BBB567 /* Login.storyboard */; };
 		435AA8ED1E5B064D00BBB567 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435AA8EC1E5B064D00BBB567 /* LoginViewController.swift */; };
 		435AA8F61E5B302200BBB567 /* LoginCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435AA8F51E5B302200BBB567 /* LoginCheckViewController.swift */; };
@@ -166,6 +167,7 @@
 		433BC7351E76AF1600B1C012 /* TexteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TexteViewController.swift; sourceTree = "<group>"; };
 		433BC7371E76E80600B1C012 /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		433BC7391E76EAE900B1C012 /* Pieuvre.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Pieuvre.storyboard; sourceTree = "<group>"; };
+		43577BAF1E793598008F49B8 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		435AA8EA1E5B05CC00BBB567 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		435AA8EC1E5B064D00BBB567 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		435AA8F51E5B302200BBB567 /* LoginCheckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCheckViewController.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				433BC7301E7697CE00B1C012 /* Pieuvre */,
+				43577BB11E79373B008F49B8 /* Main */,
 				43A96CD51E5DA7350078CEC8 /* App */,
 				0E0961751E5B4F1E00487D61 /* Enrolment */,
 				435AA8F41E5B2F3C00BBB567 /* Login */,
@@ -259,6 +262,8 @@
 			isa = PBXGroup;
 			children = (
 				433BC7391E76EAE900B1C012 /* Pieuvre.storyboard */,
+				438B48A41E697F83003A03DC /* Launch.storyboard */,
+				433100AB1E57344500269EEB /* Main.storyboard */,
 				0E7E23E11E5B010300E0F4D9 /* Enrolment.storyboard */,
 				435AA8EA1E5B05CC00BBB567 /* Login.storyboard */,
 				0EA950361E642B6A00D82337 /* App.storyboard */,
@@ -280,6 +285,7 @@
 		0EA950531E65B57100D82337 /* Connection to Back */ = {
 			isa = PBXGroup;
 			children = (
+				435DA5241E6D611A00890F1F /* StatController.swift */,
 				0EA9504E1E658E3400D82337 /* ConnectiontoBackServer.swift */,
 				0EA950541E65BBF400D82337 /* CotoBackMethods.swift */,
 			);
@@ -343,7 +349,6 @@
 		433100A61E57344500269EEB /* Capgemini */ = {
 			isa = PBXGroup;
 			children = (
-				435DA5231E6D60EF00890F1F /* Stats */,
 				435AA8FF1E5B479800BBB567 /* Speech */,
 				43266B0E1E64291200A644C1 /* Nuance */,
 				43010ADC1E603691009A38A1 /* Components */,
@@ -353,15 +358,13 @@
 				0EA950531E65B57100D82337 /* Connection to Back */,
 				0EA4B1091E5DEF640088FF48 /* ExtensionUIViewController.swift */,
 				433100A71E57344500269EEB /* AppDelegate.swift */,
-				433100A91E57344500269EEB /* ViewController.swift */,
-				436290B71E705E4D00D7E4B6 /* Reachability.swift */,
-				433100AB1E57344500269EEB /* Main.storyboard */,
 				433100AE1E57344500269EEB /* Assets.xcassets */,
 				433100B31E57344500269EEB /* Info.plist */,
 				43A96CCF1E5DA3C90078CEC8 /* GlobalVariables.swift */,
 				438B48A41E697F83003A03DC /* Launch.storyboard */,
 				4384605D1E72B6BE00D53A68 /* NuanceTest.storyboard */,
 				4384605F1E72B78900D53A68 /* NuanceTestViewController.swift */,
+				43577BAF1E793598008F49B8 /* Config.swift */,
 			);
 			path = Capgemini;
 			sourceTree = "<group>";
@@ -393,6 +396,13 @@
 				433BC7371E76E80600B1C012 /* StatsViewController.swift */,
 			);
 			name = Pieuvre;
+		43577BB11E79373B008F49B8 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				436290B71E705E4D00D7E4B6 /* Reachability.swift */,
+				433100A91E57344500269EEB /* ViewController.swift */,
+			);
+			name = Main;
 			sourceTree = "<group>";
 		};
 		435AA8F41E5B2F3C00BBB567 /* Login */ = {
@@ -417,14 +427,6 @@
 				43010AE11E605A24009A38A1 /* FireEvents.swift */,
 			);
 			name = Speech;
-			sourceTree = "<group>";
-		};
-		435DA5231E6D60EF00890F1F /* Stats */ = {
-			isa = PBXGroup;
-			children = (
-				435DA5241E6D611A00890F1F /* StatController.swift */,
-			);
-			name = Stats;
 			sourceTree = "<group>";
 		};
 		43A96CD51E5DA7350078CEC8 /* App */ = {
@@ -512,7 +514,7 @@
 				TargetAttributes = {
 					433100A31E57344400269EEB = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 89UMTC92D7;
+						DevelopmentTeam = 7Q7B28SW5B;
 						ProvisioningStyle = Automatic;
 					};
 					433100B71E57344500269EEB = {
@@ -634,6 +636,7 @@
 				0ED116B01E769AE700DF6940 /* VoicetoTextViewController.swift in Sources */,
 				0E1D3BEE1E603A26002CE65D /* CustomButtons.swift in Sources */,
 				433100AA1E57344500269EEB /* ViewController.swift in Sources */,
+				43577BB01E793598008F49B8 /* Config.swift in Sources */,
 				0E09616E1E5B4EF400487D61 /* ReadyViewController.swift in Sources */,
 				43921B971E5EE6F5001A952A /* ReplayViewController.swift in Sources */,
 				43010AE21E605A24009A38A1 /* FireEvents.swift in Sources */,
@@ -798,7 +801,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 89UMTC92D7;
+				DEVELOPMENT_TEAM = 7Q7B28SW5B;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -807,7 +810,7 @@
 				INFOPLIST_FILE = Capgemini/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dty.Capgemini;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dty.CapgeminiXav;
 				PRODUCT_NAME = "My VocalPrint";
 				SWIFT_VERSION = 3.0;
 			};
@@ -818,7 +821,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 89UMTC92D7;
+				DEVELOPMENT_TEAM = 7Q7B28SW5B;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -827,7 +830,7 @@
 				INFOPLIST_FILE = Capgemini/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dty.Capgemini;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dty.CapgeminiXav;
 				PRODUCT_NAME = "My VocalPrint";
 				SWIFT_VERSION = 3.0;
 			};

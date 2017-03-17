@@ -10,6 +10,8 @@ import Foundation
 class ServerFunctions {
     
     private var Server: ServerConnection!
+    
+    // Parseur xml des réponses de Nuance
     private var Parser: NuanceXMLParser!
     private var currentUsername: String = ""
     private var status: String = ""

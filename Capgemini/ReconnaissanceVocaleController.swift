@@ -29,6 +29,8 @@ class ReconnaissanceVocaleController {
     init() {
         print("App started")
         recordingSession = AVAudioSession.sharedInstance()
+        
+        //On initialise le serveur de nuance qui fera les vérifications / enrollement
         Server = ServerFunctions()
         do {
             try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
@@ -40,10 +42,12 @@ class ReconnaissanceVocaleController {
         }
     }
     
+    //Retourne l'emplacement du fichier audio enregistré
     func getURL() -> URL {
         return fileUrl
     }
     
+    //Teste si l'on est ou non en train d'enregistrer une voix
     func isRecording() -> Bool {
         if (self.audioRecorder == nil) {
             print("IS NOT RECORDING")
@@ -54,10 +58,13 @@ class ReconnaissanceVocaleController {
         }
     }
     
+    // Début d'enregistrement
     func startRecording() {
         
+        // Obtenir l'emplacement du fichier son
         fileUrl = self.directoryURL()! as URL
         
+        // Parametres d'encodage compatibles avec Nuance
         let settings = [
             AVFormatIDKey: Int(kAudioFormatLinearPCM),
             AVSampleRateKey: 8000,
@@ -73,6 +80,7 @@ class ReconnaissanceVocaleController {
                 audioRecorder = try AVAudioRecorder(url: fileUrl, settings: settings)
                 audioRecorder.record()
             } catch {
+                // Si il y a une erreur dans l'enregistrement, on force la fin de l'enregistrement avec un flag d'erreur
                 self.finishRecording(success: false)
             }
             
@@ -85,6 +93,13 @@ class ReconnaissanceVocaleController {
         audioRecorder = nil
     }
     
+    /* Fonction d'authentification d'une personne avec Nuance
+    Parametres:
+        - username: pseudo de la personne à authentifier
+        - fileUrl (accessible dans la classe): fichier son à convertir en base64 puis envoyer à Nuance
+    Retour:
+        - Boolean: true/false
+    */
     func verify(username: String) -> Bool {
         let base64data = NSData(contentsOf: fileUrl)?.base64EncodedString()
         return Server.verify(username: username, audio: base64data!.RFC3986UnreservedEncoded)
@@ -96,6 +111,13 @@ class ReconnaissanceVocaleController {
         return score
     }
     
+    /* Fonction d'enrollement d'une personne avec Nuance
+     Parametres:
+     - username: pseudo de la personne à authentifier
+     - fileUrl (accessible dans la classe): fichier son à convertir en base64 puis envoyer à Nuance
+     Retour:
+     - String: représente où Nuance en est de l'enrollement (si le son etait okay, si l'enrollement est en cours / terminé)
+     */
     func enroll(username: String) -> String {
         let base64data = NSData(contentsOf: fileUrl)?.base64EncodedString()
         return Server.enroll(username: username, audio: base64data!.RFC3986UnreservedEncoded)
@@ -107,6 +129,7 @@ class ReconnaissanceVocaleController {
         }
     }
     
+    // Enregistrement temporaire du fichier audio avant conversion
     func directoryURL() -> NSURL? {
         i += 1
         let fileManager = FileManager.default

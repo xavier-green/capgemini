@@ -10,9 +10,9 @@ import UIKit
 
 class LeaderBoardViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
     
-    var imageData: [String] = []
-    var userData: [String] = []
-    var votesData: [Int] = []
+    var imageData: [String] = [""]
+    var userData: [String] = ["Chargement..."]
+    var votesData: [Int] = [-1]
 
     @IBAction func backbutton(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
@@ -25,20 +25,48 @@ class LeaderBoardViewController: UIViewController, UITableViewDelegate,UITableVi
         tableView.delegate=self
         tableView.dataSource=self
         
-        DispatchQueue.global(qos: .background).async {
-            print("Running nuance fetch in background thread")
-            let receivedObject = CotoBackMethods().getLeadersPost()
-            DispatchQueue.main.async {
-                print("back to main")
-                self.imageData = receivedObject[0] as! [String]
-                self.userData = receivedObject[1] as! [String]
-                self.votesData = receivedObject[2] as! [Int]
-                self.tableView.reloadData()
-                
-            }
-        }
+        getTopLeaders()
         
         assignbackground()
+    }
+    
+    func getTopLeaders() {
+        getLeader(position: 0)
+    }
+    
+    func getLeader(position: Int){
+        DispatchQueue.global(qos: .background).async {
+            print("getting leader ",position)
+            let receivedObject = CotoBackMethods().getTopLeadersPost(position: position)
+            DispatchQueue.main.async {
+                print("adding to table")
+                self.updateList(position: position, receivedObject: receivedObject as [AnyObject])
+            }
+        }
+    }
+    
+    func updateList(position: Int, receivedObject: [AnyObject]) {
+        var gotPosition = position
+        let imageDataObj = receivedObject[0] as! [String]
+        let userData0bj = receivedObject[1] as! [String]
+        let votesDataObj = receivedObject[2] as! [Int]
+        self.tableView.beginUpdates()
+        self.imageData.append(imageDataObj[0])
+        self.userData.append(userData0bj[0])
+        self.votesData.append(votesDataObj[0])
+        self.tableView.insertRows(at: [IndexPath(row: self.imageData.count-1, section: 0)], with: .automatic)
+        self.tableView.endUpdates()
+        gotPosition += 1
+        if (gotPosition<25) {
+            self.getLeader(position: gotPosition)
+        } else {
+            self.tableView.beginUpdates()
+            self.imageData.remove(at: 0)
+            self.votesData.remove(at: 0)
+            self.userData.remove(at: 0)
+            self.tableView.deleteRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+            self.tableView.endUpdates()
+        }
     }
     
     func showLeaders(notification: NSNotification) {
@@ -65,22 +93,40 @@ class LeaderBoardViewController: UIViewController, UITableViewDelegate,UITableVi
     }
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = indexPath.row
-        let Name = self.userData[row]
-        let Score = self.votesData[row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell",
-                                                 for: indexPath) as! leaderBoardCell
-        cell.userName?.text = Name
-        cell.userRank?.text = String(Score)
-        
-        let dataDecoded = NSData(base64Encoded: self.imageData[row].replacingOccurrences(of: " ", with: "+"), options: NSData.Base64DecodingOptions.init(rawValue: 0))
-        
-        if (dataDecoded != nil) {
-            let cellImage = UIImage(data: dataDecoded as! Data)
-            cell.imageV.image = cellImage
-            cell.imageV.layer.borderWidth = 1
-            cell.imageV.layer.borderColor = UIColor.darkGray.cgColor
+        if (row == 0 && votesData[0]==(-1)) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "loadingCell",
+                                                     for: indexPath)
+            return cell
+        } else {
+            let Name = self.userData[row]
+            let Score = self.votesData[row]
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell",
+                                                     for: indexPath) as! leaderBoardCell
+            cell.userName?.text = Name
+            if (Score != (-1)) {
+                cell.userRank?.text = String(Score)
+            }
+            
+            if (self.imageData[row] != "") {
+                let dataDecoded = NSData(base64Encoded: self.imageData[row].replacingOccurrences(of: " ", with: "+"), options: NSData.Base64DecodingOptions.init(rawValue: 0))
+                
+                if (dataDecoded != nil) {
+                    let cellImage = UIImage(data: dataDecoded as! Data)
+                    cell.imageV.image = cellImage
+                    cell.imageV.layer.borderWidth = 1
+                    cell.imageV.layer.borderColor = UIColor.darkGray.cgColor
+                }
+            }
+            
+            return cell
         }
-        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if (indexPath.row == 0 && votesData[0]==(-1)) {
+            return 40
+        }
+        return 94
     }
 
     /*

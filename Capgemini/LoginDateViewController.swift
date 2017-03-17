@@ -13,35 +13,46 @@ class LoginDateViewController: UIViewController {
     @IBOutlet var datePicker: UIDatePicker!
     private var secretDate: String!
     private var authorized: Bool!
+    private var attempts: Int = 3
     @IBAction func backButton(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     func verifyUser() {
         DispatchQueue.global(qos: .background).async {
             print("Running nuance fetch in background thread")
             let verified = CotoBackMethods().verifyUser(speakerId: GlobalVariables.username, memDate: self.secretDate)
-            DispatchQueue.main.async {
-                print("back to main")
-                if verified==true {
-                    self.performSegue(withIdentifier: "checkDate", sender: self)
-                } else {
-                    let alert = UIAlertController(title: "Date Erronée", message: "La date que vous avez rentré n'est pas la bonne", preferredStyle: UIAlertControllerStyle.alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                    self.topMostController().present(alert, animated: true, completion: nil)
+                DispatchQueue.main.async {
+                    print("back to main")
+                    if verified==true {
+                        self.performSegue(withIdentifier: "checkDate", sender: self)
+                    } else {
+                        self.attempts-=1
+                        let alert = UIAlertController(title: "Date Erronée", message: "La date que vous avez rentré n'est pas la bonne", preferredStyle: UIAlertControllerStyle.alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {action in self.wrongDates()}))
+                        self.topMostController().present(alert, animated: true, completion: nil)
+                        self.spinner.stopSpinner()
+                    }
                 }
-            }
         }
     }
+    func wrongDates() {
+        if self.attempts==0 {
+            let alert = UIAlertController(title: "3 Tentatives échouées", message: "La date que vous avez rentré n'est pas la bonne. Vous serez redirigé à l'authentification", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {action in self.presentingViewController?.presentingViewController?.dismiss(animated:true, completion:nil)}))
+            self.topMostController().present(alert, animated: true, completion: nil)
+        }
+}
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.spinner.isHidden=true
         self.datePicker.addTarget(self, action: #selector(self.datePickerChanged), for: UIControlEvents.valueChanged)
         assignbackground()
         secretDate = setDateFormat().string(from: self.datePicker.date)
-        print("sending okay login notif")
-        NotificationCenter.default.post(name: Notification.Name(rawValue: "LOGIN_SUCCESS"), object: self)
     }
     
     @IBAction func nextButton(_ sender: CustomButtons) {
+        self.spinner.startSpinner()
         verifyUser()
     }
     

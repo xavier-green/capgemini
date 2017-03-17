@@ -17,7 +17,6 @@ struct GlobalVariables {
     static var base64image: String = ""
     static var voteImageId: Int = 0
     static var drawColor = UIColor.black
-    static var lineSizeMultiplier: Double = 50
     
     static var pieuvreUsernames = [String]()
     
@@ -25,5 +24,6 @@ struct GlobalVariables {
     static var phrasesInOrder = [String]()
     
     static var words = Dictionary<String, Int>()
-    static var wordCount = [Int]()
+    static var lineSpeedMultiplier: Int = 1 //Line speed multiplier used in Draw Components to increase speed
+    static var myBase64Image = String()
 }

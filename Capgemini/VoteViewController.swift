@@ -11,15 +11,19 @@ import UIKit
 class VoteViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     @IBOutlet var continuerButton: UIButton!
     
+    @IBOutlet var chargement: UIStackView!
+    
     @IBAction func backButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
     @IBOutlet var imagesView: UICollectionView!
     
+    @IBOutlet var scrollLabel: UILabel!
+    
     let reuseIdentifier = "cell" // also enter this string as the cell identifier in the storyboard
     var items: [String] = []
     var imagesIds: [Int] = []
-    var imageDrawer = [String]()
+    var imageDrawer: [String] = []
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.items.count
@@ -38,6 +42,7 @@ class VoteViewController: UIViewController, UICollectionViewDataSource, UICollec
             let cellImage = UIImage(data: dataDecoded as! Data)
             cell.image.image = cellImage
         }
+        
         cell.nickName.text = imageDrawer[indexPath.item]
         return cell
     }
@@ -46,6 +51,7 @@ class VoteViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
         continuerButton.isHidden = false
+        scrollLabel.isHidden = true
         for i in 0...self.items.count {
             let index = IndexPath(item: i, section: 0)
             let cell = collectionView.cellForItem(at: index)
@@ -70,24 +76,45 @@ class VoteViewController: UIViewController, UICollectionViewDataSource, UICollec
         // Do any additional setup after loading the view.
         assignbackground()
         
+        getTopImage()
+    }
+    
+    func convertToBase64(receivedImages: [String]) -> [String] {
+        var finalImagesCleaned: [String] = []
+        for image in receivedImages {
+            finalImagesCleaned.append(image.replacingOccurrences(of: " ", with: "+"))
+        }
+        return finalImagesCleaned
+    }
+    
+    func getTopImage() {
+        self.getImage(position: 0)
+    }
+    
+    func getImage(position: Int){
         DispatchQueue.global(qos: .background).async {
-            print("Running nuance fetch in background thread")
-            let receivedImagesObject = CotoBackMethods().getImages()
+            let receivedImagesObject = CotoBackMethods().getTopImage(position: position)
             DispatchQueue.main.async {
-                print("back to main")
-                let receivedImages = receivedImagesObject[0] as! [String]
-                var finalImagesCleaned: [String] = []
-                for image in receivedImages {
-                    finalImagesCleaned.append(image.replacingOccurrences(of: " ", with: "+"))
-                }
-                self.items = finalImagesCleaned
-                self.imagesIds = receivedImagesObject[1] as! [Int]
-                self.imageDrawer = receivedImagesObject[2] as! [String]
-                print("got ",self.items.count," images from back")
-                print("got ",self.imagesIds.count," _id from back")
-                self.imagesView.reloadData()
-
+                self.updateList(position: position, receivedImagesObject: receivedImagesObject as [AnyObject])
             }
+        }
+    }
+    
+    func updateList(position: Int, receivedImagesObject: [AnyObject]) {
+        var gotPosition = position
+        let receivedImages = receivedImagesObject[0] as! [String]
+        let receivedIds = receivedImagesObject[1] as! [Int]
+        let receivedUsers = receivedImagesObject[2] as! [String]
+        let finalImagesCleaned = self.convertToBase64(receivedImages: receivedImages)
+        if (receivedImages.count>0) {
+            self.items.append(finalImagesCleaned[0])
+            self.imagesIds.append(receivedIds[0])
+            self.imageDrawer.append(receivedUsers[0])
+            self.imagesView.insertItems(at: [IndexPath(row: self.items.count-1, section: 0)])
+            gotPosition += 1
+            self.getImage(position: gotPosition)
+        } else {
+            self.chargement.isHidden = true
         }
     }
 
