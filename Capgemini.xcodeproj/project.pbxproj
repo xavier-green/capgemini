@@ -38,7 +38,6 @@
 		0EA950511E658E3F00D82337 /* ServerFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA950501E658E3F00D82337 /* ServerFunctions.swift */; };
 		0EA950551E65BBF400D82337 /* CotoBackMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA950541E65BBF400D82337 /* CotoBackMethods.swift */; };
 		0EB29EC21E5EF6A800D1EAAF /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB29EC11E5EF6A800D1EAAF /* ErrorViewController.swift */; };
-		0ED116B01E769AE700DF6940 /* VoicetoTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED116AF1E769AE700DF6940 /* VoicetoTextViewController.swift */; };
 		43010ADE1E6036B1009A38A1 /* RecordButtonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43010ADD1E6036B1009A38A1 /* RecordButtonClass.swift */; };
 		43010AE01E60496A009A38A1 /* SpeechToText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43010ADF1E60496A009A38A1 /* SpeechToText.swift */; };
 		43010AE21E605A24009A38A1 /* FireEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43010AE11E605A24009A38A1 /* FireEvents.swift */; };
@@ -54,10 +53,6 @@
 		433100AF1E57344500269EEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 433100AE1E57344500269EEB /* Assets.xcassets */; };
 		433100BD1E57344500269EEB /* CapgeminiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433100BC1E57344500269EEB /* CapgeminiTests.swift */; };
 		433100C81E57344500269EEB /* CapgeminiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433100C71E57344500269EEB /* CapgeminiUITests.swift */; };
-		433BC7341E76993900B1C012 /* PieuvrePseudoAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433BC7331E76993900B1C012 /* PieuvrePseudoAddViewController.swift */; };
-		433BC7361E76AF1600B1C012 /* TexteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433BC7351E76AF1600B1C012 /* TexteViewController.swift */; };
-		433BC7381E76E80600B1C012 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433BC7371E76E80600B1C012 /* StatsViewController.swift */; };
-		433BC73A1E76EAE900B1C012 /* Pieuvre.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 433BC7391E76EAE900B1C012 /* Pieuvre.storyboard */; };
 		43577BB01E793598008F49B8 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43577BAF1E793598008F49B8 /* Config.swift */; };
 		435AA8EB1E5B05CC00BBB567 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 435AA8EA1E5B05CC00BBB567 /* Login.storyboard */; };
 		435AA8ED1E5B064D00BBB567 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435AA8EC1E5B064D00BBB567 /* LoginViewController.swift */; };
@@ -67,9 +62,6 @@
 		435AA8FE1E5B443100BBB567 /* TextToSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435AA8FD1E5B443100BBB567 /* TextToSpeech.swift */; };
 		435DA5251E6D611A00890F1F /* StatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435DA5241E6D611A00890F1F /* StatController.swift */; };
 		436290B81E705E4D00D7E4B6 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436290B71E705E4D00D7E4B6 /* Reachability.swift */; };
-		4384605E1E72B6BE00D53A68 /* NuanceTest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4384605D1E72B6BE00D53A68 /* NuanceTest.storyboard */; };
-		438460601E72B78900D53A68 /* NuanceTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4384605F1E72B78900D53A68 /* NuanceTestViewController.swift */; };
-		438460621E72BB6F00D53A68 /* NuanceTestButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438460611E72BB6F00D53A68 /* NuanceTestButton.swift */; };
 		438B48A51E697F83003A03DC /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 438B48A41E697F83003A03DC /* Launch.storyboard */; };
 		438B48A71E69BFCD003A03DC /* LoggedInLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438B48A61E69BFCD003A03DC /* LoggedInLabel.swift */; };
 		43921B971E5EE6F5001A952A /* ReplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43921B961E5EE6F5001A952A /* ReplayViewController.swift */; };
@@ -141,7 +133,6 @@
 		0EA950501E658E3F00D82337 /* ServerFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerFunctions.swift; sourceTree = "<group>"; };
 		0EA950541E65BBF400D82337 /* CotoBackMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CotoBackMethods.swift; sourceTree = "<group>"; };
 		0EB29EC11E5EF6A800D1EAAF /* ErrorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
-		0ED116AF1E769AE700DF6940 /* VoicetoTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoicetoTextViewController.swift; sourceTree = "<group>"; };
 		43010ADD1E6036B1009A38A1 /* RecordButtonClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordButtonClass.swift; sourceTree = "<group>"; };
 		43010ADF1E60496A009A38A1 /* SpeechToText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechToText.swift; sourceTree = "<group>"; };
 		43010AE11E605A24009A38A1 /* FireEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireEvents.swift; sourceTree = "<group>"; };
@@ -163,10 +154,6 @@
 		433100C31E57344500269EEB /* CapgeminiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CapgeminiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		433100C71E57344500269EEB /* CapgeminiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapgeminiUITests.swift; sourceTree = "<group>"; };
 		433100C91E57344500269EEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		433BC7331E76993900B1C012 /* PieuvrePseudoAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieuvrePseudoAddViewController.swift; sourceTree = "<group>"; };
-		433BC7351E76AF1600B1C012 /* TexteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TexteViewController.swift; sourceTree = "<group>"; };
-		433BC7371E76E80600B1C012 /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
-		433BC7391E76EAE900B1C012 /* Pieuvre.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Pieuvre.storyboard; sourceTree = "<group>"; };
 		43577BAF1E793598008F49B8 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		435AA8EA1E5B05CC00BBB567 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		435AA8EC1E5B064D00BBB567 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -176,9 +163,6 @@
 		435AA8FD1E5B443100BBB567 /* TextToSpeech.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextToSpeech.swift; sourceTree = "<group>"; };
 		435DA5241E6D611A00890F1F /* StatController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatController.swift; sourceTree = "<group>"; };
 		436290B71E705E4D00D7E4B6 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
-		4384605D1E72B6BE00D53A68 /* NuanceTest.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = NuanceTest.storyboard; path = ../NuanceTest.storyboard; sourceTree = "<group>"; };
-		4384605F1E72B78900D53A68 /* NuanceTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NuanceTestViewController.swift; sourceTree = "<group>"; };
-		438460611E72BB6F00D53A68 /* NuanceTestButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NuanceTestButton.swift; sourceTree = "<group>"; };
 		438B48A41E697F83003A03DC /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		438B48A61E69BFCD003A03DC /* LoggedInLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggedInLabel.swift; sourceTree = "<group>"; };
 		43921B961E5EE6F5001A952A /* ReplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplayViewController.swift; sourceTree = "<group>"; };
@@ -249,7 +233,6 @@
 		0E7E23DF1E5B00DD00E0F4D9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				433BC7301E7697CE00B1C012 /* Pieuvre */,
 				43577BB11E79373B008F49B8 /* Main */,
 				43A96CD51E5DA7350078CEC8 /* App */,
 				0E0961751E5B4F1E00487D61 /* Enrolment */,
@@ -261,7 +244,6 @@
 		0E7E23E01E5B00E700E0F4D9 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				433BC7391E76EAE900B1C012 /* Pieuvre.storyboard */,
 				438B48A41E697F83003A03DC /* Launch.storyboard */,
 				433100AB1E57344500269EEB /* Main.storyboard */,
 				0E7E23E11E5B010300E0F4D9 /* Enrolment.storyboard */,
@@ -301,7 +283,6 @@
 				0E1D3BED1E603A26002CE65D /* CustomButtons.swift */,
 				43010ADD1E6036B1009A38A1 /* RecordButtonClass.swift */,
 				438B48A61E69BFCD003A03DC /* LoggedInLabel.swift */,
-				438460611E72BB6F00D53A68 /* NuanceTestButton.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -361,9 +342,6 @@
 				433100AE1E57344500269EEB /* Assets.xcassets */,
 				433100B31E57344500269EEB /* Info.plist */,
 				43A96CCF1E5DA3C90078CEC8 /* GlobalVariables.swift */,
-				438B48A41E697F83003A03DC /* Launch.storyboard */,
-				4384605D1E72B6BE00D53A68 /* NuanceTest.storyboard */,
-				4384605F1E72B78900D53A68 /* NuanceTestViewController.swift */,
 				43577BAF1E793598008F49B8 /* Config.swift */,
 			);
 			path = Capgemini;
@@ -387,15 +365,6 @@
 			path = CapgeminiUITests;
 			sourceTree = "<group>";
 		};
-		433BC7301E7697CE00B1C012 /* Pieuvre */ = {
-			isa = PBXGroup;
-			children = (
-				0ED116AF1E769AE700DF6940 /* VoicetoTextViewController.swift */,
-				433BC7331E76993900B1C012 /* PieuvrePseudoAddViewController.swift */,
-				433BC7351E76AF1600B1C012 /* TexteViewController.swift */,
-				433BC7371E76E80600B1C012 /* StatsViewController.swift */,
-			);
-			name = Pieuvre;
 		43577BB11E79373B008F49B8 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -555,8 +524,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				435AA8EB1E5B05CC00BBB567 /* Login.storyboard in Resources */,
-				433BC73A1E76EAE900B1C012 /* Pieuvre.storyboard in Resources */,
-				4384605E1E72B6BE00D53A68 /* NuanceTest.storyboard in Resources */,
 				433100AF1E57344500269EEB /* Assets.xcassets in Resources */,
 				433100AD1E57344500269EEB /* Main.storyboard in Resources */,
 				0E7E23E21E5B010300E0F4D9 /* Enrolment.storyboard in Resources */,
@@ -613,7 +580,6 @@
 				438B48A71E69BFCD003A03DC /* LoggedInLabel.swift in Sources */,
 				0E1A97B21E6D623800F86C88 /* SwiftHSVColorPicker.swift in Sources */,
 				0E1A97BD1E6D84AE00F86C88 /* BrightnessView.swift in Sources */,
-				438460621E72BB6F00D53A68 /* NuanceTestButton.swift in Sources */,
 				0E9E39761E5C958E0000BD9E /* NickViewController.swift in Sources */,
 				43A96CD71E5DA7710078CEC8 /* DrawViewController.swift in Sources */,
 				43266B121E64634800A644C1 /* NuanceButtonClass.swift in Sources */,
@@ -628,12 +594,9 @@
 				435AA8ED1E5B064D00BBB567 /* LoginViewController.swift in Sources */,
 				0EA94FEE1E642AAB00D82337 /* DrawTestViewController.swift in Sources */,
 				0EA9503E1E642BFB00D82337 /* FrequencyVoiceParameters.swift in Sources */,
-				433BC7341E76993900B1C012 /* PieuvrePseudoAddViewController.swift in Sources */,
 				435DA5251E6D611A00890F1F /* StatController.swift in Sources */,
-				433BC7381E76E80600B1C012 /* StatsViewController.swift in Sources */,
 				0E0961721E5B4F1800487D61 /* SetDateViewController.swift in Sources */,
 				0EA950471E642CEF00D82337 /* DrawView.swift in Sources */,
-				0ED116B01E769AE700DF6940 /* VoicetoTextViewController.swift in Sources */,
 				0E1D3BEE1E603A26002CE65D /* CustomButtons.swift in Sources */,
 				433100AA1E57344500269EEB /* ViewController.swift in Sources */,
 				43577BB01E793598008F49B8 /* Config.swift in Sources */,
@@ -642,7 +605,6 @@
 				43010AE21E605A24009A38A1 /* FireEvents.swift in Sources */,
 				0EA950551E65BBF400D82337 /* CotoBackMethods.swift in Sources */,
 				0EA94FF01E642AE400D82337 /* CalibrationViewController.swift in Sources */,
-				438460601E72B78900D53A68 /* NuanceTestViewController.swift in Sources */,
 				435AA8FE1E5B443100BBB567 /* TextToSpeech.swift in Sources */,
 				433100A81E57344500269EEB /* AppDelegate.swift in Sources */,
 				0EA9504F1E658E3400D82337 /* ConnectiontoBackServer.swift in Sources */,
@@ -650,7 +612,6 @@
 				436290B81E705E4D00D7E4B6 /* Reachability.swift in Sources */,
 				0E1A97BB1E6D849000F86C88 /* ColorUtils.swift in Sources */,
 				43010ADE1E6036B1009A38A1 /* RecordButtonClass.swift in Sources */,
-				433BC7361E76AF1600B1C012 /* TexteViewController.swift in Sources */,
 				0E0961731E5B4F1800487D61 /* SetNickViewController.swift in Sources */,
 				43266B1F1E64734E00A644C1 /* NuanceXMLParser.swift in Sources */,
 				4309EAAB1E5DF82F005026CB /* VoteViewController.swift in Sources */,
