@@ -37,37 +37,37 @@ function get(req, res) {
  * @returns {User}
  */
 function create(req, res, next) {
-  request({
-  url: 'https://westus.api.cognitive.microsoft.com/spid/v1.0/identificationProfiles', //URL to hit
-  method: 'POST',
-  headers: {
-      'Ocp-Apim-Subscription-Key': '3d34db2432df4b9e88dc987ca5dd6e4c',
-      'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({"locale":"en-us"}) //Set the body as a string
-}, function(error, response, body){
-  if(error) {
-      console.log("Error Message");
-      console.log(error);
-  } else {
-      console.log("Response Message")
-      console.log(response.body)
-      User.findOne({ username:req.body.username })
-      .then((user)=> {
-        if (user==null) {
+  User.findOne({username:req.body.username})
+  .then((user) => {
+    if (user==null) {
+      request({
+      url: 'https://westus.api.cognitive.microsoft.com/spid/v1.0/identificationProfiles', //URL to hit
+      method: 'POST',
+      headers: {
+          'Ocp-Apim-Subscription-Key': '3d34db2432df4b9e88dc987ca5dd6e4c',
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({"locale":"en-us"}) //Set the body as a string
+    }, function(error, response, body){
+      if(error) {
+          console.log("Error Message");
+          console.log(error);
+      } else {
+          console.log("Response Message")
+          console.log(response.body)
           const user = new User({
               username: req.body.username,
               identificationProfile: JSON.parse(response.body).identificationProfileId,
-            });
-            user.saveAsync()
+          });
+          user.saveAsync()
               .then((savedUser) => res.json(savedUser))
               .error((e) => res.json(e));
-        } else {
-            res.end("User Exists")
-        }
-      })
-  }
-});
+      }
+    });
+
+  } else { res.send("User Exists") }
+  })
+
 }
 /**
  * Update existing user
