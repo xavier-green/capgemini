@@ -52,13 +52,20 @@ function create(req, res, next) {
   } else {
       console.log("Response Message")
       console.log(response.body)
-      const user = new User({
-          username: req.body.username,
-          identificationProfile: JSON.parse(response.body).identificationProfileId,
-      });
-      user.saveAsync()
-          .then((savedUser) => res.json(savedUser))
-          .error((e) => res.json(e));
+      User.findOne({ username:req.body.username })
+      .then((user)=> {
+        if (user==null) {
+          const user = new User({
+              username: req.body.username,
+              identificationProfile: JSON.parse(response.body).identificationProfileId,
+            });
+            user.saveAsync()
+              .then((savedUser) => res.json(savedUser))
+              .error((e) => res.json(e));
+        } else {
+            res.end("User Exists")
+        }
+      })
   }
 });
 }
@@ -171,6 +178,9 @@ function enrollCheck(req,res) {
 function identify(req,res) {
   const ids = req.body.identificationProfiles
   const uri = ids.join(',')
+  let audio = new Buffer(req.body.audio, 'base64')
+  console.log("Writing File")
+  fs.writeFile("recording.wav",audio)
   console.log("id=",ids.length)
   console.log("uri=",uri)
         request({
@@ -181,12 +191,12 @@ function identify(req,res) {
                     'Ocp-Apim-Subscription-Key': '3d34db2432df4b9e88dc987ca5dd6e4c',
                     'Content-Type': 'application/octet-stream',
                 },
-                body: fs.readFileSync("uploads/identify") //Set the body as a string
+                body: audio //Set the body as a string
               }, function(error, response, body){
               if(error) {
-                  res.json(error)
+                  res.send("ok")//res.json(error)
               } else {
-                  fs.unlink("uploads/identify");
+                  //fs.unlink("uploads/identify");
                   console.log(response.headers["operation-location"])
                   res.json(response.headers["operation-location"])
               }

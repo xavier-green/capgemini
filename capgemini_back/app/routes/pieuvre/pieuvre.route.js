@@ -27,8 +27,6 @@ router.route('/:userId/enrollCheck')
       .get(userCtrl.enrollCheck)
 router.route('/identify')
       .post(validate(paramValidation.identify),userCtrl.identify)
-router.route('/addIdentify')
-      .post(upload.single('identifyfile'), userCtrl.addIdentifyFile)
 router.route('/checkOperation')
       .post(validate(paramValidation.checkOperation),userCtrl.checkOperation)
 /** Load user when API with userId route parameter is hit */
